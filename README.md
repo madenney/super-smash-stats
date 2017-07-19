@@ -11,7 +11,7 @@
 
 ### Jr Devs
 - Shane
-- Jonathan
 - Nico
 - Caleb
 - Hanlin
+- Austin
