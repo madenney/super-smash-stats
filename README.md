@@ -1,7 +1,10 @@
 # c5.17_smash_stats
 
-### Mentor
+### Producer
 - Dan
+
+### Project Manager
+- Scott
 
 ### Sr Devs
 - Matt
