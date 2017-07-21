@@ -1,0 +1,35 @@
+@font-face{
+    font-family: smashFont;
+    src: url(images/smash_font.tttf);
+}
+h3{
+    border: 2px black solid;
+    font-family: smashFont;
+}
+u{
+    font-family: smashFont;
+}
+h2{
+    border-radius: 10px;
+    border: 1px black solid;
+    background-color: black;
+    color: white;
+    font-family: smashFont;
+}
+.playerPic img{
+    border-radius: 25px;
+    border: 1px black solid;
+    height: 50%;
+    width: 50%
+}
+.kFlag{
+    height: 5%;
+    width: 5%;
+}
+.rightDiv{
+    border-radius: 25px;
+    background-image: url(images/wallpaper_smash2.jpg);
+}
+.tourneyInfo{
+    color: white;
+}
