@@ -14,7 +14,7 @@
         }
         #landing{
             width: 100vw;
-            height: 100vh;
+            height: 70vh;
         }
         .center{
             position: absolute;
@@ -48,19 +48,37 @@
             color: black;
         }
 
+        .playerRecommendations {
+            height: 50vh;
+            width: 100vw;
+            position: relative;
+        }
+        .carousel {
+            width: 80vw;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+        .playerCard {
+            height: 200px;
+            width: 160px;
+            background-color: grey;
+            display: inline-block;
+            margin: 20px 15px;
+        }
+        .playerDynamicDiv{
+
+        }
     </style>
     <script>
-        //landing page
-        //search bar
-        //search bar autocomplete
-        //search bar player rec tabs
         //search results in card form
         //simple data (meta?)
 
     </script>
 </head>
 <body>
-<div class="navbar">
+<div class="navbar" id="home">
     <a href="#home">Home</a>
     <a href="#contact">Contact Us</a>
     <a href="#about">About</a>
@@ -76,6 +94,66 @@
         <option value="Daniel Paschal">
         <option value="Scott Bowler">
     </datalist>
+</div>
+<div class="playerRecommendations">
+    <div class="carousel center">
+        <div class="playerCard">
+            <h3>Howard</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Khanh</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Adam</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Matt</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Daniel</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Scott</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Howard2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Khanh2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Adam2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Matt2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Daniel2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Scott2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Howard3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Khanh3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Adam3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Matt3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Daniel3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Scott3</h3>
+        </div>
+    </div>
+</div>
+<div class="playerDynamicDiv">
 
 </div>
 </body>
