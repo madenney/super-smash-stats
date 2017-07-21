@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Go! Go! SmashStats!</title>
+    <style>
+        body {
+            background-color: black;
+            background-image: url('./images/landingpage.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        #landing{
+            width: 100vw;
+            height: 70vh;
+        }
+        .center{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .searchInput{
+            height: 50px;
+            width: 360px;
+            font-size: 20px;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: right;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .playerRecommendations {
+            height: 50vh;
+            width: 100vw;
+            position: relative;
+        }
+        .carousel {
+            width: 80vw;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+        .playerCard {
+            height: 200px;
+            width: 160px;
+            background-color: grey;
+            display: inline-block;
+            margin: 20px 15px;
+        }
+        .playerDynamicDiv{
+
+        }
+    </style>
+    <script>
+        //search results in card form
+        //simple data (meta?)
+
+    </script>
+</head>
+<body>
+<div class="navbar" id="home">
+    <a href="#home">Home</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#about">About</a>
+    <a href="#database">Player Database</a>
+</div>
+<div id="landing">
+    <input class="searchInput center" list="playersRec" type="text" placeholder="Find a Player" >
+    <datalist id="playersRec">
+        <option value="Howard Kim">
+        <option value="Khanh Nguyen">
+        <option value="Adam Luong">
+        <option value="Matt Denney">
+        <option value="Daniel Paschal">
+        <option value="Scott Bowler">
+    </datalist>
+</div>
+<div class="playerRecommendations">
+    <div class="carousel center">
+        <div class="playerCard">
+            <h3>Howard</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Khanh</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Adam</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Matt</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Daniel</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Scott</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Howard2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Khanh2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Adam2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Matt2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Daniel2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Scott2</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Howard3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Khanh3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Adam3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Matt3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Daniel3</h3>
+        </div>
+        <div class="playerCard">
+            <h3>Scott3</h3>
+        </div>
+    </div>
+</div>
+<div class="playerDynamicDiv">
+
+</div>
+</body>
+</html>
