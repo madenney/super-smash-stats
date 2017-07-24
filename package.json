@@ -1,0 +1,24 @@
+{
+  "name": "c5.17_smash_stats",
+  "version": "1.0.0",
+  "description": "Super Smash Stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Learning-Fuze/c5.17_smash_stats.git"
+  },
+  "keywords": [
+    "Smash",
+    "Bros",
+    "Stats"
+  ],
+  "author": "Smash Stats Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Learning-Fuze/c5.17_smash_stats/issues"
+  },
+  "homepage": "https://github.com/Learning-Fuze/c5.17_smash_stats#readme"
+}

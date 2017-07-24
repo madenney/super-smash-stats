@@ -1,0 +1,728 @@
+Amsah,Rocky,3-0,DreamHack Summer 2017
+Leffen,Sverre,3-0,DreamHack Summer 2017
+Android,Zoler,3-0,DreamHack Summer 2017
+Professor Pro,Zorc,3-0,DreamHack Summer 2017
+Overtriforce,Toph,3-1,DreamHack Summer 2017
+Armada,Humpe,3-0,DreamHack Summer 2017
+Amsah,Trif,3-2,DreamHack Summer 2017
+Leffen,Android,3-0,DreamHack Summer 2017
+Overtriforce,Professor Pro,3-1,DreamHack Summer 2017
+Armada,Amsah,3-0,DreamHack Summer 2017
+Leffen,Overtriforce,3-2,DreamHack Summer 2017
+Armada,Leffen,3-2,DreamHack Summer 2017
+Hungrybox,Anther,3-0,The Bigger Balc
+ARMY,Tai,3-1,The Bigger Balc
+Lucky,Zeo,3-0,The Bigger Balc
+Laudandus,Smashdaddy,3-2,The Bigger Balc
+Bladewise,Captain Faceroll,3-1,The Bigger Balc
+n0ne,eri,3-0,The Bigger Balc
+HugS,Spark,3-1,The Bigger Balc
+Hungrybox,ARMY,3-1,The Bigger Balc
+Lucky,Laudandus,3-1,The Bigger Balc
+Bladewise,A Rookie,3-1,The Bigger Balc
+n0ne,HugS,3-1,The Bigger Balc
+Lucky,Hungrybox,3-2,The Bigger Balc
+Bladewise,n0ne,3-1,The Bigger Balc
+Lucky,Bladewise,3-1,The Bigger Balc
+Hungrybox,Lucky,3-0,The Bigger Balc
+Hungrybox,Lucky,3-0,The Bigger Balc
+Ivayne,DonB,3-2,The Bigger Balc
+Squid,Jagz,3-0,The Bigger Balc
+homemadewaffles,Chief,3-2,The Bigger Balc
+Bin,Rocky,3-0,The Bigger Balc
+Ralph,YAMS,3-0,The Bigger Balc
+Sora,Pure,3-0,The Bigger Balc
+NMW,Tenshii,3-0,The Bigger Balc
+Alex19,Mchi,3-2,The Bigger Balc
+Spark,Ivayne,3-0,The Bigger Balc
+Squid,eri,3-1,The Bigger Balc
+Captain Faceroll,homemadewaffles,3-2,The Bigger Balc
+Ralph,Smashdaddy,3-2,The Bigger Balc
+Sora,Zeo,3-2,The Bigger Balc
+NMW,Tai,3-0,The Bigger Balc
+Alex19,Anther,3-2,The Bigger Balc
+Squid,Spark,3-0,The Bigger Balc
+Captain Faceroll,Bin,3-1,The Bigger Balc
+Ralph,Sora,3-2,The Bigger Balc
+Alex19,NMW,3-2,The Bigger Balc
+Laudandus,Squid,3-2,The Bigger Balc
+ARMY,Captain Faceroll,3-0,The Bigger Balc
+HugS,Ralph,3-0,The Bigger Balc
+A Rookie,Alex19,3-2,The Bigger Balc
+Laudandus,ARMY,3-2,The Bigger Balc
+HugS,A Rookie,3-2,The Bigger Balc
+n0ne,Laudandus,3-2,The Bigger Balc
+Hungrybox,HugS,3-0,The Bigger Balc
+Hungrybox,n0ne,3-0,The Bigger Balc
+Hungrybox,Bladewise,3-0,The Bigger Balc
+homemadewaffles,Kalvar,3-0,Royal Flush
+MacD,vortex,3-0,Royal Flush
+hat,Wassabi,3-0,Royal Flush
+Colbol,CIZ,3-0,Royal Flush
+Nintendude,Vickram,3-0,Royal Flush
+Zhu,MoG,3-0,Royal Flush
+Jerry,dizzkidboogie,3-2,Royal Flush
+SluG,LLDL,3-0,Royal Flush
+Slox,homemadewaffles,3-2,Royal Flush
+MacD,Chillindude,3-2,Royal Flush
+KJH,hat,3-0,Royal Flush
+Junebug,Colbol,3-2,Royal Flush
+Nintendude,Zhu,3-1,Royal Flush
+SluG,Jerry,3-2,Royal Flush
+Slox,MacD,3-0,Royal Flush
+KJH,Junebug,3-2,Royal Flush
+Nintendude,Ice,3-0,Royal Flush
+Professor Pro,SluG,3-0,Royal Flush
+ChuDat,Slox,3-0,Royal Flush
+Crush,KJH,3-2,Royal Flush
+Armada,Druggedfox,3-0,Royal Flush
+Mang0,MikeHaze,3-0,Royal Flush
+Hungrybox,S2J,3-0,Royal Flush
+Leffen,Shroomed,3-1,Royal Flush
+Armada,Mang0,3-2,Royal Flush
+Hungrybox,Leffen,3-2,Royal Flush
+Armada,Hungrybox,3-0,Royal Flush
+Mang0,Armada,3-2,Royal Flush
+Mang0,Armada,3-2,Royal Flush
+Mafia,Lucky,3-1,Royal Flush
+The Moon,Cactuar,3-1,Royal Flush
+Nintendude,Professor Pro,3-2,Royal Flush
+Crush,ChuDat,3-2,Royal Flush
+Shroomed,Mafia,3-0,Royal Flush
+The Moon,S2J,3-2,Royal Flush
+Nintendude,MikeHaze,3-1,Royal Flush
+Druggedfox,Crush,3-2,Royal Flush
+Shroomed,The Moon,3-2,Royal Flush
+Druggedfox,Nintendude,3-0,Royal Flush
+Mang0,Shroomed,3-2,Royal Flush
+Druggedfox,Leffen,3-0,Royal Flush
+Mang0,Druggedfox,3-0,Royal Flush
+Mang0,Hungrybox,3-1,Royal Flush
+ChuDat,Android,3-0,DreamHack Austin 2017
+Leffen,Crush,3-0,DreamHack Austin 2017
+Mang0,Duck,3-2,DreamHack Austin 2017
+Hungrybox,Shroomed,3-0,DreamHack Austin 2017
+Wizzrobe,SFAT,3-2,DreamHack Austin 2017
+n0ne,Mew2King,3-2,DreamHack Austin 2017
+Plup,Westballz,3-0,DreamHack Austin 2017
+ChuDat,MikeHaze,3-2,DreamHack Austin 2017
+Mang0,Leffen,3-0,DreamHack Austin 2017
+Hungrybox,Wizzrobe,3-1,DreamHack Austin 2017
+Plup,n0ne,3-1,DreamHack Austin 2017
+ChuDat,Mang0,3-1,DreamHack Austin 2017
+Hungrybox,Plup,3-0,DreamHack Austin 2017
+Hungrybox,ChuDat,3-0,DreamHack Austin 2017
+Hungrybox,ChuDat,3-2,DreamHack Austin 2017
+Gahtzu,UUAA,2-0,DreamHack Austin 2017
+Jake13,Chandy,2-0,DreamHack Austin 2017
+MacD,DonB,2-1,DreamHack Austin 2017
+Chris Best,NY Joey,2-0,DreamHack Austin 2017
+Laudandus,Albert,2-0,DreamHack Austin 2017
+Uncle mojo,Trademark,2-0,DreamHack Austin 2017
+HugS,LK,2-0,DreamHack Austin 2017
+ALP,gaR,2-0,DreamHack Austin 2017
+Chillindude,Ginta,2-0,DreamHack Austin 2017
+Ken,Tuesday,2-0,DreamHack Austin 2017
+S2J,Crunch,2-0,DreamHack Austin 2017
+El Fuego,Aperture,2-0,DreamHack Austin 2017
+Axe,Jeff Foxworthy,2-0,DreamHack Austin 2017
+Syrox,MojoMonkey,2-0,DreamHack Austin 2017
+Webwipe,Rick,2-0,DreamHack Austin 2017
+Gahtzu,Jake13,3-1,DreamHack Austin 2017
+MacD,Chris Best,3-0,DreamHack Austin 2017
+Laudandus,Uncle mojo,3-1,DreamHack Austin 2017
+HugS,ALP,3-1,DreamHack Austin 2017
+Chillindude,Ken,3-1,DreamHack Austin 2017
+S2J,Bananas,3-0,DreamHack Austin 2017
+Axe,El Fuego,3-0,DreamHack Austin 2017
+Syrox,Webwipe,3-0,DreamHack Austin 2017
+Gahtzu,Duck,3-1,DreamHack Austin 2017
+Crush,MacD,3-0,DreamHack Austin 2017
+Laudandus,Android,3-0,DreamHack Austin 2017
+HugS,SFOP,3-0,DreamHack Austin 2017
+Westballz,Chillindude,3-0,DreamHack Austin 2017
+Mew2King,S2J,3-1,DreamHack Austin 2017
+SFAT,Axe,3-1,DreamHack Austin 2017
+Syrox,Shroomed,3-1,DreamHack Austin 2017
+Gahtzu,Crush,3-2,DreamHack Austin 2017
+Laudandus,HugS,3-2,DreamHack Austin 2017
+Mew2King,Westballz,3-2,DreamHack Austin 2017
+SFAT,Syrox,3-1,DreamHack Austin 2017
+Wizzrobe,Gahtzu,3-2,DreamHack Austin 2017
+Laudandus,n0ne,3-2,DreamHack Austin 2017
+Mew2King,MikeHaze,3-0,DreamHack Austin 2017
+Leffen,SFAT,3-1,DreamHack Austin 2017
+Wizzrobe,Laudandus,3-0,DreamHack Austin 2017
+Mew2King,Leffen,3-0,DreamHack Austin 2017
+Mang0,Wizzrobe,3-0,DreamHack Austin 2017
+Mew2King,Plup,3-1,DreamHack Austin 2017
+Mew2King,Mang0,3-1,DreamHack Austin 2017
+ChuDat,Mew2King,3-1,DreamHack Austin 2017
+The Moon,S2J,3-1,Frame Perfect Series 2
+Drunksloth,Mang0,3-0,Frame Perfect Series 2
+Shroomed,Kels,3-2,Frame Perfect Series 2
+Hungrybox,A Rookie,3-0,Frame Perfect Series 2
+Colbol,Lucky,3-2,Frame Perfect Series 2
+Mew2King,Envy,3-0,Frame Perfect Series 2
+Hungry Pigeon,Derdian,3-2,Frame Perfect Series 2
+The Moon,Flipsy,3-0,Frame Perfect Series 2
+Shroomed,Drunksloth,3-1,Frame Perfect Series 2
+Hungrybox,Colbol,3-0,Frame Perfect Series 2
+Mew2King,Hungry Pigeon,3-0,Frame Perfect Series 2
+The Moon,Shroomed,3-2,Frame Perfect Series 2
+Hungrybox,Mew2King,3-1,Frame Perfect Series 2
+Hungrybox,The Moon,3-0,Frame Perfect Series 2
+Hungrybox,Mew2King,3-0,Frame Perfect Series 2
+Keenan,MrLz,x-x,Frame Perfect Series 2
+Shamunt,Sinbad,3-1,Frame Perfect Series 2
+Dobermen?,nagaimo,3-2,Frame Perfect Series 2
+Voo,C15,3-2,Frame Perfect Series 2
+prof,JRad,3-0,Frame Perfect Series 2
+King Momo,Jade,3-2,Frame Perfect Series 2
+Gahtzu,Ober,3-0,Frame Perfect Series 2
+A Rookie,Keenan,3-0,Frame Perfect Series 2
+Lucky,Shamunt,3-0,Frame Perfect Series 2
+Dobermen?,Envy,3-2,Frame Perfect Series 2
+Derdian,Voo,3-1,Frame Perfect Series 2
+Porkchops,Gravy,3-2,Frame Perfect Series 2
+S2J,prof,3-0,Frame Perfect Series 2
+Mang0,King Momo,3-2,Frame Perfect Series 2
+Kels,Gahtzu,3-2,Frame Perfect Series 2
+Lucky,A Rookie,3-2,Frame Perfect Series 2
+Dobermen?,Derdian,3-2,Frame Perfect Series 2
+S2J,Porkchops,3-0,Frame Perfect Series 2
+Kels,Mang0,3-1,Frame Perfect Series 2
+Lucky,Flipsy,3-2,Frame Perfect Series 2
+Drunksloth,Dobermen?,3-0,Frame Perfect Series 2
+S2J,Colbol,3-2,Frame Perfect Series 2
+Kels,Hungry Pigeon,3-0,Frame Perfect Series 2
+Drunksloth,Lucky,3-2,Frame Perfect Series 2
+S2J,Kels,3-0,Frame Perfect Series 2
+Mew2King,Drunksloth,3-0,Frame Perfect Series 2
+S2J,Shroomed,3-1,Frame Perfect Series 2
+Mew2King,S2J,3-0,Frame Perfect Series 2
+Mew2King,The Moon,3-1,Frame Perfect Series 2
+Mang0,Mafia,3-0,Smash Summit 3
+Shroomed,Westballz,3-2,Smash Summit 3
+Mew2King,S2J,3-2,Smash Summit 3
+Leffen,PewPewU,3-1,Smash Summit 3
+Armada,n0ne,3-0,Smash Summit 3
+Plup,Axe,3-1,Smash Summit 3
+Hungrybox,The Moon,3-0,Smash Summit 3
+Duck,SFAT,3-1,Smash Summit 3
+Mang0,Shroomed,3-0,Smash Summit 3
+Mew2King,Leffen,3-0,Smash Summit 3
+Armada,Plup,3-0,Smash Summit 3
+Hungrybox,Duck,3-0,Smash Summit 3
+Mew2King,Mang0,3-2,Smash Summit 3
+Armada,Hungrybox,3-0,Smash Summit 3
+Armada,Mew2King,3-1,Smash Summit 3
+Armada,Hungrybox,3-2,Smash Summit 3
+Westballz,Mafia,3-1,Smash Summit 3
+PewPewU,S2J,3-0,Smash Summit 3
+Axe,n0ne,3-0,Smash Summit 3
+The Moon,SFAT,3-2,Smash Summit 3
+Duck,Westballz,3-2,Smash Summit 3
+Plup,PewPewU,3-0,Smash Summit 3
+Axe,Leffen,3-2,Smash Summit 3
+Shroomed,The Moon,3-1,Smash Summit 3
+Plup,Duck,3-1,Smash Summit 3
+Axe,Shroomed,3-1,Smash Summit 3
+Mang0,Plup,3-1,Smash Summit 3
+Hungrybox,Axe,3-0,Smash Summit 3
+Hungrybox,Mang0,3-2,Smash Summit 3
+Hungrybox,Mew2King,3-0,Smash Summit 3
+Ice,Rudolph,2-1,The Big House 6
+ChuDat,Infinite Numbers,2-0,The Big House 6
+SFAT,Chillindude,2-0,The Big House 6
+Duck,PewPewU,2-1,The Big House 6
+Hungrybox,Bladewise,2-0,The Big House 6
+Shroomed,MacD,2-0,The Big House 6
+KirbyKaze,R2DLiu,2-1,The Big House 6
+Swedish Delight,Prince F. Abu,2-0,The Big House 6
+Armada,Laudandus,2-0,The Big House 6
+Mang0,MikeHaze,2-0,The Big House 6
+Nintendude,Wizzrobe,2-1,The Big House 6
+Zain,KJH,2-1,The Big House 6
+The Moon,Lucky,2-0,The Big House 6
+Silent Wolf,Mew2King,3-2,The Big House 6
+Ice,Gahtzu,3-1,The Big House 6
+SFAT,ChuDat,3-1,The Big House 6
+Hungrybox,Duck,3-0,The Big House 6
+KirbyKaze,Shroomed,3-2,The Big House 6
+Armada,Swedish Delight,3-0,The Big House 6
+Mang0,Nintendude,3-1,The Big House 6
+The Moon,Zain,3-0,The Big House 6
+Ice,Silent Wolf,3-2,The Big House 6
+SFAT,Hungrybox,3-0,The Big House 6
+Armada,KirbyKaze,3-0,The Big House 6
+Mang0,The Moon,3-2,The Big House 6
+Ice,SFAT,3-0,The Big House 6
+Mang0,Armada,3-2,The Big House 6
+Mang0,Ice,3-0,The Big House 6
+Armada,Mang0,3-1,The Big House 6
+Mang0,Armada,3-2,The Big House 6
+Mafia,Captain Smuckers,2-0,The Big House 6
+HugS,Anther,2-0,The Big House 6
+Druggedfox,Tai,2-0,The Big House 6
+Westballz,Captain Faceroll,2-1,The Big House 6
+n0ne,Drephen,2-1,The Big House 6
+Ryan Ford,NMW,2-0,The Big House 6
+dizzkidboogie,Jamrun,2-0,The Big House 6
+Trulliam,Slox,2-0,The Big House 6
+Zhu,Jflex,2-1,The Big House 6
+Taj,Colbol,2-0,The Big House 6
+Syrox,lovage805,2-1,The Big House 6
+Android,Nightmare,2-1,The Big House 6
+Iceman,Kage,2-0,The Big House 6
+Plup,Professor Pro,2-0,The Big House 6
+Kels,Darrell,2-0,The Big House 6
+Lucky,Eddy Mexico,2-1,The Big House 6
+Mafia,KJH,2-0,The Big House 6
+Wizzrobe,HugS,2-1,The Big House 6
+Druggedfox,MikeHaze,2-0,The Big House 6
+Westballz,Laudandus,2-0,The Big House 6
+Prince F. Abu,n0ne,2-0,The Big House 6
+Ryan Ford,R2DLiu,2-0,The Big House 6
+dizzkidboogie,MacD,2-0,The Big House 6
+Bladewise,Trulliam,2-1,The Big House 6
+PewPewU,Zhu,2-0,The Big House 6
+Chillindude,Taj,2-1,The Big House 6
+Syrox,Infinite Numbers,2-0,The Big House 6
+Android,Rudolph,2-0,The Big House 6
+Leffen,Iceman,2-0,The Big House 6
+Plup,S2J,2-0,The Big House 6
+Wobbles,Kels,2-0,The Big House 6
+Lucky,Mafia,3-2,The Big House 6
+Wizzrobe,Druggedfox,3-0,The Big House 6
+Westballz,Prince F. Abu,3-2,The Big House 6
+dizzkidboogie,Ryan Ford,3-2,The Big House 6
+PewPewU,Bladewise,3-2,The Big House 6
+Chillindude,Syrox,3-1,The Big House 6
+Leffen,Android,3-0,The Big House 6
+Plup,Wobbles,3-0,The Big House 6
+Duck,Lucky,3-1,The Big House 6
+Wizzrobe,ChuDat,3-2,The Big House 6
+Westballz,Gahtzu,3-0,The Big House 6
+Mew2King,dizzkidboogie,3-1,The Big House 6
+PewPewU,Zain,3-0,The Big House 6
+Chillindude,Nintendude,3-0,The Big House 6
+Swedish Delight,Leffen,3-0,The Big House 6
+Shroomed,Plup,3-2,The Big House 6
+Wizzrobe,Duck,3-0,The Big House 6
+Mew2King,Westballz,3-1,The Big House 6
+PewPewU,Chillindude,3-0,The Big House 6
+Swedish Delight,Shroomed,3-0,The Big House 6
+Wizzrobe,KirbyKaze,3-2,The Big House 6
+Mew2King,The Moon,3-1,The Big House 6
+PewPewU,Silent Wolf,3-1,The Big House 6
+Hungrybox,Swedish Delight,3-2,The Big House 6
+Mew2King,Wizzrobe,3-0,The Big House 6
+Hungrybox,PewPewU,3-1,The Big House 6
+Mew2King,SFAT,3-2,The Big House 6
+Armada,Hungrybox,3-1,The Big House 6
+Armada,Mew2King,3-1,The Big House 6
+Armada,Ice,3-1,The Big House 6
+BigWenz,Hazard,2-0,Shine 2016
+UWAN,weeaboo,2-0,Shine 2016
+BigWenz,Claw,2-1,Shine 2016
+vidjogamer,UWAN,2-1,Shine 2016
+Son2,BigWenz,2-0,Shine 2016
+vidjogamer,Mahone,2-1,Shine 2016
+Son2,squible,2-0,Shine 2016
+Son2,vidjogamer,2-0,Shine 2016
+Hungrybox,MacD,3-0,Shine 2016
+Shroomed,S2J,3-0,Shine 2016
+Plup,The Moon,3-1,Shine 2016
+SFAT,Duck,3-2,Shine 2016
+Nintendude,Mang0,3-2,Shine 2016
+Swedish Delight,Westballz,3-1,Shine 2016
+Mew2King,dizzkidboogie,3-1,Shine 2016
+Axe,Lucky,3-1,Shine 2016
+Hungrybox,Shroomed,3-0,Shine 2016
+SFAT,Plup,3-2,Shine 2016
+Swedish Delight,Nintendude,3-2,Shine 2016
+Mew2King,Axe,3-1,Shine 2016
+HugS,Vro,3-0,Shine 2016
+Ginger,Vish,3-0,Shine 2016
+KJH,lint,3-0,Shine 2016
+Wobbles,Infinite Numbers,3-2,Shine 2016
+DJ Nintendo,Bones,3-0,Shine 2016
+Crush,dudutsai,3-2,Shine 2016
+Silent Wolf,th0rn,3-2,Shine 2016
+Captain Smuckers,Son2,3-0,Shine 2016
+Prince F. Abu,Kage,3-0,Shine 2016
+Professor Pro,KDJ,3-1,Shine 2016
+Captain Faceroll,Widl,3-0,Shine 2016
+Azusa,Chillindude,3-2,Shine 2016
+Slox,hat,3-1,Shine 2016
+Tafokints,Zealous5000,3-2,Shine 2016
+Reno,Crunch,3-1,Shine 2016
+HugS,Ginger,3-1,Shine 2016
+Wobbles,KJH,3-0,Shine 2016
+DJ Nintendo,Crush,3-2,Shine 2016
+Silent Wolf,Captain Smuckers,3-1,Shine 2016
+Prince F. Abu,Ryobeat,3-0,Shine 2016
+Professor Pro,Captain Faceroll,3-1,Shine 2016
+Azusa,Slox,3-2,Shine 2016
+Tafokints,Reno,3-2,Shine 2016
+Lucky,HugS,3-1,Shine 2016
+Wobbles,dizzkidboogie,3-1,Shine 2016
+Westballz,DJ Nintendo,3-0,Shine 2016
+Mang0,Silent Wolf,3-0,Shine 2016
+Duck,Prince F. Abu,3-1,Shine 2016
+Professor Pro,The Moon,3-0,Shine 2016
+S2J,Azusa,3-0,Shine 2016
+MacD,Tafokints,3-0,Shine 2016
+Lucky,Wobbles,3-2,Shine 2016
+Mang0,Westballz,3-0,Shine 2016
+Duck,Professor Pro,3-1,Shine 2016
+MacD,S2J,3-1,Shine 2016
+Plup,Lucky,3-2,Shine 2016
+Mang0,Shroomed,3-2,Shine 2016
+Axe,Duck,3-2,Shine 2016
+MacD,Nintendude,3-2,Shine 2016
+SFAT,Hungrybox,3-1,Shine 2016
+Mew2King,Swedish Delight,3-0,Shine 2016
+Mew2King,SFAT,3-1,Shine 2016
+Mew2King,SFAT,3-0,Shine 2016
+Axe,MacD,3-2,Shine 2016
+Mang0,Plup,3-2,Shine 2016
+Hungrybox,Axe,3-0,Shine 2016
+Mang0,Swedish Delight,3-0,Shine 2016
+Mang0,Hungrybox,3-2,Shine 2016
+SFAT,Mang0,3-2,Shine 2016
+The Moon,Zain,2-0,Super Smash Con 2016
+Crush,Stango,2-0,Super Smash Con 2016
+The Moon,Crush,2-0,Super Smash Con 2016
+Westballz,DoH,2-0,Super Smash Con 2016
+ESAM,lloD,2-0,Super Smash Con 2016
+Colbol,Bones,2-1,Super Smash Con 2016
+dizzkidboogie,KPAN,2-0,Super Smash Con 2016
+ESAM,Westballz,2-1,Super Smash Con 2016
+Colbol,dizzkidboogie,2-0,Super Smash Con 2016
+Colbol,ESAM,2-1,Super Smash Con 2016
+MOM!,Smashdaddy,2-1,Super Smash Con 2016
+Nice Climbers,Hart,2-0,Super Smash Con 2016
+A Really Mediocre Falco,Deja,2-0,Super Smash Con 2016
+vortex,Jank,2-0,Super Smash Con 2016
+Beach,Jwilli,2-0,Super Smash Con 2016
+Upke,Super Ginger,2-1,Super Smash Con 2016
+PsychoMidget,Gator [Slater],2-0,Super Smash Con 2016
+42nd,Espada,2-0,Super Smash Con 2016
+MOM!,Nice Climbers,2-0,Super Smash Con 2016
+vortex,A Really Mediocre Falco,2-0,Super Smash Con 2016
+Beach,Upke,2-0,Super Smash Con 2016
+PsychoMidget,42nd,2-0,Super Smash Con 2016
+lloD,MOM!,2-0,Super Smash Con 2016
+vortex,DoH,2-1,Super Smash Con 2016
+KPAN,Beach,2-0,Super Smash Con 2016
+PsychoMidget,Bones,2-0,Super Smash Con 2016
+lloD,vortex,2-0,Super Smash Con 2016
+KPAN,PsychoMidget,2-0,Super Smash Con 2016
+lloD,dizzkidboogie,2-1,Super Smash Con 2016
+Westballz,KPAN,2-0,Super Smash Con 2016
+Westballz,lloD,2-1,Super Smash Con 2016
+Mang0,Wizzrobe,3-0,Super Smash Con 2016
+SFAT,PewPewU,3-2,Super Smash Con 2016
+Hungrybox,Mafia,3-0,Super Smash Con 2016
+Shroomed,Colbol,3-1,Super Smash Con 2016
+Mang0,SFAT,3-1,Super Smash Con 2016
+Hungrybox,Shroomed,3-1,Super Smash Con 2016
+Mang0,Hungrybox,3-1,Super Smash Con 2016
+Mang0,Hungrybox,3-0,Super Smash Con 2016
+ESAM,Zhu,3-1,Super Smash Con 2016
+aMSa,DJ Nintendo,3-0,Super Smash Con 2016
+MacD,ChuDat,3-2,Super Smash Con 2016
+Axe,Abate,3-1,Super Smash Con 2016
+KJH,S2J,3-1,Super Smash Con 2016
+Mew2King,The Moon,3-2,Super Smash Con 2016
+Ice,Cyrain,3-0,Super Smash Con 2016
+Westballz,Druggedfox,3-1,Super Smash Con 2016
+aMSa,ESAM,3-1,Super Smash Con 2016
+Axe,MacD,3-1,Super Smash Con 2016
+Mew2King,KJH,3-1,Super Smash Con 2016
+Westballz,Ice,3-2,Super Smash Con 2016
+PewPewU,aMSa,3-0,Super Smash Con 2016
+Axe,Wizzrobe,3-0,Super Smash Con 2016
+Mew2King,Colbol,3-0,Super Smash Con 2016
+Westballz,Mafia,3-0,Super Smash Con 2016
+Axe,PewPewU,3-0,Super Smash Con 2016
+Mew2King,Westballz,3-1,Super Smash Con 2016
+Axe,Shroomed,3-1,Super Smash Con 2016
+Mew2King,SFAT,3-2,Super Smash Con 2016
+Mew2King,Axe,3-2,Super Smash Con 2016
+Hungrybox,Mew2King,3-0,Super Smash Con 2016
+Shinobi,Tron,3-1,WTFox 2
+Reeve,LuigigoShard,3-0,WTFox 2
+Captain Faceroll,metroid,3-2,WTFox 2
+Iori,Wenbobular,3-1,WTFox 2
+Colbol,Googlyeyed,3-0,WTFox 2
+Prince F. Abu,KPAN,3-0,WTFox 2
+Westballz,Drephen,3-1,WTFox 2
+Rik,TaylorHJ,3-0,WTFox 2
+dizzkidboogie,Shinobi,3-0,WTFox 2
+Darkatma,Reeve,3-1,WTFox 2
+Druggedfox,Captain Faceroll,3-0,WTFox 2
+Colbol,Iori,3-0,WTFox 2
+Westballz,Prince F. Abu,3-0,WTFox 2
+dizzkidboogie,Rik,3-0,WTFox 2
+Druggedfox,Darkatma,3-2,WTFox 2
+SFAT,Colbol,3-1,WTFox 2
+Hungrybox,Westballz,3-0,WTFox 2
+The Moon,dizzkidboogie,3-1,WTFox 2
+Duck,Druggedfox,3-2,WTFox 2
+Armada,Mew2King,3-2,WTFox 2
+Mang0,Wizzrobe,3-2,WTFox 2
+Mang0,Armada,3-1,WTFox 2
+Mang0,Armada,3-0,WTFox 2
+Hungrybox,SFAT,3-1,WTFox 2
+The Moon,Duck,3-0,WTFox 2
+Mew2King,Hungrybox,3-0,WTFox 2
+Wizzrobe,The Moon,3-1,WTFox 2
+Mew2King,Wizzrobe,3-2,WTFox 2
+Armada,Mew2King,3-1,WTFox 2
+Nightmare,Lacroix,2-1,Get On My Level 2016
+Monib,Mittens,2-1,Get On My Level 2016
+Emanon,Nightmare,2-1,Get On My Level 2016
+Monib,Phake,2-1,Get On My Level 2016
+SFAT,Emanon,2-0,Get On My Level 2016
+Armada,Wizzrobe,3-0,Get On My Level 2016
+Lucky,KJH,3-0,Get On My Level 2016
+Leffen,The Moon,3-0,Get On My Level 2016
+Mew2King,MacD,3-0,Get On My Level 2016
+Hungrybox,MikeHaze,3-1,Get On My Level 2016
+Shroomed,PewPewU,3-2,Get On My Level 2016
+Mang0,Swedish Delight,3-1,Get On My Level 2016
+Westballz,Ice,3-0,Get On My Level 2016
+Armada,Lucky,3-0,Get On My Level 2016
+Leffen,Mew2King,3-2,Get On My Level 2016
+Hungrybox,Shroomed,3-1,Get On My Level 2016
+Westballz,Mang0,3-2,Get On My Level 2016
+Leffen,Armada,3-1,Get On My Level 2016
+Hungrybox,Westballz,3-1,Get On My Level 2016
+Leffen,Hungrybox,3-2,Get On My Level 2016
+Leffen,Mang0,3-1,Get On My Level 2016
+DJ Nintendo,Kyle,3-0,Get On My Level 2016
+Professor Pro,IB,3-0,Get On My Level 2016
+Prince F. Abu,Monib,3-0,Get On My Level 2016
+SFAT,sauc3,3-1,Get On My Level 2016
+HugS,G$,3-0,Get On My Level 2016
+n0ne,Trulliam,3-1,Get On My Level 2016
+Nintendude,Kage,3-2,Get On My Level 2016
+Ryan Ford,Druggedfox,3-1,Get On My Level 2016
+Wizzrobe,DJ Nintendo,3-1,Get On My Level 2016
+Professor Pro,KJH,3-1,Get On My Level 2016
+The Moon,Prince F. Abu,3-2,Get On My Level 2016
+MacD,SFAT,3-1,Get On My Level 2016
+HugS,MikeHaze,3-2,Get On My Level 2016
+n0ne,PewPewU,3-2,Get On My Level 2016
+Swedish Delight,Nintendude,3-0,Get On My Level 2016
+Ice,Ryan Ford,3-2,Get On My Level 2016
+Wizzrobe,Professor Pro,3-0,Get On My Level 2016
+The Moon,MacD,3-2,Get On My Level 2016
+n0ne,HugS,3-2,Get On My Level 2016
+Ice,Swedish Delight,3-2,Get On My Level 2016
+Mang0,Wizzrobe,3-0,Get On My Level 2016
+Shroomed,The Moon,3-1,Get On My Level 2016
+n0ne,Mew2King,3-1,Get On My Level 2016
+Lucky,Ice,3-0,Get On My Level 2016
+Mang0,Shroomed,3-1,Get On My Level 2016
+Lucky,n0ne,4-1,Get On My Level 2016
+Mang0,Armada,3-1,Get On My Level 2016
+Lucky,Westballz,3-0,Get On My Level 2016
+Mang0,Lucky,3-1,Get On My Level 2016
+Mang0,Hungrybox,3-1,Get On My Level 2016
+Fuzzyness,Blaze,2-0,B.E.A.S.T 6
+Jadde,Aellgi,2-0,B.E.A.S.T 6
+Vdogg,Fauster,3-2,B.E.A.S.T 6
+Jah Ridin',JohnnyFight,2-1,B.E.A.S.T 6
+Daydee,NamiNami,2-1,B.E.A.S.T 6
+ministry,Alpha Dash,2-1,B.E.A.S.T 6
+Android,ImperfeCt,2-0,B.E.A.S.T 6
+K-12,BrTarolg,2-1,B.E.A.S.T 6
+Vanity Angel,Deathgazer,2-0,B.E.A.S.T 6
+peki,R23,2-1,B.E.A.S.T 6
+Timi,mayhem,2-0,B.E.A.S.T 6
+AdamDutchie,SchlimmShady,2-0,B.E.A.S.T 6
+Zoler,bEsti,2-0,B.E.A.S.T 6
+Fuzzyness,Jadde,3-1,B.E.A.S.T 6
+Vdogg,Jah Ridin',2-0,B.E.A.S.T 6
+Daydee,ministry,2-1,B.E.A.S.T 6
+Android,K-12,2-0,B.E.A.S.T 6
+Vanity Angel,peki,2-1,B.E.A.S.T 6
+ESAM,Timi,3-2,B.E.A.S.T 6
+Baxon,AdamDutchie,3-1,B.E.A.S.T 6
+reaper,Zoler,3-1,B.E.A.S.T 6
+Zgetto,Fuzzyness,3-2,B.E.A.S.T 6
+Beat,Vdogg,3-0,B.E.A.S.T 6
+Mahie,Daydee,3-2,B.E.A.S.T 6
+Calle W,Android,3-2,B.E.A.S.T 6
+Abate,Vanity Angel,3-2,B.E.A.S.T 6
+ESAM,Baxon,3-1,B.E.A.S.T 6
+Zgetto,reaper,3-2,B.E.A.S.T 6
+Beat,Mahie,3-0,B.E.A.S.T 6
+Abate,Calle W,3-2,B.E.A.S.T 6
+Amsah,ESAM,3-2,B.E.A.S.T 6
+Trif,Zgetto,3-0,B.E.A.S.T 6
+Professor Pro,Beat,3-0,B.E.A.S.T 6
+Wobbles,Abate,3-0,B.E.A.S.T 6
+Armada,Ice,3-0,B.E.A.S.T 6
+Westballz,Leffen,3-1,B.E.A.S.T 6
+Armada,Westballz,3-1,B.E.A.S.T 6
+Leffen,Armada,3-1,B.E.A.S.T 6
+Armada,Leffen,3-0,B.E.A.S.T 6
+Professor Pro,Wobbles,3-2,B.E.A.S.T 6
+Trif,Amsah,3-1,B.E.A.S.T 6
+Ice,Professor Pro,3-1,B.E.A.S.T 6
+Leffen,Trif,3-0,B.E.A.S.T 6
+Leffen,Ice,3-0,B.E.A.S.T 6
+Leffen,Westballz,3-0,B.E.A.S.T 6
+Hungrybox,Rael,3-1,PAX Arena
+SFAT,S2J,3-1,PAX Arena
+Westballz,Arc,3-1,PAX Arena
+Axe,Gahtzu,3-0,PAX Arena
+Mang0,Valdo,3-0,PAX Arena
+Wizzrobe,Lucky,3-0,PAX Arena
+Mew2King,Tafokints,3-0,PAX Arena
+Wobbles,Shroomed,3-2,PAX Arena
+Hungrybox,SFAT,3-1,PAX Arena
+Westballz,Axe,3-2,PAX Arena
+Mang0,Wizzrobe,3-1,PAX Arena
+Mew2King,Wobbles,3-1,PAX Arena
+Uncle mojo,Roy the Boy,3-0,PAX Arena
+Stripes,Toast,3-0,PAX Arena
+JF,King,3-1,PAX Arena
+Tuesday,ANTi,3-0,PAX Arena
+S.O.S.,SpaceWaste,3-1,PAX Arena
+SulGimme,Volume,3-2,PAX Arena
+Zhea,Ginta,3-1,PAX Arena
+Uncle mojo,Gahtzu,3-2,PAX Arena
+Arc,Stripes,3-0,PAX Arena
+S2J,JF,3-0,PAX Arena
+Rael,Tuesday,3-1,PAX Arena
+Shroomed,S.O.S.,3-0,PAX Arena
+Tafokints,SulGimme,3-1,PAX Arena
+Lucky,Jake13,3-1,PAX Arena
+Valdo,Zhea,3-0,PAX Arena
+Uncle mojo,Arc,3-2,PAX Arena
+S2J,Rael,3-2,PAX Arena
+Shroomed,Tafokints,3-0,PAX Arena
+Lucky,Valdo,3-0,PAX Arena
+Wizzrobe,Uncle mojo,3-1,PAX Arena
+S2J,Wobbles,3-2,PAX Arena
+SFAT,Shroomed,3-0,PAX Arena
+Axe,Lucky,x-x,PAX Arena
+Hungrybox,Westballz,3-0,PAX Arena
+Mang0,Mew2King,3-1,PAX Arena
+Hungrybox,Mang0,3-2,PAX Arena
+Hungrybox,Mang0,3-2,PAX Arena
+Wizzrobe,S2J,3-2,PAX Arena
+Axe,SFAT,3-2,PAX Arena
+Westballz,Wizzrobe,3-2,PAX Arena
+Axe,Mew2King,3-1,PAX Arena
+Westballz,Axe,3-1,PAX Arena
+Mang0,Westballz,3-1,PAX Arena
+J666,Fist Mexico,2-1,Genesis 3
+Trichael Man,Matt,2-1,Genesis 3
+icer,Envy,2-0,Genesis 3
+J666,Vish,2-1,Genesis 3
+icer,Trichael Man,2-0,Genesis 3
+J666,MoJoe,2-1,Genesis 3
+Vro,icer,2-1,Genesis 3
+dizzkidboogie,J666,2-0,Genesis 3
+Armada,Cactuar,3-0,Genesis 3
+S2J,Fiction,3-1,Genesis 3
+Plup,KJH,3-1,Genesis 3
+Ice,JAVI,3-0,Genesis 3
+Mew2King,silentspectre,3-0,Genesis 3
+SFAT,Colbol,3-0,Genesis 3
+PPMD,Swedish Delight,3-1,Genesis 3
+Lucky,Duck,3-2,Genesis 3
+Hungrybox,Eddy Mexico,3-1,Genesis 3
+Druggedfox,MacD,3-1,Genesis 3
+Westballz,Gahtzu,3-1,Genesis 3
+Nintendude,Shroomed,3-0,Genesis 3
+Mang0,Abate,3-1,Genesis 3
+HugS,n0ne,3-2,Genesis 3
+Axe,Zhu,3-1,Genesis 3
+Alex19,Wizzrobe,3-2,Genesis 3
+Armada,S2J,3-1,Genesis 3
+Ice,Plup,3-1,Genesis 3
+SFAT,Mew2King,3-1,Genesis 3
+PPMD,Lucky,3-2,Genesis 3
+Hungrybox,Druggedfox,3-0,Genesis 3
+Nintendude,Westballz,3-2,Genesis 3
+Mang0,HugS,3-0,Genesis 3
+Axe,Alex19,3-0,Genesis 3
+Armada,Ice,3-0,Genesis 3
+PPMD,SFAT,3-1,Genesis 3
+Hungrybox,Nintendude,3-0,Genesis 3
+Axe,Mang0,3-1,Genesis 3
+Kalamazhu,Luigi Ka-Master,3-1,Genesis 3
+Arc,Darkatma,3-1,Genesis 3
+CDK,Captain Smuckers,3-0,Genesis 3
+Slox,lovage805,3-2,Genesis 3
+Milkman,Ralph,3-2,Genesis 3
+Lord,Kira,3-1,Genesis 3
+El Fuego,Reno,3-0,Genesis 3
+Ken,Minty,3-1,Genesis 3
+G$,Bladewise,3-2,Genesis 3
+Laudandus,ROFL,3-0,Genesis 3
+Redd,Captain Faceroll,3-2,Genesis 3
+Rockleeland,Zanguzen,3-1,Genesis 3
+MikeHaze,Jflex,3-1,Genesis 3
+PewPewU,Chillindude,3-2,Genesis 3
+dizzkidboogie,Vro,3-0,Genesis 3
+Silent Wolf,Frycook,3-0,Genesis 3
+Wizzrobe,Kalamazhu,3-0,Genesis 3
+Arc,Zhu,3-2,Genesis 3
+CDK,n0ne,3-1,Genesis 3
+Abate,Slox,3-2,Genesis 3
+Shroomed,Milkman,3-1,Genesis 3
+Lord,Gahtzu,3-0,Genesis 3
+MacD,El Fuego,3-1,Genesis 3
+Eddy Mexico,Ken,3-1,Genesis 3
+Duck,G$,3-0,Genesis 3
+Laudandus,Swedish Delight,3-0,Genesis 3
+Colbol,Redd,3-1,Genesis 3
+silentspectre,Rockleeland,3-0,Genesis 3
+MikeHaze,JAVI,3-2,Genesis 3
+PewPewU,KJH,3-1,Genesis 3
+Fiction,dizzkidboogie,3-2,Genesis 3
+Silent Wolf,Cactuar,3-0,Genesis 3
+Wizzrobe,Arc,3-1,Genesis 3
+CDK,Abate,3-2,Genesis 3
+Shroomed,Lord,3-1,Genesis 3
+MacD,Eddy Mexico,3-1,Genesis 3
+Duck,Laudandus,3-2,Genesis 3
+Colbol,silentspectre,3-0,Genesis 3
+PewPewU,MikeHaze,3-2,Genesis 3
+Silent Wolf,Fiction,3-1,Genesis 3
+Wizzrobe,Lucky,3-2,Genesis 3
+Mew2King,CDK,3-0,Genesis 3
+Plup,Shroomed,3-0,Genesis 3
+S2J,MacD,3-1,Genesis 3
+Duck,Alex19,3-0,Genesis 3
+Colbol,HugS,3-1,Genesis 3
+PewPewU,Westballz,3-2,Genesis 3
+Druggedfox,Silent Wolf,3-1,Genesis 3
+Mew2King,Wizzrobe,3-1,Genesis 3
+Plup,S2J,3-0,Genesis 3
+Colbol,Duck,3-1,Genesis 3
+PewPewU,Druggedfox,3-1,Genesis 3
+Nintendude,Mew2King,3-1,Genesis 3
+Mang0,Plup,3-1,Genesis 3
+Ice,Colbol,3-0,Genesis 3
+SFAT,PewPewU,3-2,Genesis 3
+Armada,PPMD,3-1,Genesis 3
+Hungrybox,Axe,3-1,Genesis 3
+Armada,Hungrybox,3-1,Genesis 3
+Mang0,Armada,3-1,Genesis 3
+Armada,Mang0,3-1,Genesis 3
+Mang0,Nintendude,3-0,Genesis 3
+SFAT,Ice,3-2,Genesis 3
+Mang0,PPMD,3-0,Genesis 3
+Axe,SFAT,3-0,Genesis 3
+Mang0,Axe,3-0,Genesis 3
+Mang0,Hungrybox,3-2,Genesis 3

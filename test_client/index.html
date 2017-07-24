@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function() {
+            $("button").click(function() {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: '/getPlayer',
+                    method: "POST",
+                    data: {
+                        user_input: $("input").val()
+                    },
+                    success: function(result) {
+                        console.log(result);
+                        $("#result").text(result);
+                    },
+                    error: function(err) {
+                        console.log("ERROR OCCURRED");
+                        console.log(err);
+                    }
+                });
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+    <input type="text">
+    <button> Submit </button>
+    <div id="result"></div>
+
+</body>
+</html>
