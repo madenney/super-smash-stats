@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import Searchbar from './searchbar';
 import Carousel from './playercardcarousel';
 
-class Landingpage extends Component {
+export default class Landingpage extends Component {
 
-    render(){
+    render() {
 
-        <Searchbar />;
-        <Carousel />
+        return (
+            <div className="landing">
+                <Searchbar />
+                <Carousel />
+            </div>
+        )
     }
 }

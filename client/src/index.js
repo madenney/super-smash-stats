@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/app';
-import Searchbar from './components/searchbar';
+import Landingpage from './components/landing';
 
 ReactDOM.render(
-    <Searchbar />,
+    <Landingpage />,
     document.getElementById('root')
 );

@@ -1,7 +1,12 @@
-import React from 'react';
-import Playercard from './playercardcarousel';
+import React, { Component } from 'react';
 
-render(){
+export default class Carousel extends Component {
 
-    <Playercard />
+    render(){
+        return (
+            <div className="Carousel">
+                <div>FILLER</div>
+            </div>
+        )
+    }
 }
