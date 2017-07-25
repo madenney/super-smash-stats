@@ -17,8 +17,9 @@ var db = new Database.Database(options);
 app.use(express.static('test_client'));
 
 app.post('/getplayer', function(req, res) {
-    console.log("Get Player Called. " + req.body);
-    db.getPlayer(res, req.body.query);
+    console.log("Get Player Called.") ;
+    console.log(req.body);
+    db.getPlayer(res, req.body.user_input);
 });
 
 app.listen(3030, function(){

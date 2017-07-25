@@ -3,6 +3,7 @@
  */
 
 var mysql = require('mysql');
+var connInfo = require('./connect').conn;
 
 
 exports.CreatePlayersDb = function() {
@@ -10,19 +11,14 @@ exports.CreatePlayersDb = function() {
     var players = [];
     var incrementer = 500;
     var dbCounter = 0;
+    var conn;
 
     start();
 
     // Get matches JSON
     function start() {
-        var conn = mysql.createConnection({
-            host: 'localhost',
-            port: '1337',
-            user: 'root',
-            password: 'root',
-            database: 'smashstats'
-        });
 
+        conn = mysql.createConnection(connInfo);
         conn.connect(function(err){
             if(err) {
                 console.log("Error connecting to database: ");
@@ -35,7 +31,7 @@ exports.CreatePlayersDb = function() {
                     console.log("Error with query: ");
                     throw err;
                 }
-
+                conn.end();
                 extractNames(rows);
                 rank(rows);
                 sort();
@@ -131,14 +127,8 @@ exports.CreatePlayersDb = function() {
 
     // Define the connection and start the query process
     function startConnection() {
-        var conn = mysql.createConnection({
-            host: 'localhost',
-            port: '1337',
-            user: 'root',
-            password: 'root',
-            database: 'smashstats'
-        });
 
+        conn = mysql.createConnection(connInfo);
         conn.connect(function (err) {
             if (err) {
                 console.error('error connecting: ' + err.stack);
