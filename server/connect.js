@@ -2,7 +2,7 @@
 
 exports.conn = {
     host: 'localhost',
-    port: '1337',
+    port: '	8889',
     user: 'root',
     password: 'root',
     database: 'smashstats'
