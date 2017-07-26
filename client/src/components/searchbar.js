@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import {dummy_data} from '../../../data/dummy_data';
 import SearchResult from './search_results';
-// import axios from 'axios';
+
+//import axios from 'axios';
+import Autocomplete from './autocomplete';
+import {dummy_data} from '../../../data/dummy_data';
+
 //import _ from 'lodash';
 
 //dynamically create options in datalist with json data
@@ -39,6 +43,7 @@ export default class SearchBar extends Component {
 
         //  console.log(this.state.cards);
 
+
         // axios.post('', ).then(function(result){
         //     console.log(result);
         // }).catch(function(error){
@@ -66,6 +71,9 @@ export default class SearchBar extends Component {
                 </datalist>
                 <button className="searchButton" onClick={(e) => this.handleClick(e)}>SEARCH</button>
                 <SearchResult card = {this.state.cards} />
+
+                        <Autocomplete recommendations={dummy_data.playercards} />
+                <button className="searchButton" onClick={e => this.handleClick(e)}>SEARCH</button>
             </div>
         )
     }
