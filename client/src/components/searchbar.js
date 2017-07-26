@@ -4,7 +4,6 @@ import SearchResult from './search_results';
 
 //import axios from 'axios';
 import Autocomplete from './autocomplete';
-import {dummy_data} from '../../../data/dummy_data';
 
 //import _ from 'lodash';
 
