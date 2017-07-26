@@ -1,4 +1,6 @@
 export const dummy_data = {
+{
+
   "playercards" : [
     {
       "name" : "Armada",
