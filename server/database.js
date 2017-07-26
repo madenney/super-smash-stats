@@ -16,7 +16,7 @@ exports.Database = function(options) {
 
     this.getPlayer = function(res, playerName) {
 
-        conn = mysql.createConnection(connInfo);
+        var conn = mysql.createConnection(connInfo);
         conn.connect(function(err){
             if(err) {
                 console.log("Error connecting to the database");
@@ -41,5 +41,27 @@ exports.Database = function(options) {
         });
 
     }
+
+    this.autocomplete = function(res, input) {
+
+        var conn = mysql.createConnection(connInfo);
+        conn.connect(function(err){
+            if(err) {
+                console.log("Error Connecting to the database");
+                throw err;
+            }
+
+            var query = "SELECT players.name, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.name = player_info.tag WHERE players.name LIKE '"+input+"%' LIMIT 6";
+            conn.query(query, function(err, rows) {
+                if(err) {
+                    console.log("Error with query");
+                    throw err;
+                }
+
+                res.end(JSON.stringify(rows));
+            });
+        });
+    }
+
 
 };
