@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SearchResults from './search_results';
+import Searchbar from './searchbar'
 import {dummy_data} from '../../../data/dummy_data';
 class App extends Component{
   constructor(props){
