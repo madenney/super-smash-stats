@@ -19,7 +19,7 @@ app.use(express.static('test_client'));
 app.post('/getplayer', function(req, res) {
     console.log("Get Player Called.") ;
     console.log(req.body);
-    db.getPlayer(res, req.body.user_input);
+    db.getPlayer(res, req.body.input);
 });
 
 app.post('/autocomplete', function(req, res) {
@@ -27,10 +27,16 @@ app.post('/autocomplete', function(req, res) {
     db.autocomplete(res, req.body.input);
 });
 
-app.post('/history', function(req, res) {
-    console.log("Getting History - " + req.body.input)
-    db.getHistory(res, req.body.input);
+app.post('/match_history', function(req, res) {
+    console.log("Getting History - " + req.body.input, req.body.page);
+    db.getHistory(res, req.body.input,  req.body.page);
 });
+
+app.post('/match_history', function(req, res) {
+    console.log("Getting match history - " + req.body.input, req.body.page);
+    db.getHistory(res, req.body.input,  req.body.page);
+});
+
 
 app.post('/getplayerprofile', function(req, res) {
     console.log("grabbing player profile - " + req.body.input);

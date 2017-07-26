@@ -35,7 +35,6 @@ exports.Database = function(options) {
                     throw err;
                 }
 
-                console.log(rows);
                 res.end(JSON.stringify(rows[0]));
             });
         });
@@ -83,16 +82,25 @@ exports.Database = function(options) {
         })
     }
 
-    this.getHistory = function(res, input) {
+    this.getHistory = function(res, input, page) {
+
+        if(!page) { page = 0;}
 
         var conn = mysql.createConnection(connInfo);
-        conn.connect(function(err0) {
+        conn.connect(function(err) {
             if (err) {
                 console.log("Error connecting to the database");
                 throw err;
             }
 
-            var query = "SELECT ";
+            var query = "SELECT * FROM `matches` WHERE matches.winner = '"+input+"' OR matches.loser = '"+input+"' LIMIT "+page*25+", 25";
+            conn.query(query, function(err,rows){
+                if(err){
+                    console.log("Error with query");
+                    throw err;
+                }
+                res.end(JSON.stringify(rows));
+            });
         });
     };
 
