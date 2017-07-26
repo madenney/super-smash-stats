@@ -22,6 +22,11 @@ app.post('/getplayer', function(req, res) {
     db.getPlayer(res, req.body.user_input);
 });
 
+app.post('/autocomplete', function(req, res) {
+    console.log("Autocompleting - " + req.body.input)
+    db.autocomplete(res, req.body.input);
+});
+
 app.listen(3030, function(){
     console.log("Listening on port 3030");
 });

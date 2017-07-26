@@ -14,10 +14,10 @@
 
                 $.ajax({
                     dataType: 'json',
-                    url: '/getPlayer',
+                    url: '/autocomplete',
                     method: "POST",
                     data: {
-                        user_input: $("input").val()
+                        input: $("input").val()
                     },
                     success: function(result) {
                         console.log(result);
