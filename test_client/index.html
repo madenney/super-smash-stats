@@ -51,6 +51,23 @@
                 });
 
             });
+
+            $(".button3").click(function() {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: '/front_page',
+                    method: "POST",
+                    success: function(result) {
+                        console.log(result);
+                    },
+                    error: function(err) {
+                        console.log("ERROR OCCURRED");
+                        console.log(err);
+                    }
+                });
+
+            });
         });
 
     </script>
@@ -68,6 +85,13 @@
     <input type="text">
     <button class ="button2"> Submit Player ID </button>
     <div id="resultPlayerInfo"></div>
+
+    <br>
+    <br>
+    <br>
+    <!--Test for front page info-->
+    <button class ="button3"> Get Front Page Info </button>
+
 
 </body>
 </html>

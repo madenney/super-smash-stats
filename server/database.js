@@ -94,6 +94,26 @@ exports.Database = function(options) {
 
             var query = "SELECT ";
         });
+    };
+
+    this.getFrontPageInfo = function(res) {
+
+        var conn = mysql.createConnection(connInfo);
+        conn.connect(function(err) {
+            if (err) {
+                console.log("Error connecting to the database");
+                throw err;
+            }
+
+            var query = "SELECT players.name, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.name = player_info.tag LIMIT 4";
+            conn.query(query, function(err,rows){
+                if(err){
+                    console.log("Error with query");
+                    throw err;
+                }
+                res.end(JSON.stringify(rows));
+            });
+        });
     }
 
 };

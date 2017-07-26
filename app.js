@@ -37,6 +37,11 @@ app.post('/getplayerprofile', function(req, res) {
     db.getPlayerProfile(res, req.body.input);
 });
 
+app.post('/front_page', function(req, res) {
+    console.log("Getting frontpage info");
+    db.getFrontPageInfo(res);
+});
+
 app.listen(3030, function(){
     console.log("Listening on port 3030");
 });
