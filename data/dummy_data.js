@@ -1,5 +1,4 @@
 export const dummy_data = {
-
   "playercards" : [
     {
       "tag" : "Armada",
