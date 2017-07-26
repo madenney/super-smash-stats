@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../../../data/matches_1529.json';
+//import _ from 'lodash';
 
 //dynamically create options in datalist with json data
 
@@ -9,7 +9,6 @@ export default class Searchbar extends Component {
     constructor(props){
         super(props);
         this.state = {
-            placeholder: 'Find a Player',
             value: ''
         };
     }
@@ -21,18 +20,22 @@ export default class Searchbar extends Component {
 
     handleClick(e) {
         e.preventDefault();
-        axios.get('').then(function(result){
+        axios.post('', ).then(function(result){
             console.log(result);
+        }).catch(function(error){
+            console.log(error);
         })
     }
 
 
 
     render(){
+//        {value} = this.state;
+//        const playerSearch = _.debounce(searchInit, 2000, [options={value}]);
 
         return (
-            <div className="searchbar">
-                <input className="searchInput center" list="playersRec" type="text" placeholder={this.state.placeholder} value={this.state.value} onChange={e => this.handleChange(e)} />
+            <div className="searchbar center">
+                <input className="searchInput" list="playersRec" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={e => this.handleChange(e)} />
                 <datalist id="playersRec">
                     <option value="Howard Kim" />
                     <option value="Khanh Nguyen" />
@@ -42,7 +45,7 @@ export default class Searchbar extends Component {
                     <option value="Scott Bowler" />
                     <option value="David Sung" />
                 </datalist>
-                <button onClick={e => this.handleClick(e)}>SEARCH</button>
+                <button className="searchButton" onClick={e => this.handleClick(e)}>SEARCH</button>
             </div>
         )
     }
