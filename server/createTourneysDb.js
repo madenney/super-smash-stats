@@ -2,7 +2,8 @@
  * Created by Matt on 7/21/2017.
  */
 var fs = require('fs');
-var mysql = require('mysql');
+var mysql = require('mysql')
+var conn = require('./connect').conn;
 
 exports.CreateTourneysDb = function() {
 
@@ -50,13 +51,6 @@ exports.CreateTourneysDb = function() {
 
     // Define the connection and start the query process
     function startConnection() {
-        var conn = mysql.createConnection({
-            host: 'localhost',
-            port: '1337',
-            user: 'root',
-            password: 'root',
-            database: 'smashstats'
-        });
 
         conn.connect(function (err) {
             if (err) {

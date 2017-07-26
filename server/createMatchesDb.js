@@ -3,6 +3,7 @@
  */
 var fs = require('fs');
 var mysql = require('mysql');
+var conn = require('./connect').conn;
 
 exports.CreateMatchesDb = function() {
 
@@ -50,13 +51,6 @@ exports.CreateMatchesDb = function() {
 
     // Define the connection and start the query process
     function startConnection() {
-        var conn = mysql.createConnection({
-            host: 'localhost',
-            port: '1337',
-            user: 'root',
-            password: 'root',
-            database: 'smashstats'
-        });
 
         conn.connect(function (err) {
             if (err) {
@@ -64,7 +58,7 @@ exports.CreateMatchesDb = function() {
                 return;
             }
             console.log('connected as id ' + conn.threadId)
-
+            return;
             createQueries(conn);
         });
     };

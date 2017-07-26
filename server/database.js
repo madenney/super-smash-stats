@@ -3,38 +3,23 @@
  */
 
 var mysql = require('mysql');
+var connInfo = require('./connect').conn;
 
 
 
 exports.Database = function(options) {
 
-    var conn = mysql.createConnection({
-        host: 'localhost',
-        port: '1337',
-        user: 'root',
-        password: 'root',
-        database: 'smashstats'
-    });
-
-
-    if(options.reloadTextFiles) {
-        var CreateMatchesDb = require('./createMatchesDb');
-        var matchesDb = new CreateMatchesDb.CreateMatchesDb();
-        //var CreateTourneysDb = require('./createTourneysDb');
-        //var ctdb = new CreateTourneysDb.CreateTourneysDb();
+    if(options.reloadTextFiles){
+        new require('./createDb').createDb();
     }
 
-    if(options.redoPlayers) {
-        var CreatePlayersDb = require('./createPlayersDb');
-        var cpdb = new CreatePlayersDb.CreatePlayersDb();
-    }
 
     this.getPlayer = function(res, playerName) {
-        console.log("Database getting " + playerName);
 
+        conn = mysql.createConnection(connInfo);
         conn.connect(function(err){
             if(err) {
-                console.log("Error connecting to database: ");
+                console.log("Error connecting to the database");
                 throw err;
             }
 
@@ -43,21 +28,18 @@ exports.Database = function(options) {
                 playerName = players[j][0].replace(/'/g, "\\'");
             }
 
-            var query = "SELECT * FROM `matches` WHERE `name` = '" + playerName + "'";
+            var query = "SELECT player_info.*, players.rank, players.matches_played FROM player_info JOIN players ON players.name = player_info.tag WHERE players.name = '" + playerName + "'";
             conn.query(query, function(err, rows) {
                 if(err) {
-                    console.log("Error with query: ");
+                    console.log("Error with query");
                     throw err;
                 }
 
-                res.end(rows);
-
+                console.log(rows);
+                res.end(JSON.stringify(rows[0]));
             });
         });
 
-
-
-        return JSON.stringify({result: "hello"});
     }
 
 };
