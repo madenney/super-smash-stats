@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/app';
+import Landingpage from './components/landing';
 
 ReactDOM.render(
-    <App />,
+    <Landingpage />,
     document.getElementById('root')
 );
