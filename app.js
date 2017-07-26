@@ -27,6 +27,12 @@ app.post('/autocomplete', function(req, res) {
     db.autocomplete(res, req.body.input);
 });
 
+app.post('/history', function(req, res) {
+    console.log("Getting History - " + req.body.input)
+    db.getHistory(res, req.body.input);
+});
+
+
 app.listen(3030, function(){
     console.log("Listening on port 3030");
 });

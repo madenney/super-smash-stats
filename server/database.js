@@ -63,5 +63,17 @@ exports.Database = function(options) {
         });
     }
 
+    this.getHistory = function(res, input) {
+
+        var conn = mysql.createConnection(connInfo);
+        conn.connect(function(err0) {
+            if(err) {
+                console.log("Error connecting to the database");
+                throw err;
+            }
+
+            var query = "SELECT "
+        })
+    }
 
 };
