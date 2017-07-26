@@ -40,7 +40,7 @@ exports.Database = function(options) {
             });
         });
 
-    }
+    };
 
     this.autocomplete = function(res, input) {
 
@@ -61,19 +61,39 @@ exports.Database = function(options) {
                 res.end(JSON.stringify(rows));
             });
         });
+    };
+    //IN PROGRESS : need query and response
+    this.getPlayerProfile = function(res,id){
+
+        var conn = mysql.createConnection(connInfo);
+        conn.connect(function(err){
+            if(err){
+                console.log("Error Connecting to the database");
+                throw err;
+            }
+
+            var query = "SELECT player.id";
+            conn.query(query, function(err,rows){
+                if(err){
+                    console.log("Error with query");
+                    throw err;
+                }
+                res.end(JSON.stringify(rows));
+            })
+        })
     }
 
     this.getHistory = function(res, input) {
 
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err0) {
-            if(err) {
+            if (err) {
                 console.log("Error connecting to the database");
                 throw err;
             }
 
-            var query = "SELECT "
-        })
+            var query = "SELECT ";
+        });
     }
 
 };
