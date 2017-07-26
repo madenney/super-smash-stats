@@ -36,7 +36,7 @@ exports.Database = function(options) {
                 }
 
                 console.log(rows);
-                res.end(JSON.stringify(rows));
+                res.end(JSON.stringify(rows[0]));
             });
         });
 
