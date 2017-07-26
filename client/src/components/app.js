@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import SearchResults from './search_results';
-import {dummy_data} from './dummy_data';
+import {dummy_data} from '../../../data/dummy_data';
 class App extends Component{
   constructor(props){
     super(props);
+    const {playercards} = dummy_data;
     this.state = {
-      player_card: dummy_data
+      player_card: dummy_data.playercards[0]
     }
   }
   //add onClick function that sends to the profile page
@@ -14,7 +15,9 @@ class App extends Component{
     return(
       <div className='container'>
         <h1>Search Results</h1>
-        <SearchResults card = {this.state.player_card} />
+        <SearchBar />
+        <Carousel car_player = {dummy_data.playercards} value='4' />
+        <SearchResults player = {this.state.player_card} />
       </div>
     )
   }

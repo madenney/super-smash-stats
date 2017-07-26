@@ -1,13 +1,14 @@
-{
+export const dummy_data = {
+
   "playercards" : [
     {
-      "name" : "Armada",
+      "tag" : "Armada",
       "main" : "Peach",
       "id" : 1,
       "image_url": "http://www.meleeitonme.com/wp-content/uploads/Armada2-300x2571.png"
     },
     {
-      "name" : "Amsa",
+      "tag" : "Amsa",
       "main" : "Yoshi",
       "id" : 2,
       "image_url": "https://www.ssbwiki.com/images/thumb/c/c0/VGBC_aMSa.png/160px-VGBC_aMSa.png"
