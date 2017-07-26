@@ -16,7 +16,7 @@ class App extends Component{
       <div className='container'>
         <h1>Search Results</h1>
         <SearchBar />
-        <Carasoul car_player = {dummy_data.playercards} value='4' />
+        <Carousel car_player = {dummy_data.playercards} value='4' />
         <SearchResults player = {this.state.player_card} />
       </div>
     )
