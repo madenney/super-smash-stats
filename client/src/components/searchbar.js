@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {dummy_data} from '../../../data/dummy_data';
-import SearchResult from './search_results';
+// import SearchResult from './search_results';
 
-//import axios from 'axios';
-import Autocomplete from './autocomplete';
+import axios from 'axios';
+// import Autocomplete from './autocomplete';
 
 //import _ from 'lodash';
 
@@ -16,8 +16,13 @@ export default class SearchBar extends Component {
         super(props);
         this.state = {
             value: '',
-            cards: [playercards[0]]
+            cards: ''
         };
+    }
+    componentWillMount(){
+      axios.post('http://localhost:3030/front_page').then((response)=>{
+        console.log('this is response: ', response);
+      });
     }
 
     handleChange(e) {
@@ -32,7 +37,7 @@ export default class SearchBar extends Component {
         const result = [];
         for(var i = 0; i < playercards.length; i++){
             if(playercards[i].tag.includes(this.state.value)){
-                result.push(playercards[i]);    
+                result.push(playercards[i]);
             }
         }
         this.setState({
@@ -69,9 +74,9 @@ export default class SearchBar extends Component {
                     <option value="David Sung" />
                 </datalist>
                 <button className="searchButton" onClick={(e) => this.handleClick(e)}>SEARCH</button>
-                <SearchResult card = {this.state.cards} />
+                {/* <SearchResult card = {this.state.cards} /> */}
 
-                        <Autocomplete recommendations={dummy_data.playercards} />
+                        {/* <Autocomplete recommendations={dummy_data.playercards} /> */}
                 <button className="searchButton" onClick={e => this.handleClick(e)}>SEARCH</button>
             </div>
         )
