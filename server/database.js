@@ -71,7 +71,7 @@ exports.Database = function(options) {
                 throw err;
             }
 
-            var query = "SELECT player.id";
+            var query = "SELECT player_info.*, players.rank, players.matches_played FROM player_info JOIN players ON players.name = player_info.tag WHERE players.id = '" + id + "'";
             conn.query(query, function(err,rows){
                 if(err){
                     console.log("Error with query");
@@ -80,7 +80,7 @@ exports.Database = function(options) {
                 res.end(JSON.stringify(rows));
             })
         })
-    }
+    };
 
     this.getHistory = function(res, input, page) {
 
