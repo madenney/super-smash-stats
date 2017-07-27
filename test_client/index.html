@@ -28,17 +28,16 @@
                         console.log(err);
                     }
                 });
-
             });
 
             $(".button2").click(function() {
 
                 $.ajax({
                     dataType: 'json',
-                    url: '/getPlayerProfile',
+                    url: '/player_profile',
                     method: "POST",
                     data: {
-                        input: $("input").val()
+                        input: $("#input2").val()
                     },
                     success: function(result) {
                         console.log(result);
@@ -103,7 +102,7 @@
     <br>
     <br>
     <!--Enter ID to receive player profile info object-->
-    <input type="text">
+    <input id = 'input2' type="text">
     <button class ="button2"> Submit Player ID </button>
     <div id="resultPlayerInfo"></div>
 
