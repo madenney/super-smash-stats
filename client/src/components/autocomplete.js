@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Autocomplete extends Component {
+const Autocomplete = (props) => {
 
-
-    render() {
+    const autocomItem = props.recommendations.map ((item, index) => {
         return (
-            <div className="playersRec">
+        <li key={index}>
+            {item.name} {item.main}
+        </li>
+        )
+    });
 
-                    return <div  value={item.tag}/>
-
-            </div>
-        );
-    }
+     return (
+        <ul className="autocomplete">
+            {autocomItem}
+        </ul>
+     );
 };
+export default Autocomplete;
