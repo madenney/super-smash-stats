@@ -42,7 +42,7 @@ exports.CreatePlayersDb = function() {
 
     function rank(rows) {
 
-        console.log("Ranking Players...")
+        console.log("Ranking Players...");
 
         // Give every player a starting number of 1000 and a starting number of matches played (0)
         for(var i = 0; i < players.length; i++) {
