@@ -1,12 +1,15 @@
 var connInfo = require('./connect').conn;
 var mysql = require('mysql');
 var _ = require('lodash');
+var fs = require('fs');
+var count = require('count-array-values');
 
 var matches;
 var tournaments;
 var players = [];
 var playersArray = [];
 var regionCountArray = [];
+var finalArray = [];
 
 var getMatches = function() {
 
@@ -17,7 +20,7 @@ var getMatches = function() {
             throw err;
         }
 
-        var query = "SELECT * FROM `dummy-matches`";
+        var query = "SELECT * FROM `matches`";
         conn.query(query, function(err, rows) {
             if(err) {
                 console.log("Error with query");
@@ -74,13 +77,14 @@ var getTournaments = function() {
 };
 
 getMatches();
-
+// set up player array
 var analyze = function (){
   console.log('ANALYZING');
     for(i=0;i<players.length;i++){
       playersArray.push([players[i].name])
     }
 
+//pushing tournaments into player array
     console.log('Players Array.length: ', playersArray.length);
     for(i=0;i<matches.length;i++){
         var winnerFound = false;
@@ -115,13 +119,35 @@ var analyze = function (){
     }
 
 
-    //test playersArray
-    //why does players .length have ssome players with no regions, but hcanged to 10 works
-    for(i=0;i<players.length;i++) {
-        console.log(playersArray[i]);
-    }
-    // counting duplicate regions
+    //prints playersArray with all tournaments including dupes
+    // fs.writeFileSync('playersArray.json', JSON.stringify(playersArray));
 
+    // counting duplicate regions
+    for(i=0;i<players.length;i++){
+        regionCountArray.push([players[i].name])
+    }
+    for(i=0;i<regionCountArray.length;i++){
+        regionCountArray[i].push(count(playersArray[i], 'region', 'count'));
+    }
+    // fs.writeFileSync('playersRegionCount.json', JSON.stringify(regionCountArray));
+
+    // lastly, filter the highest counted region
+    for(i=0;i<players.length;i++){
+       finalArray.push([players[i].name])
+    }
+
+    for(i=0;i<regionCountArray.length;i++){
+            var highestCount = 0;
+            var highestCountIndex;
+            for(j=0;j<regionCountArray[i][1].length;j++){
+                if(regionCountArray[i][1][j].count > highestCount){
+                     highestCount = regionCountArray[i][1][j].count;
+                     highestCountIndex = j;
+                }
+            }
+        finalArray[i].push(regionCountArray[i][1][highestCountIndex])
+    }
+    console.log(regionCountArray[0][1][0].count);
+    fs.writeFileSync('playersRegionFinal.json', JSON.stringify(finalArray));
     console.log('finished')
 };
-// THIS IS STILL USING DUMMY-MATCHES
