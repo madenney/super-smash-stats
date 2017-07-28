@@ -31,7 +31,7 @@ export default class SearchBar extends Component {
 
     handleChange(e) {
         this.setState({value: e.target.value});
-        //checks for autocomplete
+        //need to work on debouncing the autcomplete
         if (e.target.value != '') {
             axios.post('http://localhost:3030/autocomplete', { input: e.target.value }).then((response) => {
                 this.state.autocomCards = response.data;
