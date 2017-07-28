@@ -3,7 +3,7 @@ import {dummy_data} from '../../../data/dummy_data';
 import {Link} from 'react-router-dom';
 import Carousel from './playercardcarousel';
 import axios from 'axios';
-import Autocomplete from './autocomplete';
+//import Autocomplete from './autocomplete';
 
 //import _ from 'lodash';
 
@@ -30,15 +30,23 @@ export default class SearchBar extends Component {
 
     handleChange(e) {
         this.setState({value: e.target.value});
+        //checks for autocomplete
+        if (e.target.value != '') {
+            axios.post('http://localhost:3030/autocomplete', { input: e.target.value }).then((response) => {
+                console.log('response', response)
+            })
+        }
     }
-    handleSubmit(e) {
+
+    handleSubmit(e){
       return this.props.getValue(this.state.value);
     }
+
     render(){
         return (
             <div className="searchbar center">
-                <input className="searchInput" list="playersRec" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
-                <Autocomplete recommendations={dummy_data.playercards} />
+                <input className="searchInput" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
+
                 <Link to='/results'>
                   <button className="searchButton" onClick={(e) => this.handleSubmit(e)}>SEARCH</button>
                 </Link>
