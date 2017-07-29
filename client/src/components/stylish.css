@@ -66,3 +66,7 @@ body {
     display: inline-block;
     margin: 20px 15px;
 }
+img {
+    height: 200px;
+    width: 200px;
+}
