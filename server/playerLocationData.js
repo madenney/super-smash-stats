@@ -147,7 +147,6 @@ var analyze = function (){
             }
         finalArray[i].push(regionCountArray[i][1][highestCountIndex])
     }
-    console.log(regionCountArray[0][1][0].count);
-    fs.writeFileSync('playersRegionFinal.json', JSON.stringify(finalArray));
+    // fs.writeFileSync('playersRegionFinal.json', JSON.stringify(finalArray));
     console.log('finished')
 };
