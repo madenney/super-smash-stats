@@ -37,6 +37,10 @@ export default class SearchBar extends Component {
                 });
                 console.log('response', this.state)
             })
+        } else {
+            this.setState({
+                autocomCards: []
+            })
         }
     }
 
