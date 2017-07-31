@@ -16,7 +16,7 @@ export default class Landingpage extends Component {
     getResults(value){
       // console.log('this is the fucking value',value);
       //put all input values as an object
-      axios.post('http://localhost:3030/autocomplete', {input: value}).then((response)=>{
+      axios.post('http://localhost:3030/getFrontPageInfo', {input: value}).then((response)=>{
         this.setState({
           player_results : response
         })
