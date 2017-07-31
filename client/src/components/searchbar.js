@@ -3,6 +3,7 @@ import {dummy_data} from '../../../data/dummy_data';
 import {Link} from 'react-router-dom';
 import Carousel from './playercardcarousel';
 import axios from 'axios';
+import LandLogo from './imgs/land_logo.png';
 import Autocomplete from './autocomplete';
 //import _ from 'lodash';
 
@@ -20,8 +21,8 @@ export default class SearchBar extends Component {
         };
     }
     componentWillMount(){
-      axios.post('http://localhost:3030/front_page').then((response)=>{
-        //console.log('this is response: ', response);
+      axios.post('http://localhost:3030/front_page', {number: 2}).then((response)=>{
+        console.log('this is response: ', response);
         this.setState({
           cards: response.data
         })
@@ -50,14 +51,28 @@ export default class SearchBar extends Component {
 
     render(){
         return (
-            <div className="searchbar center">
-                <input className="searchInput" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
-                <Link to='/results'>
-                  <button className="searchButton btn" onClick={(e) => this.handleSubmit(e)}>SEARCH</button>
-                </Link>
-                <Autocomplete recommendations={this.state.autocomCards} />
-                <Carousel card = {this.state.cards} />
+          <div className ='container center'>
+            <div className='landpage_logo row col-md-7 offset-md-5'>
+              <img src = {LandLogo}/>
             </div>
+            {/*Row for the search bar styling*/}
+            <div className='row col-md-6 offset-md-4'>
+              <div className='col-md-8'>
+                <div className='input-group'>
+                  <input className="searchInput" list="playersRec" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
+                  <Autocomplete recommendations={this.state.autocomCards} />
+                  <span className='input-group-btn'>
+                      <Link type='button' className='btn btn-outline-primary text-center' to='/results' onClick={(e) => this.handleSubmit(e)}>Search</Link>
+                  </span>
+
+                </div>
+              </div>
+            </div>
+            {/* Row for the player cards styling */}
+            <div className='row col-md-6 offset-md-3'>
+              <Carousel card = {this.state.cards} />
+            </div>
+          </div>
         )
     }
 }
