@@ -1,19 +1,25 @@
 import React from 'react';
+import images from './images';
+import './stylish.css';
 
 const Autocomplete = (props) => {
 
     const autocomItem = props.recommendations.map ((item, index) => {
+
         return (
-        <li key={index}>
-            {item.name} {item.main}
-        </li>
+
+        <div className="autocomItem col-12" key={index}>
+            <div className="col-4">{item.name}</div>
+            <div className="col-4">{item.main}</div>
+            <div className="col-4"> <img className="autocomPic" src={item.image_url !== '' ? item.image_url : images['ProfilePlaceholder.gif']}/> </div>
+        </div>
         )
     });
 
      return (
-        <ul className="autocomplete">
+        <div className="autocomplete col-12">
             {autocomItem}
-        </ul>
+        </div>
      );
 };
 export default Autocomplete;

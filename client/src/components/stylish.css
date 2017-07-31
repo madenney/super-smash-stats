@@ -71,3 +71,20 @@ img {
     height: 200px;
     width: 200px;
 }
+.autocomplete{
+    position: absolute;
+    display: block;
+    width: 360px;
+    background-color: black;
+}
+.autocomItem{
+    display: inline-block;
+    height: 60px;
+}
+.autocomItem > div {
+    display: inline-block;
+}
+.autocomPic {
+    height: 30px;
+    width: 30px;
+}

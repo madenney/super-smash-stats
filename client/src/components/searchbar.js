@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import Carousel from './playercardcarousel';
 import axios from 'axios';
 import Autocomplete from './autocomplete';
-import _ from 'lodash';
+//import _ from 'lodash';
 
 //dynamically create options in datalist with json data
 
@@ -21,7 +21,7 @@ export default class SearchBar extends Component {
     }
     componentWillMount(){
       axios.post('http://localhost:3030/front_page').then((response)=>{
-        // console.log('this is response: ', response);
+        //console.log('this is response: ', response);
         this.setState({
           cards: response.data
         })
@@ -40,7 +40,7 @@ export default class SearchBar extends Component {
         }
     }
 
-    handleSubmit(e){
+    handleSubmit(){
       return this.props.getValue(this.state.value);
     }
 
@@ -49,7 +49,7 @@ export default class SearchBar extends Component {
             <div className="searchbar center">
                 <input className="searchInput" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
                 <Link to='/results'>
-                  <button className="searchButton" onClick={(e) => this.handleSubmit(e)}>SEARCH</button>
+                  <button className="searchButton btn" onClick={(e) => this.handleSubmit(e)}>SEARCH</button>
                 </Link>
                 <Autocomplete recommendations={this.state.autocomCards} />
                 <Carousel card = {this.state.cards} />
