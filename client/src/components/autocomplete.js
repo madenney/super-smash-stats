@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import images from './images';
 import './stylish.css';
+import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 
 const Autocomplete = (props) => {
 
@@ -12,7 +13,7 @@ const Autocomplete = (props) => {
                 <div className="autocomItem col-12" key={index}>
                     <div className="col-4">{item.name}</div>
                     <div className="col-4">{item.main === '' || item.main === '' ?  '' : item.main}</div>
-                    <div className="col-4"> <img className="autocomPic" src={item.image_url === '' || item.image_url === null? images['ProfilePlaceholder.gif'] : item.image_url} /> </div>
+                    <div className="col-4"> <img className="autocomPic" src={!images[`${item.name}.png`] ? ProfilePlaceholder : images[`${item.name}.png`]} /> </div>
                 </div>
             </Link>
         )
@@ -25,3 +26,4 @@ const Autocomplete = (props) => {
      );
 };
 export default Autocomplete;
+//component for image url for database side: item.image_url === '' || item.image_url === null? images['ProfilePlaceholder.gif'] : item.image_url

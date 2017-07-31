@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-
+import images from './images';
+import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 class PlayerProfile extends Component{
   constructor(props){
     super(props);
@@ -25,6 +26,7 @@ class PlayerProfile extends Component{
       <div>
         <Link to='/'>Home!</Link>
         <h1>{profile.tag}</h1>
+        <img src={!images[`${profile.tag}.png`] ? ProfilePlaceholder : images[`${profile.tag}.png`] }/>
         <p>{profile.name}</p>
         <p>{profile.rank}</p>
         <p>{profile.state}</p>
