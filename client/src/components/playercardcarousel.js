@@ -10,16 +10,15 @@ const Carousel = (props) => {
   const player_cards = props.card.map((item, index)=>{
     return(
     <Link to={`/player_profile/${item.id}`} key={index}>
-      <li value={item.id}>
-        {item.name} {item.main}
-      </li>
+      <div className='player_card'>
+        <h3>{item.name}</h3>
+        <p>{item.main}</p>
+      </div>
     </Link>
     )
   });
   return (
-      <div className="Carousel">
-        <ul>{player_cards}</ul>
-      </div>
+      <div className="scrollmenu">{player_cards}</div>
     )
   }
 export default Carousel;

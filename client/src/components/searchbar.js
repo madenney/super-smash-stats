@@ -3,6 +3,7 @@ import {dummy_data} from '../../../data/dummy_data';
 import {Link} from 'react-router-dom';
 import Carousel from './playercardcarousel';
 import axios from 'axios';
+import LandLogo from './imgs/land_logo.png';
 import Autocomplete from './autocomplete';
 //import _ from 'lodash';
 
@@ -20,8 +21,8 @@ export default class SearchBar extends Component {
         };
     }
     componentWillMount(){
-      axios.post('http://localhost:3030/front_page').then((response)=>{
-        //console.log('this is response: ', response);
+      axios.post('http://localhost:3030/front_page', {number: 8}).then((response)=>{
+        console.log('this is response: ', response);
         this.setState({
           cards: response.data
         })
@@ -50,6 +51,10 @@ export default class SearchBar extends Component {
 
     render(){
         return (
+          <div>
+            <div className='landpage_logo row col-md-7 offset-md-5'>
+              <img src = {LandLogo}/>
+            </div>
             <div className="searchbar center">
                 <input className="searchInput" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
                 <Link to='/results'>
@@ -58,6 +63,7 @@ export default class SearchBar extends Component {
                 <Autocomplete recommendations={this.state.autocomCards} />
                 <Carousel card = {this.state.cards} />
             </div>
+          </div>
         )
     }
 }
