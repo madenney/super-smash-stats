@@ -82,9 +82,7 @@ exports.Database = function(options) {
         })
     };
 
-    this.getHistory = function(res, input, page) {
-
-        if(!page) { page = 0;}
+    this.getHistory = function(res, input, page = 0) {
 
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err) {
@@ -104,7 +102,7 @@ exports.Database = function(options) {
         });
     };
 
-    this.getFrontPageInfo = function(res) {
+    this.getFrontPageInfo = function(res, number = 4) {
 
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err) {
@@ -113,7 +111,7 @@ exports.Database = function(options) {
                 throw err;
             }
 
-            var query = "SELECT players.name, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.name = player_info.tag LIMIT 4";
+            var query = "SELECT players.name, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.name = player_info.tag LIMIT " + number;
             conn.query(query, function(err,rows){
                 if(err){
                     console.log("Error with query");
