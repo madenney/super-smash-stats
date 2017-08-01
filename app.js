@@ -40,7 +40,7 @@ app.post('/player_profile', function(req, res) {
 
 app.post('/front_page', function(req, res) {
     console.log("Getting frontpage info");
-    db.getFrontPageInfo(res);
+    db.getFrontPageInfo(res, req.body.number);
 });
 
 app.listen(3030, function(){
