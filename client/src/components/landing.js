@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Searchbar from './searchbar';
 import axios from 'axios';
+import Navbar from './navbar';
 import PlayerProfile from './player_profile';
 import SearchResults from './search_results';
 import {Route, Link} from 'react-router-dom';
@@ -24,6 +25,7 @@ export default class Landingpage extends Component {
     render() {
         return (
             <div className="landing">
+                <Navbar />
                 <Route exact path='/'  render={()=>{
                   return <Searchbar getValue = {(value)=>this.getResults(value)} />
                 }} />
