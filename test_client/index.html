@@ -17,7 +17,8 @@
                     url: '/autocomplete',
                     method: "POST",
                     data: {
-                        input: $("input").val()
+                        input: $("input").val(),
+                        number: 6
                     },
                     success: function(result) {
                         console.log(result);
@@ -57,6 +58,9 @@
                     dataType: 'json',
                     url: '/front_page',
                     method: "POST",
+                    data: {
+                        number: 10
+                    },
                     success: function(result) {
                         console.log(result);
                     },
