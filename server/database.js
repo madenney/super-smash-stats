@@ -28,7 +28,7 @@ exports.Database = function(options) {
                 playerName = players[j][0].replace(/'/g, "\\'");
             }
 
-            var query = "SELECT player_info.*, players.rank, players.matches_played FROM player_info JOIN players ON players.name = player_info.tag WHERE players.name = '" + playerName + "'";
+            var query = "SELECT player_info.*, players.rank, players.total_matches_played FROM player_info JOIN players ON players.tag = player_info.tag WHERE players.tag = '" + playerName + "'";
             conn.query(query, function(err, rows) {
                 if(err) {
                     console.log("Error with query");
@@ -41,7 +41,7 @@ exports.Database = function(options) {
 
     };
 
-    this.autocomplete = function(res, input) {
+    this.autocomplete = function(res, input, number = 6) {
 
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err){
@@ -50,7 +50,7 @@ exports.Database = function(options) {
                 throw err;
             }
 
-            var query = "SELECT players.name, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.name = player_info.tag WHERE players.name LIKE '"+input+"%' LIMIT 6";
+            var query = "SELECT players.tag, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.tag = player_info.tag WHERE players.tag LIKE '"+input+"%' LIMIT " + number;
             conn.query(query, function(err, rows) {
                 if(err) {
                     console.log("Error with query");
@@ -71,13 +71,17 @@ exports.Database = function(options) {
                 throw err;
             }
 
-            var query = "SELECT player_info.*, players.rank, players.matches_played FROM player_info JOIN players ON players.name = player_info.tag WHERE players.id = '" + id + "'";
+            if(id > 100) {
+                var query = "SELECT * FROM players WHERE id = " + id;
+            } else {
+                var query = "SELECT player_info.*, players.* FROM players JOIN player_info ON players.tag = player_info.tag WHERE players.id = '" + id + "'";
+            }
             conn.query(query, function(err,rows){
                 if(err){
                     console.log("Error with query");
                     throw err;
                 }
-                res.end(JSON.stringify(rows));
+                res.end(JSON.stringify(rows[0]));
             })
         })
     };
@@ -102,7 +106,7 @@ exports.Database = function(options) {
         });
     };
 
-    this.getFrontPageInfo = function(res, number = 4) {
+    this.getFrontPageInfo = function(res, number = 10) {
 
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err) {
@@ -111,7 +115,7 @@ exports.Database = function(options) {
                 throw err;
             }
 
-            var query = "SELECT players.name, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.name = player_info.tag LIMIT " + number;
+            var query = "SELECT players.tag, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.tag = player_info.tag LIMIT " + number;
             conn.query(query, function(err,rows){
                 if(err){
                     console.log("Error with query");

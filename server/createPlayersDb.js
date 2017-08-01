@@ -146,7 +146,7 @@ exports.CreatePlayersDb = function() {
 
         // Need to count the players to make sure they all get passed in later during the transaction
         var playerCount = 0;
-        var query = "INSERT INTO `players` (`name`, `rank`, `matches_played`) VALUES ";
+        var query = "INSERT INTO `players` (`tag`, `rank`, `total_matches_played`) VALUES ";
         for(var j = dbCounter; j < dbCounter + incrementer; j++) {
             if(typeof players[j] == "undefined") { break; }
             // Escape apostrophes

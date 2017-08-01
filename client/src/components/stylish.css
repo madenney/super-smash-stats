@@ -6,20 +6,11 @@ body {
     background-position: center;
     color: white;
 }
-#landing{
-    width: 100vw;
-    height: 70vh;
-}
 .center{
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
-.searchInput{
-    height: 50px;
-    width: 360px;
-    font-size: 20px;
 }
 .searchButton{
     margin: 5px;
@@ -39,6 +30,7 @@ body {
     margin: 20px 15px;
 }
 .autocomplete{
+    top: 100%;
     position: absolute;
     display: block;
     width: 360px;
@@ -70,8 +62,17 @@ body {
 .player_card{
   border: solid #A4A4A4 1px;
   margin: 3px;
+  width: 200px;
+  height: 200px;
 }
 .landpage_logo img{
   width: 575px;
   height: 200px;
+  margin-bottom: 30px;
+}
+.form-control{
+  border: 2px solid #EC971F;
+}
+.container{
+  width: 100vw;
 }
