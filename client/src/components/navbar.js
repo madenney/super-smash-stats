@@ -1,5 +1,5 @@
 import React from 'react';
-import './mergeintostylish.css';
+import './navbar.css';
 import {Link} from 'react-router-dom';
 import SmashIcon from './imgs/SmashBrosSymbol.svg';
 
@@ -7,16 +7,22 @@ const Navbar = () => {
 
 
     return(
-        <div className="navigation">
-            <Link to="/">
-                <div className="navItem">
-                    <a href="/" className="homeIcon"><img src={SmashIcon} /></a>
-                </div>
-            </Link>
-            <div className="navItem">
-                 <a href="#">ABOUT</a>
-            </div>
-        </div>
+      <nav className='navbar navbar-inverse bg-inverse navbar-static-top navbar-toggleable-md'>
+        <Link to="/" className="navbar-brand homeIcon">
+            <img src={SmashIcon} />
+        </Link>
+          <ul className='navbar-nav'>
+            <li className='nav-item nav-link'>
+              <Link to='/'>Home</Link>
+            </li>
+            <li className='nav-item nav-link'>
+              <Link to='/#'>About Us</Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/#'/>
+            </li>
+          </ul>
+      </nav>
     )
 
 };

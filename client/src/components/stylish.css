@@ -16,7 +16,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(337deg, #000918, #071427, #212A39);
+  background: linear-gradient(337deg, #000918, #37393C, #212A39);
   background-size: 600% 600%;
   -webkit-animation: bodyback 32s ease infinite;
   -moz-animation: bodyback 32s ease infinite;
@@ -65,10 +65,15 @@ body {
     height: 30px;
     width: 30px;
 }
+::-webkit-scrollbar{
+  width: 0px;
+  background: transparent;
+}
 .scrollmenu{
-  overflow: auto;
+  overflow: scroll;
   white-space: nowrap;
   margin-top: 30px;
+  border: 1px solid #B8B1AB
 }
 .scrollmenu div{
   display: inline-block;
@@ -83,6 +88,7 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 10px;
+  display: inline-block;
 }
 .landpage_logo img{
   width: 575px;
@@ -102,8 +108,13 @@ body {
   color: white;
   opacity: 0.5;
   vertical-align: bottom;
+  position: relative;
 }
 .player_card:hover .player_text{
-
+  visibility: visible;
   opacity: 1;
+}
+/*SearchResults styling*/
+.search_results{
+  height: 90vh;
 }
