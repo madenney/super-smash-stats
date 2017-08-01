@@ -50,7 +50,7 @@ export default class SearchBar extends Component {
     render(){
         return (
           <div className ='container center'>
-            <div className='landpage_logo row offset-md-3 col-md-6'>
+            <div className='landpage_logo row offset-md-4 col-md-6'>
               <img src = {LandLogo}/>
             </div>
             {/*Row for the search bar styling*/}
@@ -67,7 +67,7 @@ export default class SearchBar extends Component {
               </div>
             </div>
             {/* Row for the player cards styling */}
-            <div className='row col-md-6 offset-md-3 col-sm-9 offset-sm-1'>
+            <div className='row col-md-6 offset-md-3 col-sm-9 offset-sm-1 scrollmenu'>
               <Carousel card = {this.state.cards} />
             </div>
           </div>
