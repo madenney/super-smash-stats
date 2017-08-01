@@ -8,6 +8,9 @@ const Carousel = (props) => {
     )
   }
   const player_cards = props.card.map((item, index)=>{
+    // if(item.main === null){
+    //   item.main = 'Your mom';
+    // }
     return(
     <Link to={`/player_profile/${item.id}`} key={index}>
       <div className='player_card'>

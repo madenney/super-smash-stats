@@ -21,7 +21,7 @@ export default class SearchBar extends Component {
         };
     }
     componentWillMount(){
-      axios.post('http://localhost:3030/front_page', {number: 10}).then((response)=>{
+      axios.post('http://localhost:3030/front_page', {number: 6}).then((response)=>{
         console.log('this is response: ', response);
         this.setState({
           cards: response.data
@@ -52,24 +52,24 @@ export default class SearchBar extends Component {
     render(){
         return (
           <div className ='container center'>
-            <div className='landpage_logo row offset-md-3 col-md-6'>
+            <div className='landpage_logo row offset-md-3 col-md-6 col-xs-12'>
               <img src = {LandLogo}/>
             </div>
             {/*Row for the search bar styling*/}
-            <div className='row col-md-6 offset-md-4'>
+            <div className='row col-md-6 offset-md-4 col-xs-12 col-sm-12'>
               <div className='col-md-8'>
                 <div className='input-group'>
-                  <input className="searchInput" list="playersRec" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
+                  <input className="form-control" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
                   <Autocomplete recommendations={this.state.autocomCards} />
                   <span className='input-group-btn'>
-                      <Link type='button' className='btn btn-outline-primary text-center' to='/results' onClick={(e) => this.handleSubmit(e)}>Search</Link>
+                      <Link className='btn btn-outline-warning' to='/results' onClick={(e) => this.handleSubmit(e)}>Search</Link>
                   </span>
 
                 </div>
               </div>
             </div>
             {/* Row for the player cards styling */}
-            <div className='row col-md-6 offset-md-3'>
+            <div className='row col-md-6 offset-md-3 col-sm-9 offset-sm-1'>
               <Carousel card = {this.state.cards} />
             </div>
           </div>
