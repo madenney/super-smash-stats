@@ -20,12 +20,7 @@ app.use(express.static('test_client'));
 
 app.post('/autocomplete', function(req, res) {
     console.log("Autocompleting - " + req.body.input);
-    db.autocomplete(res, req.body.input);
-});
-
-app.post('/match_history', function(req, res) {
-    console.log("Getting History - " + req.body.input, req.body.page);
-    db.getHistory(res, req.body.input,  req.body.page);
+    db.autocomplete(res, req.body.input, req.body.number);
 });
 
 app.post('/match_history', function(req, res) {
