@@ -1,11 +1,28 @@
-body {
-    background-color: #000A18;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    color: white;
+@-webkit-keyframes bodyback {
+  0%{background-position:0% 30%}
+  50%{background-position:100% 71%}
+  100%{background-position:0% 30%}
 }
+@-moz-keyframes bodyback {
+  0%{background-position:0% 30%}
+  50%{background-position:100% 71%}
+  100%{background-position:0% 30%}
+}
+@keyframes bodyback {
+  0%{background-position:0% 30%}
+  50%{background-position:100% 71%}
+  100%{background-position:0% 30%}
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(337deg, #000918, #071427, #212A39);
+  background-size: 600% 600%;
+  -webkit-animation: bodyback 32s ease infinite;
+  -moz-animation: bodyback 32s ease infinite;
+  animation: bodyback 32s ease infinite;
+}
+
 .center{
     position: absolute;
     left: 50%;
@@ -65,6 +82,7 @@ body {
   margin: 3px;
   width: 200px;
   height: 200px;
+  border-radius: 10px;
 }
 .landpage_logo img{
   width: 575px;
@@ -76,4 +94,16 @@ body {
 }
 .container{
   width: 100vw;
+}
+.player_text{
+  margin-top: 90%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  opacity: 0.5;
+  vertical-align: bottom;
+}
+.player_card:hover .player_text{
+
+  opacity: 1;
 }

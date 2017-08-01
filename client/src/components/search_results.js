@@ -25,9 +25,11 @@ class SearchResults extends Component{
 
     console.log('The state is...', this.state.player_cards)
     return(
-      <div>
+      <div className='container'>
         <Link to='/' className='btn btn-outline-default'>Home!</Link>
+        <div className='row'>
         <Carousel card = {this.state.player_cards} />
+      </div>
       </div>
     )
   }

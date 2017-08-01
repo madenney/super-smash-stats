@@ -24,7 +24,6 @@ class PlayerProfile extends Component{
     console.log(profile);
     return(
       <div>
-        <Link to='/'>Home!</Link>
         <h1>{profile.tag}</h1>
         <img src={!images[`${profile.tag}.png`] ? ProfilePlaceholder : images[`${profile.tag}.png`] }/>
         <p>{profile.name}</p>
