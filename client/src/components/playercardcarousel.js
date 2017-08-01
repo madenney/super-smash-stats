@@ -21,7 +21,7 @@ const Carousel = (props) => {
     )
   });
   return (
-      <div className="scrollmenu">{player_cards}</div>
+      <div>{player_cards}</div>
     )
   }
 export default Carousel;
