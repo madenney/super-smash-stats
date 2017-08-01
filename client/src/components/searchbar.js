@@ -21,7 +21,7 @@ export default class SearchBar extends Component {
         };
     }
     componentWillMount(){
-      axios.post('http://localhost:3030/front_page', {number: 2}).then((response)=>{
+      axios.post('http://localhost:3030/front_page', {number: 10}).then((response)=>{
         console.log('this is response: ', response);
         this.setState({
           cards: response.data
@@ -52,7 +52,7 @@ export default class SearchBar extends Component {
     render(){
         return (
           <div className ='container center'>
-            <div className='landpage_logo row col-md-7 offset-md-5'>
+            <div className='landpage_logo row offset-md-3 col-md-6'>
               <img src = {LandLogo}/>
             </div>
             {/*Row for the search bar styling*/}
