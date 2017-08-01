@@ -7,7 +7,6 @@ import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 const Autocomplete = (props) => {
 
     const autocomItem = props.recommendations.map ((item, index) => {
-
         return (
             <Link to={`/player_profile/${item.id}`} key={index}>
                 <div className="autocomItem col-12" key={index}>
