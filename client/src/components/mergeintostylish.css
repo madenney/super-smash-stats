@@ -1,0 +1,10 @@
+.navigation {
+    background-color: grey;
+}
+.homeIcon img {
+    height: 60px;
+    width: 60px;
+}
+.navItem {
+    display: inline-block;
+}

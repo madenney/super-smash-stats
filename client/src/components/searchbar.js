@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {dummy_data} from '../../../data/dummy_data';
 import {Link} from 'react-router-dom';
 import Carousel from './playercardcarousel';
 import axios from 'axios';
@@ -12,7 +11,6 @@ import Autocomplete from './autocomplete';
 export default class SearchBar extends Component {
 
     constructor(props){
-        const {playercards} = dummy_data;
         super(props);
         this.state = {
             value: '',
