@@ -52,7 +52,7 @@ export default class SearchBar extends Component {
     render(){
         return (
           <div className ='container center'>
-            <div className='landpage_logo row offset-md-3 col-md-6 col-xs-12'>
+            <div className='landpage_logo row offset-md-3 col-md-6'>
               <img src = {LandLogo}/>
             </div>
             {/*Row for the search bar styling*/}
