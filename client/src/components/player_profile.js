@@ -15,7 +15,7 @@ class PlayerProfile extends Component{
     axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
       console.log('this is the response david: ', response);
       this.setState({
-        profile: response.data[0]
+        profile: response.data
       })
     })
   }
@@ -33,7 +33,7 @@ class PlayerProfile extends Component{
         <p>{profile.twitter}</p>
         <p>{profile.matches_played}</p>
       </div>
-    )
+    );
   }
 }
 export default PlayerProfile;

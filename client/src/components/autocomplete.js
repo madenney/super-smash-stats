@@ -11,9 +11,9 @@ const Autocomplete = (props) => {
         return (
             <Link to={`/player_profile/${item.id}`} key={index}>
                 <div className="autocomItem col-12" key={index}>
-                    <div className="col-4">{item.name}</div>
+                    <div className="col-4">{item.tag}</div>
                     <div className="col-4">{item.main === '' || item.main === '' ?  '' : item.main}</div>
-                    <div className="col-4"> <img className="autocomPic" src={!images[`${item.name}.png`] ? ProfilePlaceholder : images[`${item.name}.png`]} /> </div>
+                    <div className="col-4"> <img className="autocomPic" src={!images[`${item.tag}.png`] ? ProfilePlaceholder : images[`${item.tag}.png`]} /> </div>
                 </div>
             </Link>
         )
