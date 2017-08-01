@@ -1,12 +1,12 @@
 import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import Landingpage from './components/landing';
+import App from './components/app';
 
 ReactDOM.render(
     <div>
         <Router>
-            <Landingpage />
+            <App />
         </Router>
     </div>,
     document.getElementById('root')
