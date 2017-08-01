@@ -1,0 +1,70 @@
+#container{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#profile-card, #matches_stream{
+    padding: 20px 10px 10px 10px;
+    color: #ffdf06;
+    border: 3px solid #ffdf06;
+    border-radius: 10px;
+}
+#profile-card{
+    margin: 20px 0;
+    padding: 10px 30px;
+}
+.profile-image{
+    width: 100%;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: black;
+    cursor: default;
+    background-color: #ffdf06;
+    border: 1px solid #ffdf06;
+}
+h3 {
+    margin: 0;
+}
+
+a {
+    color: #ffdf06;
+}
+
+.nav-tabs>li>a {
+    border-radius: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: black;
+    border: 1px solid #ffdf06;
+}
+.nav-tabs > li > a:hover {
+    background-color: #ededed;
+    border-color: #ffdf06;
+    color: black;
+}
+
+bootstrap.css:4032
+.nav-tabs>li>a:hover {
+    border-color: #ffdf06;
+    border: 1px solid #ffdf06;
+    background-color: #ffdf06;
+}
+
+.tab-pane {
+    margin-top: 10px;
+}
+.match-box {
+    padding-bottom: 1vw;
+}
+@media (max-width: 768px){
+    #container{
+        width:99%;
+    }
+}
+
+
+.value{
+    font-family: "Bangla Sangam MN";
+    font-size: 16px;
+}
