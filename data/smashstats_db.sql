@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:1337
--- Generation Time: Aug 02, 2017 at 03:57 AM
+-- Generation Time: Aug 02, 2017 at 05:59 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.5
 
@@ -47,7 +47,8 @@ CREATE TABLE `matches` (
   `winner` varchar(255) NOT NULL,
   `loser` varchar(255) NOT NULL,
   `score` varchar(5) NOT NULL,
-  `tournament` varchar(1000) NOT NULL
+  `tournament` varchar(1000) NOT NULL,
+  `video_url` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
