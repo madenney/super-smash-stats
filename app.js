@@ -10,10 +10,13 @@ app.use(cors());
 
 var Database = require('./server/database.js');
 options = {
-    reloadTextFiles: false,
-    redoPlayers: false,
-    checkForBadMatches: false
+    newData: true,
+    reloadTextFiles: true,
+    reloadPlayers: true,
+    calcStats: true,
+    getYoutubeURLs: false
 };
+
 var db = new Database.Database(options);
 
 app.use(express.static('test_client'));
