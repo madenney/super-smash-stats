@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import images from './images';
+import char_images from './characterimages';
 import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 import TournamentHistory from './tournament_history';
 import MatchHistory from './match_history';
@@ -69,8 +70,9 @@ class PlayerProfile extends Component{
   						<h4 id="player_rank">Rank: {profile.rank}</h4>
 
   						<p id="location">Location: {profile.state}</p>
-  						<p>Main: {profile.main}</p>
-  						<p>Secondary: {profile.secondary}</p>
+  						<p>Mains:</p>
+              <img className='char_img_sizing' src={char_images[`${profile.main}.png`]}/>
+  						<img className='char_img_sizing' src={char_images[`${profile.secondary}.png`]}/>
   						<p>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
   					<div className="col-sm-4 col-xs-6">
@@ -78,25 +80,23 @@ class PlayerProfile extends Component{
   						<p>Twitter: {profile.twitter}</p>
   						<p>Twitch: {profile.twitch}</p>
   						<p>Sponsors: {profile.sponsor}</p>
-  					</div>
+              <p>Recent Tournaments:</p>
+              <div className='recent_tournament' >
+                <TournamentHistory tournament_info = {this.state.matches} />
+              </div>
+            </div>
   				</div>
   			</div>
   		</div>
   		<div className="row">
   			<div id="matches_stream" className="col-xs-12 col-md-12">
   				<ul className="nav nav-tabs">
-  				    <li className="active">
-                <a data-toggle="tab" href='#match_data'>Tournament Data</a>
-              </li>
-  				    <li>
-                <a data-toggle="tab" href='#tournament_data'>Match Data</a>
+  				    <li className='active'>
+                <a data-toggle="tab" href='#match_data'>Match Data</a>
               </li>
   				</ul>
-          <div className='tab-content'>
-            <div className='tab-pane active' id='tournament_data' role='tab-panel'>
-              <TournamentHistory tournament_info = {this.state.matches} />
-            </div>
-            <div className='tab-pane fade' id='match_data' role='tab-panel'>
+          <div className='tab-content col-md-12'>
+            <div className='tab-pane active recent_match container col-md-12' id='tournament_data' role='tab-panel'>
               <MatchHistory match_info = {this.state.matches}/>
             </div>
           </div>
@@ -107,3 +107,4 @@ class PlayerProfile extends Component{
   }
 }
 export default PlayerProfile;
+//  <TournamentHistory tournament_info = {this.state.matches} />
