@@ -1,11 +1,28 @@
-body {
-    background-color: #000A18;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    color: white;
+@-webkit-keyframes bodyback {
+  0%{background-position:0% 30%}
+  50%{background-position:100% 71%}
+  100%{background-position:0% 30%}
 }
+@-moz-keyframes bodyback {
+  0%{background-position:0% 30%}
+  50%{background-position:100% 71%}
+  100%{background-position:0% 30%}
+}
+@keyframes bodyback {
+  0%{background-position:0% 30%}
+  50%{background-position:100% 71%}
+  100%{background-position:0% 30%}
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(337deg, #000918, #37393C, #212A39);
+  background-size: 600% 600%;
+  -webkit-animation: bodyback 32s ease infinite;
+  -moz-animation: bodyback 32s ease infinite;
+  animation: bodyback 32s ease infinite;
+}
+
 .center{
     position: absolute;
     left: 50%;
@@ -35,6 +52,7 @@ body {
     display: block;
     width: 360px;
     background-color: black;
+    z-index: 2000;
 }
 .autocomItem{
     display: inline-block;
@@ -47,8 +65,19 @@ body {
     height: 30px;
     width: 30px;
 }
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px black;
+}
 .scrollmenu{
-  overflow: auto;
+  overflow: scroll;
   white-space: nowrap;
   margin-top: 30px;
 }
@@ -64,6 +93,9 @@ body {
   margin: 3px;
   width: 200px;
   height: 200px;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
 }
 .landpage_logo img{
   width: 575px;
@@ -75,4 +107,20 @@ body {
 }
 .container{
   width: 100vw;
+}
+.player_text{
+  margin-top: 80%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  opacity: 0.5;
+  position: absolute;
+}
+.player_card:hover .player_text{
+  visibility: visible;
+  opacity: 1;
+}
+/*SearchResults styling*/
+.search_results{
+  height: 90vh;
 }

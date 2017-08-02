@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import Carousel from './playercardcarousel';
 import {Link} from 'react-router-dom';
-
+import './stylish.css';
 //will most likely need to be a class component,
 
 class SearchResults extends Component{
@@ -12,12 +13,19 @@ class SearchResults extends Component{
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    this.setState({
-      player_cards: nextProps.result.data
-    });
+  componentWillMount(){
+    var { search } = this.props.match.params;
+    console.log('Search is:', search);
+    if(search == 'noSearch'){
+      console.log('No search given');
+      search = '';
+    }
+    axios.post('http://localhost:3030/autocomplete', {input: search, number: 20}).then((response)=>{
+      this.setState({
+        player_cards : response.data
+      })
+    })
   }
-
   render(){
     if(!this.state.player_cards){
       return <h1>Loading...</h1>
@@ -25,44 +33,13 @@ class SearchResults extends Component{
 
     console.log('The state is...', this.state.player_cards)
     return(
-      <div>
-        <Link to='/' className='btn btn-outline-default'>Home!</Link>
-        <Carousel card = {this.state.player_cards} />
+      <div className='container search_results'>
+        <div className='col-md-11 offset-md-1 '>
+          <Carousel card = {this.state.player_cards} />
+        </div>
       </div>
     )
   }
 }
-    // if(props.card.length>1){
-    //   console.log(props.card);
-    //  const list = props.card.map((item,index)=>{
-    //   return(
-    //     <div key={index} className="card col-md-3">
-    //       <img className="card-img-top" src={item.image_url} alt="Card image cap"/>
-    //       <div className="card-block">
-    //         <h4 className="card-title">Tag: {item.tag}</h4>
-    //         <p className="card-text">Main: {item.main}</p>
-    //       </div>
-    //     </div>
-    //     );
-    //  });
-    // return(
-    //     <div className='card-deck'>
-    //       {list}
-    //     </div>
-    // )
-    //
-    // }
-    // if(props.card.length===1){
-    //   return(
-    //   <div className='card-deck'>
-    //     <div key={props.card.id} className="card">
-    //       <img className="card-img-top" src={props.card.image_url} alt="Card image cap"/>
-    //       <div className="card-block">
-    //         <h4 className="card-title">Tag: {props.card.tag}</h4>
-    //         <p className="card-text">Main: {props.card.main}</p>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   )
-    // }
+
 export default SearchResults;

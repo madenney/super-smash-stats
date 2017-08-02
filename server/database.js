@@ -107,7 +107,7 @@ exports.Database = function(options) {
         });
     };
 
-    this.getFrontPageInfo = function(res, number = 4) {
+    this.getFrontPageInfo = function(res, number = 10) {
 
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err) {
