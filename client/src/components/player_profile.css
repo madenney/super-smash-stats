@@ -23,11 +23,6 @@
 h3 {
     margin: 0;
 }
-
-a {
-    color: #ffdf06;
-}
-
 .nav-tabs>li>a {
     border-radius: 0px;
     border-top-left-radius: 10px;
@@ -40,8 +35,6 @@ a {
     border-color: #ffdf06;
     color: black;
 }
-
-bootstrap.css:4032
 .nav-tabs>li>a:hover {
     border-color: #ffdf06;
     border: 1px solid #ffdf06;
@@ -62,4 +55,37 @@ bootstrap.css:4032
 .value{
     font-family: "Bangla Sangam MN";
     font-size: 16px;
+}
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px black;
+}
+.recent_match{
+  overflow-y: scroll;
+  white-space: nowrap;
+  margin-top: 30px;
+  height: 25vh;
+
+}
+.recent_tournament{
+  overflow-y: scroll;
+  height: 70px;
+  border: 1px solid #ffdf06;
+  padding: 2px;
+  border-radius: 5px;
+}
+.theader{
+  font-weight: bolder;
+  color: white;
+}
+.char_img_sizing{
+  width: 50px;
+  height: 50px;
 }

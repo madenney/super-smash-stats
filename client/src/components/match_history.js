@@ -9,7 +9,7 @@ const MatchHistory = (props) =>{
   else{
     const match_item = props.match_info.map((item,index)=>{
       return(
-        <tr>
+        <tr className='col-md-4' key={`1${index}`}>
           <td>{item.winner}</td>
           <td>{item.score}</td>
           <td>{item.loser}</td>
@@ -17,9 +17,9 @@ const MatchHistory = (props) =>{
       )
     });
     return(
-      <table>
+      <table className='table'>
         <thead>
-          <tr>
+          <tr className='col-md-4 theader'>
             <td>Winner</td>
             <td>Set Count</td>
             <td>Loser</td>

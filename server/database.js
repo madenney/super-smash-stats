@@ -9,10 +9,11 @@ var connInfo = require('./connect').conn;
 
 exports.Database = function(options) {
 
-    if(options.reloadTextFiles){
-        new require('./createDb').createDb();
+    if(options.newData){
+        new require('./createDb').createDb(options);
     }
 
+    return;
 
     this.getPlayer = function(res, playerName) {
 
