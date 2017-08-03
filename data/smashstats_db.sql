@@ -932,6 +932,7 @@ INSERT INTO `player_info` (`id`, `name`, `tag`, `location`, `main`, `secondary`,
 (98, 'Vikram Bassi', 'Nightmare', 'Ontario', 'Marth', '', 'Nightmare6God', '', '', '', ''),
 (99, 'David Long', '4%', 'NEOH', 'Jigglypuff', '', '4PercentGaming', '', '', '', ''),
 (100, 'Jay Dahya', 'Drunk Sloth', 'Florida', 'Ice Climbers', '', 'DrvnkSloth', '', '', '', '');
+(101, 'Matt Denney', 'MadMatt', 'Socal', 'Falco', '', 'S3MaddMatt', '', '', '', '');
 
 -- --------------------------------------------------------
 
