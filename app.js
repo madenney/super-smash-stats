@@ -10,7 +10,7 @@ app.use(cors());
 
 var Database = require('./server/database.js');
 options = {
-    modifyData: true,
+    modifyData: false,
     reloadTextFiles: true,
     reloadPlayers: true,
     calcStats: true,

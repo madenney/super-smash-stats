@@ -11,7 +11,8 @@ class Pagination extends Component {
             searchValue: '',
             currentPage: '',
             totalPages: null,
-            pageArray: []
+            pageArray: [],
+            component: ''
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -21,7 +22,8 @@ class Pagination extends Component {
             items: nextProps.items,
             searchValue: nextProps.searchValue,
             currentPage: nextProps.pageNum,
-            totalPages: nextProps.totalPages
+            totalPages: nextProps.totalPages,
+            component: nextProps.component
         });
     }
 
