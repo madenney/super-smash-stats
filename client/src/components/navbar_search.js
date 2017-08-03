@@ -13,9 +13,9 @@ class NavBarSearch extends Component {
   handleChange(e) {
       this.setState({value: e.target.value});
       if (e.target.value != '') {
-          axios.post('http://localhost:3030/autocomplete', { input: e.target.value, number: 10 }).then((response) => {
+          axios.post('http://localhost:3030/autocomplete', { input: e.target.value, resultsPerPage: 5 }).then((response) => {
               this.setState({
-                  autocomCards: response.data
+                  autocomCards: response.data.players
               });
           })
       } else {
