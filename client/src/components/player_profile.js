@@ -17,6 +17,19 @@ class PlayerProfile extends Component{
       match_history: 'show'
     }
   }
+  componentWillReceiveProps(nextProps){
+    const {id} = nextProps.match.params;
+    axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
+      this.setState({
+        profile: response.data
+      });
+      axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
+        this.setState({
+          matches: response.data
+        });
+      });
+    });
+  }
   componentWillMount(){
     const {id} = this.props.match.params;
     axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{

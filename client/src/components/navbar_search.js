@@ -12,6 +12,7 @@ class NavBarSearch extends Component {
   }
   handleChange(e) {
       this.setState({value: e.target.value});
+      // console.log('this is the value:', this.props.match.params.search);
       if (e.target.value != '') {
           axios.post('http://localhost:3030/autocomplete', { input: e.target.value, resultsPerPage: 5 }).then((response) => {
               this.setState({
