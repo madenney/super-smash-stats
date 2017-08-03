@@ -10,12 +10,12 @@ app.use(cors());
 
 var Database = require('./server/database.js');
 options = {
-    newData: false,
+    modifyData: false,
     reloadTextFiles: false,
     reloadPlayers: false,
-    calcStats: false,
-    getYoutubeURLs: false,
-    calcLocation: true
+    calcStats: true,
+    calcLocation: false,
+    getYoutubeURLs: false
 };
 
 var db = new Database.Database(options);
