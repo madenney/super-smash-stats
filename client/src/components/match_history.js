@@ -13,6 +13,7 @@ const MatchHistory = (props) =>{
           <td>{item.winner}</td>
           <td>{item.score}</td>
           <td>{item.loser}</td>
+          <td>{item.tournament}</td>
         </tr>
       )
     });
@@ -23,6 +24,7 @@ const MatchHistory = (props) =>{
             <td>Winner</td>
             <td>Set Count</td>
             <td>Loser</td>
+            <td>Tournament</td>
           </tr>
         </thead>
         <tbody>
