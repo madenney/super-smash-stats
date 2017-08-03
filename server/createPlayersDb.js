@@ -15,93 +15,34 @@ exports.CreatePlayersDb = function(resolve) {
     // Get matches JSON
     this.run = function() {
 
-        console.log("Filling Table - players");
+        console.log("Clearing Players Db");
+        var promise = new Promise(function(resolve, reject) { clearPlayersDb(resolve, reject); });
 
-        conn = mysql.createConnection(connInfo);
-        conn.connect(function(err){
-            if(err) {
-                console.log("Error connecting to database: ");
-                throw err;
-            }
+        promise.then(function(){
 
-            var query = "SELECT * FROM `matches`";
-            conn.query(query, function(err, rows) {
+            console.log("Filling Table - players");
+
+            conn = mysql.createConnection(connInfo);
+            conn.connect(function(err){
                 if(err) {
-                    console.log("Error with query: ");
+                    console.log("Error connecting to database: ");
                     throw err;
                 }
-                conn.end();
-                extractNames(rows);
-                startConnection();
+
+                var query = "SELECT * FROM `matches`";
+                conn.query(query, function(err, rows) {
+                    if(err) {
+                        console.log("Error with query: ");
+                        throw err;
+                    }
+                    conn.end();
+                    extractNames(rows);
+                    startConnection();
+                });
             });
         });
     };
 
-
-    // function rank(rows) {
-    //
-    //     console.log("Ranking Players...");
-    //
-    //     // Give every player a starting number of 1000 and a starting number of matches played (0)
-    //     for(var i = 0; i < players.length; i++) {
-    //         players[i] = [players[i], 2000, 0]
-    //     }
-    //
-    //     for(var i = 0; i < rows.length; i++) {
-    //
-    //         var loserIndex = null;
-    //         var winnerIndex = null;
-    //
-    //         // Find winner and loser index in names list
-    //         for(var j = 0; j < players.length; j++) {
-    //             if(rows[i].winner === players[j][0]){
-    //                 winnerIndex = j;
-    //                 break;
-    //             }
-    //         }
-    //         for(var j = 0; j < players.length; j++) {
-    //             if(rows[i].loser === players[j][0]){
-    //                 loserIndex = j;
-    //                 break;
-    //             }
-    //         }
-    //
-    //         var RW = Math.pow(10, ( players[winnerIndex][1] / 400 ) );
-    //         var RL = Math.pow(10, ( players[loserIndex][1] / 400 ) );
-    //
-    //         var EW = RW / (RW + RL);
-    //         var EL = RL / (RW + RL);
-    //
-    //         var newRW = players[winnerIndex][1] + 32 * (1 - EW);
-    //         var newRL = players[loserIndex][1] + 32 * (0 - EL);
-    //
-    //         players[winnerIndex][1] = newRW;
-    //         players[loserIndex][1] = newRL;
-    //
-    //         players[winnerIndex][2]++;
-    //         players[loserIndex][2]++;
-    //
-    //     }
-    //
-    //     console.log("Finished ranking");
-    //
-    // }
-
-    // function sort() {
-    //
-    //     console.log("Sorting...");
-    //     for(var i = 0; i < players.length-1; i++) {
-    //
-    //         for(var j = 0; j < players.length - i - 1; j++) {
-    //             if(players[j][1] < players[j+1][1]) {
-    //                 var temp = players[j];
-    //                 players[j] = players[j+1];
-    //                 players[j+1] = temp;
-    //             }
-    //         }
-    //     }
-    //
-    // }
 
     function extractNames(rows) {
 
@@ -223,5 +164,27 @@ exports.CreatePlayersDb = function(resolve) {
                 });
             });
         });  /* End transaction */
+    }
+
+    function clearPlayersDb(resolve) {
+
+        var conn = mysql.createConnection(connInfo);
+        conn.connect(function(err){
+            if(err) {
+                console.log("Error connecting to database: ");
+                reject();
+                throw err;
+            }
+
+            var query = "TRUNCATE TABLE players";
+            conn.query(query, function(err, rows) {
+                if(err) {
+                    console.log("Error with query: ");
+                    throw err;
+                }
+                conn.end();
+                resolve();
+            });
+        });
     }
 };

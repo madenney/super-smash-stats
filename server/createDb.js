@@ -32,6 +32,9 @@ exports.createDb = function(options) {
                 action = new CalcStats.CalcStats(resolve);
                 actionChain.push(action);
             });
+            // promise.catch(function(reason) {
+            //     console.log("Rejection Reason: ", reason);
+            // });
             promiseChain.push(promise);
         }
         // if(options.getYoutubeURLs) {
@@ -52,7 +55,11 @@ exports.createDb = function(options) {
         if(actionChain.length > 0) {
             actionChain[0].run();
             for(var i = 0; i < promiseChain.length - 1; i++) {
-                promiseChain[i].then(actionChain[i+1].run);
+                console.log("Promise Number: " + i);
+                promiseChain[i].then(function() {
+                    actionChain[i+1].run();
+                    console.log("HERE: " + i);
+                });
             }
         }
     }
