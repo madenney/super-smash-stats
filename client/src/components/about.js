@@ -1,40 +1,37 @@
 import React from 'react';
+import './stylish.css';
+
 
 const About = () => {
 
     return (
-        <div class="container">
-            <div class="about">
-                <h1>About Us</h1>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet, omnes scaevola scripserit ius cu, odio aliquip eloquentiam nam at. Meliore hendrerit no nec. Partiendo interesset sit ut, clita volumus ei duo. Eu duo graeco ceteros disputationi, et mea erat malorum mentitum. Eos an noster eloquentiam, facete nostrum at ius.</p>
+        <div className="container">
+            <h1> About Us </h1>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+            <div className="card-row">
+                <div className="card">
+                    <img className="card-img-top" src="http://via.placeholder.com/300.png/09f/fff"/>
+                    <span className="name">Person 1</span>
+                </div>
+                <div className="card">
+                    <img className="card-img-top" src="http://via.placeholder.com/300.png/09f/fff"/>
+                    <span className="name">Person 1</span>
+                </div>
+                <div className="card">
+                    <img className="card-img-top" src="http://via.placeholder.com/300.png/09f/fff"/>
+                    <span className="name">Person 1</span>
+                </div>
+                <div className="card">
+                    <img className="card-img-top" src="http://via.placeholder.com/300.png/09f/fff"/>
+                    <span className="name">Person 1</span>
+                </div>
+                <div className="card">
+                    <img className="card-img-top" src="http://via.placeholder.com/300.png/09f/fff"/>
+                    <span className="name">Person 1</span>
                 </div>
             </div>
-            <div class="card">
-                <img src="http://via.placeholder.com/300.png/09f/fff"/>
-                <span>Person 1</span>
-                <span>Developer</span>
-            </div>
-            <div class="card">
-                <img src="http://via.placeholder.com/300.png/09f/fff"/>
-                <span>Person 2</span>
-                <span>Developer</span>
-            </div>
-            <div class="card">
-                <img src="http://via.placeholder.com/300.png/09f/fff"/>
-                <span>Person 3</span>
-                <span>Developer</span>
-            </div>
-            <div class="card">
-                <img src="http://via.placeholder.com/300.png/09f/fff"/>
-                <span>Person 4</span>
-                <span>Developer</span>
-            </div>
-            <div class="card">
-                <img src="http://via.placeholder.com/300.png/09f/fff"/>
-                <span>Person 5</span>
-                <span>Developer</span>
-            </div>
+
         </div>
     )
 };

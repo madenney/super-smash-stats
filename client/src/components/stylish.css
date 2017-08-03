@@ -124,3 +124,37 @@ body {
 .search_results{
   height: 90vh;
 }
+
+/* About Us Styling */
+h1 {
+    color: white;
+    text-align: center;
+    margin: 30px;
+}
+
+p {
+    color: white;
+    margin: 30px;
+}
+.card {
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    margin: 30px;
+    text-align: center;
+}
+img {
+    width: 100%;
+}
+
+.card-row {
+    text-align: center;
+    width: 100%;
+}
+
+span .name {
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
