@@ -11,7 +11,9 @@ class SearchResults extends Component {
         super(props);
         this.state = {
             player_cards: [],
-            searchValue: this.props.match.params
+            searchValue: this.props.match.params,
+            pageNum: null,
+            totalPages: null
         }
     }
 
@@ -22,9 +24,12 @@ class SearchResults extends Component {
             console.log('No search given');
             search = '';
         }
-        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, number: 20, readPages: true}).then((response) => {
+        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response) => {
+          console.log('response', response);
             this.setState({
-                player_cards: response.data
+                player_cards: response.data.players,
+                pageNum: response.data.pageNum,
+                totalPages: response.data.totalAvailablePages
             })
         })
     }
@@ -36,7 +41,7 @@ class SearchResults extends Component {
         console.log('The state is...', this.state.player_cards);
         return (
             <div>
-              <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={this.state.pageNum} totalPages={this.state.totalPages}/>
+              <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
             </div>
             // <div className='container search_results'>
             //   <div className='col-md-11 offset-md-1 '>

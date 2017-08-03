@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 import images from './images';
+
 const Carousel = (props) => {
   // console.log('cards props:', props);
   if(!props.card || Object.keys(props.card).length < 1){

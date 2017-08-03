@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Carousel from './playercardcarousel';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 class Pagination extends Component {
@@ -9,7 +10,7 @@ class Pagination extends Component {
             items: this.props.items,
             searchValue: this.props.searchValue,
             currentPage: this.props.pageNum,
-            totalPages: this.props.totalPages
+            totalPages: this.props.totalPages,
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -21,38 +22,31 @@ class Pagination extends Component {
             currentPage: nextProps.pageNum,
             totalPages: nextProps.totalPages
         });
-            console.log('THE STATE', this.state);
-
     }
 
     handleClick(e) {
-        axios.post('http://localhost:3030/autocomplete', {input: searchValue, pageNum: Number(e.target.id), number: 20}).then((response) => {
+        const clickedValue = e.target.id;
+        axios.post('http://localhost:3030/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
             this.setState({
-                items: response.something,
-                currentPage: Number(e.target.id)
+                items: response.data.players,
+                currentPage: clickedValue
             })
         })
     }
 
     render() {
+        console.log('THE STATE', this.state);
         const { items, currentPage, searchValue, totalPages } = this.state;
-        //items for current page
-        console.log('CI', items);
-        const renderItems = () => {
-            return (
-                <Carousel cards = {items} />
-            )
-        };
 
         const pageArray = [];
 
-        for (i = currentPage; i <= totalPages; i++) {
+        for (let i = 1; i <= totalPages; i++) {
             pageArray.push(i);
         }
 
         const renderPageNumbers = pageArray.map(number => {
             return (
-                <Link to={`/results/${searchValue.search}/${number}`}>
+                <Link to={`/results/${searchValue.search}/${number}`} key={number}>
                     <div
                         key={number}
                         id={number}
@@ -63,16 +57,15 @@ class Pagination extends Component {
                 </Link>
             );
         });
+        console.log('CI', items);
 
         return (
             <div>
                 <div>
-                    {renderItems}
+                    <Carousel card = {items} />
                 </div>
                 <div id="page-numbers">
                     {renderPageNumbers}
-                    <div key=""
-                    >{totalPages}</div>
                 </div>
             </div>
         );
