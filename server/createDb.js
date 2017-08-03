@@ -34,6 +34,14 @@ exports.createDb = function(options) {
             });
             promiseChain.push(promise);
         }
+        if(options.calcLocation) {
+            var promise = new Promise(function (resolve, reject) {
+                var CalcLocation = require('./calcLocation');
+                action = new CalcLocation.CalcLocation(resolve);
+                actionChain.push(action);
+            });
+            promiseChain.push(promise);
+        }
         // if(options.getYoutubeURLs) {
         //     var promise = new Promise(function(resolve, reject){
         //         var CreatePlayersDb = require('./createPlayersDb');
@@ -47,7 +55,7 @@ exports.createDb = function(options) {
             setTimeout(function(){
                 console.log("HelloWorld");
             }, 1000);
-        };
+        }
 
         if(actionChain.length > 0) {
             actionChain[0].run();
