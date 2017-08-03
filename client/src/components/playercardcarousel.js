@@ -20,8 +20,8 @@ const Carousel = (props) => {
       let imageUrl = images[item.tag + '.png'];
       // }
 
-      console.log('this is imageURL: ', imageUrl);
-      const divStyle ={
+//      console.log('this is imageURL: ', imageUrl);
+      const divStyle = {
         backgroundImage: 'url(' + imageUrl +')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'

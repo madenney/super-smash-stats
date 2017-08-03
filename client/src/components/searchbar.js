@@ -62,7 +62,7 @@ export default class SearchBar extends Component {
                   <input className="form-control" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
                   <Autocomplete recommendations={this.state.autocomCards} />
                   <span className='input-group-btn'>
-                      <Link className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}`}>Search</Link>
+                      <Link className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}/1`}>Search</Link>
                   </span>
 
                 </div>
