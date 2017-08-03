@@ -81,7 +81,7 @@ getMatches();
 var analyze = function (){
   console.log('ANALYZING');
     for(i=0;i<players.length;i++){
-      playersArray.push([players[i].name])
+      playersArray.push([players[i].tag])
     }
 
 //pushing tournaments into player array
@@ -124,7 +124,7 @@ var analyze = function (){
 
     // counting duplicate regions
     for(i=0;i<players.length;i++){
-        regionCountArray.push([players[i].name])
+        regionCountArray.push([players[i].tag])
     }
     for(i=0;i<regionCountArray.length;i++){
         regionCountArray[i].push(count(playersArray[i], 'region', 'count'));
@@ -133,7 +133,7 @@ var analyze = function (){
 
     // lastly, filter the highest counted region
     for(i=0;i<players.length;i++){
-       finalArray.push([players[i].name])
+       finalArray.push([players[i].tag])
     }
 
     for(i=0;i<regionCountArray.length;i++){
@@ -147,6 +147,6 @@ var analyze = function (){
             }
         finalArray[i].push(regionCountArray[i][1][highestCountIndex])
     }
-    // fs.writeFileSync('playersRegionFinal.json', JSON.stringify(finalArray));
+    fs.writeFileSync('playersRegionFinal.json', JSON.stringify(finalArray));
     console.log('finished')
 };
