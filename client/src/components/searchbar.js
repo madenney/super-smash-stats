@@ -41,12 +41,6 @@ export default class SearchBar extends Component {
             })
         }
     }
-
-    handleSubmit(){
-      console.log('search props:', this.props);
-      // return this.props.getValue(this.state.value);
-    }
-
     render(){
         const { value } = this.state;
         console.log('Value:', value);
