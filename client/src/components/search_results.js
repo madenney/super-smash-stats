@@ -41,7 +41,7 @@ class SearchResults extends Component {
         console.log('The state is...', this.state.player_cards);
         return (
             <div>
-              <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
+              <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={this.state.pageNum} totalPages={this.state.totalPages}/>
             </div>
             // <div className='container search_results'>
             //   <div className='col-md-11 offset-md-1 '>

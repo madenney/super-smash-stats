@@ -7,10 +7,11 @@ class Pagination extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: this.props.items,
-            searchValue: this.props.searchValue,
-            currentPage: this.props.pageNum,
-            totalPages: this.props.totalPages,
+            items: [],
+            searchValue: '',
+            currentPage: '',
+            totalPages: null,
+            pageArray: []
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -30,6 +31,7 @@ class Pagination extends Component {
             this.setState({
                 items: response.data.players,
                 currentPage: clickedValue
+
             })
         })
     }
@@ -38,13 +40,11 @@ class Pagination extends Component {
         console.log('THE STATE', this.state);
         const { items, currentPage, searchValue, totalPages } = this.state;
 
-        const pageArray = [];
-
         for (let i = 1; i <= totalPages; i++) {
-            pageArray.push(i);
+            this.state.pageArray.push(i);
         }
 
-        const renderPageNumbers = pageArray.map(number => {
+        const renderPageNumbers = this.state.pageArray.map(number => {
             return (
                 <Link to={`/results/${searchValue.search}/${number}`} key={number}>
                     <div
@@ -57,7 +57,6 @@ class Pagination extends Component {
                 </Link>
             );
         });
-        console.log('CI', items);
 
         return (
             <div>
