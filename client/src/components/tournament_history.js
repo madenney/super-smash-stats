@@ -15,11 +15,6 @@ const TournamentHistory = (props) => {
   ));
   return(
     <table>
-      <thead>
-        <tr>
-          <th>Tournaments</th>
-        </tr>
-      </thead>
       <tbody>{tournament_item}</tbody>
     </table>
   )

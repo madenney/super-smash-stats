@@ -9,10 +9,9 @@ var connInfo = require('./connect').conn;
 
 exports.Database = function(options) {
 
-    if(options.reloadTextFiles){
-        new require('./createDb').createDb();
+    if(options.newData){
+        new require('./createDb').createDb(options);
     }
-
 
     this.getPlayer = function(res, playerName) {
 
@@ -41,7 +40,7 @@ exports.Database = function(options) {
 
     };
 
-    this.autocomplete = function(res, input, number = 6) {
+    this.autocomplete = function(res, input, page = 1, resultsPerPage = 20, getPages = 'false') {
 
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err){
@@ -50,14 +49,28 @@ exports.Database = function(options) {
                 throw err;
             }
 
-            var query = "SELECT players.tag, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN player_info ON players.tag = player_info.tag WHERE players.tag LIKE '"+input+"%' LIMIT " + number;
-            conn.query(query, function(err, rows) {
+            var query = "SELECT players.tag, players.id, player_info.main, player_info.image_url FROM players LEFT JOIN " +
+                "player_info ON players.tag = player_info.tag WHERE players.tag LIKE '"+input+"%' LIMIT " +
+                ((page-1)*resultsPerPage) + ", " + resultsPerPage;
+            conn.query(query, function(err, players) {
                 if(err) {
                     console.log("Error with query");
                     throw err;
                 }
 
-                res.end(JSON.stringify(rows));
+                if(getPages === 'false') {
+                    res.end(JSON.stringify({players}));
+                } else {
+                   query = "SELECT * FROM players WHERE players.tag LIKE '"+input+"%'";
+                   conn.query(query, function(err, rows){
+                        if(err){
+                            console.log("Error with count query");
+                            throw err;
+                        }
+                        var total = Math.ceil(rows.length/resultsPerPage);
+                        res.end(JSON.stringify({ totalAvailablePages: total , players}));
+                   });
+                }
             });
         });
     };

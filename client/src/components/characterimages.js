@@ -1,12 +1,12 @@
 import React from 'react';
 
 function importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
+    let chara_images = {};
+    r.keys().map((item, index) => { chara_images[item.replace('./', '')] = r(item); });
+    return chara_images;
 }
 
-const images = importAll(require.context('./imgs/characters', false, /\.(gif|png|jpe?g|svg)$/));
+const chara_images = importAll(require.context('./imgs/characters', false, /\.(gif|png|jpe?g|svg)$/));
 
 // import images from './images';
 // <img src={images['landingpage.png']} />
@@ -14,4 +14,4 @@ const images = importAll(require.context('./imgs/characters', false, /\.(gif|png
 // <img src={images['ProfilePlaceholder.gif']} />
 // <img src={images['SmashBrosSymbol.svg']} />
 
-export default images;
+export default chara_images;
