@@ -9,7 +9,7 @@ var connInfo = require('./connect').conn;
 
 exports.Database = function(options) {
 
-    if(options.newData){
+    if(options.modifyData){
         new require('./createDb').createDb(options);
     }
 
