@@ -17,8 +17,10 @@
                     url: '/autocomplete',
                     method: "POST",
                     data: {
-                        input: $("input").val(),
-                        number: 6
+                        input: $("#inputstring").val(),
+                        resultsPerPage: $("#results").val(),
+                        pageNum: $("#pagenum").val(),
+                        getTotalPages: true
                     },
                     success: function(result) {
                         console.log(result);
@@ -98,7 +100,12 @@
 </head>
 <body>
 
-    <input type="text">
+    <p>search string</p>
+    <input id="inputstring" type="text">
+    <p>number of results</p>
+    <input id="results" type="text">
+    <p>page num</p>
+    <input id="pagenum" type="text">
     <button class ="button1"> Submit </button>
     <div id="result"></div>
 

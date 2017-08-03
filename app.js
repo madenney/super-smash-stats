@@ -23,7 +23,7 @@ app.use(express.static('test_client'));
 
 app.post('/autocomplete', function(req, res) {
     console.log("Autocompleting - " + req.body.input);
-    db.autocomplete(res, req.body.input, req.body.number);
+    db.autocomplete(res, req.body.input, req.body.pageNum, req.body.resultsPerPage, req.body.getTotalPages);
 });
 
 app.post('/match_history', function(req, res) {
