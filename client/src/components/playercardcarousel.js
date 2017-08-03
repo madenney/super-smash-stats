@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 import images from './images';
+
 const Carousel = (props) => {
   // console.log('cards props:', props);
   if(!props.card || Object.keys(props.card).length < 1){
@@ -20,8 +21,8 @@ const Carousel = (props) => {
       let imageUrl = images[item.tag + '.png'];
       // }
 
-      console.log('this is imageURL: ', imageUrl);
-      const divStyle ={
+//      console.log('this is imageURL: ', imageUrl);
+      const divStyle = {
         backgroundImage: 'url(' + imageUrl +')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'

@@ -30,9 +30,9 @@ export default class SearchBar extends Component {
     handleChange(e) {
         this.setState({value: e.target.value});
         if (e.target.value != '') {
-            axios.post('http://localhost:3030/autocomplete', { input: e.target.value, number: 10 }).then((response) => {
+            axios.post('http://localhost:3030/autocomplete', { input: e.target.value, pageNum: 1, resultsPerPage: 10 }).then((response) => {
                 this.setState({
-                    autocomCards: response.data
+                    autocomCards: response.data.players
                 });
             })
         } else {
@@ -49,7 +49,7 @@ export default class SearchBar extends Component {
 
     render(){
         const { value } = this.state;
-        console.log('Value:', value);
+        console.log('Value:', this.state.autocomCards);
         return (
           <div className ='container center'>
             <div className='landpage_logo row offset-md-3 col-md-6'>
@@ -62,7 +62,7 @@ export default class SearchBar extends Component {
                   <input className="form-control" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />
                   <Autocomplete recommendations={this.state.autocomCards} />
                   <span className='input-group-btn'>
-                      <Link className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}`}>Search</Link>
+                      <Link className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}/1`}>Search</Link>
                   </span>
 
                 </div>
