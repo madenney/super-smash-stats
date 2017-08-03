@@ -11,6 +11,7 @@ exports.createDb = function(options) {
         let action;
 
         if(options.reloadTextFiles) {
+            console.log("ReloadTextFiles");
             var promise = new Promise(function(resolve, reject){
                 var Reload = require('./reloadTextFiles');
                 action = new Reload.Reload(resolve);
@@ -19,6 +20,7 @@ exports.createDb = function(options) {
             promiseChain.push(promise);
         }
         if(options.reloadPlayers) {
+            console.log("ReloadPlayersPromise");
             var promise = new Promise(function(resolve, reject){
                 var CreatePlayersDb = require('./createPlayersDb');
                 action = new CreatePlayersDb.CreatePlayersDb(resolve);
@@ -27,6 +29,7 @@ exports.createDb = function(options) {
             promiseChain.push(promise);
         }
         if(options.calcStats){
+            console.log("CalcStatsPromise");
             var promise = new Promise(function(resolve, reject) {
                 var CalcStats = require('./calcStats');
                 action = new CalcStats.CalcStats(resolve);
@@ -38,6 +41,7 @@ exports.createDb = function(options) {
             promiseChain.push(promise);
         }
         if(options.calcLocation) {
+            console.log("CalcLocationPromise");
             var promise = new Promise(function (resolve, reject) {
                 var CalcLocation = require('./calcLocation');
                 action = new CalcLocation.CalcLocation(resolve);
@@ -64,10 +68,7 @@ exports.createDb = function(options) {
             actionChain[0].run();
             for(var i = 0; i < promiseChain.length - 1; i++) {
                 console.log("Promise Number: " + i);
-                promiseChain[i].then(function() {
-                    actionChain[i+1].run();
-                    console.log("HERE: " + i);
-                });
+                promiseChain[i].then(actionChain[i+1].run);
             }
         }
     }
