@@ -11,50 +11,6 @@ exports.CalcLocation = function(resolve, reject, players, matches, conn) {
 
     begin();
 
-    // function getMatches() {
-    //
-    //     var conn = mysql.createConnection(connInfo);
-    //     conn.connect(function(err){
-    //         if(err) {
-    //             console.log("Error Connecting to the database");
-    //             throw err;
-    //         }
-    //
-    //         var query = "SELECT * FROM `matches`";
-    //         conn.query(query, function(err, rows) {
-    //             if(err) {
-    //                 console.log("Error with query");
-    //                 throw err;
-    //             }
-    //             console.log(rows.length);
-    //             matches = rows;
-    //             getPlayers();
-    //         });
-    //     });
-    // };
-    //
-    // var getPlayers = function() {
-    //
-    //     var conn = mysql.createConnection(connInfo);
-    //     conn.connect(function(err){
-    //         if(err) {
-    //             console.log("Error Connecting to the database");
-    //             throw err;
-    //         }
-    //
-    //         var query = "SELECT * FROM players";
-    //         conn.query(query, function(err, rows) {
-    //             if(err) {
-    //                 console.log("Error with query");
-    //                 throw err;
-    //             }
-    //             console.log(rows.length);
-    //             players = rows;
-    //             getTournaments();
-    //         });
-    //     });
-    // };
-
     function begin() {
         getTournaments();
     }
