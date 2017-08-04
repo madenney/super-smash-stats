@@ -7,7 +7,7 @@ const TournamentHistory = (props) => {
     )
   }
   else{
-  console.log('this is tournamentinfo: ',props.tournament_info)
+  // console.log('this is tournamentinfo: ',props.tournament_info)
   const tournament_item = props.tournament_info.map((item,index)=>(
     <tr key={index}>
       <td>{item.tournament}</td>

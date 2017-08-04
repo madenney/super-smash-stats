@@ -43,10 +43,10 @@ export default class SearchBar extends Component {
     }
     render(){
         const { value } = this.state;
-        console.log('Value:', this.state.autocomCards);
+        // console.log('Value:', this.state.autocomCards);
         return (
           <div className ='container center'>
-            <div className='landpage_logo row offset-md-3 col-md-6'>
+            <div className='landpage_logo row offset-md-3 col-md-6 off-lg-4'>
               <img src = {LandLogo}/>
             </div>
             {/*Row for the search bar styling*/}

@@ -35,7 +35,7 @@ class Pagination extends Component {
     }
 
     render() {
-        console.log('THE STATE', this.state);
+        // console.log('THE STATE', this.state);
         const { items, currentPage, searchValue, totalPages } = this.state;
 
         const pageArray = [];
@@ -57,7 +57,7 @@ class Pagination extends Component {
                 </Link>
             );
         });
-        console.log('CI', items);
+        // console.log('CI', items);
 
         return (
             <div>
