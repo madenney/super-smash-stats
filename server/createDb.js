@@ -32,21 +32,12 @@ exports.createDb = function(options) {
             console.log("CalcStatsPromise");
             var promise = new Promise(function(resolve, reject) {
                 var CalcStats = require('./calcStats');
-                action = new CalcStats.CalcStats(resolve);
+                action = new CalcStats.CalcStats(resolve, options.calcLocation);
                 actionChain.push(action);
             });
             // promise.catch(function(reason) {
             //     console.log("Rejection Reason: ", reason);
             // });
-            promiseChain.push(promise);
-        }
-        if(options.calcLocation) {
-            console.log("CalcLocationPromise");
-            var promise = new Promise(function (resolve, reject) {
-                var CalcLocation = require('./calcLocation');
-                action = new CalcLocation.CalcLocation(resolve);
-                actionChain.push(action);
-            });
             promiseChain.push(promise);
         }
         // if(options.getYoutubeURLs) {
