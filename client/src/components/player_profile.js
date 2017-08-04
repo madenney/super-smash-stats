@@ -38,6 +38,7 @@ class PlayerProfile extends Component{
       this.setState({
         profile: response.data
       });
+      console.log('this is the response for player profile: ', this.state.profile);
       axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
         this.setState({
           matches: response.data
