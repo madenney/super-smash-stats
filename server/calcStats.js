@@ -5,7 +5,8 @@ var fs = require('fs');
 var mysql = require('mysql');
 var connInfo = require('./connect').conn;
 
-exports.CalcStats = function(globalResolve) {
+
+exports.CalcStats = function(globalResolve, calcLocation) {
 
     var players = [];
     var matches = [];
@@ -36,10 +37,14 @@ exports.CalcStats = function(globalResolve) {
         rank();
         sort();
         countWins();
-        console.log('Finished Counting. Inserting Into DB');
-        var promise = new Promise(function(resolve, reject) { clearPlayersDb(resolve, reject); });
-        promise.then(startConnection);
-        globalResolve();
+        var promiseChain = [];
+        if(calcLocation) {
+            var CalculateLocation = require('./calcLocation');
+            var promiseLocation = new Promise(function(resolve, reject) { CalculateLocation.CalcLocation(resolve, reject, players, matches, conn)});
+            promiseChain.push(promiseLocation);
+        }
+        promiseChain.push( new Promise(function(resolve, reject) { clearPlayersDb(resolve, reject); }) );
+        Promise.all(promiseChain).then(startConnection);
     }
 
     function resetValues() {
@@ -200,7 +205,7 @@ exports.CalcStats = function(globalResolve) {
 
 
     function clearPlayersDb(resolve) {
-
+        console.log("Clearing Player DB");
         var query = "TRUNCATE TABLE players";
         conn.query(query, function(err, rows) {
             if(err) {
@@ -232,14 +237,14 @@ exports.CalcStats = function(globalResolve) {
 
         // Need to count the matches to make sure they all get passed in later during the transaction
         var rowCount = 0;
-        var query = "INSERT INTO `players` (`tag`, `rank`, `total_matches_played`, `games_vs_sub100`, " +
+        var query = "INSERT INTO `players` (`tag`, `location`, `rank`, `total_matches_played`, `games_vs_sub100`, " +
             "`wins_vs_sub100`, `games_vs_26_100`, `wins_vs_26_100`, `games_vs_6_25`, `wins_vs_6_25`, `games_vs_top5`, `wins_vs_top5`) VALUES ";
         for(var i = chunks[index]; i < chunks[index + 1]; i++) {
             // Escape apostrophes
             if(players[i].tag.includes("'")) {
                 players[i].tag = players[i].tag.replace(/'/g, "\\'");
             }
-            query += "('"+players[i].tag+"','"+players[i].rank+"','"+players[i].total_matches_played+"','"+players[i].games_vs_sub100+
+            query += "('"+players[i].tag+"','"+players[i].regions+"','"+players[i].rank+"','"+players[i].total_matches_played+"','"+players[i].games_vs_sub100+
                 "','"+players[i].wins_vs_sub100+"','"+players[i].games_vs_26_100+"','"+players[i].wins_vs_26_100+"','"+
                 players[i].games_vs_26_100+"','"+players[i].wins_vs_6_25+"','"+players[i].games_vs_top5+
                 "','"+players[i].wins_vs_top5+"'),";
