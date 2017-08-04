@@ -4,6 +4,7 @@ import Navbar from './navbar';
 import Landing from './landing';
 import SearchResults from './search_results';
 import PlayerProfile from './player_profile';
+import Pagination from './pagination';
 
 export default () => (
   <div>

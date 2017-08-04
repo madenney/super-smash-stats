@@ -18,7 +18,7 @@ class SearchResults extends Component {
     }
 
     componentWillMount() {
-        var {search} = this.props.match.params;
+        let {search} = this.props.match.params;
         console.log('Search is:', search);
         if (search == 'noSearch') {
             console.log('No search given');
@@ -41,7 +41,7 @@ class SearchResults extends Component {
         console.log('The state is...', this.state.player_cards);
         return (
             <div>
-              <Pagination component='Carousel' items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={this.state.pageNum} totalPages={this.state.totalPages}/>
+              <Pagination inputComponent='search_results' items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
             </div>
             // <div className='container search_results'>
             //   <div className='col-md-11 offset-md-1 '>
