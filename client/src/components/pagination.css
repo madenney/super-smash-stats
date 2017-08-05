@@ -1,5 +1,15 @@
 #page-numbers div{
     display: inline-block;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #ffdf06;
+    background-color: #1a237e;
+    color: gold;
+    text-align: center;
+    border-radius: 10px;
+    margin-right: 2px;
+}
+#page-numbers div:hover {
+    background-color: #0b51c5;
+    color: white;
 }

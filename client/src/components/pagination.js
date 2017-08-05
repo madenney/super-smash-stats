@@ -34,41 +34,34 @@ class Pagination extends Component {
             this.setState({
                 items: response.data.players,
                 currentPage: clickedValue
-
             })
-        })
+        });
     }
 
     render(){
         console.log('THE STATE', this.state);
         const { inputComponent, items, currentPage, searchValue, totalPages } = this.state;
-
-
+        const pageArray = [];
         for (let i = 1; i <= totalPages; i++) {
-            this.state.pageArray.push(i);
+            pageArray.push(i);
         }
-//         let truncatedArray = null;
-//         function () => {
-//             if (totalPages < 2){
-//                 truncatedArray = [1];
-//             } else if (totalPages < 3) {
-//                 truncatedArray = [1, 2];
-//             } else if (totalPages < 4) {
-//                 truncatedArray = [1, 2, 3];
-//             } else if (totalPages < 5) {
-//                 truncatedArray = [1, 2, 3, 4];
-//             } else if (totalPages < 6) {
-//                 truncatedArray = [1, 2, 3, 4, 5];
-//             } else if (currentPage > 3 && currentPage < totalPages - 2) {
-//                 truncatedArray = [1, null, currentPage-1, currentPage, currentPage+1, null, totalPages];
-//             } else if (currentPage > totalPages - 3){
-//                 truncatedArray = [1, null, totalPages - 2, totalPages -1, totalPages];
-//             }
-//         };
-// console.log ('truncated', truncatedArray);
-        const renderPageNumbers = this.state.pageArray.map(number => {
+        const displayArray = pageArray.slice((Number(currentPage) - 1), (Number(currentPage) + 2));
+        console.log('disp', displayArray);
+
+        const ChosenComponent = () => {
+            switch (inputComponent) {
+                case 'search_results':
+                    return (
+                        <Carousel card = {items} />
+                    );
+                default:
+                    return (<div>NADA</div>);
+            }
+        };
+
+        const renderPageNumbers = displayArray.map((number, index) => {
             return (
-                <Link to={`/results/${searchValue.search}/${number}`} key={number}>
+                <Link to={`/results/${searchValue.search}/${number}`} key={index}>
                     <div
                         id={number}
                         onClick={this.handleClick}
@@ -79,25 +72,17 @@ class Pagination extends Component {
             );
         });
 
-        const ChosenComponent = () => {
-            switch (inputComponent) {
-                case 'search_results':
-                    return (
-                        <Carousel card = {items} />
-                    );
-                    break;
-                default:
-                    return (<div>NADA</div>);
-                    break;
-
-            }
-        };
-
         return (
             <div>
                 <ChosenComponent />
                 <div id="page-numbers">
+                    <Link to={`/results/${searchValue.search}/1`}>
+                        <div onClick={this.handleClick} id="1">1</div>
+                    </Link>
                     {renderPageNumbers}
+                    <Link to={`/results/${searchValue.search}/${totalPages}`}>
+                        <div onClick={this.handleClick} id={totalPages}>{totalPages}</div>
+                    </Link>
                 </div>
             </div>
         );
