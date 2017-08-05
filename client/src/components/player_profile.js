@@ -6,6 +6,7 @@ import char_images from './characterimages';
 import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 import TournamentHistory from './tournament_history';
 import MatchHistory from './match_history';
+import PlayerChart from './player_charts';
 import './player_profile.css';
 class PlayerProfile extends Component{
   constructor(props){
@@ -14,17 +15,19 @@ class PlayerProfile extends Component{
       profile : '',
       matches: [],
       toggle: '',
-      button_descrip: 'Maximize',
+      button_descrip: 'Maximize ^',
       description_display: '',
       profile_resizing: ''
     }
   }
+  //add method that calls the function of the axios calls
   componentWillReceiveProps(nextProps){
     const {id} = nextProps.match.params;
     axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
       this.setState({
         profile: response.data
       });
+      //add loading if this doesn't exist
       axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
         this.setState({
           matches: response.data
@@ -36,12 +39,12 @@ class PlayerProfile extends Component{
     const {id} = this.props.match.params;
     axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
       this.setState({
-        profile: response.data
+        profile: response.data,
       });
-      console.log('this is the response for player profile: ', this.state.profile);
+
       axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
         this.setState({
-          matches: response.data
+          matches: response.data,
         });
       });
     });
@@ -53,7 +56,7 @@ class PlayerProfile extends Component{
     if(toggle ===''){
       this.setState({
         toggle: 'toggle',
-        button_descrip: 'Minimize',
+        button_descrip: 'Minimize v',
         description_display: 'hidden',
         profile_picture: 'profile_resizing'
       })
@@ -61,7 +64,7 @@ class PlayerProfile extends Component{
     else{
       this.setState({
         toggle: '',
-        button_descrip: 'Maximize',
+        button_descrip: 'Maximize ^',
         description_display: '',
         profile_picture: ''
       })
@@ -83,7 +86,7 @@ class PlayerProfile extends Component{
               <h4 id='player_rank' className={description_display}>Name: {profile.name}</h4>
   						<h4 id="player_rank" className={description_display}>Rank: {profile.rank}</h4>
 
-  						<p id="location" className={description_display}>Location: {profile.state}</p>
+  						<p id="location" className={description_display}>Location: {profile.location}</p>
   						<p className={description_display}>Mains:</p>
               <img className={`char_img_sizing ${description_display}`} src={char_images[`${profile.main}.png`]}/>
   						<img className={`char_img_sizing ${description_display}`} src={char_images[`${profile.secondary}.png`]}/>
@@ -103,21 +106,23 @@ class PlayerProfile extends Component{
   			</div>
   		</div>
   		<div className='row'>
-  			<div id="matches_stream" className="col-xs-12 col-md-12">
+  			<div id="matches_stream" className="col-xs-16 col-md-6">
   				<ul className="nav nav-tabs">
   				    <li className='active'>
                 <a data-toggle="tab" href='#match_data'>Match Data</a>
               </li>
-              <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary'>{button_descrip}</button>
-
   				</ul>
-
           <div className='tab-content col-md-12'>
             <div className={`tab-pane active recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
               <MatchHistory match_info = {this.state.matches}/>
             </div>
           </div>
   			</div>
+        <div className={`col-md-6 ${toggle}`}>
+          <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary pull-right'>{button_descrip}</button>
+
+          <PlayerChart game_data = {profile} />
+        </div>
   		</div>
     </div>
     );
