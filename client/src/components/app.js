@@ -8,7 +8,7 @@ import PlayerProfile from './player_profile';
 
 export default () => (
   <div>
-    <Navbar/>
+    <Route component = {Navbar}/>
     <Route exact path="/" component={Landing}/>
     <Route path='/results/:search' component={SearchResults}/>
     <Route path='/player_profile/:id' component = {PlayerProfile}/>
