@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import images from './images';
 import char_images from './characterimages';
@@ -14,13 +15,18 @@ class PlayerProfile extends Component{
     this.state = {
       profile : '',
       matches: [],
+      //these are the css toggled states that controls the appearance of the maximize and minimize buttons
       toggle: '',
       button_descrip: 'Maximize ^',
       description_display: '',
-      profile_resizing: ''
+      profile_resizing: '',
+      //these are the states that are for the tournament matches
+      tournaments_attended: [],
+      tournament_selected: '',
+      tournament_matches: []
     }
   }
-  //add method that calls the function of the axios calls
+  //add method that calls the function of the axios calls whenever someone searches on this component
   componentWillReceiveProps(nextProps){
     const {id} = nextProps.match.params;
     axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
@@ -32,21 +38,56 @@ class PlayerProfile extends Component{
         this.setState({
           matches: response.data
         });
+        //takes the matches state and filters pushes the individual tournaments into an array
+        for(var i = 0; i < this.state.matches.length; i++){
+          all_matches.push(this.state.matches[i].tournament);
+        }
+        //lodash then filters out the repetitive values of the touranment names
+        all_matches = _.uniq(all_matches);
+        this.setState({
+          tournaments_attended: all_matches
+        });
       });
     });
   }
   componentWillMount(){
     const {id} = this.props.match.params;
+    let all_matches = [];
     axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
       this.setState({
         profile: response.data,
       });
-
       axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
         this.setState({
           matches: response.data,
         });
+        //takes the matches state and filters pushes the individual tournaments into an array
+        for(var i = 0; i < this.state.matches.length; i++){
+          all_matches.push(this.state.matches[i].tournament);
+        }
+        //lodash then filters out the repetitive values of the touranment names
+        all_matches = _.uniq(all_matches);
+        this.setState({
+          tournaments_attended: all_matches
+        });
       });
+    });
+  }
+  //gets value of tournament AND filters out the ones that are equal to have match
+  grabTournamentName(e){
+    this.setState({
+      tournament_selected: e.currentTarget.textContent
+    });
+    console.log('this is tourney state', this.state.tournament_selected);
+    const {matches, tournament_selected} = this.state;
+    const all_matches_for_tournament = [];
+    for(var i = 0; i < matches.length; i++){
+      if(tournament_selected == matches[i].tournament){
+        all_matches_for_tournament.push(matches[i]);
+      }
+    }
+    this.setState({
+      tournament_matches: all_matches_for_tournament
     });
   }
   //changes the classes for the toggles
@@ -98,8 +139,8 @@ class PlayerProfile extends Component{
   						<p className={description_display}>Twitch: {profile.twitch}</p>
   						<p className={description_display}>Sponsors: {profile.sponsor}</p>
               <p>Recent Tournaments:</p>
-              <div className='recent_tournament' >
-                <TournamentHistory tournament_info = {this.state.matches} />
+              <div className='recent_tournament'>
+                <TournamentHistory tournaments_attended = {this.state.tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
               </div>
             </div>
   				</div>
@@ -114,7 +155,7 @@ class PlayerProfile extends Component{
   				</ul>
           <div className='tab-content col-md-12'>
             <div className={`tab-pane active recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
-              <MatchHistory match_info = {this.state.matches}/>
+              <MatchHistory match_info = {this.state.tournament_matches}/>
             </div>
           </div>
   			</div>
@@ -129,4 +170,3 @@ class PlayerProfile extends Component{
   }
 }
 export default PlayerProfile;
-//  <TournamentHistory tournament_info = {this.state.matches} />
