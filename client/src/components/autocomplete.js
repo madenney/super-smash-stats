@@ -5,7 +5,7 @@ import './stylish.css';
 import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 
 const Autocomplete = (props) => {
-    console.log('props', props.recommendations);
+    // console.log('props', props.recommendations);
     const autocomItem = props.recommendations.map ((item, index) => {
         return (
             <Link to={`/player_profile/${item.id}`} key={index}>
