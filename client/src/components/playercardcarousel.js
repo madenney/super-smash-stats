@@ -12,17 +12,7 @@ const Carousel = (props) => {
     );
   }
     const player_cards = props.card.map((item, index)=>{
-      // let imageUrl = '';
-      // const imageCheck = images[item.tag] + '.png';
-      // console.log('imageCheck:', imageCheck);
-      // if(!images[item.tag]){
-      //   imageUrl = ProfilePlaceholder;
-      // }
-      // else{
       let imageUrl = images[item.tag + '.png'];
-      // }
-
-//      console.log('this is imageURL: ', imageUrl);
       const divStyle = {
         backgroundImage: 'url(' + imageUrl +')',
         backgroundRepeat: 'no-repeat',

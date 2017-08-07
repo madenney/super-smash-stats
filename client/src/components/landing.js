@@ -11,7 +11,7 @@ export default class Landingpage extends Component {
     render() {
         return (
             <div className="landing">
-              <Searchbar getValue = {(value)=>this.getResults(value)} />
+              <Searchbar />
             </div>
         )
     }
