@@ -16,16 +16,31 @@ class SearchResults extends Component {
             totalPages: null
         }
     }
-
-    componentWillMount() {
-        let {search} = this.props.match.params;
-        console.log('Search is:', search);
+    componentWillReceiveProps(nextProps) {
+        var {search} = nextProps.match.params;
+        // console.log('Search is:', search);
         if (search == 'noSearch') {
-            console.log('No search given');
+            // console.log('No search given');
             search = '';
         }
         axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response) => {
-          console.log('response', response);
+          // console.log('response', response);
+            this.setState({
+                player_cards: response.data.players,
+                pageNum: response.data.pageNum,
+                totalPages: response.data.totalAvailablePages
+            })
+        })
+    }
+    componentWillMount() {
+        var {search} = this.props.match.params;
+        // console.log('Search is:', search);
+        if (search == 'noSearch') {
+            // console.log('No search given');
+            search = '';
+        }
+        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response) => {
+          // console.log('response', response);
             this.setState({
                 player_cards: response.data.players,
                 pageNum: response.data.pageNum,

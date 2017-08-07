@@ -13,12 +13,14 @@ class PlayerProfile extends Component{
     this.state = {
       profile : '',
       matches: [],
-      tournament_history: 'hidden',
-      match_history: 'show'
+      toggle: '',
+      button_descrip: 'Maximize',
+      description_display: '',
+      profile_resizing: ''
     }
   }
-  componentWillMount(){
-    const {id} = this.props.match.params;
+  componentWillReceiveProps(nextProps){
+    const {id} = nextProps.match.params;
     axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
       this.setState({
         profile: response.data
@@ -30,56 +32,68 @@ class PlayerProfile extends Component{
       });
     });
   }
-  //changes the classes for the toggles
-  changeClasses(){
-    const {tournament_history, match_history} = this.state;
-    if(tournament_history == 'hidden'){
+  componentWillMount(){
+    const {id} = this.props.match.params;
+    axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
       this.setState({
-        tournament_history : 'show'
-      })
-    }
-    else{
-      this.setState({
-        tournament_history : 'hidden'
-      })
-    }
-    if(match_history == 'hidden'){
-      this.setState({
-        match_history :'show'
-      })
-    }
-    else{
-      this.setState({
-        match_history : 'hidden'
+        profile: response.data
       });
+      console.log('this is the response for player profile: ', this.state.profile);
+      axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
+        this.setState({
+          matches: response.data
+        });
+      });
+    });
+  }
+  //changes the classes for the toggles
+  //initial state is at Maximize, or the else statemenet
+  toggleDisplay(){
+    let {toggle} = this.state;
+    if(toggle ===''){
+      this.setState({
+        toggle: 'toggle',
+        button_descrip: 'Minimize',
+        description_display: 'hidden',
+        profile_picture: 'profile_resizing'
+      })
+    }
+    else{
+      this.setState({
+        toggle: '',
+        button_descrip: 'Maximize',
+        description_display: '',
+        profile_picture: ''
+      })
     }
   }
   render(){
-    const {profile} = this.state;
+    const {profile, toggle, button_descrip, description_display, profile_picture} = this.state;
     return(
+      //general profile picture
       <div className='container'>
-        <div className="row">
+        <div className='row'>
   			<div id="profile-card" className="col-xs-12 col-md-12">
   				<div className="row">
   					<div className="col-sm-4 col-xs-6 col-md-4">
-  			      <img src={!images[`${profile.tag}.png`] ? ProfilePlaceholder : images[`${profile.tag}.png`] }/>
+  			      <img className={profile_picture} src={!images[`${profile.tag}.png`] ? ProfilePlaceholder : images[`${profile.tag}.png`] }/>
   					</div>
   					<div className="col-sm-4 col-xs-6">
   						<h2 id="player_tag">{profile.tag}</h2>
-              <h4 id='player_rank'>Name: {profile.name}</h4>
-  						<h4 id="player_rank">Rank: {profile.rank}</h4>
+              <h4 id='player_rank' className={description_display}>Name: {profile.name}</h4>
+  						<h4 id="player_rank" className={description_display}>Rank: {profile.rank}</h4>
 
-  						<p id="location">Location: {profile.state}</p>
-  						<p>Mains:</p>
-              <img className='char_img_sizing' src={char_images[`${profile.main}.png`]}/>
-  						<img className='char_img_sizing' src={char_images[`${profile.secondary}.png`]}/>
-  						<p>Total Matches Played: {profile.total_matches_played}</p>
+  						<p id="location" className={description_display}>Location: {profile.state}</p>
+  						<p className={description_display}>Mains:</p>
+              <img className={`char_img_sizing ${description_display}`} src={char_images[`${profile.main}.png`]}/>
+  						<img className={`char_img_sizing ${description_display}`} src={char_images[`${profile.secondary}.png`]}/>
+  						<p className={description_display}>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
   					<div className="col-sm-4 col-xs-6">
-  						<p>Nemesis: {profile.nemesis}</p>
-  						<p>Twitter: {profile.twitter}</p>
-  						<p>Twitch: {profile.twitch}</p>
-  						<p>Sponsors: {profile.sponsor}</p>
+  						<p className={description_display}>Nemesis: {profile.nemesis}</p>
+  						<p className={description_display}>Twitter: {profile.twitter}</p>
+  						<p className={description_display}>Twitch: {profile.twitch}</p>
+  						<p className={description_display}>Sponsors: {profile.sponsor}</p>
               <p>Recent Tournaments:</p>
               <div className='recent_tournament' >
                 <TournamentHistory tournament_info = {this.state.matches} />
@@ -88,15 +102,18 @@ class PlayerProfile extends Component{
   				</div>
   			</div>
   		</div>
-  		<div className="row">
+  		<div className='row'>
   			<div id="matches_stream" className="col-xs-12 col-md-12">
   				<ul className="nav nav-tabs">
   				    <li className='active'>
                 <a data-toggle="tab" href='#match_data'>Match Data</a>
               </li>
+              <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary'>{button_descrip}</button>
+
   				</ul>
+
           <div className='tab-content col-md-12'>
-            <div className='tab-pane active recent_match container col-md-12' id='tournament_data' role='tab-panel'>
+            <div className={`tab-pane active recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
               <MatchHistory match_info = {this.state.matches}/>
             </div>
           </div>
