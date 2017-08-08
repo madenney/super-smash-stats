@@ -3,7 +3,7 @@ import React from 'react';
 const MatchHistory = (props) =>{
   if(props.match_info.length == 0){
     return(
-      <h1>Loading...</h1>
+      <h3>Double Click on Recent Tournament</h3>
     )
   }
   else{

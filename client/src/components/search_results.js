@@ -53,7 +53,7 @@ class SearchResults extends Component {
             return <h1>Loading...</h1>
         }
 
-        console.log('The state is...', this.state.player_cards);
+        // console.log('The state is...', this.state.player_cards);
         return (
             <div>
               <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
