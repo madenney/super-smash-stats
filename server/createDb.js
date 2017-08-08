@@ -40,14 +40,14 @@ exports.createDb = function(options) {
             // });
             promiseChain.push(promise);
         }
-        // if(options.getYoutubeURLs) {
-        //     var promise = new Promise(function(resolve, reject){
-        //         var CreatePlayersDb = require('./createPlayersDb');
-        //         action = new CreatePlayersDb.CreatePlayersDb(resolve);
-        //         actionChain.push(action);
-        //     });
-        //     promiseChain.push(promise);
-        // }
+        if(options.getYoutubeURLs) {
+            var promise = new Promise(function(resolve, reject){
+                var GetYoutubeUrls = require('./getYoutubeUrls');
+                action = new GetYoutubeUrls.GetYoutubeURLs(resolve);
+                actionChain.push(action);
+            });
+            promiseChain.push(promise);
+        }
 
         function doStuff() {
             setTimeout(function(){
