@@ -12,12 +12,12 @@ app.use(cors());
 
 var Database = require('./server/database.js');
 options = {
-    modifyData: false,
+    modifyData: true,
     reloadTextFiles: false,
     reloadPlayers: false,
     calcStats: false,
     calcLocation: false,
-    getYoutubeURLs: false
+    getYoutubeURLs: true
 };
 
 var db = new Database.Database(options);
@@ -44,6 +44,7 @@ app.post('/front_page', function(req, res) {
 });
 
 app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
+
 app.use('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
