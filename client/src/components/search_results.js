@@ -18,10 +18,15 @@ class SearchResults extends Component {
     }
     componentWillReceiveProps(nextProps) {
         var {search} = nextProps.match.params;
-        console.log('Search is:', search);
         if (search == 'noSearch') {
             // console.log('No search given');
             search = '';
+        }
+        if(this.state.pageNum !== this.props.match.params.id){
+            this.setState({
+                pageNum: this.props.match.params.id
+            });
+            console.log('it works', this.state.pageNum)
         }
         axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: nextProps.pageNum, resultsPerPage: 20, getTotalPages: true}).then((response) => {
             console.log('response', response);
@@ -29,6 +34,8 @@ class SearchResults extends Component {
                 player_cards: response.data.players,
                 totalPages: response.data.totalAvailablePages
             })
+            console.log('Search is?', this.props);
+            console.log('State is?', this.state);
         })
     }
     componentWillMount() {
