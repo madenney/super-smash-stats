@@ -18,32 +18,31 @@ class SearchResults extends Component {
     }
     componentWillReceiveProps(nextProps) {
         var {search} = nextProps.match.params;
-        // console.log('Search is:', search);
+        console.log('Search is:', search);
         if (search == 'noSearch') {
             // console.log('No search given');
             search = '';
         }
-        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response) => {
-          // console.log('response', response);
+        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: nextProps.pageNum, resultsPerPage: 20, getTotalPages: true}).then((response) => {
+            console.log('response', response);
             this.setState({
                 player_cards: response.data.players,
-                pageNum: response.data.pageNum,
                 totalPages: response.data.totalAvailablePages
             })
         })
     }
     componentWillMount() {
         var {search} = this.props.match.params;
-        // console.log('Search is:', search);
+        console.log('Search is:', search);
         if (search == 'noSearch') {
             // console.log('No search given');
             search = '';
         }
         axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response) => {
-          // console.log('response', response);
+            console.log('response', response);
             this.setState({
+                searchValue: this.state.searchValue,
                 player_cards: response.data.players,
-                pageNum: response.data.pageNum,
                 totalPages: response.data.totalAvailablePages
             })
         })
@@ -56,7 +55,8 @@ class SearchResults extends Component {
         // console.log('The state is...', this.state.player_cards);
         return (
             <div>
-              <Pagination inputComponent='search_results' items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
+                <Carousel card = {this.state.player_cards} />
+                <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
             </div>
             // <div className='container search_results'>
             //   <div className='col-md-11 offset-md-1 '>
