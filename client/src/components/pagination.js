@@ -29,6 +29,7 @@ class Pagination extends Component {
     }
 
     handleClick(e) {
+        console.log('this is the url string: ', this.props);
         const clickedValue = e.target.id;
         axios.post('http://localhost:3030/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
             this.setState({
@@ -77,11 +78,11 @@ class Pagination extends Component {
                 <ChosenComponent />
                 <div id="page-numbers">
                     <Link to={`/results/${searchValue.search}/1`}>
-                        <div onClick={this.handleClick} id="1">1</div>
+                        <div className="paginEdge" onClick={this.handleClick} id="1">First Page</div>
                     </Link>
                     {renderPageNumbers}
                     <Link to={`/results/${searchValue.search}/${totalPages}`}>
-                        <div onClick={this.handleClick} id={totalPages}>{totalPages}</div>
+                        <div className="paginEdge" onClick={this.handleClick} id={totalPages}>Last Page</div>
                     </Link>
                 </div>
             </div>

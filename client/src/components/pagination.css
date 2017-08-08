@@ -13,3 +13,7 @@
     background-color: #0b51c5;
     color: white;
 }
+
+#page-numbers .paginEdge {
+    width: 90px;
+}
