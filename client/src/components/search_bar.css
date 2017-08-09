@@ -1,0 +1,28 @@
+input[type=text]{
+  position: relative;
+  box-shadow: none;
+  width: 100%;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+}
+
+.editable > input:focus {
+    background-color: transparent;
+    color: white;
+}
+
+.editable:after{
+    top: 10px;
+    left: 14px;
+    position: absolute;
+    content: attr(data-placeholder);
+    font-size: 15px;
+    color: white;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: -1;
+}
+.completed_text{
+  color: white;
+}
