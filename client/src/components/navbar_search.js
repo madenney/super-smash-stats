@@ -38,7 +38,7 @@ class NavBarSearch extends Component {
             <input className="form-control mr-md-2" type="text" placeholder="Insert Player Name" value={value} onChange={(e) => this.handleChange(e)} />
             <Autocomplete recommendations={this.state.autocomCards} />
             <span className='input-group-btn my-2 my-sm-0'>
-                <Link onClick={()=>this.clearForm()} className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}`}>Search</Link>
+                <Link onClick={()=>this.clearForm()} className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}/1`}>Search</Link>
             </span>
           </form>
     )
