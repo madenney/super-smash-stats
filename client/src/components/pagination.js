@@ -25,7 +25,6 @@ class Pagination extends Component {
             totalPages: nextProps.totalPages
         });
     }
-
     handleClick(e) {
 //        console.log('this is the url string: ', this.props);
         const clickedValue = e.target.id;
@@ -40,14 +39,14 @@ class Pagination extends Component {
     };
 
     render(){
-//        console.log('THE STATE', this.state);
         const { items, currentPage, searchValue, totalPages } = this.state;
         const pageArray = [];
         for (let i = 1; i <= totalPages; i++) {
             pageArray.push(i);
         }
-        const displayArray = pageArray.slice((Number(currentPage) - 1), (Number(currentPage) + 2));
-//        console.log('disp', displayArray);
+
+
+        const displayArray = pageArray.slice((Number(currentPage) - 1), (Number(currentPage) + 4));
 
         const renderPageNumbers = displayArray.map((number, index) => {
             return (

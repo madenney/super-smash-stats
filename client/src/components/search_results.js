@@ -22,30 +22,25 @@ class SearchResults extends Component {
             // console.log('No search given');
             search = '';
         }
-        if(this.state.pageNum !== this.props.match.params.id){
-            this.setState({
-                pageNum: this.props.match.params.id
-            });
-            console.log('it works', this.state.pageNum)
-        }
-        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: nextProps.pageNum, resultsPerPage: 20, getTotalPages: true}).then((response) => {
+        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: nextProps.match.params.id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
             console.log('response', response);
             this.setState({
                 player_cards: response.data.players,
                 totalPages: response.data.totalAvailablePages
-            })
-            console.log('Search is?', this.props);
-            console.log('State is?', this.state);
+            });
+//            console.log('Search is?', this.props);
+//            console.log('State is?', this.state);
         })
     }
     componentWillMount() {
         var {search} = this.props.match.params;
-        console.log('Search is:', search);
+        var {id} = this.props.match.params;
+        console.log('Search is:', this.props.match.params);
         if (search == 'noSearch') {
             // console.log('No search given');
             search = '';
         }
-        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response) => {
+        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
             console.log('response', response);
             this.setState({
                 searchValue: this.state.searchValue,
