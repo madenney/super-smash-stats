@@ -45,9 +45,8 @@ class Pagination extends Component {
             pageArray.push(i);
         }
 
-
-        const displayArray = pageArray.slice((Number(currentPage) - 1), (Number(currentPage) + 4));
-
+//tertiaries are freaking awesome
+        const displayArray = pageArray.slice(`${(Number(currentPage) - 3) >= 0 ? (Number(currentPage) - 3) : 0}`, (Number(currentPage) + 2));
         const renderPageNumbers = displayArray.map((number, index) => {
             return (
                 <Link to={`/results/${searchValue.search}/${number}`} key={index}>
