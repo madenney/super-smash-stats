@@ -16,7 +16,6 @@ export default class Landingpage extends Component {
     }
     componentWillMount(){
         axios.post('http://localhost:3030/front_page', {number: 6}).then((response)=>{
-            // console.log('this is response: ', response);
             this.setState({
                 cards: response.data
             })

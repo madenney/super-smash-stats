@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Autocomplete from './autocomplete';
-//import _ from 'lodash';
-
-//dynamically create options in datalist with json data
 
 export default class SearchBar extends Component {
 
