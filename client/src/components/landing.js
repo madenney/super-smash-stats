@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Searchbar from './searchbar';
 import LandLogo from './imgs/land_logo.png';
 import axios from 'axios';
-import Carousel from './playercardcarousel';
+import Carousel from './carousel';
 import './stylish.css';
 
 export default class Landingpage extends Component {
@@ -15,7 +15,7 @@ export default class Landingpage extends Component {
         };
     }
     componentWillMount(){
-        axios.post('http://localhost:3030/front_page', {number: 6}).then((response)=>{
+        axios.post('http://localhost:3030/front_page', {number: 10}).then((response)=>{
             this.setState({
                 cards: response.data
             })
@@ -31,7 +31,7 @@ export default class Landingpage extends Component {
                     </div>
                     <Searchbar />
                     {/* Row for the player cards styling */}
-                    <div className='row col-md-6 offset-md-3 col-sm-9 offset-sm-1 scrollmenu'>
+                    <div className='row col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-9 offset-sm-1'>
                         <Carousel card = {this.state.cards} />
                     </div>
                 </div>
