@@ -23,12 +23,21 @@
   "homepage": "https://github.com/Learning-Fuze/c5.17_smash_stats#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chart.js": "^2.6.0",
+    "cheerio": "^1.0.0-rc.2",
     "cors": "^2.8.4",
     "count-array-values": "^1.2.1",
     "express": "^4.15.3",
     "fs": "0.0.1-security",
+    "get-pixels": "^3.3.0",
     "lodash": "^4.17.4",
     "mysql": "^2.13.0",
-    "ng-ocr": "^1.6.1"
+    "ng-ocr": "^1.6.1",
+    "node-tesseract": "^0.2.7",
+    "ocr": "^3.3.76",
+    "react-chartjs-2": "^2.5.6",
+    "request": "^2.81.0",
+    "youtube-api-search": "0.0.5"
+
   }
 }

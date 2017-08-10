@@ -2,53 +2,55 @@ import React, { Component } from 'react';
 import Carousel from './playercardcarousel';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import './pagination.css';
 
 class Pagination extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: this.props.items,
-            searchValue: this.props.searchValue,
-            currentPage: this.props.pageNum,
-            totalPages: this.props.totalPages,
+            items: [],
+            searchValue: '',
+            currentPage: 1,
+            totalPages: null,
+            pageArray: []
         };
         this.handleClick = this.handleClick.bind(this);
     }
-//take search result array and paginate
+
     componentWillReceiveProps(nextProps){
+//        console.log('CWRP');
         this.setState({
             items: nextProps.items,
             searchValue: nextProps.searchValue,
-            currentPage: nextProps.pageNum,
             totalPages: nextProps.totalPages
         });
     }
-
     handleClick(e) {
+//        console.log('this is the url string: ', this.props);
         const clickedValue = e.target.id;
         axios.post('http://localhost:3030/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
+            console.log('CALL COMPLETE');
             this.setState({
                 items: response.data.players,
                 currentPage: clickedValue
-            })
+            });
+            console.log('items', this.state.items);
         })
-    }
+    };
 
-    render() {
-        // console.log('THE STATE', this.state);
+    render(){
         const { items, currentPage, searchValue, totalPages } = this.state;
-
         const pageArray = [];
-
         for (let i = 1; i <= totalPages; i++) {
             pageArray.push(i);
         }
 
-        const renderPageNumbers = pageArray.map(number => {
+//tertiaries are freaking awesome
+        const displayArray = pageArray.slice(`${(Number(currentPage) - 3) >= 0 ? (Number(currentPage) - 3) : 0}`, (Number(currentPage) + 2));
+        const renderPageNumbers = displayArray.map((number, index) => {
             return (
-                <Link to={`/results/${searchValue.search}/${number}`} key={number}>
+                <Link to={`/results/${searchValue.search}/${number}`} key={index}>
                     <div
-                        key={number}
                         id={number}
                         onClick={this.handleClick}
                     >
@@ -57,15 +59,17 @@ class Pagination extends Component {
                 </Link>
             );
         });
-        // console.log('CI', items);
 
         return (
             <div>
-                <div>
-                    <Carousel card = {items} />
-                </div>
                 <div id="page-numbers">
+                    <Link to={`/results/${searchValue.search}/1`}>
+                        <div className="paginEdge" onClick={this.handleClick} id="1">First Page</div>
+                    </Link>
                     {renderPageNumbers}
+                    <Link to={`/results/${searchValue.search}/${totalPages}`}>
+                        <div className="paginEdge" onClick={this.handleClick} id={totalPages}>Last Page</div>
+                    </Link>
                 </div>
             </div>
         );

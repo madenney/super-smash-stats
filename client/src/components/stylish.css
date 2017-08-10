@@ -14,8 +14,9 @@
   100%{background-position:0% 30%}
 }
 body {
+  user-select: none;
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   background: linear-gradient(337deg, #000918, #37393C, #212A39);
   background-size: 600% 600%;
   -webkit-animation: bodyback 32s ease infinite;
@@ -98,7 +99,7 @@ body {
   position: relative;
 }
 .landpage_logo img{
-  width: 575px;
+  width: 100%;
   height: 200px;
   margin-bottom: 30px;
 }
@@ -123,4 +124,64 @@ body {
 /*SearchResults styling*/
 .search_results{
   height: 90vh;
+}
+
+/* About Us Styling */
+h1 {
+    color: white;
+    text-align: center;
+    margin: 30px;
+}
+
+.description {
+    width: 70%;
+    height: 30%;
+    color: #911f1f;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid white;
+}
+.card {
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 30px 10px 10px 30px;
+    border-radius: 10px;
+
+}
+
+.card .after {
+    position: absolute;
+    width: 100%;
+    display: none;
+    color: #FFF;
+}
+
+.card:hover .after {
+    top: 80%;
+    height: 20%;
+    text-align: center;
+    display: block;
+    background: rgba(0,0,0,0.6);
+    font-size: 12pt;
+    vertical-align: middle;
+    line-height: 55px;
+    border-radius: 10px;
+}
+
+.card-img-top {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-row {
+    text-align: center;
+    width: 100%;
+}
+
+.name {
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
 }
