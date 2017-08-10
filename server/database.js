@@ -35,6 +35,7 @@ exports.Database = function(options) {
                 }
 
                 res.end(JSON.stringify(rows[0]));
+                conn.end();
             });
         });
 
@@ -60,6 +61,7 @@ exports.Database = function(options) {
 
                 if(getPages === 'false') {
                     res.end(JSON.stringify({players}));
+                    conn.end();
                 } else {
                    query = "SELECT * FROM players WHERE players.tag LIKE '"+input+"%'";
                    conn.query(query, function(err, rows){
@@ -69,6 +71,7 @@ exports.Database = function(options) {
                         }
                         var total = Math.ceil(rows.length/resultsPerPage);
                         res.end(JSON.stringify({ totalAvailablePages: total , players}));
+                        conn.end();
                    });
                 }
             });
@@ -95,6 +98,7 @@ exports.Database = function(options) {
                     throw err;
                 }
                 res.end(JSON.stringify(rows[0]));
+                conn.end();
             })
         })
     };
@@ -114,7 +118,8 @@ exports.Database = function(options) {
                     console.log("Error with query");
                     throw err;
                 }
-                res.end(JSON.stringify(rows));
+                res.end(JSON.stringify(rows))
+                conn.end();
             });
         });
     };
@@ -135,6 +140,7 @@ exports.Database = function(options) {
                     throw err;
                 }
                 res.end(JSON.stringify(rows));
+                conn.end();
             });
         });
     }
