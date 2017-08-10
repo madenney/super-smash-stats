@@ -16,7 +16,7 @@
 body {
   user-select: none;
   width: 100vw;
-  height: 150vh;
+  height: 100vh;
   background: linear-gradient(337deg, #000918, #37393C, #212A39);
   background-size: 600% 600%;
   -webkit-animation: bodyback 32s ease infinite;
@@ -30,6 +30,11 @@ body {
     top: 20%;
     transform: translate(-50%);
 }
+
+.searchBarBox {
+
+}
+
 .searchButton{
     margin: 5px;
     height: 50px;
