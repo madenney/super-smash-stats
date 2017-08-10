@@ -6,18 +6,25 @@ import NavBarSearch from './navbar_search';
 
 const Navbar = () => {
 
-
     return(
-      <nav className='navbar navbar-inverse bg-inverse navbar-static-top navbar-toggleable-md'>
-        <Link to="/" className="navbar-brand homeIcon">
+      <nav className='navbar navbar-inverse bg-inverse navbar-static-top navbar-toggleable'>
+          <Link to="/" className="navbar-brand homeIcon">
             <img src={SmashIcon} />
-        </Link>
+          </Link>
           <ul className='navbar-nav'>
             <li className='nav-item nav-link'>
-              <Link to='#'>H2H</Link>
+              <Link to='#'>
+                  <div className='navButton'>
+                      H2H
+                  </div>
+              </Link>
             </li>
             <li className='nav-item nav-link'>
-              <Link to='/about'>About Us</Link>
+              <Link to='/about'>
+                  <div className='navButton'>
+                      About Us
+                  </div>
+              </Link>
             </li>
           </ul>
           <NavBarSearch />

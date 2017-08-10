@@ -1,7 +1,6 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom';
-import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 import images from './images';
 
 const Carousel = (props) => {
@@ -29,7 +28,7 @@ const Carousel = (props) => {
   });
 
   return (
-      <div>{player_cards}</div>
+      <div className="cardCarousel">{player_cards}</div>
     )
   }
 export default Carousel;

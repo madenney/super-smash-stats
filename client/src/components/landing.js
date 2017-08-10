@@ -25,7 +25,7 @@ export default class Landingpage extends Component {
     render() {
         return (
             <div className="landing">
-                <div className ='container center'>
+                <div className ='container landingCenter'>
                     <div className='landpage_logo row offset-md-3 col-md-6 off-lg-4'>
                         <img src = {LandLogo}/>
                     </div>

@@ -1,4 +1,6 @@
-
+.navbar {
+    z-index: 1;
+}
 .homeIcon img {
     height: 40px;
     width: 40px;
