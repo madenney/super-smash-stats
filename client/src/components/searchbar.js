@@ -40,17 +40,23 @@ export default class SearchBar extends Component {
         e.preventDefault();
         let charCode = e.keyCode;
         let key = e.key;
-
         if((charCode >= 33 && charCode <= 126)) {   // <<<<<<<<<<<<<<<<<< Letter/Number
             console.log("Letter Pressed: " + key);
             if(vs === false){
-                player1.name += key;
-                this.autocomplete(player1);
+                if(charCode === 86 && player1.isValid){
+                    this.setState({
+                        vsSpace: '',
+                        vs: true,
+                        complete: ''
+                    })
+                } else {
+                    player1.name += key;
+                    this.autocomplete(player1);
+                }
             } else {
                 player2.name += key;
                 this.autocomplete(player2);
             }
-
         } else if(charCode === 9) {                  // <<<<<<<<<<<<<<<<<< Tab
             console.log("Tab Pressed");
             if (player1.name.length === 0) {
@@ -128,13 +134,16 @@ export default class SearchBar extends Component {
             console.log("Enter Pressed");
             if(!vs) {
                 if(player1.isValid) {
-                    console.log('playerId: ', autocomCards[currentIndex]);
-                    this.props.history.push('/player_profile/' + autocomCards[currentIndex].id);
+                    this.props.history.push('/player_profile/' + autocomCards[currentIndex].id);   // Player Profile Call
                 } else {
-                    this.props.history.push('/results/'+player1.name+'/1');
+                    this.props.history.push('/results/'+player1.name+'/1'); // Search Results One players
                 }
             } else {
-                // HOLD
+                if(player2.isValid){
+                    this.props.history.push('/head2headprofile/'+player1.id+'/'+player2.id); // Head 2 Head Profile
+                } else {
+                    this.props.history.push('/head2headresults/'+player1.id+'/'+player2.name); // Head 2 Head Results
+                }
             }
         } else if(charCode === 8) {                 // <<<<<<<<<<<<<<<<<<<<<<<<<< Backspace
             console.log("Backspace Pressed");
@@ -146,7 +155,7 @@ export default class SearchBar extends Component {
                 if(player1.name.length > 0) {
                     this.autocomplete(player1);
                 } else {
-                    this.setState({player1, complete: '', currentIndex: 0})
+                    this.setState({player1, complete: '', currentIndex: 0, autocomCards: []})
                 }
             } else if( vsSpace === ' ') {
                 this.setState({vsSpace: ''});
@@ -158,7 +167,7 @@ export default class SearchBar extends Component {
                     if(player2.name.length > 0) {
                         this.autocomplete(player2);
                     } else {
-                        this.setState({player2, complete: '', currentIndex: 0})
+                        this.setState({player2, complete: '', currentIndex: 0, autocomCards: []})
                     }
                 }
             }
@@ -264,11 +273,13 @@ export default class SearchBar extends Component {
         // console.log('Value:', this.state.autocomCards);
         let x = <input className="form-control" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />;
         return (
-              <div className='searchBarContainer'>
-                  {this.buildOutput()}
-                  <span className='searchButton'>
-                      <Link className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}/1`}>Search</Link>
-                  </span>
+              <div>
+                  <div className='searchBarContainer'>
+                      {this.buildOutput()}
+                      <span className='searchButton'>
+                          <Link className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}/1`}>Search</Link>
+                      </span>
+                  </div>
                   <Autocomplete recommendations = {this.state.autocomCards} />
               </div>
         )
