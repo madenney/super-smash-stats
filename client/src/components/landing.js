@@ -29,7 +29,7 @@ export default class Landingpage extends Component {
                     <div className='landpage_logo row offset-md-3 col-md-6 off-lg-4'>
                         <img src = {LandLogo}/>
                     </div>
-                    <Searchbar />
+                    <Searchbar history={this.props.history} />
                     {/* Row for the player cards styling */}
                     <div className='row col-md-6 offset-md-3 col-sm-9 offset-sm-1 scrollmenu'>
                         <Carousel card = {this.state.cards} />
