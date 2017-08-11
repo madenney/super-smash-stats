@@ -135,7 +135,7 @@ export default class SearchBar extends Component {
         } else if(charCode === 13) {                 // <<<<<<<<<<<<<<<<<<<<<<<< Enter
             console.log("Enter Pressed");
             if(player1.name.length === 0){
-                this.props.history.push('/results/noSearch/1');
+                this.props.history.push('/results/noSearch/1'); // If empty search bar
                 return false;
             }
             if(!vs) {
@@ -215,7 +215,6 @@ export default class SearchBar extends Component {
                 if(response.data.players[i].tag.toLowerCase() === player.name.toLowerCase()) {
                     player.isValid = true;
                     player.playerId = autocomCards[currentIndex].id;
-                    console.log("HERE: ", response.data.players[i].tag);
                     player.name = response.data.players[i].tag;
                     break;
                 }
