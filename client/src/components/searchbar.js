@@ -36,12 +36,10 @@ export default class SearchBar extends Component {
         // this.props.history.push('/destination');
 
         let {player1, player2, vs, vsSpace, complete, autocomCards, currentIndex} = this.state;
-        console.log("Handling Change");
         e.preventDefault();
         let charCode = e.keyCode;
         let key = e.key;
         if((charCode >= 33 && charCode <= 126)) {   // <<<<<<<<<<<<<<<<<< Letter/Number
-            console.log("Letter Pressed: " + key);
             if(vs === false){
                 if(charCode === 86 && player1.isValid){
                     this.setState({
@@ -58,7 +56,6 @@ export default class SearchBar extends Component {
                 this.autocomplete(player2);
             }
         } else if(charCode === 9) {                  // <<<<<<<<<<<<<<<<<< Tab
-            console.log("Tab Pressed");
             if (player1.name.length === 0) {
                 return false;
             }
@@ -103,7 +100,6 @@ export default class SearchBar extends Component {
             }
 
         } else if(charCode === 32) {                   // <<<<<<<<<<<<<<<<<<<<<<<<<<<< Space Bar
-            console.log("Space Pressed");
             if(player1.name.length === 0) { // 1
                 return false;
             }
@@ -131,7 +127,6 @@ export default class SearchBar extends Component {
             }
 
         } else if(charCode === 13) {                 // <<<<<<<<<<<<<<<<<<<<<<<< Enter
-            console.log("Enter Pressed");
             if(!vs) {
                 if(player1.isValid) {
                     this.props.history.push('/player_profile/' + autocomCards[currentIndex].id);   // Player Profile Call
@@ -142,11 +137,10 @@ export default class SearchBar extends Component {
                 if(player2.isValid){
                     this.props.history.push('/head2headprofile/'+player1.id+'/'+player2.id); // Head 2 Head Profile
                 } else {
-                    this.props.history.push('/head2headresults/'+player1.id+'/'+player2.name); // Head 2 Head Results
+                    this.props.history.push('/head2headresults/'+player1.id+'/'+player2.name+'/1'); // Head 2 Head Results
                 }
             }
         } else if(charCode === 8) {                 // <<<<<<<<<<<<<<<<<<<<<<<<<< Backspace
-            console.log("Backspace Pressed");
             if(player1.name.length === 0) {
                 return false;
             }
@@ -172,7 +166,6 @@ export default class SearchBar extends Component {
                 }
             }
         }else {
-            console.log("Invalid Press");
             return false;
         }
 
@@ -180,8 +173,6 @@ export default class SearchBar extends Component {
     }
 
     tabComplete(cards, player, index) {
-        console.log("Tab Completing");
-        console.log('INDEX: ', index);
         if(index >= cards.length) {
             index = 0;
         }
@@ -202,13 +193,11 @@ export default class SearchBar extends Component {
     }
 
     autocomplete(player) {
-        console.log("Autocompleting");
         axios.post('http://localhost:3030/autocomplete', { input: player.name, pageNum: 1, resultsPerPage: 10 }).then((response) => {
             // Check for valid player name
             for(var i = 0; i < response.data.players.length; i++) {
                 if(response.data.players[i].tag.toLowerCase() === player.name.toLowerCase()) {
                     player.isValid = true;
-                    console.log("HERE: ", response.data.players[i].tag);
                     player.name = response.data.players[i].tag;
                     break;
                 }
@@ -249,12 +238,6 @@ export default class SearchBar extends Component {
     buildOutput(){
 
         const {player1, player2, vs, vsSpace, complete} = this.state;
-
-        console.log("Building Output: ");
-        // console.log('player1: ', player1);
-        // console.log('player2: ', player2);
-        // console.log('vs: ', vs);
-        // console.log('complete: ', complete);
         return(
             <div className="searchBar">
                 <div className={`sbElement ${player1.isValid ? 'validName' : 'invalidName'}`} >{player1.name}</div>
@@ -268,9 +251,7 @@ export default class SearchBar extends Component {
     }
 
     render(){
-      console.log("Rendering");
         const { value } = this.state;
-        // console.log('Value:', this.state.autocomCards);
         let x = <input className="form-control" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />;
         return (
               <div className='col-md-4 offset-md-4'>

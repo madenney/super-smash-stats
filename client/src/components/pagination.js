@@ -29,12 +29,10 @@ class Pagination extends Component {
 //        console.log('this is the url string: ', this.props);
         const clickedValue = e.target.id;
         axios.post('http://localhost:3030/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
-            console.log('CALL COMPLETE');
             this.setState({
                 items: response.data.players,
                 currentPage: clickedValue
             });
-            console.log('items', this.state.items);
         })
     };
 
