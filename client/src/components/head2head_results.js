@@ -8,7 +8,7 @@ class Head2HeadResults extends Component {
       super(props);
       this.state = {
         player1: '',
-        player2results: '',
+        player2results: [],
         totalPages: '',
         searchValue: this.props.match.params
       }
@@ -26,7 +26,7 @@ class Head2HeadResults extends Component {
     }
     render() {
         const {player1, player2results} = this.state;
-        if(player1 == '' || player2results == ''){
+        if(!player2results){
           return(
             <h1>Loading...</h1>
           )

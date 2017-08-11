@@ -5,7 +5,7 @@ import images from './images';
 const Head2HeadPlayerCards = (props) => {
   const {player1} = props;
   const player2_cards = props.player2.map((item,index)=>{
-    if(images[`player_pic/${item.tag}.png` == undefined]){
+    if(!images[`player_pic/${item.tag}.png`]){
       let imageUrl = images['ProfilePlaceholder.gif'];
       let divStyle = {
         backgroundImage: 'url(' + imageUrl +')',
@@ -23,7 +23,7 @@ const Head2HeadPlayerCards = (props) => {
     else{
       let imageUrl = images[`player_pic/${item.tag}.png`];
       let divStyle = {
-        backgroundImage: 'url(' + images['ProfilePlaceholder.gif'] +')',
+        backgroundImage: 'url(' + imageUrl +')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'
       }

@@ -39,6 +39,7 @@ class Pagination extends Component {
     render(){
         const { items, currentPage, searchValue, totalPages } = this.state;
         const pageArray = [];
+        console.log('this is the state: ', this.state);
         for (let i = 1; i <= totalPages; i++) {
             pageArray.push(i);
         }
