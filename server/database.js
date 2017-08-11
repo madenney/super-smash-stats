@@ -118,7 +118,10 @@ exports.Database = function(options) {
                     console.log("Error with query");
                     throw err;
                 }
-                res.end(JSON.stringify(rows))
+                setTimeout(function() {
+                    res.end(JSON.stringify(rows))
+
+                }, 3000);
                 conn.end();
             });
         });
@@ -143,6 +146,75 @@ exports.Database = function(options) {
                 conn.end();
             });
         });
+    }
+
+    this.getHead2HeadProfile = function(res, id1, id2) {
+        console.log("Head 2 Head Profile");
+        let player1;
+        let player2;
+        let matchHistory;
+
+        let conn = mysql.createConnection(connInfo);
+        conn.connect(function(err){
+            if (err) {
+                console.log("Error connecting to the database");
+                throw err;
+            }
+            let promise1 = new Promise(function(resolve, reject) {
+                if(id1 > 100) {
+                    var query = "SELECT * FROM players WHERE id = " + id1;
+                } else {
+                    var query = "SELECT player_info.*, players.* FROM players JOIN player_info ON players.tag = player_info.tag WHERE players.id = '" + id1 + "'";
+                }
+                conn.query(query, function(err, rows){
+                    if(err){
+                        console.log("Error with query");
+                        reject();
+                        throw err;
+                    }
+                    player1 = rows;
+                    resolve();
+                });
+            });
+            let promise2 = new Promise(function(resolve, reject) {
+                if(id1 > 100) {
+                    var query = "SELECT * FROM players WHERE id = " + id2;
+                } else {
+                    var query = "SELECT player_info.*, players.* FROM players JOIN player_info ON players.tag = player_info.tag WHERE players.id = '" + id2 + "'";
+                }
+                conn.query(query, function(err, rows){
+                    if(err){
+                        console.log("Error with query");
+                        reject();
+                        throw err;
+                    }
+                    player2 = rows;
+                    resolve();
+                });
+            });
+
+            let promise3;
+            Promise.all([promise1, promise2]).then(function() {
+                promise3 = new Promise(function(resolve, reject) {
+                    var query = 'SELECT * from matches';
+                    conn.query(query, function(err, rows){
+                        if(err){
+                            console.log("Error with query");
+                            reject();
+                            throw err;
+                        }
+                        matchHistory = rows;
+                        resolve();
+                    });
+                });
+            });
+
+            promise3.then(function() {
+                console.log(matchHistory.length);
+            })
+        });
+
+
     }
 
 };
