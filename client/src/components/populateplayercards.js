@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {Link} from 'react-router-dom';
 import images from './images';
@@ -11,7 +10,7 @@ const PopulatePlayerCards = (props) => {
     );
   }
   const player_cards = props.card.map((item, index)=>{
-    let imageUrl = images[item.tag + '.png'];
+    let imageUrl = images[`player_pic/${item.tag}.png`];
     const divStyle = {
       backgroundImage: 'url(' + imageUrl +')',
       backgroundRepeat: 'no-repeat',
@@ -19,18 +18,16 @@ const PopulatePlayerCards = (props) => {
     };
 
     return(
-        <div>
-          <Link to={`/player_profile/${item.id}`} key={index}>
-            <div className='player_card' style={divStyle}>
+        <div className='col-md-2 player_card' style={divStyle} key={index}>
+          <Link to={`/player_profile/${item.id}`}>
               <h3 className='player_text'>{item.tag}</h3>
-            </div>
           </Link>
         </div>
     )
   });
 
   return (
-        <player_cards />
+        <div className='container offset-md-1'>{player_cards}</div>
   )
 };
 export default PopulatePlayerCards;

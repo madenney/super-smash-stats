@@ -9,7 +9,7 @@ const Playercard = (props) => {
         );
     }
 
-    const imageUrl = images[props.card[Number(props.cardNum)].tag + '.png'];
+    const imageUrl = images[`player_pic/${props.card[Number(props.cardNum)].tag}.png`];
     const divStyle = {
         backgroundImage: 'url(' + imageUrl +')',
         backgroundRepeat: 'no-repeat',

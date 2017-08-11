@@ -1,27 +1,22 @@
 
 .searchBarContainer {
     width: 100%;
-    background-color: gray;
+    background-color: transparent;
     font-size: 16px;
+    height: 40px;
 }
 
 .searchBar {
+    padding-left: 3px;
     background-color: white;
     width: 80%;
 }
-
-.searchButton {
-    width: 20%;
+.searchBar:focus{
+  border: 2px solid blue;
 }
-
 .sbElement {
     display: inline;
 }
-
-.invalidName {
-    #background-color: pink;
-}
-
 .validName {
     background-color: lightgreen;
 }
@@ -38,5 +33,10 @@
 
 .inputLine {
     display: inline;
-    width: 15px;
+    width: 3px;
+    height: 40px;
+    border-width: 0;
+}
+.inputLine:focus{
+  outline-width: 0;
 }

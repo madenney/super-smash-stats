@@ -31,9 +31,6 @@ body {
     transform: translate(-50%);
 }
 
-.searchBarBox {
-
-}
 
 .searchButton{
     margin: 5px;
@@ -95,13 +92,15 @@ body {
   text-decoration: none;
 }
 .player_card{
+  overflow: wrap;
   border: solid #A4A4A4 1px;
   margin: 3px;
   width: 100%;
   height: 200px;
   border-radius: 10px;
   display: inline-block;
-  position: relative;
+  /*position: relative;*/
+  vertical-align: bottom;
 }
 .landpage_logo img{
   width: 100%;
@@ -115,12 +114,13 @@ body {
   width: 100vw;
 }
 .player_text{
-  margin-top: 80%;
+  border-radius: 4px;
+  width: 100%;
+  float: bottom;
   text-align: center;
   background-color: black;
   color: white;
   opacity: 0.5;
-  position: absolute;
 }
 .player_card:hover .player_text{
   visibility: visible;
@@ -189,4 +189,7 @@ h1 {
     margin: 0 auto;
     text-align: center;
     padding: 10px;
+}
+.carousel{
+  margin-top: 100px;
 }

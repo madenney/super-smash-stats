@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-//info: https://github.com/akiran/react-slick
+// info https://github.com/akiran/react-slick
 import {Link} from 'react-router-dom';
 import images from './images';
 import Playercard from './playercard';
