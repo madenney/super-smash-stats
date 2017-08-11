@@ -14,9 +14,14 @@ class Head2HeadResults extends Component {
       }
     }
     componentWillMount(){
-      const {id, search} = this.props.match.params;
+      // console.log('this is props: ', this.props);
+      const {id, page} = this.props.match.params;
+      let {search} = this.props.match.params;
+       if(search == 'noSearch'){
+        search = '';
+      }
       axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
-        console.log('this is the response: ', response);
+        // console.log('this is the response: ', response);
         this.setState({
           player2results: response.data.players,
           player1: id,
@@ -36,7 +41,7 @@ class Head2HeadResults extends Component {
               <div>
                   <h1>Head To Head Results</h1>
                   <Head2HeadPlayerCards player2 = {player2results} player1 = {player1} />
-                  <Pagination items={this.state.player2results} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
+                  <Pagination player1 = {this.state.player1} items={this.state.player2results} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
               </div>
           )
         }

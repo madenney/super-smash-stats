@@ -12,18 +12,32 @@ class Pagination extends Component {
             searchValue: '',
             currentPage: 1,
             totalPages: null,
-            pageArray: []
+            pageArray: [],
+            player1: '',
+            player1id:''
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
     componentWillReceiveProps(nextProps){
-//        console.log('CWRP');
-        this.setState({
+        if(!nextProps.player1){
+          this.setState({
             items: nextProps.items,
             searchValue: nextProps.searchValue,
-            totalPages: nextProps.totalPages
-        });
+            totalPages: nextProps.totalPages,
+            player1: false
+          });
+        }
+        else{
+          this.setState({
+            items: nextProps.items,
+            searchValue: nextProps.searchValue,
+            totalPages: nextProps.totalgPages,
+            player1: true
+            player1id: nextProps.player1;
+          })
+        }
+
     }
     handleClick(e) {
 //        console.log('this is the url string: ', this.props);
@@ -46,19 +60,18 @@ class Pagination extends Component {
 
 //tertiaries are freaking awesome
         const displayArray = pageArray.slice(`${(Number(currentPage) - 3) >= 0 ? (Number(currentPage) - 3) : 0}`, (Number(currentPage) + 2));
-        const renderPageNumbers = displayArray.map((number, index) => {
-            return (
-                <Link to={`/results/${searchValue.search}/${number}`} key={index}>
-                    <div
-                        id={number}
-                        onClick={this.handleClick}
-                    >
-                        {number}
-                    </div>
-                </Link>
-            );
-        });
-
+          const renderPageNumbers = displayArray.map((number, index) => {
+              return (
+                  <Link to={`/results/${searchValue.search}/${number}`} key={index}>
+                      <div
+                          id={number}
+                          onClick={this.handleClick}
+                      >
+                          {number}
+                      </div>
+                  </Link>
+              );
+          });
         return (
             <div className='offset-md-5'>
                 <div id="page-numbers">

@@ -19,7 +19,6 @@ export default class SearchBar extends Component {
             isValid: false
         };
         this.state = {
-            value: '',
             autocomCards: [],
             currentIndex : -1,
             complete: '',
@@ -66,6 +65,7 @@ export default class SearchBar extends Component {
                     currentIndex = 0;
                     player1.name = autocomCards[currentIndex].tag;
                     player1.isValid = true;
+                    player1.playerId = autocomCards[currentIndex].id;
                     this.setState({player1, currentIndex, complete: ''});
                     return false;
                 }
@@ -90,6 +90,7 @@ export default class SearchBar extends Component {
                         currentIndex = 0;
                         player2.name = autocomCards[currentIndex].tag;
                         player2.isValid = true;
+                        player2.playerId = autocomCards[currentIndex].id;
                         this.setState({player2, currentIndex, complete: ''});
                         return false;
                     }
@@ -127,6 +128,11 @@ export default class SearchBar extends Component {
             }
 
         } else if(charCode === 13) {                 // <<<<<<<<<<<<<<<<<<<<<<<< Enter
+
+            if(player1.name.length === 0){
+                this.props.history.push('/results/noSearch/1'); // If empty search bar
+                return false;
+            }
             if(!vs) {
                 if(player1.isValid) {
                     this.props.history.push('/player_profile/' + autocomCards[currentIndex].id);   // Player Profile Call
@@ -135,9 +141,9 @@ export default class SearchBar extends Component {
                 }
             } else {
                 if(player2.isValid){
-                    this.props.history.push('/head2headprofile/'+player1.id+'/'+player2.id); // Head 2 Head Profile
+                    this.props.history.push('/head2headprofile/'+player1.playerId+'/'+player2.playerId); // Head 2 Head Profile
                 } else {
-                    this.props.history.push('/head2headresults/'+player1.id+'/'+player2.name+'/1'); // Head 2 Head Results
+                    this.props.history.push('/head2headresults/'+player1.playerId+'/'+player2.name+'/1'); // Head 2 Head Results
                 }
             }
         } else if(charCode === 8) {                 // <<<<<<<<<<<<<<<<<<<<<<<<<< Backspace
@@ -198,6 +204,7 @@ export default class SearchBar extends Component {
             for(var i = 0; i < response.data.players.length; i++) {
                 if(response.data.players[i].tag.toLowerCase() === player.name.toLowerCase()) {
                     player.isValid = true;
+                    player.playerId = response.data.players[i].id;
                     player.name = response.data.players[i].tag;
                     break;
                 }
@@ -235,32 +242,56 @@ export default class SearchBar extends Component {
         });
     }
 
+    searchClicked() {
+        const {player1, player2, vs} = this.state;
+        console.log("Enter Pressed");
+        if(player1.name.length === 0){
+            this.props.history.push('/results/noSearch/1'); // If empty search bar
+            return false;
+        }
+        if(!vs) {
+            if(player1.isValid) {
+                this.props.history.push('/player_profile/' + player1.playerId);   // Player Profile Call
+            } else {
+                this.props.history.push('/results/'+player1.name+'/1'); // Search Results One players
+            }
+        } else {
+            if(player2.isValid){
+                this.props.history.push('/head2headprofile/'+player1.playerId+'/'+player2.playerId); // Head 2 Head Profile
+            } else {
+                if(player2.name.length === 0) {
+                    this.props.history.push('/head2headresults/'+player1.playerId+'/noSearch/1'); // Head 2 Head Results
+                } else {
+                    this.props.history.push('/head2headresults/'+player1.playerId+'/'+player2.name+'/1'); // Head 2 Head Results
+                }
+            }
+        }
+    }
+
     buildOutput(){
 
         const {player1, player2, vs, vsSpace, complete} = this.state;
         return(
-            <div className="searchBar">
+            <div className="searchBar" onClick={() => {this.searchInput.focus();}}>
                 <div className={`sbElement ${player1.isValid ? 'validName' : 'invalidName'}`} >{player1.name}</div>
                 <div className="sbElement">{vsSpace}</div>
                 {vs ? <div className="sbElement vs" > VS </div> : <div className="sbElement"></div>}
                 {player2.name.length > 0 ? <div className={`sbElement ${player2.isValid ? 'validName' : 'invalidName'}`} >{player2.name}</div> : <div className="sbElement"></div>}
-                <input autoFocus className="inputLine" type="text" onKeyDown={(e) => this.handleChange(e)} />
+                <input autoFocus className="inputLine" type="text" onKeyDown={(e) => this.handleChange(e)} ref={(ip) => {this.searchInput = ip;}}/>
                 <div className="sbElement complete">{complete}</div>
             </div>
         );
     }
 
     render(){
-        const { value } = this.state;
-        let x = <input className="form-control" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />;
         return (
-              <div className='col-md-4 offset-md-4'>
-                  <div className='input-group searchBarContainer'>
-                      {this.buildOutput()}
-                          <Link className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}/1`}>Search</Link>
-                  </div>
-                  <Autocomplete recommendations = {this.state.autocomCards} />
-              </div>
+            <div className='col-md-4 offset-md-4'>
+                <div className='input-group searchBarContainer'>
+                    {this.buildOutput()}
+                    <div className='btn btn-outline-warning' onClick={() => this.searchClicked()}>Search</div>
+                </div>
+                <Autocomplete recommendations = {this.state.autocomCards} />
+            </div>
         )
     }
 }
