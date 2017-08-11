@@ -43,6 +43,13 @@ app.post('/front_page', function(req, res) {
     db.getFrontPageInfo(res, req.body.number);
 });
 
+app.post('/head2headprofile', function(req, res) {
+    console.log("Getting head2head profile");
+    db.getHead2HeadProfile(res, req.body.id1, req.body.id2);
+});
+
+
+//app.use(express.static('./test_client'));
 app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
 
 app.use('*', (req, res) => {

@@ -94,6 +94,27 @@
                 });
 
             });
+
+            $(".h2hprofile").click(function() {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: '/head2headprofile',
+                    method: "POST",
+                    data: {
+                        id1: 2,
+                        id2: 3
+                    },
+                    success: function(result) {
+                        console.log(result);
+                    },
+                    error: function(err) {
+                        console.log("ERROR OCCURRED");
+                        console.log(err);
+                    }
+                });
+
+            });
         });
 
     </script>
@@ -129,6 +150,12 @@
     <!--Enter ID to receive player profile info object-->
     <input id = "historyinput" type="text">
     <button class ="button4"> Get Match History </button>
+
+    <br>
+    <br>
+    <br>
+    <!--Enter ID to receive player profile info object-->
+    <button class ="h2hprofile"> h2hProfile </button>
 
 </body>
 </html>
