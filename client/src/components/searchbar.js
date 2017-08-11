@@ -69,6 +69,7 @@ export default class SearchBar extends Component {
                     currentIndex = 0;
                     player1.name = autocomCards[currentIndex].tag;
                     player1.isValid = true;
+                    player1.playerId = autocomCards[currentIndex].id;
                     this.setState({player1, currentIndex, complete: ''});
                     return false;
                 }
@@ -93,6 +94,7 @@ export default class SearchBar extends Component {
                         currentIndex = 0;
                         player2.name = autocomCards[currentIndex].tag;
                         player2.isValid = true;
+                        player2.playerId = autocomCards[currentIndex].id;
                         this.setState({player2, currentIndex, complete: ''});
                         return false;
                     }
@@ -132,6 +134,10 @@ export default class SearchBar extends Component {
 
         } else if(charCode === 13) {                 // <<<<<<<<<<<<<<<<<<<<<<<< Enter
             console.log("Enter Pressed");
+            if(player1.name.length === 0){
+                this.props.history.push('/results/noSearch/1');
+                return false;
+            }
             if(!vs) {
                 if(player1.isValid) {
                     this.props.history.push('/player_profile/' + autocomCards[currentIndex].id);   // Player Profile Call
@@ -140,9 +146,9 @@ export default class SearchBar extends Component {
                 }
             } else {
                 if(player2.isValid){
-                    this.props.history.push('/head2headprofile/'+player1.id+'/'+player2.id); // Head 2 Head Profile
+                    this.props.history.push('/head2headprofile/'+player1.playerId+'/'+player2.playerId); // Head 2 Head Profile
                 } else {
-                    this.props.history.push('/head2headresults/'+player1.id+'/'+player2.name); // Head 2 Head Results
+                    this.props.history.push('/head2headresults/'+player1.playerId+'/'+player2.name); // Head 2 Head Results
                 }
             }
         } else if(charCode === 8) {                 // <<<<<<<<<<<<<<<<<<<<<<<<<< Backspace
@@ -208,6 +214,7 @@ export default class SearchBar extends Component {
             for(var i = 0; i < response.data.players.length; i++) {
                 if(response.data.players[i].tag.toLowerCase() === player.name.toLowerCase()) {
                     player.isValid = true;
+                    player.playerId = autocomCards[currentIndex].id;
                     console.log("HERE: ", response.data.players[i].tag);
                     player.name = response.data.players[i].tag;
                     break;
