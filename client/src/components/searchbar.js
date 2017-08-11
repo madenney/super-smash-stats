@@ -277,10 +277,6 @@ export default class SearchBar extends Component {
         }
     }
 
-    barClicked() {
-
-    }
-
     buildOutput(){
 
         const {player1, player2, vs, vsSpace, complete} = this.state;
