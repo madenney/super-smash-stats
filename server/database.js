@@ -118,10 +118,7 @@ exports.Database = function(options) {
                     console.log("Error with query");
                     throw err;
                 }
-                setTimeout(function() {
-                    res.end(JSON.stringify(rows))
-
-                }, 3000);
+                res.end(JSON.stringify(rows))
                 conn.end();
             });
         });
