@@ -1,0 +1,42 @@
+
+.searchBarContainer {
+    width: 100%;
+    background-color: transparent;
+    font-size: 16px;
+    height: 40px;
+}
+
+.searchBar {
+    padding-left: 3px;
+    background-color: white;
+    width: 80%;
+}
+.searchBar:focus{
+  border: 2px solid blue;
+}
+.sbElement {
+    display: inline;
+}
+.validName {
+    background-color: lightgreen;
+}
+
+.vs {
+    color: red;
+    background-color: yellow;
+}
+
+.complete{
+    color: darkgray;
+    #background-color: lightgreen;
+}
+
+.inputLine {
+    display: inline;
+    width: 3px;
+    height: 40px;
+    border-width: 0;
+}
+.inputLine:focus{
+  outline-width: 0;
+}

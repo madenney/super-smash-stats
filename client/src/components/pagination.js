@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Carousel from './playercardcarousel';
+import PopulatePlayerCards from './populateplayercards';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './pagination.css';
@@ -61,7 +61,7 @@ class Pagination extends Component {
         });
 
         return (
-            <div>
+            <div className='offset-md-5'>
                 <div id="page-numbers">
                     <Link to={`/results/${searchValue.search}/1`}>
                         <div className="paginEdge" onClick={this.handleClick} id="1">First Page</div>

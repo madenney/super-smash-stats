@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {Component} from 'react';
 import './search_bar.css';
 class Input extends Component {
@@ -59,3 +60,7 @@ export default Input;
 //
 //       // console.log('this is the key: ', e.key);
 //     }
+=======
+import React from 'react';
+
+>>>>>>> 187199734d2adf0c7fdde1b96a8e2b6d7d64ae84

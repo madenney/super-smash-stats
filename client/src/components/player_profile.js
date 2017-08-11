@@ -3,7 +3,6 @@ import axios from 'axios';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import images from './images';
-import char_images from './characterimages';
 import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
 import TournamentHistory from './tournament_history';
 import MatchHistory from './match_history';
@@ -120,7 +119,7 @@ class PlayerProfile extends Component{
   			<div id="profile-card" className="col-xs-12 col-md-12">
   				<div className="row">
   					<div className="col-sm-4 col-xs-6 col-md-4">
-  			      <img className={profile_picture} src={!images[`${profile.tag}.png`] ? ProfilePlaceholder : images[`${profile.tag}.png`] }/>
+  			      <img className={profile_picture} src={!images[`player_pic/${profile.tag}.png`] ? ProfilePlaceholder : images[`player_pic/${profile.tag}.png`] }/>
   					</div>
   					<div className="col-sm-4 col-xs-6">
   						<h2 id="player_tag">{profile.tag}</h2>
@@ -129,8 +128,8 @@ class PlayerProfile extends Component{
 
   						<p id="location" className={description_display}>Location: {profile.location}</p>
   						<p className={description_display}>Mains:</p>
-              <img className={`char_img_sizing ${description_display}`} src={char_images[`${profile.main}.png`]}/>
-  						<img className={`char_img_sizing ${description_display}`} src={char_images[`${profile.secondary}.png`]}/>
+              <img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.main}.png`]}/>
+  						<img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.secondary}.png`]}/>
   						<p className={description_display}>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
   					<div className="col-sm-4 col-xs-6">
