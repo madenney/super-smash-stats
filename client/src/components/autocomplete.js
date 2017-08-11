@@ -12,7 +12,7 @@ const Autocomplete = (props) => {
                 <div className="autocomItem col-12" key={index}>
                     <div className="col-4">{item.tag}</div>
                     <div className="col-4">{item.main === '' || item.main === '' ?  '' : item.main}</div>
-                    <div className="col-4"> <img className="autocomPic" src={!images[`${item.tag}.png`] ? ProfilePlaceholder : images[`${item.tag}.png`]} /> </div>
+                    <div className="col-4"> <img className="autocomPic" src={!images[`player_pic/${item.tag}.png`] ? ProfilePlaceholder : images[`player_pic/${item.tag}.png`]} /> </div>
                 </div>
             </Link>
         )

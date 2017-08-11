@@ -268,7 +268,7 @@ export default class SearchBar extends Component {
                 <div className="sbElement">{vsSpace}</div>
                 {vs ? <div className="sbElement vs" > VS </div> : <div className="sbElement"></div>}
                 {player2.name.length > 0 ? <div className={`sbElement ${player2.isValid ? 'validName' : 'invalidName'}`} >{player2.name}</div> : <div className="sbElement"></div>}
-                <input className="inputLine" type="text" onKeyDown={(e) => this.handleChange(e)} />
+                <input autoFocus className="inputLine" type="text" onKeyDown={(e) => this.handleChange(e)} />
                 <div className="sbElement complete">{complete}</div>
             </div>
         );
@@ -280,12 +280,10 @@ export default class SearchBar extends Component {
         // console.log('Value:', this.state.autocomCards);
         let x = <input className="form-control" type="text" placeholder="Insert Player Name" value={this.state.value} onChange={(e) => this.handleChange(e)} />;
         return (
-              <div>
-                  <div className='searchBarContainer'>
+              <div className='col-md-4 offset-md-4'>
+                  <div className='input-group searchBarContainer'>
                       {this.buildOutput()}
-                      <span className='searchButton'>
                           <Link className='btn btn-outline-warning' to={`/results/${value ? value : 'noSearch'}/1`}>Search</Link>
-                      </span>
                   </div>
                   <Autocomplete recommendations = {this.state.autocomCards} />
               </div>

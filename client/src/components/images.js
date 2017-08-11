@@ -6,7 +6,7 @@ function importAll(r) {
     return images;
 }
 
-const images = importAll(require.context('./imgs/player_pic', false, /\.(gif|png|jpe?g|svg)$/));
+const images = importAll(require.context('./imgs', true, /\.(gif|png|jpe?g|svg)$/));
 
 // import images from './images';
 // <img src={images['landingpage.png']} />
