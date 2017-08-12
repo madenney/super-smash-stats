@@ -33,8 +33,8 @@ class Pagination extends Component {
             items: nextProps.items,
             searchValue: nextProps.searchValue,
             totalPages: nextProps.totalgPages,
-            player1: true
-            player1id: nextProps.player1;
+            player1: true,
+            player1id: nextProps.player1
           })
         }
 

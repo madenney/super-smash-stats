@@ -10,12 +10,9 @@ const About = () => {
     return (
         <div className="container">
             <h1> About Us </h1>
-            <div className="description">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum."
+            <div className="description" >
+                A group of dedicated Smash Players with a passion for data manipulation, data-display, and Super Smash Bro's Melee, we have created
+                a simple and intuitive application that provides accurate display of data. #Meleeislife.
             </div>
             <div className="card-row">
                 <div className="card">

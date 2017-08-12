@@ -128,7 +128,6 @@ export default class SearchBar extends Component {
             }
 
         } else if(charCode === 13) {                 // <<<<<<<<<<<<<<<<<<<<<<<< Enter
-
             if(player1.name.length === 0){
                 this.props.history.push('/results/noSearch/1'); // If empty search bar
                 return false;
@@ -144,6 +143,7 @@ export default class SearchBar extends Component {
                     this.props.history.push('/head2headprofile/'+player1.playerId+'/'+player2.playerId); // Head 2 Head Profile
                 } else {
                     this.props.history.push('/head2headresults/'+player1.playerId+'/'+player2.name+'/1'); // Head 2 Head Results
+
                 }
             }
         } else if(charCode === 8) {                 // <<<<<<<<<<<<<<<<<<<<<<<<<< Backspace

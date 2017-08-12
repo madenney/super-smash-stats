@@ -14,7 +14,7 @@ const Head2HeadPlayerCards = (props) => {
       }
       return(
           <div className='col-md-2 player_card' style={divStyle} key={index}>
-            <Link to={`/player_profile/${item.id}`}>
+            <Link to={`/head2headprofile/${props.player1}/${item.id}`}>
                 <h3 className='player_text'>{item.tag}</h3>
             </Link>
           </div>
