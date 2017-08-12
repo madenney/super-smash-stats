@@ -24,7 +24,6 @@ class SearchResults extends Component {
             search = '';
         }
         axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
-            console.log('response', response);
             this.setState({
                 player_cards: response.data.players,
                 totalPages: response.data.totalAvailablePages

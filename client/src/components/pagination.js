@@ -12,54 +12,66 @@ class Pagination extends Component {
             searchValue: '',
             currentPage: 1,
             totalPages: null,
-            pageArray: []
+            pageArray: [],
+            player1: '',
+            player1id:''
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
     componentWillReceiveProps(nextProps){
-//        console.log('CWRP');
-        this.setState({
+        if(!nextProps.player1){
+          this.setState({
             items: nextProps.items,
             searchValue: nextProps.searchValue,
-            totalPages: nextProps.totalPages
-        });
+            totalPages: nextProps.totalPages,
+            player1: false
+          });
+        }
+        else{
+          this.setState({
+            items: nextProps.items,
+            searchValue: nextProps.searchValue,
+            totalPages: nextProps.totalgPages,
+            player1: true
+            player1id: nextProps.player1;
+          })
+        }
+
     }
     handleClick(e) {
 //        console.log('this is the url string: ', this.props);
         const clickedValue = e.target.id;
         axios.post('http://localhost:3030/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
-            console.log('CALL COMPLETE');
             this.setState({
                 items: response.data.players,
                 currentPage: clickedValue
             });
-            console.log('items', this.state.items);
         })
     };
 
     render(){
         const { items, currentPage, searchValue, totalPages } = this.state;
         const pageArray = [];
+        console.log('this is the state: ', this.state);
         for (let i = 1; i <= totalPages; i++) {
             pageArray.push(i);
         }
 
 //tertiaries are freaking awesome
         const displayArray = pageArray.slice(`${(Number(currentPage) - 3) >= 0 ? (Number(currentPage) - 3) : 0}`, (Number(currentPage) + 2));
-        const renderPageNumbers = displayArray.map((number, index) => {
-            return (
-                <Link to={`/results/${searchValue.search}/${number}`} key={index}>
-                    <div
-                        id={number}
-                        onClick={this.handleClick}
-                    >
-                        {number}
-                    </div>
-                </Link>
-            );
-        });
-
+          const renderPageNumbers = displayArray.map((number, index) => {
+              return (
+                  <Link to={`/results/${searchValue.search}/${number}`} key={index}>
+                      <div
+                          id={number}
+                          onClick={this.handleClick}
+                      >
+                          {number}
+                      </div>
+                  </Link>
+              );
+          });
         return (
             <div className='offset-md-5'>
                 <div id="page-numbers">

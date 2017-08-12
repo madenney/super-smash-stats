@@ -19,15 +19,15 @@ const About = () => {
             </div>
             <div className="card-row">
                 <div className="card">
-                    <img className="card-img-top" src={Matt}/>
+                    <img className="card-img-top" src='http://elelur.com/data_images/mammals/bonobo/bonobo-01.jpg'/>
                     <div className="after">Matt "Mad Matt" Denney</div>
                 </div>
                 <div className="card">
-                    <img className="card-img-top" src={Howard}/>
-                    <div className="after">Howard "Hun" Kim</div>
+                    <img className="card-img-top" src='http://www.ikea.com/PIAimages/0445780_PE596064_S5.JPG'/>
+                    <div className="after">Howard "Hoon" Kim</div>
                 </div>
                 <div className="card">
-                    <img className="card-img-top" src="http://via.placeholder.com/300.png/09f/fff"/>
+                    <img className="card-img-top" src="http://vignette2.wikia.nocookie.net/onepunchman/images/0/07/Saitama_serious_profile.png/revision/latest?cb=20161002154538"/>
                     <span className="after">Khanh Nguyen</span>
                 </div>
                 <br/>

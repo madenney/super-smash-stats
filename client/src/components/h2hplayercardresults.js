@@ -2,14 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import images from './images';
 
-const PopulatePlayerCards = (props) => {
-  // console.log('cards props:', props);
-  if(!props.card || Object.keys(props.card).length < 1){
-    return(
-      <h1>Loading...</h1>
-    );
-  }
-  const player_cards = props.card.map((item, index)=>{
+const Head2HeadPlayerCards = (props) => {
+  const {player1} = props;
+  const player2_cards = props.player2.map((item,index)=>{
     if(!images[`player_pic/${item.tag}.png`]){
       let imageUrl = images['ProfilePlaceholder.gif'];
       let divStyle = {
@@ -34,16 +29,15 @@ const PopulatePlayerCards = (props) => {
       }
       return(
           <div className='col-md-2 player_card' style={divStyle} key={index}>
-            <Link to={`/player_profile/${item.id}`}>
+            <Link to={`/head2headprofile/${props.player1}/${item.id}`}>
                 <h3 className='player_text'>{item.tag}</h3>
             </Link>
           </div>
       )
     }
   });
-
-  return (
-        <div className='container offset-md-1'>{player_cards}</div>
+  return(
+    <div className='container offset-md-1'>{player2_cards}</div>
   )
-};
-export default PopulatePlayerCards;
+}
+export default Head2HeadPlayerCards;
