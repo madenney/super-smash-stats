@@ -134,7 +134,7 @@ export default class SearchBar extends Component {
             }
             if(!vs) {
                 if(player1.isValid) {
-                    this.props.history.push('/player_profile/' + autocomCards[currentIndex].id);   // Player Profile Call
+                    this.props.history.push('/player_profile/' + player1.playerId);   // Player Profile Call
                 } else {
                     this.props.history.push('/results/'+player1.name+'/1'); // Search Results One players
                 }

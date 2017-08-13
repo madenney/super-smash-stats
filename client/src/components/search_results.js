@@ -35,6 +35,7 @@ class SearchResults extends Component {
     componentWillMount() {
         var {search} = this.props.match.params;
         var {id} = this.props.match.params;
+
         console.log('Search is:', this.props.match.params);
         if (search == 'noSearch') {
             // console.log('No search given');
