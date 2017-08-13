@@ -4,12 +4,19 @@
     background-color: transparent;
     font-size: 16px;
     height: 40px;
+    margin-top: 60px;
 }
 
 .searchBar {
     padding-left: 3px;
     background-color: white;
     width: 80%;
+    border: 2px solid #f0ad4e;
+    border-radius: 0.25rem;
+    overflow-y: hidden;
+}
+.searchBar:active{
+  border: 2px solid blue;
 }
 .searchBar:focus{
   border: 2px solid blue;
