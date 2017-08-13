@@ -102,8 +102,32 @@
                     url: '/head2headprofile',
                     method: "POST",
                     data: {
-                        id1: 2,
-                        id2: 3
+                        id1: 3,
+                        id2: 8
+                    },
+                    success: function(result) {
+                        console.log(result);
+                    },
+                    error: function(err) {
+                        console.log("ERROR OCCURRED");
+                        console.log(err);
+                    }
+                });
+
+            });
+
+            $(".h2hsearch").click(function() {
+
+                $.ajax({
+                    dataType: 'json',
+                    url: '/head2headsearch',
+                    method: "POST",
+                    data: {
+                        player1: 'squid',
+                        input: 's',
+                        resultsPerPage: 20,
+                        pageNum: 2,
+                        getTotalPages: false
                     },
                     success: function(result) {
                         console.log(result);
@@ -156,6 +180,11 @@
     <br>
     <!--Enter ID to receive player profile info object-->
     <button class ="h2hprofile"> h2hProfile </button>
+    <br>
+    <br>
+    <br>
+    <!--Enter ID to receive player profile info object-->
+    <button class ="h2hsearch"> h2hSearch </button>
 
 </body>
 </html>

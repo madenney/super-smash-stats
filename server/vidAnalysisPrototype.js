@@ -18,7 +18,7 @@ console.log("Video Analysis Test");
 var ocr = require('ocr');
 
 // Set default values.
-var params = {
+var params =  {
     input: './test/output2.jpg',
     output: './test/ocrtest1.txt',
     format: 'text'

@@ -139,7 +139,7 @@ export default class SearchBar extends Component {
             }
             if(!vs) {
                 if(player1.isValid) {
-                    this.props.history.push('/player_profile/' + autocomCards[currentIndex].id);   // Player Profile Call
+                    this.props.history.push('/player_profile/' + player1.playerId);   // Player Profile Call
                 } else {
                     this.props.history.push('/results/'+player1.name+'/1'); // Search Results One players
                 }
@@ -213,7 +213,7 @@ export default class SearchBar extends Component {
             for(var i = 0; i < response.data.players.length; i++) {
                 if(response.data.players[i].tag.toLowerCase() === player.name.toLowerCase()) {
                     player.isValid = true;
-                    player.playerId = autocomCards[currentIndex].id;
+                    player.playerId = response.data.players[i].id;
                     player.name = response.data.players[i].tag;
                     break;
                 }

@@ -48,13 +48,19 @@ app.post('/head2headprofile', function(req, res) {
     db.getHead2HeadProfile(res, req.body.id1, req.body.id2);
 });
 
-
-//app.use(express.static('./test_client'));
-app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
-
-app.use('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+app.post('/head2headsearch', function(req, res) {
+    console.log("Getting head2head search results");
+    db.getHead2HeadSearch(res, req.body.player1, req.body.input, req.body.pageNum, req.body.resultsPerPage, req.body.getTotalPages);
 });
+
+
+app.use(express.static('test_client'));
+
+// app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
+//
+// app.use('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+// });
 
 
 app.listen(3030, function(){
