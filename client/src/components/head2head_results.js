@@ -38,6 +38,7 @@ class Head2HeadResults extends Component {
           )
         }
         else{
+            console.log('the state is', this.state);
           return (
               <div>
                   <h1>Head To Head Results</h1>

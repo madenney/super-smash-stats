@@ -32,7 +32,7 @@ class Pagination extends Component {
           this.setState({
             items: nextProps.items,
             searchValue: nextProps.searchValue,
-            totalPages: nextProps.totalgPages,
+            totalPages: nextProps.totalPages,
             player1: true,
             player1id: nextProps.player1
           })
@@ -51,7 +51,7 @@ class Pagination extends Component {
     };
 
     render(){
-        const { items, currentPage, searchValue, totalPages } = this.state;
+        const { player1, player1id, items, currentPage, searchValue, totalPages } = this.state;
         const pageArray = [];
         console.log('this is the state: ', this.state);
         for (let i = 1; i <= totalPages; i++) {
@@ -62,7 +62,7 @@ class Pagination extends Component {
         const displayArray = pageArray.slice(`${(Number(currentPage) - 3) >= 0 ? (Number(currentPage) - 3) : 0}`, (Number(currentPage) + 2));
           const renderPageNumbers = displayArray.map((number, index) => {
               return (
-                  <Link to={`/results/${searchValue.search}/${number}`} key={index}>
+                  <Link to={!player1 ? `/results/${searchValue.search}/${number}` : `/head2headresults/${player1id}/${searchValue.search}/${number}`} key={index}>
                       <div
                           id={number}
                           onClick={this.handleClick}
@@ -75,11 +75,11 @@ class Pagination extends Component {
         return (
             <div className='offset-md-5'>
                 <div id="page-numbers">
-                    <Link to={`/results/${searchValue.search}/1`}>
+                    <Link to={!player1 ? `/results/${searchValue.search}/1` : `/head2headresults/${player1id}/${searchValue.search}/1`}>
                         <div className="paginEdge" onClick={this.handleClick} id="1">First Page</div>
                     </Link>
                     {renderPageNumbers}
-                    <Link to={`/results/${searchValue.search}/${totalPages}`}>
+                    <Link to={!player1 ? `/results/${searchValue.search}/${totalPages}` : `/head2headresults/${player1id}/${searchValue.search}/${totalPages}`}>
                         <div className="paginEdge" onClick={this.handleClick} id={totalPages}>Last Page</div>
                     </Link>
                 </div>

@@ -55,7 +55,7 @@ class SearchResults extends Component {
             return <h1>Loading...</h1>
         }
 
-        // console.log('The state is...', this.state.player_cards);
+//        console.log('The state is...', this.state.player_cards);
         return (
             <div className='container'>
                 <h1>Player Search Results!</h1>
