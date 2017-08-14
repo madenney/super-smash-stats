@@ -33,9 +33,9 @@ export default class Landingpage extends Component {
                         <Searchbar history={this.props.history} />
                     </div>
                     {/* Row for the player cards styling */}
-                    {/* <div className='carousel row col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-9 offset-sm-1'>
+                    <div className='carousel row col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-9 offset-sm-1'>
                         <Carousel card = {this.state.cards} />
-                    </div> */}
+                    </div>
                 </div>
             </div>
         )
