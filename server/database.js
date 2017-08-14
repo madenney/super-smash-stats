@@ -162,7 +162,7 @@ exports.Database = function(options) {
                 let query = "SELECT players.id, players.tag, image_url, main FROM players LEFT JOIN player_info ON player_info.tag = players.tag " +
                     "WHERE players.tag IN (SELECT winner FROM matches " +
                     "WHERE (winner = '"+player1+"' AND loser LIKE '"+input+"%') OR (winner LIKE '"+input+"%' AND loser = '"+player1+"'))";
-
+                    console.log('this is the query: ', query)
                 conn.query(query, function(err,rows){
                     if(err){
                         console.log("Error with query");
@@ -170,6 +170,7 @@ exports.Database = function(options) {
                         throw err;
                     }
                     rows1 = rows;
+                    console.log('this is rows: ', rows);
                     resolve();
                 });
             });
@@ -186,6 +187,7 @@ exports.Database = function(options) {
                         throw err;
                     }
                     rows2 = rows;
+                    console.log('this is rows: ', rows);
                     resolve();
                 });
             });

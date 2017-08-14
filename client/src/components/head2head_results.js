@@ -23,10 +23,9 @@ class Head2HeadResults extends Component {
       }
       axios.post('http://localhost:3030/head2headsearch', {player1: player1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
         console.log('this is the response: ', response);
-        console.log('you mom')
         this.setState({
-          player2results: response.data.players,
-          player1: id,
+          player2results: response.data.outputRows,
+          player1: player1,
           totalPages: response.data.totalAvailablePages
         })
       })

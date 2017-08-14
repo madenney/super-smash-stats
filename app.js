@@ -17,7 +17,7 @@ options = {
     reloadPlayers: false,
     calcStats: false,
     calcLocation: false,
-    getYoutubeURLs: true
+    getYoutubeURLs: false
 };
 
 var db = new Database.Database(options);
