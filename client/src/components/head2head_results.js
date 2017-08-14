@@ -15,13 +15,15 @@ class Head2HeadResults extends Component {
     }
     componentWillMount(){
       // console.log('this is props: ', this.props);
-      const {id, page} = this.props.match.params;
+      const {player1, page} = this.props.match.params;
+      console.log('this is props: ', this.props)
       let {search} = this.props.match.params;
        if(search == 'noSearch'){
         search = '';
       }
-      axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
-        // console.log('this is the response: ', response);
+      axios.post('http://localhost:3030/head2headsearch', {player1: player1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
+        console.log('this is the response: ', response);
+        console.log('you mom')
         this.setState({
           player2results: response.data.players,
           player1: id,
