@@ -81,7 +81,7 @@ exports.CalcStats = function(globalResolve, calcLocation) {
                     winnerIndex = j;
                     break;
                 }
-            }d
+            }
             for(var j = 0; j < players.length; j++) {
                 if(matches[i].loser === players[j].tag){
                     loserIndex = j;
