@@ -13,10 +13,10 @@ app.use(cors());
 var Database = require('./server/database.js');
 options = {
     modifyData: false,
-    reloadTextFiles: true,
-    reloadPlayers: true,
-    calcStats: true,
-    calcLocation: true,
+    reloadTextFiles: false,
+    reloadPlayers: false,
+    calcStats: false,
+    calcLocation: false,
     getYoutubeURLs: false
 };
 

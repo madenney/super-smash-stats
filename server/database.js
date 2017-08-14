@@ -148,70 +148,89 @@ exports.Database = function(options) {
 
     this.getHead2HeadSearch = function(res, player1, input, page = 1, resultsPerPage = 20, getPages = 'false') {
         console.log("Head 2 head Search Function");
+
+
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err) {
             if (err) {
                 console.log("Error connecting to the database");
                 throw err;
             }
-
-            let rows1;
-            let rows2;
-
-            let promise1 = new Promise(function(resolve, reject) {
-                let query = "SELECT players.id, players.tag, image_url, main FROM players LEFT JOIN player_info ON player_info.tag = players.tag " +
-                    "WHERE players.tag IN (SELECT winner FROM matches " +
-                    "WHERE (winner = '"+player1+"' AND loser LIKE '"+input+"%') OR (winner LIKE '"+input+"%' AND loser = '"+player1+"'))";
+          
+            let promise0 = new Promise(function(resolve, reject) {
+                let query = "SELECT tag FROM players WHERE id = '" + player1 + "'";
                 conn.query(query, function(err,rows){
                     if(err){
                         console.log("Error with query");
                         reject();
                         throw err;
                     }
-                    rows1 = rows;
+
+                    player1 = rows[0];
                     resolve();
                 });
             });
 
-            let promise2 = new Promise(function(resolve, reject) {
-                let query = "SELECT players.id, players.tag, image_url, main FROM players LEFT JOIN player_info ON player_info.tag = players.tag " +
-                    "WHERE players.tag IN (SELECT loser FROM matches " +
-                    "WHERE (winner = '"+player1+"' AND loser LIKE '"+input+"%') OR (winner LIKE '"+input+"%' AND loser = '"+player1+"'))";
+            promise0.then(function() {
+                let rows1;
+                let rows2;
 
-                conn.query(query, function(err,rows){
-                    if(err){
-                        console.log("Error with query");
-                        reject();
-                        throw err;
+                let promise1 = new Promise(function(resolve, reject) {
+                    let query = "SELECT players.id, players.tag, image_url, main FROM players LEFT JOIN player_info ON player_info.tag = players.tag " +
+                        "WHERE players.tag IN (SELECT winner FROM matches " +
+                        "WHERE (winner = '"+player1+"' AND loser LIKE '"+input+"%') OR (winner LIKE '"+input+"%' AND loser = '"+player1+"'))";
+
+                    conn.query(query, function(err,rows){
+                        if(err){
+                            console.log("Error with query");
+                            reject();
+                            throw err;
+                        }
+                        rows1 = rows;
+                        resolve();
+                    });
+                });
+
+                let promise2 = new Promise(function(resolve, reject) {
+                    let query = "SELECT players.id, players.tag, image_url, main FROM players LEFT JOIN player_info ON player_info.tag = players.tag " +
+                        "WHERE players.tag IN (SELECT loser FROM matches " +
+                        "WHERE (winner = '"+player1+"' AND loser LIKE '"+input+"%') OR (winner LIKE '"+input+"%' AND loser = '"+player1+"'))";
+
+                    conn.query(query, function(err,rows){
+                        if(err){
+                            console.log("Error with query");
+                            reject();
+                            throw err;
+                        }
+                        rows2 = rows;
+                        resolve();
+                    });
+                });
+
+                Promise.all([promise1, promise2]).then(function() {
+                    // Concatenate Rows
+                    let outputRows = [...rows1, ...rows2];
+                    // Filter out player1 name
+                    outputRows = outputRows.filter(function( obj ) {
+                        return obj.tag.toLowerCase() !== player1.toLowerCase();
+                    });
+                    // Uniqify the rows
+                    outputRows = _.uniqBy(outputRows, function(e) {
+                        return e.id;
+                    });
+                    // Sort
+                    outputRows = _.sortBy(outputRows, 'id');
+                    // Slice into pages
+                    outputRows = outputRows.slice(((page-1) * resultsPerPage), (((page-1) * resultsPerPage) + resultsPerPage) );
+                    if(getPages === 'false') {
+                        res.end(JSON.stringify({ outputRows }));
+                        conn.end();
+                    } else {
+                        var total = Math.ceil(outputRows.length/resultsPerPage);
+                        res.end(JSON.stringify({ totalAvailablePages: total , outputRows}));
+                        conn.end();
                     }
-                    rows2 = rows;
-                    resolve();
                 });
-            });
-
-            Promise.all([promise1, promise2]).then(function() {
-                // Concatenate Rows
-                let outputRows = [...rows1, ...rows2];
-                // Filter out player1 name
-                outputRows = outputRows.filter(function( obj ) {
-                    return obj.tag.toLowerCase() !== player1.toLowerCase();
-                });
-                // Uniqify the rows
-                outputRows = _.uniqBy(outputRows, function(e) {
-                    return e.id;
-                });
-                // Sort
-                outputRows = _.sortBy(outputRows, 'id');
-                // Slice into pages
-                outputRows = outputRows.slice(((page-1) * resultsPerPage), (((page-1) * resultsPerPage) + resultsPerPage) );
-                if(getPages === 'false') {
-                    res.end(JSON.stringify({ outputRows }));
-                    conn.end();
-                } else {
-                    var total = Math.ceil(outputRows.length/resultsPerPage);
-                    res.end(JSON.stringify({ totalAvailablePages: total , outputRows}));
-                    conn.end();
-                }
             });
         });
     }
