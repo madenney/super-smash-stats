@@ -54,13 +54,13 @@ app.post('/head2headsearch', function(req, res) {
 });
 
 
-app.use(express.static('test_client'));
+//app.use(express.static('test_client'));
 
-// app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
-//
-// app.use('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
-// });
+app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
+
+app.use('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+});
 
 
 app.listen(3030, function(){
