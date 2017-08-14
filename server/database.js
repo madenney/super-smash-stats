@@ -156,11 +156,11 @@ exports.Database = function(options) {
                 console.log("Error connecting to the database");
                 throw err;
             }
-
+          
             let promise0 = new Promise(function(resolve, reject) {
                 let query = "SELECT tag FROM players WHERE id = '" + player1 + "'";
-                conn.query(query, function(err, rows){
-                    if(err) {
+                conn.query(query, function(err,rows){
+                    if(err){
                         console.log("Error with query");
                         reject();
                         throw err;

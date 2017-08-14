@@ -21,7 +21,6 @@ class PlayerProfile extends Component{
       profile_resizing: '',
       //these are the states that are for the tournament matches
       tournaments_attended: [],
-      tournament_selected: '',
       tournament_matches: []
     }
   }
@@ -74,11 +73,9 @@ class PlayerProfile extends Component{
   }
   //gets value of tournament AND filters out the ones that are equal to have match
   grabTournamentName(e){
-    this.setState({
-      tournament_selected: e.currentTarget.textContent
-    });
-    console.log('this is tourney state', this.state.tournament_selected);
-    const {matches, tournament_selected} = this.state;
+    const tournament_selected =  e.currentTarget.textContent
+    console.log('this is tourney state', tournament_selected);
+    const {matches} = this.state;
     const all_matches_for_tournament = [];
     for(var i = 0; i < matches.length; i++){
       if(tournament_selected == matches[i].tournament){
@@ -124,7 +121,7 @@ class PlayerProfile extends Component{
   					<div className="col-sm-4 col-xs-6">
   						<h2 id="player_tag">{profile.tag}</h2>
               <h4 id='player_rank' className={description_display}>Name: {profile.name}</h4>
-  						<h4 id="player_rank" className={description_display}>Rank: {profile.rank}</h4>
+  						<h4 id="player_rank" className={description_display}>ELO Rank: {profile.rank}</h4>
 
   						<p id="location" className={description_display}>Location: {profile.location}</p>
   						<p className={description_display}>Mains:</p>
