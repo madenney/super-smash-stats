@@ -165,8 +165,7 @@ exports.Database = function(options) {
                         reject();
                         throw err;
                     }
-
-                    player1 = rows[0];
+                    player1 = rows[0].tag;
                     resolve();
                 });
             });
@@ -222,6 +221,7 @@ exports.Database = function(options) {
                     outputRows = _.sortBy(outputRows, 'id');
                     // Slice into pages
                     outputRows = outputRows.slice(((page-1) * resultsPerPage), (((page-1) * resultsPerPage) + resultsPerPage) );
+                    console.log(outputRows);
                     if(getPages === 'false') {
                         res.end(JSON.stringify({ outputRows }));
                         conn.end();
