@@ -13,10 +13,10 @@ app.use(cors());
 var Database = require('./server/database.js');
 options = {
     modifyData: false,
-    reloadTextFiles: false,
-    reloadPlayers: false,
-    calcStats: false,
-    calcLocation: false,
+    reloadTextFiles: true,
+    reloadPlayers: true,
+    calcStats: true,
+    calcLocation: true,
     getYoutubeURLs: false
 };
 
@@ -54,7 +54,7 @@ app.post('/head2headsearch', function(req, res) {
 });
 
 
-// app.use(express.static('test_client'));
+//app.use(express.static('test_client'));
 
 app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
 
