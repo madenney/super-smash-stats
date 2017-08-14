@@ -15,7 +15,7 @@ export default () => (
         <Route exact path="/" component={Landing}/>
         <Route path='/results/:search/:id' component={SearchResults}/>
         <Route path='/player_profile/:id' component = {PlayerProfile}/>
-        <Route path="/head2headresults/:id/:search/:page" component = {Head2HeadResults}/>
+        <Route path="/head2headresults/:player1/:search/:page" component = {Head2HeadResults}/>
         <Route path="/head2headprofile/:id1/:id2" component = {Head2HeadProfile}/>
         <Route path='/about' component={About}/>
     </div>
