@@ -119,6 +119,10 @@ a {
   vertical-align: bottom;
     opacity: 0.9;
 }
+
+.player_image{
+    width: 100%;
+}
 .player_card:hover{
     opacity: 1;
     animation: borderglow 0.5s infinite linear alternate;
