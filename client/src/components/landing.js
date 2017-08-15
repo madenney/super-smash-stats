@@ -33,6 +33,9 @@ export default class Landingpage extends Component {
                         <Searchbar history={this.props.history} />
                     </div>
                 </div>
+                <div className='container character-selection-screen' id='character-selection-screen'>
+                  {/* <h1>Feature Set</h1> */}
+                </div>
             </div>
         )
     }

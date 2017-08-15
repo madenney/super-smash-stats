@@ -22,7 +22,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className='nav-item nav-link'>
-              <Link to='#'>
+              <Link to='#character-selection-screen'>
                   <div className='navButton'>
                       Featured
                   </div>
