@@ -9,8 +9,14 @@
   display: inline-block
 }
 .navButton{
-  font-weight: bold;
+  /*font-weight: bold;*/
   color: white;
+    border: 1px white solid;
+    border-radius: 15px;
+    background-color: black;
+}
+.navButton::first-letter{
+    font-weight: bold;
 }
 nav{
   /*box-shadow: 0 7px 6px -5px #939393*/
