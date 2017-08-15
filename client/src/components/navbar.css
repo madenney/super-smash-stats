@@ -26,5 +26,5 @@ nav{
   box-shadow: 0 4px 8px 0 #3d3d3d, 0 6px 20px 0 #3d3d3d;
 }
 nav li:hover{
-    animation: hoverblink 1s linear alternate infinite
+    animation: hoverblink 0.75s linear alternate infinite
 }
