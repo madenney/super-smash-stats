@@ -8,7 +8,7 @@ import Adam from './imgs/developer_pics/adam.jpg';
 
 const About = () => {
     return (
-        <div className="container">
+        <div className="container fromDarkness">
             <h1> About Us </h1>
             <div className="description" >
                 A group of dedicated Smash Players with a passion for data manipulation, data-display, and Super Smash Bro's Melee, we have created
