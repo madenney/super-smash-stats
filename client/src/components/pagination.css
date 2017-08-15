@@ -10,10 +10,14 @@
     margin-right: 2px;
 }
 #page-numbers div:hover {
-    background-color: #0b51c5;
+    background-color: darkblue;
     color: white;
 }
 
+@keyframes paginGlow {
+    0% {border: solid goldenrod 1px}
+
+}
 #page-numbers .paginEdge {
     width: 90px;
 }

@@ -15,6 +15,7 @@
     border-radius: 0.25rem;
     overflow-y: hidden;
 }
+
 .searchBar:active{
   border: 2px solid blue;
 }
