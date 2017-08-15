@@ -32,6 +32,8 @@ export default class Landingpage extends Component {
                     <div className="row row-eq-height">
                         <Searchbar history={this.props.history} />
                     </div>
+                    <br/>
+                    <p className="blinkText">SEARCH THE DATABASE</p>
                 </div>
             </div>
         )

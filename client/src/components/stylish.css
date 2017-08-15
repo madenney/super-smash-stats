@@ -17,6 +17,10 @@
     0% {opacity: 1}
     100% {opacity: 0}
 }
+@font-face {
+    font-family: pressStart;
+    src: url(/images/PressStart2P.ttf);
+}
 
 body {
   user-select: none;
@@ -27,11 +31,17 @@ body {
   /*BLUE-PURPLE-PINK HEW: #292a4f, #3a294f, #4c294f*/
   /*DARK PURPLE HEW: #350064, #220040, #000000*/
   /*BLUE-ISH HEW: #280468, #1c024b, #000000*/
-  background: linear-gradient(337deg, #8161a9, #15002f,#090015, #000000 );
-  background-size: 600% 600%;
-  -webkit-animation: bodyback 50s ease infinite;
-  -moz-animation: bodyback 50s ease infinite;
-  animation: bodyback 50s ease infinite;
+  /*background: linear-gradient(337deg, #8161a9, #15002f,#090015, #000000 );*/
+  /*background-size: 600% 600%;*/
+  /*-webkit-animation: bodyback 50s ease infinite;*/
+  /*-moz-animation: bodyback 50s ease infinite;*/
+  /*animation: bodyback 50s ease infinite;*/
+
+    /*background-image: url(http://i.imgur.com/JcI1fEq.png);*/
+    background-image: url(https://smashboards.com/attachments/bg-galaxy-png.40751/);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: 0px 70px;
 }
 
 .landingCenter{
@@ -75,7 +85,7 @@ a {
 }
 .autocomItem{
     display: inline-block;
-    height: 60px;
+    height: 35px;
 }
 .autocomItem > div {
     display: inline-block;
@@ -229,4 +239,10 @@ h1 {
 }
 .carousel{
   margin-top: 80px;
+}
+.blinkText{
+    text-align: center;
+    color: white;
+    animation: hoverblink 1s linear alternate infinite;
+    font-family: pressStart;
 }
