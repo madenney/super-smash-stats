@@ -13,6 +13,11 @@
   50%{background-position:100% 71%}
   100%{background-position:0% 30%}
 }
+@keyframes hoverblink {
+    0% {opacity: 1}
+    100% {opacity: 0}
+}
+
 body {
   user-select: none;
   width: 100vw;
@@ -53,12 +58,19 @@ body {
     display: inline-block;
     margin: 20px 15px;
 }
+a {
+    color: #f0ad4e;
+}
+.autocomItem:hover {
+    color: gold;
+    animation: hoverblink 1s linear alternate infinite
+}
 .autocomplete{
     top: 100%;
     position: absolute;
     display: block;
     width: 360px;
-    background-color: black;
+    background: linear-gradient(270deg, #0f0023, #15002f,#090015, #000000, #000000);
     z-index: 2000;
 }
 .autocomItem{
