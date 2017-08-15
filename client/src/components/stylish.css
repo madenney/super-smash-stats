@@ -115,10 +115,12 @@ a {
   height: 200px;
   border-radius: 10px;
   display: inline-block;
-  /*position: relative;*/
+  position: relative;
   vertical-align: bottom;
     opacity: 0.9;
+    padding: 0;
 }
+
 .player_card:hover{
     opacity: 1;
     animation: borderglow 0.5s infinite linear alternate;
@@ -149,11 +151,13 @@ a {
 .player_text{
   border-radius: 4px;
   width: 100%;
-  float: bottom;
   text-align: center;
   background-color: black;
   color: white;
   opacity: 0.5;
+    position: absolute;
+    bottom: 0;
+
 }
 .player_card:hover .player_text{
   visibility: visible;
