@@ -20,7 +20,8 @@ const PopulatePlayerCards = (props) => {
         let divStyle = {
             backgroundImage: 'url(' + imageUrl + ')',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center top'
+            backgroundPosition: 'center top',
+            backgroundSize: '100% auto'
         };
 
         return(
