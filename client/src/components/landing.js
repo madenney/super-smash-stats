@@ -37,6 +37,9 @@ export default class Landingpage extends Component {
                         <Carousel card = {this.state.cards} />
                     </div>
                 </div>
+                <div className='container character-selection-screen' id='character-selection-screen'>
+                  {/* <h1>Feature Set</h1> */}
+                </div>
             </div>
         )
     }
