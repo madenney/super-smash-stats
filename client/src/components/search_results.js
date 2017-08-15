@@ -58,9 +58,11 @@ class SearchResults extends Component {
 //        console.log('The state is...', this.state.player_cards);
         return (
             <div className='container fromDarkness'>
-                <h1>Player Search Results!</h1>
-                <PopulatePlayerCards card = {this.state.player_cards} />
-                <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
+                <div className="landingCenter resultsContainer">
+                    <h1>Player Search Results!</h1>
+                    <PopulatePlayerCards card = {this.state.player_cards} />
+                    <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
+                </div>
             </div>
             // <div className='container search_results'>
             //   <div className='col-md-11 offset-md-1 '>
