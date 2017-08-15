@@ -18,11 +18,11 @@ const PopulatePlayerCards = (props) => {
         backgroundPosition: 'center'
       }
       return(
-          <div className='col-md-2 player_card' style={divStyle} key={index}>
-            <Link to={`/player_profile/${item.id}`}>
-                <h3 className='player_text'>{item.tag}</h3>
-            </Link>
-          </div>
+          <Link to={`/player_profile/${item.id}`}  key={index}>
+              <div className='col-md-2 player_card' style={divStyle}>
+                    <h3 className='player_text'>{item.tag}</h3>
+              </div>
+          </Link>
       )
     }
     else{
@@ -33,11 +33,11 @@ const PopulatePlayerCards = (props) => {
         backgroundPosition: 'center'
       }
       return(
-          <div className='col-md-2 player_card' style={divStyle} key={index}>
-            <Link to={`/player_profile/${item.id}`}>
-                <h3 className='player_text'>{item.tag}</h3>
-            </Link>
-          </div>
+          <Link to={`/player_profile/${item.id}`} key={index}>
+              <div className='col-md-2 player_card' style={divStyle}>
+                    <h3 className='player_text'>{item.tag}</h3>
+              </div>
+          </Link>
       )
     }
   });
