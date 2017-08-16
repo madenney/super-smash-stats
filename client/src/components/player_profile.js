@@ -26,6 +26,7 @@ class PlayerProfile extends Component{
   }
   //add method that calls the function of the axios calls whenever someone searches on this component
   componentWillReceiveProps(nextProps){
+
     const {id} = nextProps.match.params;
     axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
       this.setState({
@@ -33,52 +34,52 @@ class PlayerProfile extends Component{
       });
       //add loading if this doesn't exist
       axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
-        this.setState({
-          matches: response.data
-        });
-        //takes the matches state and filters pushes the individual tournaments into an array
-        for(var i = 0; i < this.state.matches.length; i++){
-          all_matches.push(this.state.matches[i].tournament);
-        }
-        //lodash then filters out the repetitive values of the touranment names
-        all_matches = _.uniq(all_matches);
-        this.setState({
-          tournaments_attended: all_matches
-        });
+          //takes the matches state and filters pushes the individual tournaments into an array
+          let tournaments = [];
+          for(var i = 0; i < response.data.length; i++){
+              tournaments.push(response.data[i].tournament);
+          }
+          //lodash then filters out the repetitive values of the tournament names
+          tournaments = _.uniq(tournaments);
+
+          this.setState({
+              matches: response.data,
+              tournaments_attended: tournaments
+          });
       });
     });
   }
   componentWillMount(){
-    const {id} = this.props.match.params;
-    let all_matches = [];
-    axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
-      this.setState({
-        profile: response.data,
+      const {id} = this.props.match.params;
+      axios.post('http://localhost:3030/player_profile', {input: id}).then((response)=>{
+          this.setState({
+              profile: response.data
+          });
+          //add loading if this doesn't exist
+          axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
+              //takes the matches state and filters pushes the individual tournaments into an array
+              let tournaments = [];
+              for(var i = 0; i < response.data.length; i++){
+                  tournaments.push(response.data[i].tournament);
+              }
+              //lodash then filters out the repetitive values of the tournament names
+              tournaments = _.uniq(tournaments);
+
+              this.setState({
+                  matches: response.data,
+                  tournaments_attended: tournaments
+              });
+          });
       });
-      axios.post('http://localhost:3030/match_history', {input: this.state.profile.tag}).then((response)=>{
-        this.setState({
-          matches: response.data,
-        });
-        //takes the matches state and filters pushes the individual tournaments into an array
-        for(var i = 0; i < this.state.matches.length; i++){
-          all_matches.push(this.state.matches[i].tournament);
-        }
-        //lodash then filters out the repetitive values of the touranment names
-        all_matches = _.uniq(all_matches);
-        this.setState({
-          tournaments_attended: all_matches
-        });
-      });
-    });
   }
   //gets value of tournament AND filters out the ones that are equal to have match
   grabTournamentName(e){
-    const tournament_selected =  e.currentTarget.textContent
+    const tournament_selected =  e.currentTarget.textContent;
     console.log('this is tourney state', tournament_selected);
     const {matches} = this.state;
     const all_matches_for_tournament = [];
     for(var i = 0; i < matches.length; i++){
-      if(tournament_selected == matches[i].tournament){
+      if(tournament_selected === matches[i].tournament){
         all_matches_for_tournament.push(matches[i]);
       }
     }
@@ -107,6 +108,20 @@ class PlayerProfile extends Component{
       })
     }
   }
+
+  getImage(tag) {
+      let imagesKeys = Object.keys(images);
+      let imageUrl = images['ProfilePlaceholder.gif'];
+      if(!tag) {return imageUrl;}
+      for(let i = 0; i < imagesKeys.length; i++) {
+          if(imagesKeys[i].toLowerCase() === `player_pic/${tag.toLowerCase()}.png`) {
+              imageUrl = images[imagesKeys[i]];
+              break;
+          }
+      }
+      return imageUrl;
+  }
+
   render(){
     const {profile, toggle, button_descrip, description_display, profile_picture} = this.state;
     return(
@@ -116,7 +131,7 @@ class PlayerProfile extends Component{
   			<div id="profile-card" className="col-xs-12 col-md-12">
   				<div className="row">
   					<div className="col-sm-4 col-xs-6 col-md-4">
-  			      <img className={profile_picture} src={!images[`player_pic/${profile.tag}.png`] ? ProfilePlaceholder : images[`player_pic/${profile.tag}.png`] }/>
+  			      <img className={profile_picture} src={this.getImage(profile.tag)}/>
   					</div>
   					<div className="col-sm-4 col-xs-6">
   						<h2 id="player_tag">{profile.tag}</h2>
