@@ -80,7 +80,8 @@ export default class SearchBar extends Component {
                     this.setState({
                         vsSpace: '',
                         vs: true,
-                        complete: ''
+                        complete: '',
+                        autocomCards: []
                     })
                 }
             } else if(vs === true) {
@@ -303,7 +304,7 @@ export default class SearchBar extends Component {
                     {this.buildOutput()}
                     <div className='btn btn-outline-warning' onClick={() => this.searchClicked()}>Search</div>
                 </div>
-                <Autocomplete recommendations = {this.state.autocomCards} />
+                <Autocomplete recommendations = {this.state.autocomCards} highlight = {this.state.currentIndex} />
             </div>
         )
     }
