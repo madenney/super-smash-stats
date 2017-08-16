@@ -38,7 +38,8 @@ export default class SearchBar extends Component {
         e.preventDefault();
         let charCode = e.keyCode;
         let key = e.key;
-        if((charCode >= 33 && charCode <= 126)) {   // <<<<<<<<<<<<<<<<<< Letter/Number
+        //console.log("Key: " + key + " charCode: " + charCode);
+        if((charCode >= 48 && charCode <= 90)) {   // <<<<<<<<<<<<<<<<<< Letter/Number
             if(vs === false){
                 if(charCode === 86 && player1.isValid){
                     this.setState({
@@ -54,7 +55,7 @@ export default class SearchBar extends Component {
                 player2.name += key;
                 this.autocomplete(player2);
             }
-        } else if(charCode === 9) {                  // <<<<<<<<<<<<<<<<<< Tab
+        } else if(charCode === 9 || charCode === 39 || charCode === 40 || charCode === 38 || charCode === 37) {                  // <<<<<<<<<<<<<<<<<< Tab or Up/Down Arrow
             if (player1.name.length === 0) {
                 return false;
             }
@@ -67,16 +68,20 @@ export default class SearchBar extends Component {
                     player1.isValid = true;
                     player1.playerId = autocomCards[currentIndex].id;
                     this.setState({player1, currentIndex, complete: ''});
-                    return false;
                 }
             } else if( player1.isValid === true && vs === false) {
                 if(vsSpace === ''){
-                    this.tabComplete(autocomCards, player1, ++currentIndex)
+                    if(charCode === 9 || charCode === 39 || charCode === 40){
+                        this.tabComplete(autocomCards, player1, ++currentIndex);
+                    } else {
+                        this.tabComplete(autocomCards, player1, --currentIndex)
+                    }
                 } else {
                     this.setState({
                         vsSpace: '',
                         vs: true,
-                        complete: ''
+                        complete: '',
+                        autocomCards: []
                     })
                 }
             } else if(vs === true) {
@@ -92,11 +97,13 @@ export default class SearchBar extends Component {
                         player2.isValid = true;
                         player2.playerId = autocomCards[currentIndex].id;
                         this.setState({player2, currentIndex, complete: ''});
-                        return false;
                     }
                 } else {
-                    this.tabComplete(autocomCards, player2, ++currentIndex);
-                    return false;
+                    if(charCode === 9 || charCode === 39 || charCode === 40){
+                        this.tabComplete(autocomCards, player2, ++currentIndex);
+                    } else {
+                        this.tabComplete(autocomCards, player2, --currentIndex)
+                    }
                 }
             }
 
@@ -142,8 +149,11 @@ export default class SearchBar extends Component {
                 if(player2.isValid){
                     this.props.history.push('/head2headprofile/'+player1.playerId+'/'+player2.playerId); // Head 2 Head Profile
                 } else {
-                    this.props.history.push('/head2headresults/'+player1.playerId+'/'+player2.name+'/1'); // Head 2 Head Results
-
+                    if(player2.name.length === 0) {
+                        this.props.history.push('/player_profile/' + player1.playerId);   // Player Profile Call
+                    } else {
+                        this.props.history.push('/head2headresults/'+player1.name+'/'+player2.name+'/1'); // Head 2 Head Results
+                    }
                 }
             }
         } else if(charCode === 8) {                 // <<<<<<<<<<<<<<<<<<<<<<<<<< Backspace
@@ -179,10 +189,14 @@ export default class SearchBar extends Component {
     }
 
     tabComplete(cards, player, index) {
+        if(index < 0) {
+            index = cards.length - 1;
+        }
         if(index >= cards.length) {
             index = 0;
         }
         player.name = cards[index].tag;
+        player.playerId = cards[index].id;
         if(player.id === 1) {
             this.setState({
                 player1: player,
@@ -290,7 +304,7 @@ export default class SearchBar extends Component {
                     {this.buildOutput()}
                     <div className='btn btn-outline-warning' onClick={() => this.searchClicked()}>Search</div>
                 </div>
-                <Autocomplete recommendations = {this.state.autocomCards} />
+                <Autocomplete recommendations = {this.state.autocomCards} highlight = {this.state.currentIndex} />
             </div>
         )
     }

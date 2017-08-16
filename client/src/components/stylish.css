@@ -79,6 +79,10 @@ a {
     color: gold;
     font-weight: bold;
 }
+.highlighted {
+    color: gold;
+    font-weight: bold;
+}
 .autocomplete{
     top: 100%;
     position: absolute;

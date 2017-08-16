@@ -49,7 +49,7 @@ INSERT INTO `player_info` (`id`, `name`, `tag`, `state`, `main`, `secondary`, `t
 (4, 'Jason Zimmerman', 'Mew2King', 'Florida', 'Marth', 'Sheik', 'MVG_Mew2King'),
 (5, 'William Hjlete', 'Leffen', 'Sweden', 'Fox', '', 'TSM_Leffen'),
 (6, 'Justin McGrath', 'Plup', 'Florida', 'Sheik', 'Fox', 'PG_Plup'),
-(7, 'Zachary Cordoni', 'Fox', 'Norcal', 'Fox', '', 'Sfat'),
+(7, 'Zachary Cordoni', 'SFAT', 'Norcal', 'Fox', '', 'Sfat'),
 (8, 'Weston Dennis', 'Westballz', 'Socal', 'Falco', 'Fox', 'G2Westballz'),
 (9, 'Jeffrey Williamson', 'Axe', 'Arizona', 'Pikachu', '', 'TempoAxe'),
 (10, 'Dajuan \'Energy\' McDaniel', 'Shroomed', 'Norcal', 'Sheik', 'Marth', 'Shroomed08'),
