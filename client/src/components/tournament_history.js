@@ -4,7 +4,7 @@ import React from 'react';
 const TournamentHistory = (props) => {
   const individ_tournament = props.tournaments_attended.map((item, index)=>{
     return(
-      <div onClick={props.grab_tourney} key={index}>{item}</div>
+      <div className='tournamentItem' onClick={props.grab_tourney} key={index}>{item}</div>
     )
   })
   return(

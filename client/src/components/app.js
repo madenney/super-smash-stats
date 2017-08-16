@@ -7,7 +7,7 @@ import SearchResults from './search_results';
 import PlayerProfile from './player_profile';
 import Head2HeadResults from './head2head_results';
 import Head2HeadProfile from './head2head_profile';
-import Pagination from './pagination';
+import Faq from './faq';
 
 export default () => (
     <div>
@@ -17,6 +17,7 @@ export default () => (
         <Route path='/player_profile/:id' component = {PlayerProfile}/>
         <Route path="/head2headresults/:player1/:search/:page" component = {Head2HeadResults}/>
         <Route path="/head2headprofile/:id1/:id2" component = {Head2HeadProfile}/>
+        <Route path="/faq" component = {Faq} />
         <Route path='/about' component={About}/>
     </div>
 )
