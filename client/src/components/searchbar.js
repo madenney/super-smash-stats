@@ -38,7 +38,7 @@ export default class SearchBar extends Component {
         e.preventDefault();
         let charCode = e.keyCode;
         let key = e.key;
-        console.log("Key: " + key + " charCode: " + charCode);
+        //console.log("Key: " + key + " charCode: " + charCode);
         if((charCode >= 48 && charCode <= 90)) {   // <<<<<<<<<<<<<<<<<< Letter/Number
             if(vs === false){
                 if(charCode === 86 && player1.isValid){
