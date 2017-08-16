@@ -1,21 +1,29 @@
 @-webkit-keyframes bodyback {
-  0%{background-position:0% 30%}
+  0%{background-position:0 30%}
   50%{background-position:100% 71%}
-  100%{background-position:0% 30%}
+  100%{background-position:0 30%}
 }
 @-moz-keyframes bodyback {
-  0%{background-position:0% 30%}
+  0%{background-position:0 30%}
   50%{background-position:100% 71%}
-  100%{background-position:0% 30%}
+  100%{background-position:0 30%}
 }
 @keyframes bodyback {
-  0%{background-position:0% 30%}
+  0%{background-position:0 30%}
   50%{background-position:100% 71%}
-  100%{background-position:0% 30%}
+  100%{background-position:0 30%}
 }
 @keyframes hoverblink {
     0% {opacity: 1}
     100% {opacity: 0}
+}
+@font-face {
+    font-family: pressStart;
+    src: url(/images/PressStart2P.ttf);
+}
+@keyframes sheen {
+    0%{background-position:100% 71%}
+    100%{background-position:0 30%}
 }
 
 body {
@@ -27,14 +35,20 @@ body {
   /*BLUE-PURPLE-PINK HEW: #292a4f, #3a294f, #4c294f*/
   /*DARK PURPLE HEW: #350064, #220040, #000000*/
   /*BLUE-ISH HEW: #280468, #1c024b, #000000*/
-  background: linear-gradient(337deg, #8161a9, #15002f,#090015, #000000 );
-  background-size: 600% 600%;
-  -webkit-animation: bodyback 50s ease infinite;
-  -moz-animation: bodyback 50s ease infinite;
-  animation: bodyback 50s ease infinite;
+  /*background: linear-gradient(337deg, #8161a9, #15002f,#090015, #000000 );*/
+  /*background-size: 600% 600%;*/
+  /*-webkit-animation: bodyback 50s ease infinite;*/
+  /*-moz-animation: bodyback 50s ease infinite;*/
+  /*animation: bodyback 50s ease infinite;*/
+
+    /*background-image: url(http://i.imgur.com/JcI1fEq.png);*/
+    background-image: url(https://smashboards.com/attachments/bg-galaxy-png.40751/);
+    background-size: 100% 100%;
+    background-position: 0px 70px;
 }
 
 .landingCenter{
+    height: 100vh;
     position: absolute;
     left: 50%;
     top: 20%;
@@ -63,19 +77,21 @@ a {
 }
 .autocomItem:hover {
     color: gold;
-    animation: hoverblink 1s linear alternate infinite
+    font-weight: bold;
 }
 .autocomplete{
     top: 100%;
     position: absolute;
     display: block;
-    width: 360px;
-    background: linear-gradient(270deg, #0f0023, #15002f,#090015, #000000, #000000);
+    width: 75%;
+    background: linear-gradient(285deg, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #15002f, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015);
     z-index: 2000;
+    background-size: 600% 600%;
+    animation: sheen 10s ease infinite;
 }
 .autocomItem{
     display: inline-block;
-    height: 60px;
+    height: 35px;
 }
 .autocomItem > div {
     display: inline-block;
@@ -109,10 +125,9 @@ a {
 }
 .player_card{
   overflow-wrap: break-word;
-  border: solid #A4A4A4 1px;
-  margin: 3px;
-  width: 100%;
+  width: 200px;
   height: 200px;
+    margin: 0.2%;
   border-radius: 10px;
   display: inline-block;
   position: relative;
@@ -120,9 +135,23 @@ a {
     opacity: 0.9;
     padding: 0;
 }
-
+.player_card:after{
+    content: '';
+    border: solid #A4A4A4 1px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+}
+.resultsContainer{
+    height: 850px;
+    width: 1100px;
+}
 .player_card:hover{
     opacity: 1;
+}
+.player_card:hover:after{
     animation: borderglow 0.5s infinite linear alternate;
 }
 @-webkit-keyframes borderglow {
@@ -141,6 +170,9 @@ a {
 @-webkit-keyframes fromDarkness {
     0% {opacity: 0}
     100% {opacity: 1}
+}
+#page-numbers{
+    animation: fromDarkness 2.5s linear;
 }
 .form-control{
   border: 2px solid #EC971F;
@@ -221,7 +253,10 @@ h1 {
     text-align: center;
     width: 100%;
 }
-
+.tournamentItem:hover{
+    color: white;
+    cursor: pointer;
+}
 .name {
     margin: 0 auto;
     text-align: center;
@@ -229,4 +264,10 @@ h1 {
 }
 .carousel{
   margin-top: 80px;
+}
+.blinkText{
+    text-align: center;
+    color: white;
+    animation: hoverblink 1s linear alternate infinite;
+    font-family: pressStart;
 }

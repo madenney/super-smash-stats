@@ -137,7 +137,6 @@ class PlayerProfile extends Component{
   						<h2 id="player_tag">{profile.tag}</h2>
               <h4 id='player_rank' className={description_display}>Name: {profile.name}</h4>
   						<h4 id="player_rank" className={description_display}>ELO Rank: {profile.rank}</h4>
-
   						<p id="location" className={description_display}>Location: {profile.location}</p>
   						<p className={description_display}>Mains:</p>
               <img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.main}.png`]}/>

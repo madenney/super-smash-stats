@@ -31,7 +31,7 @@ const PopulatePlayerCards = (props) => {
 
         return(
             <Link to={`/player_profile/${item.id}`}  key={index}>
-                <div className='col-md-2 player_card' style={divStyle}>
+                <div className='player_card' style={divStyle}>
                     <h3 className='player_text'>{item.tag}</h3>
                 </div>
             </Link>
@@ -39,7 +39,7 @@ const PopulatePlayerCards = (props) => {
     });
 
     return (
-        <div className='container offset-md-1'>{player_cards}</div>
+        <div className='container center'>{player_cards}</div>
     )
 };
 export default PopulatePlayerCards;
