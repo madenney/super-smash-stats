@@ -2,12 +2,7 @@ import React from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
 import SmashIcon from './imgs/SmashBrosSymbol.svg';
-<<<<<<< HEAD
-
-=======
 import Faq from './faq';
->>>>>>> 742be51879cb701fb858003ae83ae18b4638a912
-
 const Navbar = () => {
     const ulStyle = {
       width: '80%'
