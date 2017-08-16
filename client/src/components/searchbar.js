@@ -142,7 +142,7 @@ export default class SearchBar extends Component {
                 if(player2.isValid){
                     this.props.history.push('/head2headprofile/'+player1.playerId+'/'+player2.playerId); // Head 2 Head Profile
                 } else {
-                    this.props.history.push('/head2headresults/'+player1.name+'/'+player2.name+'/1'); // Head 2 Head Results
+                    this.props.history.push('/head2headresults/'+player1.playerId+'/'+player2.name+'/1'); // Head 2 Head Results
 
                 }
             }

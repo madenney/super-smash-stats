@@ -2,7 +2,11 @@ import React from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
 import SmashIcon from './imgs/SmashBrosSymbol.svg';
+<<<<<<< HEAD
 
+=======
+import Faq from './faq';
+>>>>>>> 742be51879cb701fb858003ae83ae18b4638a912
 
 const Navbar = () => {
     const ulStyle = {
@@ -22,7 +26,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className='nav-item nav-link'>
-              <Link to='#'>
+              <Link to='#character-selection-screen'>
                   <div className='navButton'>
                       Featured
                   </div>

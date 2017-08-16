@@ -36,6 +36,9 @@ export default class Landingpage extends Component {
                     <br/>
                     <p className="blinkText">SEARCH THE DATABASE</p>
                 </div>
+                <div className='container character-selection-screen' id='character-selection-screen'>
+                  {/* <h1>Feature Set</h1> */}
+                </div>
             </div>
         )
     }
