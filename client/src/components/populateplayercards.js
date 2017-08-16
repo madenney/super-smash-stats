@@ -10,11 +10,16 @@ const PopulatePlayerCards = (props) => {
         );
     }
 
+    let imagesKeys = Object.keys(images);
+
     const player_cards = props.card.map((item, index)=>{
 
         let imageUrl = images['ProfilePlaceholder.gif'];
-        if(images[`player_pic/${item.tag}.png`]) {
-            imageUrl = images[`player_pic/${item.tag}.png`];
+        for(let i = 0; i < imagesKeys.length; i++) {
+            if(imagesKeys[i].toLowerCase() === `player_pic/${item.tag.toLowerCase()}.png`) {
+                imageUrl = images[imagesKeys[i]];
+                break;
+            }
         }
 
         let divStyle = {
