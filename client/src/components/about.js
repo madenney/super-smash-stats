@@ -16,7 +16,7 @@ const About = () => {
             </div>
             <div className="card-row">
                 <div className="card">
-                    <img className="card-img-top" src='http://elelur.com/data_images/mammals/bonobo/bonobo-01.jpg'/>
+                    <img className="card-img-top" src={Matt}/>
                     <div className="after">Matt "Mad Matt" Denney</div>
                 </div>
                 <div className="card">

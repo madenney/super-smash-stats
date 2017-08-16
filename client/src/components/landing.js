@@ -29,6 +29,7 @@ export default class Landingpage extends Component {
                     <div className='landpage_logo row offset-md-3 col-md-6 off-lg-4'>
                         <img src = {LandLogo}/>
                     </div>
+                    <h1>MELEE</h1>
                     <div className="row row-eq-height">
                         <Searchbar history={this.props.history} />
                     </div>
