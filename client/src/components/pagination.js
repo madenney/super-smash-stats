@@ -72,17 +72,24 @@ class Pagination extends Component {
                   </Link>
               );
           });
+          const prevPage = `${1 < Number(currentPage) ? Number(currentPage) - 1 : currentPage}`;
+          const nextPage = `${Number(totalPages) > Number(currentPage) ? Number(currentPage) + 1 : currentPage}`;
+          console.log('page:', currentPage);
         return (
-            <div className='offset-md-5'>
-                <div id="page-numbers">
-                    <Link to={!player1 ? `/results/${searchValue.search}/1` : `/head2headresults/${player1id}/${searchValue.search}/1`}>
-                        <div className="paginEdge" onClick={this.handleClick} id="1">First Page</div>
-                    </Link>
-                    {renderPageNumbers}
-                    <Link to={!player1 ? `/results/${searchValue.search}/${totalPages}` : `/head2headresults/${player1id}/${searchValue.search}/${totalPages}`}>
-                        <div className="paginEdge" onClick={this.handleClick} id={totalPages}>Last Page</div>
-                    </Link>
-                </div>
+            <div id="page-numbers">
+                <Link to={!player1 ? `/results/${searchValue.search}/1` : `/head2headresults/${player1id}/${searchValue.search}/1`}>
+                    <div className="paginEdge" onClick={this.handleClick} id="1">{`<<`}</div>
+                </Link>
+                <Link to={!player1 ? `/results/${searchValue.search}/${prevPage}` : `/head2headresults/${player1id}/${searchValue.search}/${prevPage}`}>
+                    <div className="paginEdge" onClick={this.handleClick} id={prevPage}>{`<`}</div>
+                </Link>
+                {renderPageNumbers}
+                <Link to={!player1 ? `/results/${searchValue.search}/${nextPage}` : `/head2headresults/${player1id}/${searchValue.search}/${nextPage}`}>
+                    <div className="paginEdge" onClick={this.handleClick} id={nextPage}>{`>`}</div>
+                </Link>
+                <Link to={!player1 ? `/results/${searchValue.search}/${totalPages}` : `/head2headresults/${player1id}/${searchValue.search}/${totalPages}`}>
+                    <div className="paginEdge" onClick={this.handleClick} id={totalPages}>{`>>`}</div>
+                </Link>
             </div>
         );
     }
