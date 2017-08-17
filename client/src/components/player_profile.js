@@ -64,10 +64,17 @@ class PlayerProfile extends Component{
               }
               //lodash then filters out the repetitive values of the tournament names
               tournaments = _.uniq(tournaments);
-
+              const tournament_selected = tournaments[0];
+              const all_matches_for_tournament = [];
+              for(var i = 0 ; i < response.data.length ; i++){
+                if(tournament_selected === response.data[i].tournament){
+                  all_matches_for_tournament.push(response.data[i]);
+                }
+              }
               this.setState({
                   matches: response.data,
-                  tournaments_attended: tournaments
+                  tournaments_attended: tournaments,
+                  tournament_matches: all_matches_for_tournament
               });
           });
       });
@@ -75,8 +82,9 @@ class PlayerProfile extends Component{
   //gets value of tournament AND filters out the ones that are equal to have match
   grabTournamentName(e){
     const tournament_selected =  e.currentTarget.textContent;
-    console.log('this is tourney state', tournament_selected);
+    // console.log('this is tourney state', tournament_selected);
     const {matches} = this.state;
+    // console.log('this is the matches: ', matches);
     const all_matches_for_tournament = [];
     for(var i = 0; i < matches.length; i++){
       if(tournament_selected === matches[i].tournament){
@@ -121,7 +129,13 @@ class PlayerProfile extends Component{
       }
       return imageUrl;
   }
-
+  //note to self add active class and unactive class that adds the string active to the tabs that switches out
+  //for each tab pressed
+  changeTab(e){
+    //e.target.classList.contains(this.myClass)
+    //could possibly be the solution ^
+    console.log('Tab has been changed!');
+  }
   render(){
     const {profile, toggle, button_descrip, description_display, profile_picture} = this.state;
     return(
@@ -159,14 +173,20 @@ class PlayerProfile extends Component{
   		<div className='row'>
   			<div id="matches_stream" className="col-xs-16 col-md-6">
   				<ul className="nav nav-tabs">
-  				    <li className='active'>
-                <a data-toggle="tab" href='#match_data'>Match Data</a>
+  				    <li className='nav-item'>
+                <a className='nav-link active' data-toggle="tab" href='#tournament_data'>Match Data</a>
+              </li>
+              <li className='nav-item'>
+                <a className='nav-link' data-toggle='tab' href='#youtube_url'>YT Video</a>
               </li>
   				</ul>
           <div className='tab-content col-md-12'>
             <div className={`tab-pane active recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
               <MatchHistory match_info = {this.state.tournament_matches}/>
             </div>
+          </div>
+          <div className={`tab-content col-md-12 ${toggle}`} id='youtube_url' role='tab-panel'>
+            <h1>Youtube URL Content</h1>
           </div>
   			</div>
         <div className={`col-md-6 ${toggle}`}>

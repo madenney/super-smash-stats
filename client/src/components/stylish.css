@@ -42,7 +42,7 @@ body {
   /*animation: bodyback 50s ease infinite;*/
 
     /*background-image: url(http://i.imgur.com/JcI1fEq.png);*/
-    background-image: url(https://smashboards.com/attachments/bg-galaxy-png.40751/);
+    background-image: url('./imgs/bg-galaxy.png');
     background-size: 100% 100%;
     background-position: 0px 70px;
 }

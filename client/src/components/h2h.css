@@ -27,3 +27,10 @@
   margin-bottom: 10px;
   text-decoration: underline;
 }
+.h2hrecent_match{
+  overflow-y: scroll;
+  white-space: nowrap;
+  margin-top: 30px;
+  height: 25vh;
+
+}
