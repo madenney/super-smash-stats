@@ -45,7 +45,8 @@ export default class SearchBar extends Component {
                     this.setState({
                         vsSpace: '',
                         vs: true,
-                        complete: ''
+                        complete: '',
+                        autocomCards: []
                     })
                 } else {
                     player1.name += key;
@@ -55,7 +56,7 @@ export default class SearchBar extends Component {
                 player2.name += key;
                 this.autocomplete(player2);
             }
-        } else if(charCode === 9 || charCode === 39 || charCode === 40 || charCode === 38 || charCode === 37) {                  // <<<<<<<<<<<<<<<<<< Tab or Up/Down Arrow
+        } else if(charCode === 9 || charCode === 39 || charCode === 40 || charCode === 38 || charCode === 37) {                  // <<<<<<<<<<<<<<<<<< Tab or Arrows
             if (player1.name.length === 0) {
                 return false;
             }
@@ -113,7 +114,7 @@ export default class SearchBar extends Component {
             }
             if(vs === false){
                 if(player1.isValid) {
-                    this.setState({vsSpace: ' ', complete: 'vs '});
+                    this.setState({vsSpace: ' ', complete: 'vs ', autocomCards:[]});
                     return false;
                 }
                 if(player1.name[player1.name.length-1] !== ' '){ // 2,3

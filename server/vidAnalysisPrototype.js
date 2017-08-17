@@ -1,6 +1,5 @@
-/**
- * Created by Matt on 8/7/2017.
- */
+
+
 console.log("Video Analysis Test");
 // const { exec } = require('child_process');
 // exec('ffmpeg -version', (err, stdout, stderr) => {

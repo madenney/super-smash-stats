@@ -14,6 +14,11 @@ exports.Database = function(options) {
         new require('./createDb').createDb(options);
     }
 
+    // classify players
+    if(options.classify){
+        new require('./classifyPlayers').classify();
+    }
+
     this.getPlayer = function(res, playerName) {
 
         var conn = mysql.createConnection(connInfo);
@@ -78,7 +83,7 @@ exports.Database = function(options) {
             });
         });
     };
-    //IN PROGRESS : need query and response
+
     this.getPlayerProfile = function(res,id){
 
         var conn = mysql.createConnection(connInfo);
@@ -113,7 +118,7 @@ exports.Database = function(options) {
                 throw err;
             }
 
-            var query = "SELECT * FROM `matches` WHERE matches.winner = '"+input+"' OR matches.loser = '"+input+"' LIMIT "+page*25+", 25";
+            var query = "SELECT * FROM `matches` WHERE matches.winner = '"+input+"' OR matches.loser = '"+input+"'"; // LIMIT "+page*25+", 25"; // for pagination. Do later
             conn.query(query, function(err,rows){
                 if(err){
                     console.log("Error with query");
@@ -369,6 +374,7 @@ exports.Database = function(options) {
             p1Wins,
             p2Wins,
             totalMatches,
+            matches: history,
             yearlyHistory
         }));
     }
