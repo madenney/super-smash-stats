@@ -300,7 +300,7 @@ export default class SearchBar extends Component {
 
     render(){
         return (
-            <div className='col-md-4 offset-md-4'>
+            <div className='col-md-6 offset-md-3'>
                 <div className='input-group searchBarContainer'>
                     {this.buildOutput()}
                     <div className='btn btn-outline-warning' onClick={() => this.searchClicked()}>Search</div>
