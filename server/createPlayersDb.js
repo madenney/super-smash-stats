@@ -57,7 +57,18 @@ exports.CreatePlayersDb = function(resolve) {
     }
 
     function addToPlayers(name) {
-        if(!array.includes(name)) {
+        var lowerCaseName = name.toLowerCase();
+        for(var i = 0; i < array.length; i++){
+            var lowerCaseArrayName = array[i].toLowerCase();
+            if(lowerCaseName === lowerCaseArrayName){
+                break;
+            }
+            if(lowerCaseName < lowerCaseArrayName) {
+                array.splice(i, 0, name);
+                break;
+            }
+        }
+        if(i === array.length) {
             array.push(name);
         }
     }
