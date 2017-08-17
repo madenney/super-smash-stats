@@ -24,7 +24,14 @@ module.exports = {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [ 'file-loader?hash=sha512&digest=hex&name=imgs/[hash].[ext]',
                     'image-webpack-loader?bypassOnDebug' ]
-            }
+            },
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]',
+                },
+            },
         ]
     },
     plugins: [

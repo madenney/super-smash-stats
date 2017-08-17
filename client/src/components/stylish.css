@@ -19,7 +19,11 @@
 }
 @font-face {
     font-family: pressStart;
-    src: url(/images/PressStart2P.ttf);
+    src: url(./imgs/PressStart2P.ttf) format('truetype');
+}
+@font-face {
+    font-family: Aero;
+    src: url(./imgs/Aero.ttf) format('truetype');
 }
 @keyframes sheen {
     0%{background-position:100% 71%}
@@ -32,8 +36,11 @@
 
 body {
   user-select: none;
-  width: 100vw;
-  height: 100vh;
+  /*height: 100vh;*/
+  font-family: Aero;@font-face {
+      font-family: Aero;
+      src: url(./imgs/Aero.ttf) format('truetype');
+  }
   /*YELLOW HEW: #868269, #575444, #201f18*/
   /*PURPLE HEW: #7146a7, #492c6d, #29193e*/
   /*BLUE-PURPLE-PINK HEW: #292a4f, #3a294f, #4c294f*/
@@ -47,7 +54,7 @@ body {
 
     /*background-image: url(http://i.imgur.com/JcI1fEq.png);*/
     background-image: url('./imgs/bg-galaxy.png');
-    background-size: 100% 100%;
+    background-size: cover;
     background-position: 0px 70px;
 }
 
@@ -187,9 +194,7 @@ a {
 .form-control{
   border: 2px solid #EC971F;
 }
-.container{
-  width: 100vw;
-}
+
 .player_text{
   border-radius: 4px;
   width: 100%;
