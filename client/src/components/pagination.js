@@ -58,7 +58,7 @@ class Pagination extends Component {
             pageArray.push(i);
         }
 
-//tertiaries are freaking awesome
+//ternaries are freaking awesome
         const displayArray = pageArray.slice(`${(Number(currentPage) - 3) >= 0 ? (Number(currentPage) - 3) : 0}`, (Number(currentPage) + 2));
           const renderPageNumbers = displayArray.map((number, index) => {
               return (
