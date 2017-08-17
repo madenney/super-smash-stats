@@ -76,14 +76,16 @@ exports.CalcStats = function(globalResolve, calcLocation) {
             var winnerIndex = null;
 
             // Find winner and loser index in players array
+            var winnerUpperCase = matches[i].winner.toLowerCase();
             for(var j = 0; j < players.length; j++) {
-                if(matches[i].winner === players[j].tag){
+                if(winnerUpperCase === players[j].tag.toLowerCase()){
                     winnerIndex = j;
                     break;
                 }
             }
+            var loserUpperCase = matches[i].loser.toLowerCase();
             for(var j = 0; j < players.length; j++) {
-                if(matches[i].loser === players[j].tag){
+                if(loserUpperCase === players[j].tag.toLowerCase()){
                     loserIndex = j;
                     break;
                 }
@@ -124,18 +126,26 @@ exports.CalcStats = function(globalResolve, calcLocation) {
         console.log("Ranking Players...");
 
         for(var i = matches.length - 1; i > -1; i--) {
+
+            if(i % 10000 === 0){
+                console.log("ranking...");
+            }
+
+
             var loserIndex = null;
             var winnerIndex = null;
 
             // Find winner and loser index in players array
+            var winnerLowerCase = matches[i].winner.toLowerCase();
             for(var j = 0; j < players.length; j++) {
-                if(matches[i].winner === players[j].tag){
+                if(winnerLowerCase === players[j].tag.toLowerCase()){
                     winnerIndex = j;
                     break;
                 }
             }
+            var loserLowerCase = matches[i].loser.toLowerCase();
             for(var j = 0; j < players.length; j++) {
-                if(matches[i].loser === players[j].tag){
+                if(loserLowerCase === players[j].tag.toLowerCase()){
                     loserIndex = j;
                     break;
                 }
