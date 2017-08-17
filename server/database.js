@@ -156,7 +156,7 @@ exports.Database = function(options) {
                 console.log("Error connecting to the database");
                 throw err;
             }
-          
+
             let promise0 = new Promise(function(resolve, reject) {
                 let query = "SELECT tag FROM players WHERE id = '" + player1 + "'";
                 conn.query(query, function(err,rows){
@@ -369,6 +369,7 @@ exports.Database = function(options) {
             p1Wins,
             p2Wins,
             totalMatches,
+            matches: history,
             yearlyHistory
         }));
     }
