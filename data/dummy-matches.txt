@@ -1,4 +1,8 @@
 Amsah,Rocky,3-0,DreamHack Summer 2017
+Axe,Butt,3-0,DreamHack Summer 2017
+Axe,Butt,3-0,DreamHack Summer 2017
+axe,Butt,3-0,DreamHack Summer 2017
+AXE,Butt,3-0,DreamHack Summer 2017
 Leffen,Sverre,3-0,DreamHack Summer 2017
 Android,Zoler,3-0,DreamHack Summer 2017
 Professor Pro,Zorc,3-0,DreamHack Summer 2017
