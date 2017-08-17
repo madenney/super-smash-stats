@@ -102,9 +102,11 @@ a {
 .autocomItem{
     display: inline-block;
     height: 35px;
+    font-size: 14px;
 }
 .autocomItem > div {
     display: inline-block;
+    padding: 0;
 }
 .autocomPic {
     height: 30px;
@@ -183,6 +185,8 @@ a {
 }
 #page-numbers{
     animation: fromDarkness 2.5s linear;
+    margin: 0 auto;
+    width: 50%;
 }
 .form-control{
   border: 2px solid #EC971F;
@@ -280,4 +284,8 @@ h1 {
     color: white;
     animation: hoverblink 1s linear alternate infinite;
     font-family: pressStart;
+}
+.hoverDescription{
+    position: absolute;
+
 }
