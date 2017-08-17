@@ -303,8 +303,8 @@ export default class SearchBar extends Component {
                 <div className='input-group searchBarContainer'>
                     {this.buildOutput()}
                     <div className='btn btn-outline-warning' onClick={() => this.searchClicked()}>Search</div>
+                    <Autocomplete recommendations = {this.state.autocomCards} highlight = {this.state.currentIndex} />
                 </div>
-                <Autocomplete recommendations = {this.state.autocomCards} highlight = {this.state.currentIndex} />
             </div>
         )
     }

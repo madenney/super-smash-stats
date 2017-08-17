@@ -25,6 +25,10 @@
     0%{background-position:100% 71%}
     100%{background-position:0 30%}
 }
+@keyframes spin2win {
+    50% {transform: rotate(360deg)}
+    100% {transform: rotate(720deg)}
+}
 
 body {
   user-select: none;
@@ -84,14 +88,16 @@ a {
     font-weight: bold;
 }
 .autocomplete{
-    top: 100%;
+    top: 95%;
     position: absolute;
     display: block;
     width: 75%;
     background: linear-gradient(285deg, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #15002f, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015, #090015);
     z-index: 2000;
     background-size: 600% 600%;
-    animation: sheen 10s ease infinite;
+    animation: sheen 5s ease infinite;
+    border-radius: 10px;
+    border: solid goldenrod 1px;
 }
 .autocomItem{
     display: inline-block;
