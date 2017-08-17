@@ -35,12 +35,9 @@
 }
 
 body {
-  user-select: none;
-  /*height: 100vh;*/
-  font-family: Aero;@font-face {
-      font-family: Aero;
-      src: url(./imgs/Aero.ttf) format('truetype');
-  }
+    user-select: none;
+    /*height: 100vh;*/
+    font-family: Aero;
   /*YELLOW HEW: #868269, #575444, #201f18*/
   /*PURPLE HEW: #7146a7, #492c6d, #29193e*/
   /*BLUE-PURPLE-PINK HEW: #292a4f, #3a294f, #4c294f*/
@@ -54,7 +51,6 @@ body {
     /*background-image: url(http://i.imgur.com/JcI1fEq.png);*/
     background-image: url('./imgs/bg-galaxy.png');
     background-size: cover;
-    background-position: 0px 70px;
 }
 
 .landingCenter{
