@@ -5,6 +5,9 @@
     height: 40px;
     width: 40px;
 }
+.homeIcon img:hover{
+    animation: spin2win 1s linear infinite;
+}
 .homeIcon{
   display: inline-block
 }
