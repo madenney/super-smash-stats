@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Searchbar from './searchbar';
 import LandLogo from './imgs/land_logo.png';
 import axios from 'axios';
-import Carousel from './carousel';
+import {Link} from 'react-router-dom';
 import './stylish.css';
 
 export default class Landingpage extends Component {
@@ -33,7 +33,9 @@ export default class Landingpage extends Component {
                         <Searchbar history={this.props.history} />
                     </div>
                     <br/>
-                    <p className="blinkText">SEARCH THE DATABASE</p>
+                    <Link to='/results/noSearch/1'>
+                        <p className="blinkText">SEARCH THE DATABASE</p>
+                    </Link>
                 </div>
                 <div className='container character-selection-screen' id='character-selection-screen'>
                   {/* <h1>Feature Set</h1> */}

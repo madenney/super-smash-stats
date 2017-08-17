@@ -5,6 +5,7 @@
     font-size: 20px;
     height: 40px;
     margin-top: 10px;
+    z-index: 2001;
 }
 
 .searchBar {
@@ -26,12 +27,21 @@
     display: inline;
 }
 .validName {
-    background-color: lightgreen;
+    background-color: #b7b7b7;
+    padding: 0px 2px 2px;
+    font-weight: bold;
+    border: solid black 2px;
+    border-radius: 5px;
+    margin: 0px 2px;
 }
 
 .vs {
-    color: red;
-    background-color: yellow;
+    background-color: #e57167;
+    padding: 0px 2px 2px;
+    font-weight: bold;
+    border: solid black 2px;
+    border-radius: 5px;
+    margin: 0px 2px;
 }
 
 .complete{

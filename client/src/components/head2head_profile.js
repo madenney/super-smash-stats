@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import images from './images';
 import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif'
 import axios from 'axios';
+import H2HMatchHistory from './h2hmatches';
+import H2HPlayerChart from './h2hplayer_charts';
 import './h2h.css'
 class Head2HeadProfile extends Component {
     constructor(props){
@@ -11,7 +13,9 @@ class Head2HeadProfile extends Component {
         player1wins: '',
         player2: [],
         player2wins: '',
-        yearlyHistory: []
+        yearlyHistory: [],
+        matches: [],
+        allYearlyHistory: []
       }
     }
     componentWillMount(){
@@ -24,7 +28,9 @@ class Head2HeadProfile extends Component {
           player1wins: response.data.p1Wins,
           player2: response.data.player2,
           player2wins: response.data.p2Wins,
-          yearlyHistory: response.data.yearlyHistory[0]
+          yearlyHistory: response.data.yearlyHistory[0],
+          matches: response.data.matches,
+          allYearlyHistory: response.data.yearlyHistory
         })
       });
     }
@@ -69,6 +75,15 @@ class Head2HeadProfile extends Component {
                           <img className='h2hcharacter' src={images[`characters/${player2.secondary}.png`]}/>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  {/* Match History For Players */}
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <H2HMatchHistory matches = {this.state.matches} />
+                    </div>
+                    <div className='col-md-6'>
+                      <H2HPlayerChart game_data = {this.state.allYearlyHistory} player1 = {this.state.player1} player2 = {this.state.player2} />
                     </div>
                   </div>
             </div>

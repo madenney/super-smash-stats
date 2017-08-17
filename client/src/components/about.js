@@ -11,8 +11,7 @@ const About = () => {
         <div className="container fromDarkness">
             <h1> About Us </h1>
             <div className="description" >
-                A group of dedicated Smash Players with a passion for data manipulation, data-display, and Super Smash Bro's Melee, we have created
-                a simple and intuitive application that provides accurate display of data. #Meleeislife.
+                SmashStats is brought to you by a group of Smash Players and competitive gaming afficionados. We're looking to make any and all data related to the Smash scene readily available for everyone. #Meleeislife.
             </div>
             <div className="card-row">
                 <div className="card">
