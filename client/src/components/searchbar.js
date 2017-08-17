@@ -291,7 +291,7 @@ export default class SearchBar extends Component {
                 <div className={`sbElement ${player1.isValid ? 'validName' : 'invalidName'}`} >{player1.name}</div>
                 <div className="sbElement">{vsSpace}</div>
                 {vs ? <div className="sbElement vs" > VS </div> : <div className="sbElement"></div>}
-                {player2.name.length > 0 ? <div className={`sbElement ${player2.isValid ? 'validNa              me' : 'invalidName'}`} >{player2.name}</div> : <div className="sbElement"></div>}
+                {player2.name.length > 0 ? <div className={`sbElement ${player2.isValid ? 'validName' : 'invalidName'}`} >{player2.name}</div> : <div className="sbElement"></div>}
                 <input autoFocus className="inputLine" type="text" onKeyDown={(e) => this.handleChange(e)} ref={(ip) => {this.searchInput = ip;}}/>
                 <div className="sbElement complete">{complete}</div>
             </div>
