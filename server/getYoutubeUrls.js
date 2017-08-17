@@ -32,7 +32,7 @@ exports.GetYoutubeURLs = function() {
             console.log("Grabbing Matches");
             // The sorted way
             //var query = "SELECT m.*  FROM `matches` AS m JOIN `players` AS p on p.tag = m.winner ORDER BY p.rank DESC";
-            var query = "SELECT * FROM `matches`";
+            var query = "SELECT matches.id, matches.winner, matches.loser, matches.tournament, matches.video_url FROM `matches` JOIN players ON matches.winner = players.tag ORDER BY players.id ASC";
             conn.query(query, function(err,rows){
                 if(err){
                     console.log("Error with query");
@@ -71,8 +71,9 @@ exports.GetYoutubeURLs = function() {
         var searchTerm = matches[matchIndex].winner +" vs "+ matches[matchIndex].loser +" "+ matches[matchIndex].tournament + " melee singles";
         console.log("Searching: " + searchTerm);
         var options = {
-            key: 'AIzaSyBGdYNDwitHpGUZXC5eJ42PcPetEt8jnRc', // Khanh's key
+            //key: 'AIzaSyBGdYNDwitHpGUZXC5eJ42PcPetEt8jnRc', // Khanh's key
             //key:'AIzaSyCwiZZo-60aGr3Vdjut0eYy3p01CXcjXos', // Matt's key
+            key: 'AIzaSyCFTE9hlB9_RaffTbiWM23chT7Qumdpa0U', // Howard's key
             term: searchTerm.toLowerCase()
         };
 
