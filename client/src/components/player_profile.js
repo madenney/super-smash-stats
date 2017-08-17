@@ -21,7 +21,8 @@ class PlayerProfile extends Component{
       profile_resizing: '',
       //these are the states that are for the tournament matches
       tournaments_attended: [],
-      tournament_matches: []
+      tournament_matches: [],
+      active: ''
     }
   }
   //add method that calls the function of the axios calls whenever someone searches on this component
@@ -137,7 +138,7 @@ class PlayerProfile extends Component{
     console.log('Tab has been changed!');
   }
   render(){
-    const {profile, toggle, button_descrip, description_display, profile_picture} = this.state;
+    const {profile, toggle, button_descrip, description_display, profile_picture, active} = this.state;
     return(
       //general profile picture
       <div className='container'>
@@ -172,22 +173,23 @@ class PlayerProfile extends Component{
   		</div>
   		<div className='row'>
   			<div id="matches_stream" className="col-xs-16 col-md-6">
-  				<ul className="nav nav-tabs">
+  				<ul className="nav nav-tabs" role='tablist'>
   				    <li className='nav-item'>
-                <a className='nav-link active' data-toggle="tab" href='#tournament_data'>Match Data</a>
+                <a className='nav-link active' data-toggle="tab" href='#tournament_data' role='tab'>Match Data</a>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' data-toggle='tab' href='#youtube_url'>YT Video</a>
+                <a className='nav-link' data-toggle='tab' href='#youtube_url' role='tab'>YT Video</a>
               </li>
   				</ul>
           <div className='tab-content col-md-12'>
             <div className={`tab-pane active recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
-              <MatchHistory match_info = {this.state.tournament_matches}/>
+              <MatchHistory match_info = {this.state.tournament_matches} player_name = {profile.tag}/>
+            </div>
+            <div className={`tab-pane col-md-12 ${active}`} id='youtube_url' role='tab-panel'>
+              <h1>Youtube URL Content</h1>
             </div>
           </div>
-          <div className={`tab-content col-md-12 ${toggle}`} id='youtube_url' role='tab-panel'>
-            <h1>Youtube URL Content</h1>
-          </div>
+
   			</div>
         <div className={`col-md-6 ${toggle}`}>
           <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary pull-right'>{button_descrip}</button>

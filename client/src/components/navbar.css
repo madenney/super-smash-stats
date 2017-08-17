@@ -13,13 +13,16 @@
 }
 .navButton{
   /*font-weight: bold;*/
-  color: white;
-    border: 1px white solid;
-    border-radius: 15px;
-    background-color: black;
+  height: 100%;
+  color: #B7AFCA;
+  border-left: 3px #B7AFCA solid;
+  -webkit-transform: skew(-20deg);
+  -moz-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+  background-color: transparent;
 }
 .navButton::first-letter{
-    font-weight: bold;
+    font-size: 23px;
 }
 nav{
   /*box-shadow: 0 7px 6px -5px #939393*/

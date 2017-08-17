@@ -38,7 +38,18 @@ const PlayerChart = (props) => {
   }
   return(
     <div className='chart'>
-      <Bar data={matchData.chartData} options = {{maintainAspectRatio: true}} />
+      <Bar data={matchData.chartData} options = {
+        {
+          maintainAspectRatio: true,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      } />
     </div>
   )
 }
