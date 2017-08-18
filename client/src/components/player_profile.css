@@ -1,18 +1,7 @@
-#container{
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 #profile-card, #matches_stream{
-    padding: 20px 10px 10px 10px;
     color: #ffdf06;
     border: 3px solid #ffdf06;
     border-radius: 10px;
-}
-#profile-card{
-    margin: 20px 0;
-    padding: 10px 30px;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
     color: black;
@@ -71,12 +60,12 @@ h3 {
   overflow-y: scroll;
   white-space: nowrap;
   margin-top: 30px;
-  height: 25vh;
+  height: 30vh;
 
 }
 .recent_tournament{
   overflow-y: scroll;
-  height: 70px;
+  height: 130px;
   border: 1px solid #ffdf06;
   padding: 2px;
   border-radius: 5px;
@@ -110,4 +99,12 @@ h3 {
 .youtube_icon{
   width: 30px;
   height: 30px;
+}
+.recent_tournament_tag{
+  margin-bottom: 0px;
+  font-size: 20px;
+  text-decoration: underline;
+}
+.back_button{
+  vertical-align: top;
 }

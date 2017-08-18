@@ -1,4 +1,5 @@
 import React from 'react';
+import images from './images';
 const H2HMatchHistory = (props) => {
   if(props.matches.length === 0){
     return(
@@ -7,12 +8,22 @@ const H2HMatchHistory = (props) => {
   }
   console.log('props have arrived: ', props.matches);
   const indivd_matches = props.matches.map((item,index)=>{
+    let video_src;
+    let split_url = item.video_url.split('watch?v=');
+    let youtube_url = split_url[0] + 'embed/' + split_url[1];
+    console.log('youtube url: ', youtube_url);
+    if(item.video_url.length > 3){
+      video_src = <img data = {youtube_url} onClick= {(e) => props.youtube_url_info(e)} className = 'youtube_icon' src= {images['youtube_icon.png']} />
+    }
+    else{
+      video_src = 'No Video';
+    }
     return(
       <tr key={index}>
         <td>{item.winner}</td>
         <td>{item.score}</td>
-        <td>{item.loser}</td>
         <td>{item.tournament}</td>
+        <td>{video_src}</td>
       </tr>
     )
   })
@@ -22,8 +33,8 @@ const H2HMatchHistory = (props) => {
         <tr>
           <th>Winner</th>
           <th>Score</th>
-          <th>Loser</th>
           <th>Tournament</th>
+          <th>Video</th>
         </tr>
       </thead>
       <tbody className='h2hrecent_match'>
