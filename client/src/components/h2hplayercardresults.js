@@ -13,8 +13,8 @@ const Head2HeadPlayerCards = (props) => {
         backgroundPosition: 'center'
       }
       return(
-          <Link to={`/head2headprofile/${props.player1}/${item.id}`}>
-            <div className='player_card' style={divStyle} key={index}>
+          <Link to={`/head2headprofile/${props.player1}/${item.id}`} key={index}>
+            <div className='player_card' style={divStyle}>
                 <h3 className='player_text'>{item.tag}</h3>
             </div>
           </Link>
@@ -28,8 +28,8 @@ const Head2HeadPlayerCards = (props) => {
         backgroundPosition: 'center'
       }
       return(
-        <Link to={`/head2headprofile/${props.player1}/${item.id}`}>
-          <div className='player_card' style={divStyle} key={index}>
+        <Link to={`/head2headprofile/${props.player1}/${item.id}`} key={index}>
+          <div className='player_card' style={divStyle}>
                 <h3 className='player_text'>{item.tag}</h3>
           </div>
         </Link>

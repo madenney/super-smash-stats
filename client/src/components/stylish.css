@@ -33,7 +33,24 @@
     50% {transform: rotate(360deg)}
     100% {transform: rotate(720deg)}
 }
-
+@keyframes shift{
+    0% {transform: skewX(0deg)}
+    40% {transform: skewX(0deg)}
+    41% {transform: skewX(10deg)}
+    42% {transform: skewX(-10deg)}
+    44% {transform: skewX(0deg)}
+    58% {transform: skewX(0deg)}
+    59% {transform: skewX(40deg) skewY(10deg)}
+    60% {transform: skewX(-40deg) skewY(-10deg)}
+    61% {transform: skewX(0deg)}
+    63% {transform:skewX(10deg) skewY(-5deg)}
+    65% {transform: skewX(0deg)}
+    69% {transform: skewX(0deg)}
+    70% {transform: skewX(-50deg) skewY(-20deg)}
+    71% {transform: skewX(10deg) skewY(-10deg)}
+    73% {transform: skewX(0deg)}
+    100% {transform: skewX(0deg)}
+}
 body {
     user-select: none;
     /*height: 100vh;*/
@@ -176,6 +193,11 @@ a {
   width: 100%;
   height: 200px;
   margin-bottom: 30px;
+    overflow: hidden;
+    color: transparent;
+    text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px black;
+    transform: skewX(0deg);
+    animation: shift 4s ease-in-out 2 alternate;
   /*box-shadow: 0 10px 6px -5px #939393*/
 }
 .fromDarkness{
@@ -228,6 +250,7 @@ h1 {
     margin: 0 auto;
     padding: 20px;
     border: 2px solid white;
+    background-color: #2e2e2e;
 }
 .card {
     display: inline-block;
@@ -285,4 +308,10 @@ h1 {
     animation: hoverblink 1s linear alternate infinite;
     font-family: pressStart;
 }
-
+.faq {
+    font-family: pressStart;
+    color: white;
+}
+.faqtitle{
+    color: goldenrod;
+}
