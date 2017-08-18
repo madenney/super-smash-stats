@@ -15,11 +15,13 @@
   /*font-weight: bold;*/
   height: 100%;
   color: #B7AFCA;
-  border-left: 3px #B7AFCA solid;
-  -webkit-transform: skew(-20deg);
-  -moz-transform: skew(-20deg);
-  -o-transform: skew(-20deg);
   background-color: transparent;
+}
+.navButtonBorder{
+    border-left: 3px #B7AFCA solid;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
 }
 .navButton::first-letter{
     font-size: 23px;
@@ -31,6 +33,6 @@ nav{
   /*GRAY HUE: #4f4f4f*/
   box-shadow: 0 4px 8px 0 #3d3d3d, 0 6px 20px 0 #3d3d3d;
 }
-nav li:hover{
+.navButton:hover{
     animation: hoverblink 0.75s linear alternate infinite
 }

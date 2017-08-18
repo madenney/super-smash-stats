@@ -20,7 +20,7 @@ const About = () => {
                 </div>
                 <div className="card">
                     <img className="card-img-top" src='http://www.ikea.com/PIAimages/0445780_PE596064_S5.JPG'/>
-                    <div className="after">Howard "Hoon" Kim</div>
+                    <div className="after">Howard "Hunie" Kim</div>
                 </div>
                 <div className="card">
                     <img className="card-img-top" src="http://vignette2.wikia.nocookie.net/onepunchman/images/0/07/Saitama_serious_profile.png/revision/latest?cb=20161002154538"/>

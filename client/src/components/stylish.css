@@ -308,4 +308,10 @@ h1 {
     animation: hoverblink 1s linear alternate infinite;
     font-family: pressStart;
 }
-
+.faq {
+    font-family: pressStart;
+    color: white;
+}
+.faqtitle{
+    color: goldenrod;
+}
