@@ -117,7 +117,7 @@ exports.Database = function(options) {
     this.getHead2HeadSearch = function(res, player1, input, page = 1, resultsPerPage = 20, getPages = 'false') {
         console.log("Head 2 head Search Function");
 
-
+        var player1;
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err) {
             if (err) {
@@ -190,11 +190,11 @@ exports.Database = function(options) {
                     // Slice into pages
                     outputRows = outputRows.slice(((page-1) * resultsPerPage), (((page-1) * resultsPerPage) + resultsPerPage) );
                     if(getPages === 'false') {
-                        res.end(JSON.stringify({ outputRows }));
+                        res.end(JSON.stringify({ name: player1, outputRows }));
                         conn.end();
                     } else {
                         var total = Math.ceil(outputRows.length/resultsPerPage);
-                        res.end(JSON.stringify({ totalAvailablePages: total , outputRows}));
+                        res.end(JSON.stringify({ name: player1, totalAvailablePages: total , outputRows}));
                         conn.end();
                     }
                 });
