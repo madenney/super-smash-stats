@@ -11,7 +11,7 @@ const About = () => {
         <div className="container fromDarkness">
             <h1> About Us </h1>
             <div className="description" >
-                SmashStats is brought to you by a group of Smash Players and competitive gaming afficionados. We're looking to make any and all data related to the Smash scene readily available for everyone. #Meleeislife.
+                SmashStats is brought to you by a group of Smash Players and competitive gaming aficionados. We're looking to make any and all data related to the Smash scene readily available for everyone. #Meleeislife.
             </div>
             <div className="card-row">
                 <div className="card">
