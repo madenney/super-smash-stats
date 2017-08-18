@@ -256,7 +256,7 @@ exports.CalcStats = function(globalResolve, calcLocation) {
             }
             query += "('"+players[i].tag+"','"+players[i].regions+"','"+players[i].rank+"','"+players[i].total_matches_played+"','"+players[i].games_vs_sub100+
                 "','"+players[i].wins_vs_sub100+"','"+players[i].games_vs_26_100+"','"+players[i].wins_vs_26_100+"','"+
-                players[i].games_vs_6_25+"','"+players[i].wins_vs_6_25+"','"+players[i].games_vs_top5+
+                players[i].games_vs_26_100+"','"+players[i].wins_vs_6_25+"','"+players[i].games_vs_top5+
                 "','"+players[i].wins_vs_top5+"'),";
             rowCount++;
         }
