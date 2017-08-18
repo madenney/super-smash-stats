@@ -1,17 +1,38 @@
-var fs = require('fs');
-var mysql = require('mysql');
-var connInfo = require('./connect').conn;
 
-exports.createDb = function(options) {
+createDb();
+
+function createDb() {
+
+    console.log("Database Creator:");
+
+    var options = {
+        modifyData: true,
+        reloadTextFiles: true,
+        reloadPlayers: true,
+        calcStats: true,
+        calcLocation: true,
+        getYoutubeURLs: false,
+        classify: false
+    };
+
+
+
+    if(options.modifyData){
+        console.log("Options: ");
+        console.log(options);
+        interpretOptions();
+    } else {
+        console.log("Modify Data: False");
+    }
+
 
     function interpretOptions() {
-
         let actionChain = [];
         let promiseChain = [];
         let action;
 
         if(options.reloadTextFiles) {
-            console.log("ReloadTextFiles");
+            console.log("Option: Reload Text Files");
             var promise = new Promise(function(resolve, reject){
                 var Reload = require('./reloadTextFiles');
                 action = new Reload.Reload(resolve);
@@ -20,7 +41,7 @@ exports.createDb = function(options) {
             promiseChain.push(promise);
         }
         if(options.reloadPlayers) {
-            console.log("ReloadPlayersPromise");
+            console.log("Option: Extract Players");
             var promise = new Promise(function(resolve, reject){
                 var CreatePlayersDb = require('./createPlayersDb');
                 action = new CreatePlayersDb.CreatePlayersDb(resolve);
@@ -29,7 +50,7 @@ exports.createDb = function(options) {
             promiseChain.push(promise);
         }
         if(options.calcStats){
-            console.log("CalcStatsPromise");
+            console.log("Option: Calculate Stats");
             var promise = new Promise(function(resolve, reject) {
                 var CalcStats = require('./calcStats');
                 action = new CalcStats.CalcStats(resolve, options.calcLocation);
@@ -41,6 +62,7 @@ exports.createDb = function(options) {
             promiseChain.push(promise);
         }
         if(options.getYoutubeURLs) {
+            console.log("Option: Get Youtube URLs");
             var promise = new Promise(function(resolve, reject){
                 var GetYoutubeUrls = require('./getYoutubeUrls');
                 action = new GetYoutubeUrls.GetYoutubeURLs(resolve);
@@ -58,12 +80,9 @@ exports.createDb = function(options) {
         if(actionChain.length > 0) {
             actionChain[0].run();
             for(var i = 0; i < promiseChain.length - 1; i++) {
-                console.log("Promise Number: " + i);
                 promiseChain[i].then(actionChain[i+1].run);
             }
         }
     }
-
-    interpretOptions();
 
 };

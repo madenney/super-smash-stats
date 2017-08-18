@@ -19,10 +19,22 @@ exports.Reload = function(resolve) {
     // Main Function
     this.run = function() {
 
+        // Clear Database for refilling
+        var clearPromise = new Promise(function(resolve, reject) {
+            clearDb(resolve, reject);
+        });
+
+        clearPromise.then(function() {
+            loadFile();
+        });
+    };
+
+    function loadFile() {
+
         // Figure out file to use
         var file = doMatches ? file1 : file2;
 
-        console.log("Filling Table - " + doMatches ? 'matches' : 'tournaments');
+        console.log("Filling Table - ", doMatches ? 'matches' : 'tournaments');
 
         // Open file and read data from it
         fs.readFile('data/' + file, 'utf8', function(err, data) {
@@ -33,7 +45,32 @@ exports.Reload = function(resolve) {
                 startConnection(); // Create DB
             }
         });
-    };
+    }
+
+    // Clear database
+    function clearDb(resolve, reject){
+        console.log("ReloadTextFiles: Truncating Database");
+        conn = mysql.createConnection(connInfo);
+        conn.connect(function (err) {
+            if (err) {
+                console.error('error connecting: ' + err.stack);
+                reject();
+                return;
+            }
+
+            var query = "TRUNCATE TABLE matches; TRUNCATE TABLE tournaments; TRUNCATE TABLE players";
+            conn.query(query, function(err) {
+                if(err) {
+                    console.log("Error Clearing DB");
+                    reject();
+                    throw err;
+                }
+                conn.end();
+                resolve();
+            })
+        });
+    }
+
 
     // Create an array from the text file
     function createArray(data){
@@ -158,7 +195,7 @@ exports.Reload = function(resolve) {
                         conn.end();
                         if(doMatches) {
                             doMatches = false;
-                            self.run();
+                            loadFile();
                         } else {
                             resolve();
                         }
