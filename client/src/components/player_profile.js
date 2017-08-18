@@ -22,7 +22,11 @@ class PlayerProfile extends Component{
       //these are the states that are for the tournament matches
       tournaments_attended: [],
       tournament_matches: [],
-      active: ''
+      //state for the yt url based on the button clicks
+      yt_url: '',
+      //sets the states for the individual nav link tabs
+      match_active: 'active',
+      yt_active: ''
     }
   }
   //add method that calls the function of the axios calls whenever someone searches on this component
@@ -130,15 +134,27 @@ class PlayerProfile extends Component{
       }
       return imageUrl;
   }
-  //note to self add active class and unactive class that adds the string active to the tabs that switches out
-  //for each tab pressed
-  changeTab(e){
-    //e.target.classList.contains(this.myClass)
-    //could possibly be the solution ^
-    console.log('Tab has been changed!');
+  //gets youtube url from img src
+  getYtUrl(e){
+    const {match_active, yt_active} = this.state;
+    if (match_active == 'active'){
+      this.setState({
+        match_active: '',
+        yt_active: 'active'
+      });
+    }
+    else{
+      this.setState({
+        match_active: 'active',
+        yt_active: ''
+      })
+    }
+    this.setState({
+      yt_url: e.target.getAttribute('data')
+    })
   }
   render(){
-    const {profile, toggle, button_descrip, description_display, profile_picture, active} = this.state;
+    const {profile, toggle, button_descrip, description_display, profile_picture, match_active, yt_active} = this.state;
     return(
       //general profile picture
       <div className='container'>
@@ -182,18 +198,17 @@ class PlayerProfile extends Component{
               </li>
   				</ul>
           <div className='tab-content col-md-12'>
-            <div className={`tab-pane active recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
-              <MatchHistory match_info = {this.state.tournament_matches} player_name = {profile.tag}/>
+            <div className={`tab-pane ${match_active} recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
+              <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.state.tournament_matches} player_name = {profile.tag}/>
             </div>
-            <div className={`tab-pane col-md-12 ${active}`} id='youtube_url' role='tab-panel'>
-              <h1>Youtube URL Content</h1>
+            <div className={`tab-pane col-md-12 ${yt_active}`} id='youtube_url' role='tab-panel'>
+              <iframe width='500px' height='500px' src={`${this.state.yt_url}?autoplayer=0`}></iframe>
             </div>
           </div>
 
   			</div>
         <div className={`col-md-6 ${toggle}`}>
           <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary pull-right'>{button_descrip}</button>
-
           <PlayerChart game_data = {profile} />
         </div>
   		</div>

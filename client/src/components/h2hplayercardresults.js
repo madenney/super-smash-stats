@@ -13,11 +13,11 @@ const Head2HeadPlayerCards = (props) => {
         backgroundPosition: 'center'
       }
       return(
-          <div className='col-md-2 player_card' style={divStyle} key={index}>
-            <Link to={`/head2headprofile/${props.player1}/${item.id}`}>
+          <Link to={`/head2headprofile/${props.player1}/${item.id}`}>
+            <div className='player_card' style={divStyle} key={index}>
                 <h3 className='player_text'>{item.tag}</h3>
-            </Link>
-          </div>
+            </div>
+          </Link>
       )
     }
     else{
@@ -28,16 +28,16 @@ const Head2HeadPlayerCards = (props) => {
         backgroundPosition: 'center'
       }
       return(
-          <div className='col-md-2 player_card' style={divStyle} key={index}>
-            <Link to={`/head2headprofile/${props.player1}/${item.id}`}>
+        <Link to={`/head2headprofile/${props.player1}/${item.id}`}>
+          <div className='player_card' style={divStyle} key={index}>
                 <h3 className='player_text'>{item.tag}</h3>
-            </Link>
           </div>
+        </Link>
       )
     }
   });
   return(
-    <div className='container offset-md-1'>{player2_cards}</div>
+    <div className='container center'>{player2_cards}</div>
   )
 }
 export default Head2HeadPlayerCards;
