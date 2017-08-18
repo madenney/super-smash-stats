@@ -2,7 +2,6 @@ import React from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
 import SmashIcon from './imgs/website_logo.svg';
-import Faq from './faq';
 const Navbar = () => {
     const ulStyle = {
       width: '80%'
@@ -15,36 +14,46 @@ const Navbar = () => {
           <ul className='nav nav-justified mx-auto' style={ulStyle} >
             <li className='nav-item nav-link'>
               <Link to='/'>
-                  <div className='navButton'>
-                      Home
+                  <div className="navButtonBorder">
+                      <div className='navButton'>
+                          Home
+                      </div>
                   </div>
               </Link>
             </li>
             <li className='nav-item nav-link'>
               <Link to='#character-selection-screen'>
-                  <div className='navButton'>
-                      Featured
+                  <div className="navButtonBorder">
+                      <div className='navButton'>
+                          Character Select
+                      </div>
                   </div>
               </Link>
             </li>
             <li className='nav-item nav-link'>
               <Link to='/results/noSearch/1'>
-                  <div className='navButton'>
-                      Top Players
+                  <div className="navButtonBorder">
+                      <div className='navButton'>
+                          Top Players
+                      </div>
                   </div>
               </Link>
             </li>
             <li className='nav-item nav-link'>
               <Link to='/faq'>
-                  <div className='navButton'>
-                      FAQ
+                  <div className="navButtonBorder">
+                      <div className='navButton'>
+                          FAQ
+                      </div>
                   </div>
               </Link>
             </li>
             <li className='nav-item nav-link'>
               <Link to='/about'>
-                  <div className='navButton'>
-                      About
+                  <div className="navButtonBorder">
+                      <div className='navButton'>
+                          About
+                      </div>
                   </div>
               </Link>
             </li>
