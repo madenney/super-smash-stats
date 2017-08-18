@@ -1,18 +1,7 @@
-#container{
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 #profile-card, #matches_stream{
-    padding: 20px 10px 10px 10px;
     color: #ffdf06;
     border: 3px solid #ffdf06;
     border-radius: 10px;
-}
-#profile-card{
-    margin: 20px 0;
-    padding: 10px 30px;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
     color: black;

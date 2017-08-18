@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import images from './images';
+import {Link} from 'react-router-dom';
 import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif'
 import axios from 'axios';
 import H2HMatchHistory from './h2hmatches';
 import H2HPlayerChart from './h2hplayer_charts';
-import './h2h.css'
+import './h2h.css';
 class Head2HeadProfile extends Component {
     constructor(props){
       super(props);
