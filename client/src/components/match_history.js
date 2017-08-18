@@ -1,4 +1,5 @@
 import React from 'react';
+import images from './images';
 
 const MatchHistory = (props) =>{
   if(props.match_info.length == 0){
@@ -9,7 +10,7 @@ const MatchHistory = (props) =>{
   else{
     const {player_name} = props;
     const match_item = props.match_info.map((item,index)=>{
-      console.log('this is item: ', item);
+      // console.log('this is item: ', item);
       var switched_item = null;
       if(item.loser == player_name){
         switched_item = item.score.split('').reverse().join('');
@@ -18,8 +19,15 @@ const MatchHistory = (props) =>{
       else{
         switched_item = item.score;
       }
-      if(item.video_url === ''){
-        item.video_url = 'No Video'
+      let video_src;
+      let split_url = item.video_url.split('watch?v=');
+      let youtube_url = split_url[0] + 'embed/' + split_url[1];
+      console.log('youtube url: ', youtube_url);
+      if(item.video_url.length > 3){
+        video_src = <img data = {youtube_url} onClick= {(e) => props.youtube_url_info(e)} className = 'youtube_icon' src= {images['youtube_icon.png']} />
+      }
+      else{
+        video_src = 'No Video';
       }
 
       return(
@@ -27,7 +35,7 @@ const MatchHistory = (props) =>{
           <td>{switched_item}</td>
           <td>{item.loser}</td>
           <td>{item.tournament}</td>
-          <td>{item.video_url}</td>
+          <td>{video_src}</td>
         </tr>
       )
     });
