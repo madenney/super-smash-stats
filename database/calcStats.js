@@ -248,7 +248,7 @@ exports.CalcStats = function(globalResolve, calcLocation) {
         // Need to count the matches to make sure they all get passed in later during the transaction
         var rowCount = 0;
         var query = "INSERT INTO `players` (`tag`, `location`, `rank`, `total_matches_played`, `games_vs_sub100`, " +
-            "`wins_vs_sub100`, `games_vs_26_100`, `wins_vs_26_100`, `games_vs_26_100`, `wins_vs_6_25`, `games_vs_top5`, `wins_vs_top5`) VALUES ";
+            "`wins_vs_sub100`, `games_vs_26_100`, `wins_vs_26_100`, `games_vs_6_25`, `wins_vs_6_25`, `games_vs_top5`, `wins_vs_top5`) VALUES ";
         for(var i = chunks[index]; i < chunks[index + 1]; i++) {
             // Escape apostrophes
             if(players[i].tag.includes("'")) {
