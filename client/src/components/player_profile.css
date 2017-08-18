@@ -36,7 +36,6 @@ h3 {
     color: black;
 }
 .nav-tabs>li>a:hover {
-    border-color: #ffdf06;
     border: 1px solid #ffdf06;
     background-color: #ffdf06;
 }

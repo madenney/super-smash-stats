@@ -208,7 +208,7 @@ a {
     100% {opacity: 1}
 }
 #page-numbers{
-    animation: fromDarkness 2.5s linear;
+    animation: fromDarkness 4s linear;
     margin: 0 auto;
     width: 50%;
 }
