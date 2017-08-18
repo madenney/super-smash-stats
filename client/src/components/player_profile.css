@@ -81,6 +81,14 @@ h3 {
   padding: 2px;
   border-radius: 5px;
 }
+.recent_tournament:hover{
+    content: '';
+    position: absolute;
+    height: 210px;
+    background-color: #333333;
+    width: 95%;
+    z-index: 10;
+}
 .theader{
   font-weight: bolder;
   color: white;
