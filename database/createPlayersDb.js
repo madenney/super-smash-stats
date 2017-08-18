@@ -1,7 +1,3 @@
-/**
- * Created by Matt on 7/21/2017.
- */
-
 var mysql = require('mysql');
 var connInfo = require('./connect').conn;
 

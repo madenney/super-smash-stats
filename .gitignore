@@ -1,5 +1,6 @@
 .idea
 .DS_Store
 node_modules
+database/connect.js
 server/connect.js
 videos/

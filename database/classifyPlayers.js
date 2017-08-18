@@ -4,6 +4,8 @@ var connInfo = require('./connect').conn;
 
 exports.classify = function() {
 
+    this.identifier = "classify";
+
     console.log("Classifying Players");
     var players;
 
