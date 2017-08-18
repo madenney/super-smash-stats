@@ -299,7 +299,6 @@ export default class SearchBar extends Component {
     }
 
     render(){
-        console.log('state', this.state);
         return (
             <div className='col-md-6 offset-md-3'>
                 <div className='input-group searchBarContainer'>
