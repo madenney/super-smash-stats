@@ -41,9 +41,25 @@ const PlayerChart = (props) => {
       <Bar data={matchData.chartData} options = {
         {
           maintainAspectRatio: true,
+          legend:{
+            labels:{
+              fontColor: 'white',
+              fontSize: 14
+            }
+          },
           scales: {
             yAxes: [{
               ticks: {
+                beginAtZero: true,
+                fontColor: 'white',
+                fontSize: 14
+              }
+            }],
+            xAxes: [{
+              ticks: {
+                fontColor: 'white',
+                fontSize: 10,
+                stepSize: 1,
                 beginAtZero: true
               }
             }]

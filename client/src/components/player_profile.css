@@ -60,12 +60,12 @@ h3 {
   overflow-y: scroll;
   white-space: nowrap;
   margin-top: 30px;
-  height: 25vh;
+  height: 30vh;
 
 }
 .recent_tournament{
   overflow-y: scroll;
-  height: 70px;
+  height: 130px;
   border: 1px solid #ffdf06;
   padding: 2px;
   border-radius: 5px;
@@ -99,4 +99,12 @@ h3 {
 .youtube_icon{
   width: 30px;
   height: 30px;
+}
+.recent_tournament_tag{
+  margin-bottom: 0px;
+  font-size: 20px;
+  text-decoration: underline;
+}
+.back_button{
+  vertical-align: top;
 }

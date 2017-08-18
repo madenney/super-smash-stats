@@ -189,7 +189,6 @@ exports.Database = function(options) {
                     outputRows = _.sortBy(outputRows, 'id');
                     // Slice into pages
                     outputRows = outputRows.slice(((page-1) * resultsPerPage), (((page-1) * resultsPerPage) + resultsPerPage) );
-                    console.log(outputRows);
                     if(getPages === 'false') {
                         res.end(JSON.stringify({ outputRows }));
                         conn.end();
@@ -250,10 +249,6 @@ exports.Database = function(options) {
 
             Promise.all([promise1, promise2]).then(function() {
 
-                console.log(player1);
-                console.log(player2);
-
-
                 let tag1 = player1.tag;
                 let tag2 = player2.tag;
 
@@ -261,7 +256,6 @@ exports.Database = function(options) {
                     "FROM matches " +
                     "JOIN tournaments ON tournaments.name = matches.tournament " +
                     "WHERE matches.winner = '"+tag1+"' AND matches.loser = '"+tag2+"' OR matches.winner = '"+tag2+"' AND matches.loser = '"+tag1+"'";
-                console.log(query);
                 conn.query(query, function(err, rows){
                     if(err){
                         console.log("Error with query");
@@ -297,7 +291,6 @@ exports.Database = function(options) {
 
             var re = /(?:.*?\/){2}(.*)/;
             var year = re.exec(history[i].date)[1];
-            console.log("year: " + year);
             for(var j = 0; j < yearlyHistory.length; j++) {
                 if(yearlyHistory[j].year === year) {
                     if(history[i].winner === player1.tag) {

@@ -34,7 +34,6 @@ const MatchHistory = (props) =>{
         <tr className='col-md-4' key={`1${index}`}>
           <td>{switched_item}</td>
           <td>{item.loser}</td>
-          <td>{item.tournament}</td>
           <td>{video_src}</td>
         </tr>
       )
@@ -45,7 +44,6 @@ const MatchHistory = (props) =>{
           <tr className='col-md-4 theader'>
             <td>Set Count</td>
             <td>Opponent</td>
-            <td>Tournament</td>
             <td>Youtube Video</td>
           </tr>
         </thead>

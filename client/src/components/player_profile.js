@@ -25,8 +25,8 @@ class PlayerProfile extends Component{
       //state for the yt url based on the button clicks
       yt_url: '',
       //sets the states for the individual nav link tabs
-      match_active: 'active',
-      yt_active: ''
+      match_active: '',
+      yt_active: 'hidden'
     }
   }
   //add method that calls the function of the axios calls whenever someone searches on this component
@@ -137,24 +137,35 @@ class PlayerProfile extends Component{
   //gets youtube url from img src
   getYtUrl(e){
     const {match_active, yt_active} = this.state;
-    if (match_active == 'active'){
+    if (match_active == 'hidden'){
       this.setState({
         match_active: '',
-        yt_active: 'active'
+        yt_active: 'hidden'
       });
     }
     else{
       this.setState({
-        match_active: 'active',
+        match_active: 'hidden',
         yt_active: ''
       })
     }
-    this.setState({
-      yt_url: e.target.getAttribute('data')
-    })
+    if(!e){
+      console.log('event is not there no worries!');
+    }
+    else{
+      this.setState({
+        yt_url: e.target.getAttribute('data')
+      });
+    }
   }
   render(){
-    const {profile, toggle, button_descrip, description_display, profile_picture, match_active, yt_active} = this.state;
+    const {profile, toggle, button_descrip, description_display, profile_picture, match_active, yt_active, tournament_matches} = this.state;
+    if(tournament_matches.length == 0){
+      return(
+        <h1>Loading</h1>
+      )
+    }
+    console.log('this is the tiournament state: ', tournament_matches[0]);
     return(
       //general profile picture
       <div className='container'>
@@ -171,15 +182,14 @@ class PlayerProfile extends Component{
   						<p id="location" className={description_display}>Location: {profile.location}</p>
   						<p className={description_display}>Mains:</p>
               <img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.main}.png`]}/>
-  						<img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.secondary}.png`]}/>
+  						<img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.secondary}.png`] ? images[`characters/${profile.secondary}.png`] : images['no_character.png']}/>
   						<p className={description_display}>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
   					<div className="col-sm-4 col-xs-6">
-  						<p className={description_display}>Nemesis: {profile.nemesis}</p>
   						<p className={description_display}>Twitter: {profile.twitter}</p>
   						<p className={description_display}>Twitch: {profile.twitch}</p>
   						<p className={description_display}>Sponsors: {profile.sponsor}</p>
-              <p>Recent Tournaments:</p>
+              <p className='recent_tournament_tag'>Recent Tournaments:</p>
               <div className='recent_tournament'>
                 <TournamentHistory tournaments_attended = {this.state.tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
               </div>
@@ -189,20 +199,14 @@ class PlayerProfile extends Component{
   		</div>
   		<div className='row'>
   			<div id="matches_stream" className="col-xs-16 col-md-6">
-  				<ul className="nav nav-tabs" role='tablist'>
-  				    <li className='nav-item'>
-                <a className='nav-link active' data-toggle="tab" href='#tournament_data' role='tab'>Match Data</a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' data-toggle='tab' href='#youtube_url' role='tab'>YT Video</a>
-              </li>
-  				</ul>
-          <div className='tab-content col-md-12'>
-            <div className={`tab-pane ${match_active} recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
+          <div className='col-md-12'>
+            <div className={`${match_active} recent_match col-md-12`} id='tournament_data' >
+              <h3>{tournament_matches[0].tournament}</h3>
               <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.state.tournament_matches} player_name = {profile.tag}/>
             </div>
-            <div className={`tab-pane col-md-12 ${yt_active}`} id='youtube_url' role='tab-panel'>
-              <iframe width='500px' height='500px' src={`${this.state.yt_url}?autoplayer=0`}></iframe>
+            <div className={`col-md-12 ${yt_active}`}>
+              <button className='back_button btn btn-outline-danger' onClick={()=>this.getYtUrl()}>Back</button>
+              <iframe allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplayer=0`}></iframe>
             </div>
           </div>
 
