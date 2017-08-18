@@ -191,11 +191,11 @@ class PlayerProfile extends Component{
   			<div id="matches_stream" className="col-xs-16 col-md-6">
   				<ul className="nav nav-tabs" role='tablist'>
   				    <li className='nav-item'>
-                <a className='nav-link active' data-toggle="tab" href='#tournament_data' role='tab'>Match Data</a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link' data-toggle='tab' href='#youtube_url' role='tab'>YT Video</a>
-              </li>
+                        <a className='nav-link active' data-toggle="tab" href='#tournament_data' role='tab'>Match Data</a>
+                    </li>
+                    <li className='nav-item'>
+                        <a className='nav-link' data-toggle='tab' href='#youtube_url' role='tab'>YT Video</a>
+                    </li>
   				</ul>
           <div className='tab-content col-md-12'>
             <div className={`tab-pane ${match_active} recent_match container col-md-12 ${toggle}`} id='tournament_data' role='tab-panel'>
