@@ -11,7 +11,7 @@ const About = () => {
         <div className="container fromDarkness">
             <h1> About Us </h1>
             <div className="description" >
-                SmashStats is brought to you by a group of Smash Players and competitive gaming afficionados. We're looking to make any and all data related to the Smash scene readily available for everyone. #Meleeislife.
+                SmashStats is brought to you by a group of Smash Players and competitive gaming aficionados. We're looking to make any and all data related to the Smash scene readily available for everyone. #Meleeislife.
             </div>
             <div className="card-row">
                 <div className="card">
@@ -20,7 +20,7 @@ const About = () => {
                 </div>
                 <div className="card">
                     <img className="card-img-top" src='http://www.ikea.com/PIAimages/0445780_PE596064_S5.JPG'/>
-                    <div className="after">Howard "Hoon" Kim</div>
+                    <div className="after">Howard "Hunie" Kim</div>
                 </div>
                 <div className="card">
                     <img className="card-img-top" src="http://vignette2.wikia.nocookie.net/onepunchman/images/0/07/Saitama_serious_profile.png/revision/latest?cb=20161002154538"/>

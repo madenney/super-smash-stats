@@ -20,27 +20,34 @@ class Pagination extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(!nextProps.player1){
+
+        console.log('CWRP pagination:', nextProps);
+
+        const { items, searchValue, totalPages, pageNum, player1 } = nextProps;
+
+        if(!player1){
           this.setState({
-            items: nextProps.items,
-            searchValue: nextProps.searchValue,
-            totalPages: nextProps.totalPages,
-            player1: false
+            items: items,
+            searchValue: searchValue.search ? searchValue : {...searchValue, search: 'noSearch'},
+            totalPages: totalPages,
+            player1: false,
+            currentPage: pageNum
           });
         }
         else{
           this.setState({
-            items: nextProps.items,
-            searchValue: nextProps.searchValue,
-            totalPages: nextProps.totalPages,
+            items: items,
+              searchValue: searchValue.search ? searchValue : {...searchValue, search: 'noSearch'},
+            totalPages: totalPages,
             player1: true,
-            player1id: nextProps.player1
+            player1id: player1,
+            currentPage: pageNum
           })
         }
 
     }
     handleClick(e) {
-//        console.log('this is the url string: ', this.props);
+        console.log('this is the url string: ', this.props);
         const clickedValue = e.target.id;
         axios.post('http://localhost:3030/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
             this.setState({
@@ -49,6 +56,10 @@ class Pagination extends Component {
             });
         })
     };
+
+    // componentWillUnmount(){
+    //     console.log('Pagination Unmounting!!  ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ');
+    // }
 
     render(){
         const { player1, player1id, items, currentPage, searchValue, totalPages } = this.state;
@@ -59,12 +70,15 @@ class Pagination extends Component {
         }
 
 //ternaries are freaking awesome
-        const displayArray = pageArray.slice(`${(Number(currentPage) - 3) >= 0 ? (Number(currentPage) - 3) : 0}`, (Number(currentPage) + 2));
+        const sliceFirstParam = `${Number(totalPages) - 3 >= currentPage ? `${(Number(currentPage) - 3) >= 0 ? (Number(currentPage) - 3) : 0}` : totalPages - 5}`;
+        const sliceSecondParam = `${currentPage < 3 ? 5 : (Number(currentPage) + 2)}`;
+        const displayArray = pageArray.slice(sliceFirstParam, sliceSecondParam);
           const renderPageNumbers = displayArray.map((number, index) => {
               return (
                   <Link to={!player1 ? `/results/${searchValue.search}/${number}` : `/head2headresults/${player1id}/${searchValue.search}/${number}`} key={index}>
                       <div
                           id={number}
+                          className={`${Number(number) === Number(currentPage) ? 'active' : 'inactive'}`}
                           onClick={this.handleClick}
                       >
                           {number}

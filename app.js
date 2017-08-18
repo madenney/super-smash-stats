@@ -11,17 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var Database = require('./server/database.js');
-options = {
-    modifyData: true,
-    reloadTextFiles: false,
-    reloadPlayers: false,
-    calcStats: false,
-    calcLocation: false,
-    getYoutubeURLs: true,
-    classify: false
-};
-
-var db = new Database.Database(options);
+var db = new Database.Database();
 
 
 app.post('/autocomplete', function(req, res) {

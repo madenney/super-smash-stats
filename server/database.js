@@ -10,43 +10,6 @@ var _ = require('lodash');
 
 exports.Database = function(options) {
 
-    if(options.modifyData){
-        new require('./createDb').createDb(options);
-    }
-
-    // classify players
-    if(options.classify){
-        new require('./classifyPlayers').classify();
-    }
-
-    this.getPlayer = function(res, playerName) {
-
-        var conn = mysql.createConnection(connInfo);
-        conn.connect(function(err){
-            if(err) {
-                console.log("Error connecting to the database");
-                throw err;
-            }
-
-            // Escape apostrophes
-            if(playerName.includes("'")) {
-                playerName = players[j][0].replace(/'/g, "\\'");
-            }
-
-            var query = "SELECT player_info.*, players.rank, players.total_matches_played FROM player_info JOIN players ON players.tag = player_info.tag WHERE players.tag = '" + playerName + "'";
-            conn.query(query, function(err, rows) {
-                if(err) {
-                    console.log("Error with query");
-                    throw err;
-                }
-
-                res.end(JSON.stringify(rows[0]));
-                conn.end();
-            });
-        });
-
-    };
-
     this.autocomplete = function(res, input, page = 1, resultsPerPage = 20, getPages = 'false') {
 
         var conn = mysql.createConnection(connInfo);
