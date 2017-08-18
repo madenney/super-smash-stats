@@ -16,6 +16,7 @@ class SearchResults extends Component {
             totalPages: null
         }
     }
+
     componentWillReceiveProps(nextProps) {
         var {search, id} = nextProps.match.params;
         console.log('this is the id of the page:', id);
@@ -25,6 +26,7 @@ class SearchResults extends Component {
         }
         axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
             this.setState({
+                searchValue: { search, id },
                 player_cards: response.data.players,
                 totalPages: response.data.totalAvailablePages
             });
@@ -36,7 +38,6 @@ class SearchResults extends Component {
         var {search} = this.props.match.params;
         var {id} = this.props.match.params;
 
-        console.log('Search is:', this.props.match.params);
         if (search == 'noSearch') {
             // console.log('No search given');
             search = '';
@@ -61,7 +62,7 @@ class SearchResults extends Component {
                 <div className="landingCenter resultsContainer">
                     <h1>Player Search Results!</h1>
                     <PopulatePlayerCards card = {this.state.player_cards} />
-                    <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
+                    <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(this.state.searchValue.id)} totalPages={this.state.totalPages}/>
                 </div>
             </div>
             // <div className='container search_results'>
