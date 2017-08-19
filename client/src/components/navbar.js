@@ -17,6 +17,7 @@ const Navbar = () => {
                   <div className='navButton'>
                       Home
                   </div>
+
               </Link>
             </li>
             <li className='nav-item nav-link'>
