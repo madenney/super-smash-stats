@@ -11,8 +11,8 @@ function createDb() {
         reloadPlayers: false,
         calcStats: false,
         calcLocation: false,
-        getYoutubeURLs: true,
-        classify: false
+        getYoutubeURLs: false,
+        classify: true
     };
 
 
@@ -66,6 +66,15 @@ function createDb() {
             var promise = new Promise(function(resolve, reject){
                 var GetYoutubeUrls = require('./getYoutubeUrls');
                 action = new GetYoutubeUrls.GetYoutubeURLs(resolve);
+                actionChain.push(action);
+            });
+            promiseChain.push(promise);
+        }
+        if(options.classify) {
+            console.log("Option: Classify Players");
+            var promise = new Promise(function(resolve, reject){
+                var Classify = require('./classifyPlayers');
+                action = new Classify.Classify(resolve);
                 actionChain.push(action);
             });
             promiseChain.push(promise);

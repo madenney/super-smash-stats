@@ -2,14 +2,13 @@ var mysql = require('mysql');
 var connInfo = require('./connect').conn;
 
 
-exports.classify = function() {
+exports.Classify = function(globalResolve) {
 
     console.log("Classifying Players");
     var players;
 
-    run();
 
-    function run() {
+    this.run = function() {
 
         var promisePlayers = new Promise(function(resolve, reject){ getPlayers(resolve, reject); });
         promisePlayers.then(function() {
@@ -20,6 +19,7 @@ exports.classify = function() {
 
     function doMath() {
         console.log("Doing Math...");
+        console.log("Number of Players: " + players.length);
         // get the mean
         var total = 0;
         for(var i = 0; i < players.length; i++) {
@@ -29,13 +29,13 @@ exports.classify = function() {
 
         total = 0;
         for(var i = 0; i < players.length; i++) {
-            total += Math.pow((players.rank - mean), 2);
+            total += Math.pow((players[i].rank - mean), 2);
         }
         var standardDeviation = Math.sqrt(total / players.length);
 
         console.log("Average: ", mean);
         console.log("Standard Deviation: ", standardDeviation);
-
+        globalResolve();
     }
 
     function getPlayers(resolve, reject) {

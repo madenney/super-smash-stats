@@ -33,12 +33,12 @@ class PlayerProfile extends Component{
   componentWillReceiveProps(nextProps){
 
     const {id} = nextProps.match.params;
-    axios.post('http://supersmashstats.com/player_profile', {input: id}).then((response)=>{
+    axios.post('/player_profile', {input: id}).then((response)=>{
       this.setState({
         profile: response.data
       });
       //add loading if this doesn't exist
-      axios.post('http://supersmashstats.com/match_history', {input: this.state.profile.tag}).then((response)=>{
+      axios.post('/match_history', {input: this.state.profile.tag}).then((response)=>{
           //takes the matches state and filters pushes the individual tournaments into an array
           let tournaments = [];
           for(var i = 0; i < response.data.length; i++){
@@ -56,12 +56,12 @@ class PlayerProfile extends Component{
   }
   componentWillMount(){
       const {id} = this.props.match.params;
-      axios.post('http://supersmashstats.com/player_profile', {input: id}).then((response)=>{
+      axios.post('/player_profile', {input: id}).then((response)=>{
           this.setState({
               profile: response.data
           });
           //add loading if this doesn't exist
-          axios.post('http://supersmashstats.com/match_history', {input: this.state.profile.tag}).then((response)=>{
+          axios.post('/match_history', {input: this.state.profile.tag}).then((response)=>{
               //takes the matches state and filters pushes the individual tournaments into an array
               let tournaments = [];
               for(var i = 0; i < response.data.length; i++){
