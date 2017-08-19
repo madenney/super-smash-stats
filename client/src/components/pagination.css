@@ -9,6 +9,7 @@
     text-align: center;
     border-radius: 10px;
     margin-right: 2px;
+    overflow: hidden;
 }
 #page-numbers div:hover {
     background-color: #0a0a0a;
