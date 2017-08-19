@@ -1,6 +1,6 @@
 exports.conn = {
 	host: 'localhost',
-	port: '1337',
+	port: '3306',
 	user: 'root',
 	password: 'root',
 	database: 'smashstats',
