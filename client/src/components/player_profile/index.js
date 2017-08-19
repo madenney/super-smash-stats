@@ -85,15 +85,15 @@ class PlayerProfile extends Component {
     }
 }
 
-    axios.post('http://localhost:3030', {
-
-    })
-    .then(function (response) {
-        console.log(response);
-        console.log('success!')
-    })
-    .catch(function(error) {
-        console.log(error);
-    });
+    // axios.post('http://supersmashstats', {
+    //
+    // })
+    // .then(function (response) {
+    //     console.log(response);
+    //     console.log('success!')
+    // })
+    // .catch(function(error) {
+    //     console.log(error);
+    // });
 
 export default PlayerProfile;

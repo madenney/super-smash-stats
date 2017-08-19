@@ -1,4 +1,3 @@
-
 exports.conn = {
 	host: 'localhost',
 	port: '3306',

@@ -214,7 +214,7 @@ export default class SearchBar extends Component {
     }
 
     autocomplete(player) {
-        axios.post('http://localhost:3030/autocomplete', { input: player.name, pageNum: 1, resultsPerPage: 10 }).then((response) => {
+        axios.post('http://supersmashstats.com/autocomplete', { input: player.name, pageNum: 1, resultsPerPage: 10 }).then((response) => {
             // Check for valid player name
             for(var i = 0; i < response.data.players.length; i++) {
                 if(response.data.players[i].tag.toLowerCase() === player.name.toLowerCase()) {

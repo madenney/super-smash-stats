@@ -21,7 +21,7 @@ class Head2HeadResults extends Component {
        if(search == 'noSearch'){
         search = '';
       }
-      axios.post('http://localhost:3030/head2headsearch', {player1: id1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
+      axios.post('http://supersmashstats.com/head2headsearch', {player1: id1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
         console.log('this is the response: ', response);
         this.setState({
             name: response.data.name,
