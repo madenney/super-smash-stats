@@ -49,7 +49,7 @@ class Pagination extends Component {
     handleClick(e) {
         console.log('this is the url string: ', this.props);
         const clickedValue = e.target.id;
-        axios.post('http://localhost:3030/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
+        axios.post('http://supersmashstats.com/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
             this.setState({
                 items: response.data.players,
                 currentPage: clickedValue
