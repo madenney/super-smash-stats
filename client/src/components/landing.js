@@ -15,11 +15,14 @@ export default class Landingpage extends Component {
         };
     }
     componentWillMount(){
-        axios.post('http://localhost:3030/front_page', {number: 10}).then((response)=>{
+        axios.post('http://supersmashstats.com/front_page', {number: 10}).then((response)=>{
             this.setState({
                 cards: response.data
             })
-        });
+        }).catch( e => {
+		console.log('Error', e);
+	}
+	);
     }
 
     render() {
