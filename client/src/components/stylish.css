@@ -315,11 +315,3 @@ h1 {
 .faqtitle{
     color: goldenrod;
 }
-
-/*@keyframes animatedBackground {*/
-    /*from { background-position: 0 0; }*/
-    /*to { background-position: 100% 0; }*/
-/*}*/
-/*background-position: 0px 0px;*/
-/*background-repeat: repeat-x;*/
-/*animatation: animatedBackground 40s linear infinite*/
