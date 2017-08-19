@@ -186,7 +186,9 @@ class PlayerProfile extends Component{
   						<p className={description_display}>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
   					<div className="col-sm-4 col-xs-6">
-  						<p className={description_display}>Twitter: {profile.twitter}</p>
+                        <p className={description_display}>Twitter:
+                            <a target='_blank' href={`http:\/\/www.twitter.com\/${profile.twitter}`}>{profile.twitter}</a>
+                        </p>
   						<p className={description_display}>Twitch: {profile.twitch}</p>
   						<p className={description_display}>Sponsors: {profile.sponsor}</p>
               <p className='recent_tournament_tag'>Recent Tournaments:</p>
