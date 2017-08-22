@@ -25,7 +25,7 @@ class Head2HeadProfile extends Component {
     componentWillMount(){
       // console.log('this is props: ', this.props)
       const {id1, id2} = this.props.match.params;
-      axios.post('http://supersmashstats.com/head2headprofile', {id1 : id1, id2 : id2}).then((response)=>{
+      axios.post('/head2headprofile', {id1 : id1, id2 : id2}).then((response)=>{
         console.log('this is the response', response);
         this.setState({
           player1: response.data.player1,

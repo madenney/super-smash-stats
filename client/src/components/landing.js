@@ -15,7 +15,7 @@ export default class Landingpage extends Component {
         };
     }
     componentWillMount(){
-        axios.post('http://supersmashstats.com/front_page', {number: 10}).then((response)=>{
+        axios.post('/front_page', {number: 10}).then((response)=>{
             this.setState({
                 cards: response.data
             })
