@@ -32,7 +32,7 @@ export default class SearchBar extends Component {
     handleChange(e) {
 
         // To navigate somewhere:
-        // this.props.history.push('/destination');
+        // this.props.history.push('/destination') ;
 
         let {player1, player2, vs, vsSpace, complete, autocomCards, currentIndex} = this.state;
         e.preventDefault();

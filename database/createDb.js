@@ -7,12 +7,12 @@ function createDb() {
 
     var options = {
         modifyData: true,
-        reloadTextFiles: false,
-        reloadPlayers: false,
-        calcStats: false,
-        calcLocation: false,
+        reloadTextFiles: true,
+        reloadPlayers: true,
+        calcStats: true,
+        calcLocation: true,
         getYoutubeURLs: false,
-        classify: true
+        classify: false
     };
 
 
