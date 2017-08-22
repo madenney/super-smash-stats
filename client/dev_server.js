@@ -3,7 +3,8 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 const PORT = process.env.PORT || 3000;
-
+const package = require('./package.json');
+console.log("PACKAGE: ", package.proxy);
 new WebpackDevServer(webpack(config), {
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -11,6 +12,7 @@ new WebpackDevServer(webpack(config), {
     historyApiFallback: true,
     quiet: false,
     noInfo: false,
+    proxy: package.proxy,
     stats: {
         assets: false,
         colors: true,

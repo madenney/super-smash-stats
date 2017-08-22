@@ -16,9 +16,6 @@
   height: 100%;
   color: #B7AFCA;
   background-color: transparent;
-}
-.navButtonBorder{
-    border-left: 3px #B7AFCA solid;
     -webkit-transform: skew(-20deg);
     -moz-transform: skew(-20deg);
     -o-transform: skew(-20deg);

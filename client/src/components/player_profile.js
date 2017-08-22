@@ -33,12 +33,12 @@ class PlayerProfile extends Component{
   componentWillReceiveProps(nextProps){
 
     const {id} = nextProps.match.params;
-    axios.post('http://supersmashstats.com/player_profile', {input: id}).then((response)=>{
+    axios.post('/player_profile', {input: id}).then((response)=>{
       this.setState({
         profile: response.data
       });
       //add loading if this doesn't exist
-      axios.post('http://supersmashstats.com/match_history', {input: this.state.profile.tag}).then((response)=>{
+      axios.post('/match_history', {input: this.state.profile.tag}).then((response)=>{
           //takes the matches state and filters pushes the individual tournaments into an array
           let tournaments = [];
           for(var i = 0; i < response.data.length; i++){
@@ -56,12 +56,12 @@ class PlayerProfile extends Component{
   }
   componentWillMount(){
       const {id} = this.props.match.params;
-      axios.post('http://supersmashstats.com/player_profile', {input: id}).then((response)=>{
+      axios.post('/player_profile', {input: id}).then((response)=>{
           this.setState({
               profile: response.data
           });
           //add loading if this doesn't exist
-          axios.post('http://supersmashstats.com/match_history', {input: this.state.profile.tag}).then((response)=>{
+          axios.post('/match_history', {input: this.state.profile.tag}).then((response)=>{
               //takes the matches state and filters pushes the individual tournaments into an array
               let tournaments = [];
               for(var i = 0; i < response.data.length; i++){
@@ -186,8 +186,10 @@ class PlayerProfile extends Component{
   						<p className={description_display}>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
   					<div className="col-sm-4 col-xs-6">
-  						<p className={description_display}>Twitter: {profile.twitter}</p>
-  						<p className={description_display}>Twitch: {profile.twitch}</p>
+  						<p className={description_display}>Twitter:
+  						    <a target='_blank' href={`http:\/\/www.twitter.com\/${profile.twitter}`}> {profile.twitter}</a></p>
+  						<p className={description_display}>Twitch:
+                            <a target='_blank' href={`http:\/\/www.twitch.tv\/${profile.twitch}`}> {profile.twitch}</a></p>
   						<p className={description_display}>Sponsors: {profile.sponsor}</p>
               <p className='recent_tournament_tag'>Recent Tournaments:</p>
               <div className='recent_tournament'>
