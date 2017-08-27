@@ -22,7 +22,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className='nav-item nav-link'>
-              <Link to='#character-selection-screen'>
+              <Link to='/character_select_screen'>
                   <div className="navButtonBorder">
                       <div className='navButton'>
                           Character Select

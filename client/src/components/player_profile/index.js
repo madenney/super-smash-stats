@@ -85,7 +85,7 @@ class PlayerProfile extends Component {
     }
 }
 
-    axios.post('http://localhost:3030', {
+    axios.post('', {
 
     })
     .then(function (response) {

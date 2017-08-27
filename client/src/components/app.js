@@ -7,6 +7,7 @@ import SearchResults from './search_results';
 import PlayerProfile from './player_profile';
 import Head2HeadResults from './head2head_results';
 import Head2HeadProfile from './head2head_profile';
+import CharacterSelect from './character_select';
 import Faq from './faq';
 
 export default () => (
@@ -19,5 +20,6 @@ export default () => (
         <Route path="/head2headprofile/:id1/:id2" component = {Head2HeadProfile}/>
         <Route path="/faq" component = {Faq} />
         <Route path='/about' component={About}/>
+        <Route path= '/character_select_screen' component = {CharacterSelect} />
     </div>
 )

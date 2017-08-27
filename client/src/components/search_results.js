@@ -24,7 +24,7 @@ class SearchResults extends Component {
             // console.log('No search given');
             search = '';
         }
-        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
+        axios.post('/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
             this.setState({
                 searchValue: { search, id },
                 player_cards: response.data.players,
@@ -42,7 +42,7 @@ class SearchResults extends Component {
             // console.log('No search given');
             search = '';
         }
-        axios.post('http://localhost:3030/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
+        axios.post('/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
             console.log('response', response);
             this.setState({
                 searchValue: this.state.searchValue,
