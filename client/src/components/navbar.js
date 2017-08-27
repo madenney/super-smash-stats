@@ -14,46 +14,38 @@ const Navbar = () => {
           <ul className='nav nav-justified mx-auto' style={ulStyle} >
             <li className='nav-item nav-link'>
               <Link to='/'>
-                  <div className="navButtonBorder">
-                      <div className='navButton'>
-                          Home
-                      </div>
+                  <div className='navButton'>
+                      Home
                   </div>
+
               </Link>
             </li>
             <li className='nav-item nav-link'>
+
               <Link to='/character_select_screen'>
-                  <div className="navButtonBorder">
                       <div className='navButton'>
                           Character Select
                       </div>
-                  </div>
               </Link>
             </li>
             <li className='nav-item nav-link'>
               <Link to='/results/noSearch/1'>
-                  <div className="navButtonBorder">
-                      <div className='navButton'>
-                          Top Players
-                      </div>
+                  <div className='navButton'>
+                      Top Players
                   </div>
               </Link>
             </li>
             <li className='nav-item nav-link'>
               <Link to='/faq'>
-                  <div className="navButtonBorder">
-                      <div className='navButton'>
-                          FAQ
-                      </div>
+                  <div className='navButton'>
+                      FAQ
                   </div>
               </Link>
             </li>
             <li className='nav-item nav-link'>
               <Link to='/about'>
-                  <div className="navButtonBorder">
-                      <div className='navButton'>
-                          About
-                      </div>
+                  <div className='navButton'>
+                      About
                   </div>
               </Link>
             </li>

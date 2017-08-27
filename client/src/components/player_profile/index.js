@@ -84,10 +84,8 @@ class PlayerProfile extends Component {
         )
     }
 }
-
     axios.post('', {
-
-    })
+  })
     .then(function (response) {
         console.log(response);
         console.log('success!')

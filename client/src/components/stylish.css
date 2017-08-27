@@ -51,24 +51,6 @@
     73% {transform: skewX(0deg)}
     100% {transform: skewX(0deg)}
 }
-body {
-    user-select: none;
-    /*height: 100vh;*/
-    font-family: Aero;
-  /*YELLOW HEW: #868269, #575444, #201f18*/
-  /*PURPLE HEW: #7146a7, #492c6d, #29193e*/
-  /*BLUE-PURPLE-PINK HEW: #292a4f, #3a294f, #4c294f*/
-  /*DARK PURPLE HEW: #350064, #220040, #000000*/
-  /*BLUE-ISH HEW: #280468, #1c024b, #000000*/
-  /*background: linear-gradient(337deg, #8161a9, #15002f,#090015, #000000 );*/
-  /*background-size: 600% 600%;*/
-  /*-webkit-animation: bodyback 50s ease infinite;*/
-  /*-moz-animation: bodyback 50s ease infinite;*/
-  /*animation: bodyback 50s ease infinite;*/
-    /*background-image: url(http://i.imgur.com/JcI1fEq.png);*/
-    background-image: url('./imgs/bg-galaxy.png');
-    background-size: cover;
-}
 
 .landingCenter{
     height: 100vh;
@@ -208,7 +190,7 @@ a {
     100% {opacity: 1}
 }
 #page-numbers{
-    animation: fromDarkness 2.5s linear;
+    animation: fromDarkness 4s linear;
     margin: 0 auto;
     width: 50%;
 }

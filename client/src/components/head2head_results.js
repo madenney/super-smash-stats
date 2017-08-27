@@ -24,6 +24,7 @@ class Head2HeadResults extends Component {
       axios.post('/head2headsearch', {player1: id1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
         console.log('this is the response: ', response);
         this.setState({
+            name: response.data.name,
           player2results: response.data.outputRows,
           player1: id1,
           totalPages: response.data.totalAvailablePages
@@ -31,7 +32,7 @@ class Head2HeadResults extends Component {
       })
     }
     render() {
-        const {player1, player2results} = this.state;
+        const {name, player1, player2results} = this.state;
         if(!player2results){
           return(
             <h1>Loading...</h1>
@@ -42,7 +43,7 @@ class Head2HeadResults extends Component {
           return (
               <div className='container fromDarkness'>
                 <div className='landingCenter resultsContainer'>
-                  <h1>Head To Head Results</h1>
+                  <h1>{name} vs...</h1>
                   <Head2HeadPlayerCards player2 = {player2results} player1 = {player1} />
                   <Pagination player1 = {this.state.player1} items={this.state.player2results} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
                 </div>

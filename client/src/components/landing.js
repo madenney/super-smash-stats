@@ -19,7 +19,10 @@ export default class Landingpage extends Component {
             this.setState({
                 cards: response.data
             })
-        });
+        }).catch( e => {
+		console.log('Error', e);
+	}
+	);
     }
 
     render() {

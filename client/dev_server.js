@@ -4,9 +4,9 @@ const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 const package = require('./package.json');
 const PORT = process.env.PORT || 3000;
-
 console.log('this is packagedotjson: ', package.proxy);
-
+const package = require('./package.json');
+console.log("PACKAGE: ", package.proxy);
 new WebpackDevServer(webpack(config), {
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/',

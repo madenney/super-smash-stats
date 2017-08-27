@@ -7,13 +7,13 @@
     "/front_page": {
       "target": "http://localhost:3030"
     },
-    "/match_history": {
+    "/autocomplete": {
       "target": "http://localhost:3030"
     },
     "/player_profile": {
       "target": "http://localhost:3030"
     },
-    "/autocomplete": {
+    "/match_history": {
       "target": "http://localhost:3030"
     },
     "/head2headprofile": {
