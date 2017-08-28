@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Navbar from './navbar';
 import Landing from './landing';
 import About from './about';
-import CharacterSelect from './characterselect';
+// import CharacterSelect from './characterselect';
 import SearchResults from './search_results';
 import PlayerProfile from './player_profile';
 import Head2HeadResults from './head2head_results';
