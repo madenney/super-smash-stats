@@ -21,10 +21,11 @@ const Navbar = () => {
               </Link>
             </li>
             <li className='nav-item nav-link'>
-              <Link to='/characterselect'>
-                  <div className='navButton'>
-                      Character Select
-                  </div>
+
+              <Link to='/character_select_screen'>
+                      <div className='navButton'>
+                          Character Select
+                      </div>
               </Link>
             </li>
             <li className='nav-item nav-link'>
