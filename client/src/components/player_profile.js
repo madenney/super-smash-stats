@@ -76,10 +76,11 @@ class PlayerProfile extends Component{
                   all_matches_for_tournament.push(response.data[i]);
                 }
               }
+              var reverse_matches = all_matches_for_tournament.reverse();
               this.setState({
                   matches: response.data,
                   tournaments_attended: tournaments,
-                  tournament_matches: all_matches_for_tournament
+                  tournament_matches: reverse_matches
               });
           });
       });
