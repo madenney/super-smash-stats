@@ -169,14 +169,14 @@ class PlayerProfile extends Component{
     console.log('this is the tiournament state: ', tournament_matches[0]);
     return(
       //general profile picture
-      <div className='container'>
+      <div className='container player_information'>
         <div className='row'>
   			<div id="profile-card" className="col-xs-12 col-md-12">
   				<div className="row">
-  					<div className="col-sm-4 col-xs-6 col-md-4">
-  			      <img className={profile_picture} src={this.getImage(profile.tag)}/>
+  					<div className="col-sm-10 col-xs-6 col-md-8 col-lg-4">
+  			      <img className={`${profile_picture} player_image`} src={this.getImage(profile.tag)}/>
   					</div>
-  					<div className="col-sm-4 col-xs-6">
+  					<div className="col-sm-4 col-md-6 col-xs-6 col-lg-4 ">
   						<h2 id="player_tag">{profile.tag}</h2>
               <h4 id='player_rank' className={description_display}>Name: {profile.name}</h4>
   						<h4 id="player_rank" className={description_display}>ELO Rank: {profile.rank}</h4>
@@ -186,7 +186,7 @@ class PlayerProfile extends Component{
   						<img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.secondary}.png`] ? images[`characters/${profile.secondary}.png`] : images['no_character.png']}/>
   						<p className={description_display}>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
-  					<div className="col-sm-4 col-xs-6">
+  					<div className="col-sm-4 col-md-6 col-xs-6 col-lg-4">
   						<p className={description_display}>Twitter:
   						    <a target='_blank' href={`http:\/\/www.twitter.com\/${profile.twitter}`}> {profile.twitter}</a></p>
   						<p className={description_display}>Twitch:
