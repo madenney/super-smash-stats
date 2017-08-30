@@ -94,7 +94,7 @@ class Head2HeadProfile extends Component {
                           <h4 className='h2hplayer_text'>Location: {player1.location}</h4>
                           <p className='h2hinfo'>Main: </p>
                           <img className='h2hcharacter' src={images[`characters/${player1.main}.png`]}/>
-                          <img className='h2hcharacter' src={images[`characters/${player1.secondary}.png`]}/>
+                          <img className='h2hcharacter' src={images[`characters/${player1.secondary}.png`] ? images[`characters/${player1.secondary}.png`] : images['no_character.png']}/>
                         </div>
                       </div>
                   </div>
@@ -114,7 +114,7 @@ class Head2HeadProfile extends Component {
                           <h4 className='h2hplayer_text'>Location: {player2.location}</h4>
                           <p className='h2hinfo'>Main: </p>
                           <img className='h2hcharacter' src={images[`characters/${player2.main}.png`]}/>
-                          <img className='h2hcharacter' src={images[`characters/${player2.secondary}.png`]}/>
+                          <img className='h2hcharacter' src={images[`characters/${player2.secondary}.png`] ? images[`characters/${player2.secondary}.png`] : images['no_character.png']}/>
                         </div>
                       </div>
                     </div>
