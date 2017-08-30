@@ -40,7 +40,7 @@ const PlayerChart = (props) => {
     <div className='chart'>
       <Bar data={matchData.chartData} options = {
         {
-          maintainAspectRatio: true,
+          responsive: true,
           legend:{
             labels:{
               fontColor: 'white',

@@ -29,7 +29,7 @@ export default class Landingpage extends Component {
         return (
             <div className="landing fromDarkness">
                 <div className ='container landingCenter'>
-                    <div className='landpage_logo row offset-md-3 col-md-6 off-lg-4'>
+                    <div className='landpage_logo row offset-sm-2 offset-md-4 col-md-9 off-lg-4 offset-xl-4 col-12'>
                         <img src = {LandLogo}/>
                     </div>
                     <div className="row row-eq-height">
@@ -37,7 +37,7 @@ export default class Landingpage extends Component {
                     </div>
                     <br/>
                     <Link to='/results/noSearch/1'>
-                        <p className="blinkText">SEARCH THE DATABASE</p>
+                        <p className="blinkText offset-xl-7 offset-lg-6 offset-md-6 offset-sm-4 offset-2">SEARCH THE DATABASE</p>
                     </Link>
                 </div>
                 <div className='container character-selection-screen' id='character-selection-screen'>

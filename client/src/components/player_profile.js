@@ -14,11 +14,6 @@ class PlayerProfile extends Component{
     this.state = {
       profile : '',
       matches: [],
-      //these are the css toggled states that controls the appearance of the maximize and minimize buttons
-      toggle: '',
-      button_descrip: 'Maximize ^',
-      description_display: '',
-      profile_resizing: '',
       //these are the states that are for the tournament matches
       tournaments_attended: [],
       tournament_matches: [],
@@ -97,32 +92,11 @@ class PlayerProfile extends Component{
         all_matches_for_tournament.push(matches[i]);
       }
     }
+    var reverse_matches = all_matches_for_tournament.reverse();
     this.setState({
-      tournament_matches: all_matches_for_tournament
+      tournament_matches: reverse_matches
     });
   }
-  //changes the classes for the toggles
-  //initial state is at Maximize, or the else statemenet
-  toggleDisplay(){
-    let {toggle} = this.state;
-    if(toggle ===''){
-      this.setState({
-        toggle: 'toggle',
-        button_descrip: 'Minimize v',
-        description_display: 'hidden',
-        profile_picture: 'profile_resizing'
-      })
-    }
-    else{
-      this.setState({
-        toggle: '',
-        button_descrip: 'Maximize ^',
-        description_display: '',
-        profile_picture: ''
-      })
-    }
-  }
-
   getImage(tag) {
       let imagesKeys = Object.keys(images);
       let imageUrl = images['ProfilePlaceholder.gif'];
@@ -160,7 +134,7 @@ class PlayerProfile extends Component{
     }
   }
   render(){
-    const {profile, toggle, button_descrip, description_display, profile_picture, match_active, yt_active, tournament_matches} = this.state;
+    const {profile, toggle, button_description, profile_picture, match_active, yt_active, tournament_matches} = this.state;
     if(tournament_matches.length == 0){
       return(
         <h1>Loading</h1>
@@ -178,20 +152,20 @@ class PlayerProfile extends Component{
   					</div>
   					<div className="col-sm-4 col-md-6 col-xs-6 col-lg-4 ">
   						<h2 id="player_tag">{profile.tag}</h2>
-              <h4 id='player_rank' className={description_display}>Name: {profile.name}</h4>
-  						<h4 id="player_rank" className={description_display}>ELO Rank: {profile.rank}</h4>
-  						<p id="location" className={description_display}>Location: {profile.location}</p>
-  						<p className={description_display}>Mains:</p>
-              <img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.main}.png`]}/>
-  						<img className={`char_img_sizing ${description_display}`} src={images[`characters/${profile.secondary}.png`] ? images[`characters/${profile.secondary}.png`] : images['no_character.png']}/>
-  						<p className={description_display}>Total Matches Played: {profile.total_matches_played}</p>
+              <h4 id='player_rank' >Name: {profile.name}</h4>
+  						<h4 id="player_rank" >ELO Rank: {profile.rank}</h4>
+  						<p id="location" >Location: {profile.location}</p>
+  						<p>Mains:</p>
+              <img className='char_img_sizing' src={images[`characters/${profile.main}.png`]}/>
+  						<img className='char_img_sizing' src={images[`characters/${profile.secondary}.png`] ? images[`characters/${profile.secondary}.png`] : images['no_character.png']}/>
+  						<p>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
   					<div className="col-sm-4 col-md-6 col-xs-6 col-lg-4">
-  						<p className={description_display}>Twitter:
+  						<p>Twitter:
   						    <a target='_blank' href={`http:\/\/www.twitter.com\/${profile.twitter}`}> {profile.twitter}</a></p>
-  						<p className={description_display}>Twitch:
+  						<p>Twitch:
                             <a target='_blank' href={`http:\/\/www.twitch.tv\/${profile.twitch}`}> {profile.twitch}</a></p>
-  						<p className={description_display}>Sponsors: {profile.sponsor}</p>
+  						<p>Sponsors: {profile.sponsor}</p>
               <p className='recent_tournament_tag'>Recent Tournaments:</p>
               <div className='recent_tournament'>
                 <TournamentHistory tournaments_attended = {this.state.tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
@@ -201,9 +175,9 @@ class PlayerProfile extends Component{
   			</div>
   		</div>
   		<div className='row'>
-  			<div id="matches_stream" className="col-xs-16 col-md-6">
+  			<div id="matches_stream" className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
           <div className='col-md-12'>
-            <div className={`${match_active} recent_match col-md-12`} id='tournament_data' >
+            <div className={`${match_active} recent_match col-xs-12 col-md-12 col-md-12`} id='tournament_data' >
               <h3>{tournament_matches[0].tournament}</h3>
               <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.state.tournament_matches} player_name = {profile.tag}/>
             </div>
@@ -214,7 +188,7 @@ class PlayerProfile extends Component{
           </div>
 
   			</div>
-        <div className={`col-md-6 ${toggle}`}>
+        <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
           {/* <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary pull-right'>{button_descrip}</button> */}
           <PlayerChart game_data = {profile} />
         </div>

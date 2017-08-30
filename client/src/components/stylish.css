@@ -53,11 +53,8 @@
 }
 
 .landingCenter{
-    height: 100vh;
     position: absolute;
-    left: 50%;
     top: 20%;
-    transform: translate(-50%);
 }
 
 .searchButton{
@@ -284,7 +281,6 @@ h1 {
   margin-top: 80px;
 }
 .blinkText{
-    text-align: center;
     color: white;
     animation: hoverblink 1s linear alternate infinite;
     font-family: pressStart;
