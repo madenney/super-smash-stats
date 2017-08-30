@@ -30,10 +30,12 @@ nav{
   /*GRAY HUE: #4f4f4f*/
   box-shadow: 0 4px 8px 0 #3d3d3d, 0 6px 20px 0 #3d3d3d;
 }
-.navButton:hover{
-    animation: hoverblink 0.75s linear alternate infinite
-}
 .nav-item:hover{
-  border-bottom: 2px solid #B7AFCA;
+    animation: hoverblink 0.75s linear alternate infinite;
+    border-bottom: 2px solid #B7AFCA;
+    border-radius: 10px;
+}
+.nav-item{
+  border-bottom: 2px solid transparent;
   border-radius: 10px;
 }
