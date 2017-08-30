@@ -21,7 +21,7 @@
     -o-transform: skew(-20deg);
 }
 .navButton::first-letter{
-    font-size: 23px;
+    font-size: 20px;
 }
 nav{
   /*box-shadow: 0 7px 6px -5px #939393*/
@@ -32,4 +32,8 @@ nav{
 }
 .navButton:hover{
     animation: hoverblink 0.75s linear alternate infinite
+}
+.nav-item:hover{
+  border-bottom: 2px solid #B7AFCA;
+  border-radius: 10px;
 }

@@ -208,13 +208,13 @@ class PlayerProfile extends Component{
             </div>
             <div className={`col-md-12 ${yt_active}`}>
               <button className='back_button btn btn-outline-danger' onClick={()=>this.getYtUrl()}>Back</button>
-              <iframe allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplayer=0`}></iframe>
+              <iframe frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
             </div>
           </div>
 
   			</div>
         <div className={`col-md-6 ${toggle}`}>
-          <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary pull-right'>{button_descrip}</button>
+          {/* <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary pull-right'>{button_descrip}</button> */}
           <PlayerChart game_data = {profile} />
         </div>
   		</div>
