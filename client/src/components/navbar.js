@@ -1,67 +1,89 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
 import SmashIcon from './imgs/website_logo.svg';
-const Navbar = () => {
-    const ulStyle = {
-      width: '100%'
-    };
-    return(
-      <nav className='navbar navbar-inverse bg-inverse navbar-static-top navbar-toggleable'>
-          <button className='navbar-toggler-icon navbar-toggler navbar-toggler-right collapsed' type='button' data-toggle='collapse' data-target='#smashbar_collapse'>
-            <span className='mininav'></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          <Link to="/" className="navbar-brand homeIcon">
-            <img src={SmashIcon} /> <i className='hidden-sm-down fa fa-star-o'></i>
-          </Link>
-          <div className='collapse navbar-collapse mr-auto' id="smashbar_collapse">
-            <ul className='nav navbar-nav mr-auto' style={ulStyle} >
-              <li className='nav-item nav-link'>
-                <Link to='/'>
-                    <div className='navButton'>
-                        Home
+class Navbar extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      show: ''
+    }
+  }
+    checkShow(){
+      let {show} = this.state;
+      console.log('we are shown!');
+      if(show == ''){
+        this.setState({
+          show: 'show'
+        });
+      }
+      else{
+        this.setState({
+          show: ''
+        })
+      }
+    }
+    render(){
+      const ulStyle = {
+        width: '100%'
+      };
+      console.log('show:', this.state.show);
+      return(
+        <nav className='navbar navbar-inverse bg-inverse navbar-static-top navbar-toggleable'>
+            <button onClick={()=>this.checkShow()} className='navbar-toggler-icon navbar-toggler navbar-toggler-right collapsed' type='button' data-toggle='collapse' data-target='#smashbar_collapse'>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            {/* data-toggle='collapse' data-target='.navbar-collapse.show' */}
+            <Link to="/" className="navbar-brand homeIcon">
+              <img src={SmashIcon} /> <i className='hidden-sm-down fa fa-star-o'></i>
+            </Link>
+            <div className={`collapse navbar-collapse ${this.state.show} mr-auto`} id="smashbar_collapse">
+              <ul className='nav navbar-nav mr-auto' style={ulStyle} >
+                <Link onClick = {()=>this.checkShow()} to='/'>
+                <li className='nav-item'>
+                  <div className='navButton nav-link'>
+                    Home <span className='sr-only'>(current)</span>
+                  </div>
+                </li>
+                </Link>
+                <Link onClick = {()=>this.checkShow()} to='/character_select_screen'>
+                  <li className='nav-item'>
+                    <div className='navButton nav-link'>
+                      Character Select
                     </div>
-
+                  </li>
                 </Link>
-              </li>
-              <li className='nav-item nav-link'>
-
-                <Link to='/character_select_screen'>
-                        <div className='navButton'>
-                          Character Select
-                        </div>
-                </Link>
-              </li>
-              <li className='nav-item nav-link'>
-                <Link to='/results/noSearch/1'>
-                    <div className='navButton'>
+                <Link onClick = {()=>this.checkShow()} to='/results/noSearch/1'>
+                  <li className='nav-item'>
+                    <div className='nav-link navButton'>
                         Top Players
                     </div>
+                  </li>
                 </Link>
-              </li>
-              <li className='nav-item nav-link'>
-                <Link to='/faq'>
-                    <div className='navButton'>
+                <Link onClick = {()=>this.checkShow()} to='/faq'>
+                  <li className='nav-item'>
+                    <div className='navButton nav-link'>
                         FAQ
                     </div>
+                  </li>
                 </Link>
-              </li>
-              <li className='nav-item nav-link'>
-                <Link to='/about'>
-                    <div className='navButton'>
+                <Link onClick = {()=>this.checkShow()} to='/about'>
+                  <li className='nav-item'>
+                    <div className='navButton nav-link'>
                         About
                     </div>
+                  </li>
                 </Link>
-              </li>
-            </ul>
-          </div>
-          {/* <NavBarSearch /> */}
-      </nav>
-    )
+              </ul>
+            </div>
+            {/* <NavBarSearch /> */}
+        </nav>
+      )
+    }
 
 };
 
