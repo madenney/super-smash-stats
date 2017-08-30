@@ -1,34 +1,12 @@
 #profile-card, #matches_stream{
     color: #ffdf06;
-    border: 3px solid #ffdf06;
+    /*border: 3px solid #ffdf06;*/
     border-radius: 10px;
 }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    color: black;
-    cursor: default;
-    background-color: #ffdf06;
-    border: 1px solid #ffdf06;
-}
+
 h3 {
     margin: 0;
 }
-.nav-tabs>li>a {
-    border-radius: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: black;
-    border: 1px solid #ffdf06;
-}
-.nav-tabs > li > a:hover {
-    background-color: #ededed;
-    border-color: #ffdf06;
-    color: black;
-}
-.nav-tabs>li>a:hover {
-    border: 1px solid #ffdf06;
-    background-color: #ffdf06;
-}
-
 .tab-pane {
     margin-top: 10px;
 }
@@ -65,7 +43,7 @@ h3 {
 .recent_tournament{
   overflow-y: scroll;
   height: 130px;
-  border: 1px solid #ffdf06;
+  /*border: 1px solid #ffdf06;*/
   padding: 2px;
   border-radius: 5px;
 }
