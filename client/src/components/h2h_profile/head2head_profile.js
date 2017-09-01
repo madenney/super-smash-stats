@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import images from './images';
+import images from '../features/img_filter';
 import {Link} from 'react-router-dom';
-import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif'
+import ProfilePlaceholder from '../imgs/ProfilePlaceholder.gif'
 import axios from 'axios';
 import H2HMatchHistory from './h2hmatches';
 import H2HPlayerChart from './h2hplayer_charts';

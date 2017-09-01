@@ -1,5 +1,5 @@
 import React from 'react';
-import images from './images';
+import images from '../features/img_filter';
 const H2HMatchHistory = (props) => {
   if(props.matches.length === 0){
     return(

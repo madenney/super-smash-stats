@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import images from  './images';
+import images from  '../features/img_filter';
 class CharacterSelect extends Component {
   constructor(props){
     super(props);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import images from './images';
+import images from '../features/img_filter';
 
 const Playercard = (props) => {
     if(!props.card[Number(props.cardNum)]){

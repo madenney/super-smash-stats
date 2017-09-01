@@ -1,5 +1,5 @@
 import React from 'react';
-import images from './images';
+import images from '../features/img_filter';
 
 const MatchHistory = (props) =>{
   if(props.match_info.length == 0){

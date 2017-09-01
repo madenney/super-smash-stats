@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Navbar from './navbar';
-import Landing from './landing';
-import About from './about';
+import Navbar from './features/navbar';
+import Landing from './landing/landing';
+import About from './static_pages/about';
 // import CharacterSelect from './characterselect';
-import SearchResults from './search_results';
-import PlayerProfile from './player_profile';
-import Head2HeadResults from './head2head_results';
-import Head2HeadProfile from './head2head_profile';
-import CharacterSelect from './character_select';
-import Faq from './faq';
+import SearchResults from './search_results/search_results';
+import PlayerProfile from './player_profile/player_profile';
+import Head2HeadResults from './h2h_results/head2head_results';
+import Head2HeadProfile from './h2h_profile/head2head_profile';
+import CharacterSelect from './character_select/character_select';
+import Faq from './static_pages/faq';
 
 export default () => (
     <div>

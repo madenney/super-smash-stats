@@ -19,11 +19,11 @@
 }
 @font-face {
     font-family: pressStart;
-    src: url(./imgs/PressStart2P.ttf) format('truetype');
+    src: url(../imgs/PressStart2P.ttf) format('truetype');
 }
 @font-face {
     font-family: Aero;
-    src: url(./imgs/Aero.ttf) format('truetype');
+    src: url(../imgs/Aero.ttf) format('truetype');
 }
 @keyframes sheen {
     0%{background-position:100% 71%}

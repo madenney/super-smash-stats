@@ -1,9 +1,9 @@
 import React from 'react';
-import './stylish.css';
-import Matt from './imgs/developer_pics/matt.jpg';
-import Howard from './imgs/developer_pics/hun.jpg';
-import David from './imgs/developer_pics/david.jpg';
-import Adam from './imgs/developer_pics/adam.jpg';
+import '../css/stylish.css';
+import Matt from '../imgs/developer_pics/matt.jpg';
+import Howard from '../imgs/developer_pics/hun.jpg';
+import David from '../imgs/developer_pics/david.jpg';
+import Adam from '../imgs/developer_pics/adam.jpg';
 
 
 const About = () => {
