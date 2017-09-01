@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
-import SmashIcon from './imgs/website_logo.svg';
+import SmashIcon from '../imgs/website_logo.svg';
 class Navbar extends Component{
   constructor(props){
     super(props);

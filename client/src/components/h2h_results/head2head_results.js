@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Head2HeadPlayerCards from './h2hplayercardresults';
-import Pagination from './pagination';
-import './stylish.css';
+import Pagination from '../features/pagination';
+import '../css/stylish.css';
 class Head2HeadResults extends Component {
     constructor(props){
       super(props);

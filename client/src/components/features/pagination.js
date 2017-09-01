@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PopulatePlayerCards from './populateplayercards';
+import PopulatePlayerCards from '../search_results/populateplayercards';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './pagination.css';

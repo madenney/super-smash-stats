@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import images from './images';
-import './stylish.css';
-import ProfilePlaceholder from './imgs/ProfilePlaceholder.gif';
+import images from '../features/img_filter';
+import '../css/stylish.css';
+import ProfilePlaceholder from '../imgs/ProfilePlaceholder.gif';
 
 const Autocomplete = (props) => {
     // console.log('props', props.recommendations);

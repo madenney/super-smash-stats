@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import PopulatePlayerCards from './populateplayercards';
 import {Link} from 'react-router-dom';
-import Pagination from './pagination';
-import './stylish.css';
+import Pagination from '../features/pagination';
+import '../css/stylish.css';
 //will most likely need to be a class component,
 
 class SearchResults extends Component {
