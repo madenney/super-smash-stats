@@ -1,20 +1,12 @@
-# c5.17_smash_stats
+# Super Smash Stats
 
-### Producer
-- Dan
+## Developers
+- Matt Denney
+- Howard Kim
+- Khanh Nguyen
+- David Sung
+- Dennis Dang
 
-### Project Manager
-- Scott
-
-### Sr Devs
-- Matt
-- Howard
-- Khanh
-- Adam
-
-### Jr Devs
-- Shane
-- Nico
-- Caleb
-- Hanlin
-- Austin
+## About 
+> This is a site dedicated to the collection and sharing of competitive Super Smash Bros Melee 
+tournament results and player data.
