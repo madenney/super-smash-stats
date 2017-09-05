@@ -137,7 +137,7 @@ export default class SearchBar extends Component {
 
         } else if(charCode === 13) {                 // <<<<<<<<<<<<<<<<<<<<<<<< Enter
             if(player1.name.length === 0){
-                this.props.history.push('/results/noSearch/1'); // If empty search bar
+                this.props.history.push('/results/top_players/1'); // If empty search bar
                 return false;
             }
             if(!vs) {
@@ -261,7 +261,7 @@ export default class SearchBar extends Component {
         const {player1, player2, vs} = this.state;
         console.log("Enter Pressed");
         if(player1.name.length === 0){
-            this.props.history.push('/results/noSearch/1'); // If empty search bar
+            this.props.history.push('/results/top_players/1'); // If empty search bar
             return false;
         }
         if(!vs) {

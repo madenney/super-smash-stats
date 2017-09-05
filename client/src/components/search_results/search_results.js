@@ -20,7 +20,7 @@ class SearchResults extends Component {
     componentWillReceiveProps(nextProps) {
         var {search, id} = nextProps.match.params;
         console.log('this is the id of the page:', id);
-        if (search == 'noSearch') {
+        if (search == 'top_players') {
             // console.log('No search given');
             search = '';
         }
@@ -38,7 +38,7 @@ class SearchResults extends Component {
         var {search} = this.props.match.params;
         var {id} = this.props.match.params;
 
-        if (search == 'noSearch') {
+        if (search == 'top_players') {
             // console.log('No search given');
             search = '';
         }

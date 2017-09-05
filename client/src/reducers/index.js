@@ -1,6 +1,6 @@
-import { combineReducers }from 'react-redux';
-import dummy_test from './dummy_test';
+import { combineReducers }from 'redux';
+import dummy_reducer from './dummy_reducer';
 
-export default combinerReducers({
-  dummy_test
+export default combineReducers({
+  dummy_reducer
 })

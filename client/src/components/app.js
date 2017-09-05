@@ -9,10 +9,12 @@ import PlayerProfile from './player_profile/player_profile';
 import Head2HeadResults from './h2h_results/head2head_results';
 import Head2HeadProfile from './h2h_profile/head2head_profile';
 import CharacterSelect from './character_select/character_select';
+import Favicon from 'react-favicon';
 import Faq from './static_pages/faq';
 
 export default () => (
     <div>
+        <Favicon url='https://vignette3.wikia.nocookie.net/ssb/images/6/64/Favicon.ico/revision/latest?cb=20150114084035' />
         <Route component = {Navbar}/>
         <Route exact path="/" component={Landing}/>
         <Route path="/characterselect" component={CharacterSelect}/>

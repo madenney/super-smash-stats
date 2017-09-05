@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Searchbar from './searchbar';
 import LandLogo from '../imgs/land_logo.png';
 import axios from 'axios';
+
 import {Link} from 'react-router-dom';
 import '../css/stylish.css';
 
@@ -14,17 +15,6 @@ export default class Landingpage extends Component {
             cards: ''
         };
     }
-    componentWillMount(){
-        axios.post('/front_page', {number: 10}).then((response)=>{
-            this.setState({
-                cards: response.data
-            })
-        }).catch( e => {
-		console.log('Error', e);
-	}
-	);
-    }
-
     render() {
         return (
             <div className="landing fromDarkness">

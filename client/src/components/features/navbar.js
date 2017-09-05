@@ -57,7 +57,7 @@ class Navbar extends Component{
                     </div>
                   </li>
                 </Link>
-                <Link onClick = {()=>this.checkShow()} to='/results/noSearch/1'>
+                <Link onClick = {()=>this.checkShow()} to='/results/top_players/1'>
                   <li className='nav-item'>
                     <div className='nav-link navButton'>
                         Top Players
