@@ -1,4 +1,3 @@
-
 .searchBarContainer {
     width: 100%;
     background-color: transparent;
@@ -17,11 +16,11 @@
     overflow-y: hidden;
 }
 
-.searchBar:active{
-  border: 2px solid blue;
+.searchBar:active {
+    border: 2px solid blue;
 }
-.searchBar:focus{
-  border: 2px solid blue;
+.searchBar:focus {
+    border: 2px solid blue;
 }
 .sbElement {
     display: inline;
@@ -44,7 +43,7 @@
     margin: 0px 2px;
 }
 
-.complete{
+.complete {
     color: darkgray;
     #background-color: lightgreen;
 }
@@ -55,6 +54,6 @@
     height: 40px;
     border-width: 0;
 }
-.inputLine:focus{
-  outline-width: 0;
+.inputLine:focus {
+    outline-width: 0;
 }

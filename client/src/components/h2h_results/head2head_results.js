@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
+import {getH2HResults} from '../../actions';
 import Head2HeadPlayerCards from './h2hplayercardresults';
 import Pagination from '../features/pagination';
 import '../css/stylish.css';
@@ -7,50 +9,38 @@ class Head2HeadResults extends Component {
     constructor(props){
       super(props);
       this.state = {
-        player1: '',
-        player2results: [],
-        totalPages: '',
         searchValue: this.props.match.params
       }
     }
     componentWillMount(){
-      // console.log('this is props: ', this.props);
-      const {id1, page} = this.props.match.params;
-      console.log('this is props: ', this.props)
-      let {search} = this.props.match.params;
-       if(search == 'noSearch'){
-        search = '';
-      }
-      axios.post('/head2headsearch', {player1: id1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
-        console.log('this is the response: ', response);
-        this.setState({
-            name: response.data.name,
-          player2results: response.data.outputRows,
-          player1: id1,
-          totalPages: response.data.totalAvailablePages
-        })
-      })
+      const {id1, search} = this.props.match.params;
+      this.props.getH2HResults(id1, search);
     }
     render() {
-        const {name, player1, player2results} = this.state;
-        if(!player2results){
+        if(this.props.h2h_results === null){
           return(
             <h1>Loading...</h1>
           )
         }
         else{
-            console.log('the state is', this.state);
+          console.log('this props h2h: ', this.props.h2h_results);
+          const {name, player1, player2results} = this.props.h2h_results
           return (
               <div className='container fromDarkness'>
                 <div className='landingCenter resultsContainer'>
                   <h1>{name} vs...</h1>
                   <Head2HeadPlayerCards player2 = {player2results} player1 = {player1} />
-                  <Pagination player1 = {this.state.player1} items={this.state.player2results} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/>
+                  {/* <Pagination player1 = {this.state.player1} items={this.state.player2results} searchValue={this.state.searchValue} pageNum={Number(1)} totalPages={this.state.totalPages}/> */}
                 </div>
               </div>
           )
         }
     }
 }
+function mapStateToProps(state){
+  return{
+    h2h_results: state.h2h_results.h2h_results
 
-export default Head2HeadResults;
+  }
+}
+export default connect(mapStateToProps, {getH2HResults})(Head2HeadResults);

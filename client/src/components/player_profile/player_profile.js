@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { getPlayerProfile } from '../../actions';
+import { filterTournamentMatches } from '../../actions';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
@@ -12,11 +15,6 @@ class PlayerProfile extends Component{
   constructor(props){
     super(props);
     this.state = {
-      profile : '',
-      matches: [],
-      //these are the states that are for the tournament matches
-      tournaments_attended: [],
-      tournament_matches: [],
       //state for the yt url based on the button clicks
       yt_url: '',
       //sets the states for the individual nav link tabs
@@ -24,78 +22,15 @@ class PlayerProfile extends Component{
       yt_active: 'hidden'
     }
   }
-  //add method that calls the function of the axios calls whenever someone searches on this component
-  componentWillReceiveProps(nextProps){
-
-    const {id} = nextProps.match.params;
-    axios.post('/player_profile', {input: id}).then((response)=>{
-      this.setState({
-        profile: response.data
-      });
-      //add loading if this doesn't exist
-      axios.post('/match_history', {input: this.state.profile.tag}).then((response)=>{
-          //takes the matches state and filters pushes the individual tournaments into an array
-          let tournaments = [];
-          for(var i = 0; i < response.data.length; i++){
-              tournaments.push(response.data[i].tournament);
-          }
-          //lodash then filters out the repetitive values of the tournament names
-          tournaments = _.uniq(tournaments);
-
-          this.setState({
-              matches: response.data,
-              tournaments_attended: tournaments
-          });
-      });
-    });
-  }
-  componentWillMount(){
+  componentDidMount(){
       const {id} = this.props.match.params;
-      axios.post('/player_profile', {input: id}).then((response)=>{
-          this.setState({
-              profile: response.data
-          });
-          //add loading if this doesn't exist
-          axios.post('/match_history', {input: this.state.profile.tag}).then((response)=>{
-              //takes the matches state and filters pushes the individual tournaments into an array
-              let tournaments = [];
-              for(var i = 0; i < response.data.length; i++){
-                  tournaments.push(response.data[i].tournament);
-              }
-              //lodash then filters out the repetitive values of the tournament names
-              tournaments = _.uniq(tournaments);
-              const tournament_selected = tournaments[0];
-              const all_matches_for_tournament = [];
-              for(var i = 0 ; i < response.data.length ; i++){
-                if(tournament_selected === response.data[i].tournament){
-                  all_matches_for_tournament.push(response.data[i]);
-                }
-              }
-              var reverse_matches = all_matches_for_tournament.reverse();
-              this.setState({
-                  matches: response.data,
-                  tournaments_attended: tournaments,
-                  tournament_matches: reverse_matches
-              });
-          });
-      });
+      this.props.getPlayerProfile(id);
   }
   //gets value of tournament AND filters out the ones that are equal to have match
   grabTournamentName(e){
     const tournament_selected =  e.currentTarget.textContent;
-    // console.log('this is tourney state', tournament_selected);
-    const {matches} = this.state;
-    // console.log('this is the matches: ', matches);
-    const all_matches_for_tournament = [];
-    for(var i = 0; i < matches.length; i++){
-      if(tournament_selected === matches[i].tournament){
-        all_matches_for_tournament.push(matches[i]);
-      }
-    }
-    var reverse_matches = all_matches_for_tournament.reverse();
-    this.setState({
-      tournament_matches: reverse_matches
-    });
+    const {matches} = this.props;
+    this.props.filterTournamentMatches(tournament_selected, matches);
   }
   getImage(tag) {
       let imagesKeys = Object.keys(images);
@@ -134,13 +69,15 @@ class PlayerProfile extends Component{
     }
   }
   render(){
-    const {profile, toggle, button_description, profile_picture, match_active, yt_active, tournament_matches} = this.state;
-    if(tournament_matches.length == 0){
+    // console.log('this is the props for profile: ', this.props);
+    const { toggle, button_description, profile_picture, match_active, yt_active} = this.state;
+    const {tournament_matches, profile, tournaments_attended, tournament_selected} = this.props;
+    if(tournament_matches === undefined){
       return(
         <h1>Loading</h1>
       )
     }
-    console.log('this is the tiournament state: ', tournament_matches[0]);
+    // console.log('this is the tiournament state: ', tournament_matches[0]);
     return(
       //general profile picture
       <div className='container player_information'>
@@ -168,7 +105,7 @@ class PlayerProfile extends Component{
   						<p>Sponsors: {profile.sponsor}</p>
               <p className='recent_tournament_tag'>Recent Tournaments:</p>
               <div className='recent_tournament'>
-                <TournamentHistory tournaments_attended = {this.state.tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
+                <TournamentHistory tournaments_attended = {tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
               </div>
             </div>
   				</div>
@@ -178,8 +115,8 @@ class PlayerProfile extends Component{
   			<div id="matches_stream" className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
           <div className='col-md-12'>
             <div className={`${match_active} recent_match col-xs-12 col-md-12 col-md-12`} id='tournament_data' >
-              <h3>{tournament_matches[0].tournament}</h3>
-              <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.state.tournament_matches} player_name = {profile.tag}/>
+              <h3>{tournament_selected}</h3>
+              <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.props.tournament_matches} player_name = {profile.tag}/>
             </div>
             <div className={`col-md-12 ${yt_active}`}>
               <button className='back_button btn btn-outline-danger' onClick={()=>this.getYtUrl()}>Back</button>
@@ -197,4 +134,13 @@ class PlayerProfile extends Component{
     );
   }
 }
-export default PlayerProfile;
+function mapStateToProps(state){
+  return{
+    profile: state.profile.profile,
+    matches: state.profile.matches_info.matches,
+    tournaments_attended: state.profile.matches_info.tournaments_attended,
+    tournament_matches: state.profile.matches_info.tournament_matches,
+    tournament_selected: state.profile.matches_info.tournament_selected
+  }
+}
+export default connect(mapStateToProps, {getPlayerProfile, filterTournamentMatches})(PlayerProfile);
