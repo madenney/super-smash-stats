@@ -2,7 +2,6 @@ import types from "./types";
 import axios from "axios";
 
 export function frontPagePlayers() {
-	//front page carousel player cards
 	axios
 		.post("/front_page", { number: 10 })
 		.then(response => {
@@ -37,11 +36,9 @@ export function getSearchResults(search, id) {
 	};
 }
 
-//do axios call for get player profile
-//nested axios call that uses lodash to find unique tournaments
 export function getPlayerProfile(id) {
 	return dispatch => {
-		axios.post('/player_profile', {input: id}).then((response)=>{
+		axios.post("/player_profile", { input: id }).then(response => {
 			// console.log('this is player profile response', response);
 			dispatch({
 				type: types.GET_PLAYER_PROFILE,
@@ -62,7 +59,6 @@ export function getPlayerProfile(id) {
 						if (tournament_selected === response.data[i].tournament) {
 							all_matches_for_tournament.push(response.data[i]);
 						}
-
 					}
 					var reverse_matches = all_matches_for_tournament.reverse();
 					dispatch({
@@ -78,12 +74,12 @@ export function getPlayerProfile(id) {
 	};
 }
 
-export function filterTournamentMatches(tournament_selected, matches){
+export function filterTournamentMatches(tournament_selected, matches) {
 	// console.log('this is matches inside the filter action: ', matches, tournament_selected);
 	return dispatch => {
 		const all_matches_for_tournament = [];
-		for(var i = 0; i < matches.length; i++){
-			if(tournament_selected === matches[i].tournament){
+		for (var i = 0; i < matches.length; i++) {
+			if (tournament_selected === matches[i].tournament) {
 				all_matches_for_tournament.push(matches[i]);
 			}
 		}
@@ -94,24 +90,44 @@ export function filterTournamentMatches(tournament_selected, matches){
 				tournament_matches: reverse_matches,
 				tournament_selected: tournament_selected
 			}
-		})
-	}
-}
-export function getH2HResults(id1, search){
-	return dispatch =>{
-		if(search == 'top_h2h'){
-		 search = '';
-	 }
-		axios.post('/head2headsearch', {player1: id1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
-			dispatch({
-				type: types.GET_H2H_RESULTS,
-				payload: {
-					name: response.data.name,
-					player2results: response.data.outputRows,
-					player1: id1,
-					totalPages: response.data.totalAvailablePages
-				}
-			})
 		});
-	}
+	};
+}
+
+export function getH2HResults(id1, search) {
+	return dispatch => {
+		if (search == "top_h2h") {
+			search = "";
+		}
+		axios
+			.post("/head2headsearch", {
+				player1: id1,
+				input: search,
+				pageNum: 1,
+				resultsPerPage: 20,
+				getTotalPages: true
+			})
+			.then(response => {
+				dispatch({
+					type: types.GET_H2H_RESULTS,
+					payload: {
+						name: response.data.name,
+						player2results: response.data.outputRows,
+						player1: id1,
+						totalPages: response.data.totalAvailablePages
+					}
+				});
+			});
+	};
+}
+
+export function getH2HProfiles(id1, id2) {
+	return dispatch => {
+		axios.post("/head2headprofile", { id1, id2 }).then(response => {
+			dispatch({
+				type: types.GET_H2H_PROFILES,
+				payload: response.data
+			});
+		});
+	};
 }

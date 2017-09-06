@@ -29,7 +29,7 @@ nav {
 .nav-button {
   /*font-weight: bold;*/
   height: 100%;
-  color: whitesmoke;
+  color: whitesmoke !important;
   -webkit-transform: skew(-20deg);
   -moz-transform: skew(-20deg);
   -o-transform: skew(-20deg);
