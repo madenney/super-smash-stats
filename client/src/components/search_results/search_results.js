@@ -14,13 +14,13 @@ class SearchResults extends Component {
             searchValue: this.props.match.params
         };
     }
-
     componentDidMount() {
         var { id, search } = this.props.match.params;
         if (search == "top_players") {
             search = "";
         }
         this.props.getSearchResults(search, id);
+
     }
     render() {
         if (!this.props.results) {
