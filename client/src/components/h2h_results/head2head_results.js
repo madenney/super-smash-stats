@@ -13,12 +13,10 @@ class Head2HeadResults extends Component {
       }
     }
     componentWillMount(){
-      // console.log('this is props: ', this.props);
       const {id1, search} = this.props.match.params;
       this.props.getH2HResults(id1, search);
     }
     render() {
-        // const { player1, player2results} = this.props.h2h_results;
         if(this.props.h2h_results === null){
           return(
             <h1>Loading...</h1>

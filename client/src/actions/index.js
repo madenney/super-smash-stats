@@ -54,8 +54,6 @@ export function getPlayerProfile(id) {
 					for (var i = 0; i < response.data.length; i++) {
 						tournaments.push(response.data[i].tournament);
 					}
-
-				}
 					//lodash then filters out the repetitive values of the tournament names
 					tournaments = _.uniq(tournaments);
 					const tournament_selected = tournaments[0];
@@ -117,4 +115,3 @@ export function getH2HResults(id1, search){
 		});
 	}
 }
-
