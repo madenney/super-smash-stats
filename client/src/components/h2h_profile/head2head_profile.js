@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import images from "../features/img_filter";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { getH2HProfiles } from "../../actions";
+
+import images from "../features/img_filter";
 import ProfilePlaceholder from "../imgs/ProfilePlaceholder.gif";
-import axios from "axios";
 import H2HMatchHistory from "./h2hmatches";
 import H2HPlayerChart from "./h2hplayer_charts";
 import "../css/h2h.css";
@@ -11,33 +13,15 @@ class Head2HeadProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      player1: [],
-      player1wins: "",
-      player2: [],
-      player2wins: "",
-      yearlyHistory: [],
-      matches: [],
       allYearlyHistory: [],
       match_active: "",
       yt_active: "hidden"
     };
   }
 
-  componentWillMount() {
-    // console.log('this is props: ', this.props)
+  componentDidMount() {
     const { id1, id2 } = this.props.match.params;
-    axios.post("/head2headprofile", { id1: id1, id2: id2 }).then(response => {
-      console.log("this is the response", response);
-      this.setState({
-        player1: response.data.player1,
-        player1wins: response.data.p1Wins,
-        player2: response.data.player2,
-        player2wins: response.data.p2Wins,
-        yearlyHistory: response.data.yearlyHistory[0],
-        matches: response.data.matches,
-        allYearlyHistory: response.data.yearlyHistory
-      });
-    });
+    this.props.getH2HProfiles(id1, id2);
   }
 
   getYtUrl(e) {
@@ -61,19 +45,24 @@ class Head2HeadProfile extends Component {
       });
     }
   }
+
   render() {
+    console.log("this.props after h2hprofiles", this.props.results);
+
+    if (!this.props.results) {
+      return <h1>Loading...</h1>;
+    }
+
     const {
       player1,
       player2,
-      player1wins,
-      player2wins,
+      p1Wins,
+      p2Wins,
       yearlyHistory,
       matches
-    } = this.state;
-    console.log("yearlyHistory", yearlyHistory);
-    if (!player1 || !player2) {
-      return <h1>Loading...</h1>;
-    } else if (matches.length == 0) {
+    } = this.props.results;
+
+    if (matches.length == 0) {
       return (
         <div className="container">
           <h1>
@@ -128,7 +117,7 @@ class Head2HeadProfile extends Component {
               <h1 className="h2h-info-label">VERSUS</h1>
               <h3 className="h2h-set-count-title">Set Count 2017</h3>
               <h2 className="h2h-set-count">
-                {yearlyHistory.p1Wins} - {yearlyHistory.p2Wins}
+                {yearlyHistory[0].p1Wins} - {yearlyHistory[0].p2Wins}
               </h2>
             </div>
             {/* Player 2 Profile Information */}
@@ -179,7 +168,7 @@ class Head2HeadProfile extends Component {
                   <h3>Tournament Details</h3>
                   <H2HMatchHistory
                     youtube_url_info={e => this.getYtUrl(e)}
-                    matches={this.state.matches}
+                    matches={matches}
                   />
                 </div>
                 <div className={`col-md-12 ${yt_active}`}>
@@ -200,9 +189,9 @@ class Head2HeadProfile extends Component {
             </div>
             <div className="col-md-6">
               <H2HPlayerChart
-                game_data={this.state.allYearlyHistory}
-                player1={this.state.player1}
-                player2={this.state.player2}
+                game_data={yearlyHistory}
+                player1={player1}
+                player2={player2}
               />
             </div>
           </div>
@@ -212,4 +201,10 @@ class Head2HeadProfile extends Component {
   }
 }
 
-export default Head2HeadProfile;
+function mapStateToProps(state) {
+  return {
+    results: state.h2h_results.profiles_results
+  };
+}
+
+export default connect(mapStateToProps, { getH2HProfiles })(Head2HeadProfile);
