@@ -1,3 +1,7 @@
+.landingPage {
+	margin-top: 10%;
+}
+
 .landingPage--darkness {
 	animation: fromDarkness 1s linear;
 }
@@ -11,16 +15,10 @@
 	}
 }
 
-.landingPage--center {
-	position: absolute;
-	top: 20%;
-}
-
 .landingPage-logo img {
 	width: 100%;
 	height: 200px;
 	margin-bottom: 30px;
-	overflow: hidden;
 	color: transparent;
 	text-shadow: 0px 0px 3px #eee, 5px 5px 2px teal, -5px -2px 2px black;
 	transform: skewX(0deg);
