@@ -15,17 +15,22 @@ export default class Landingpage extends Component {
     }
     render() {
         return (
-            <div className="landingPage--darkness">
-                <div className="container landingPage--center">
-                    <div className="landingPage-logo row offset-sm-2 offset-md-4 col-md-9 off-lg-4 offset-xl-3 col-12">
-                        <img src={landingPageLogo} />
+            <div className="landingPage landingPage--darkness">
+                <div className="container">
+                    <div className="landingPage-logo row col-md-8 offset-md-2 mx-auto">
+                        <div className="text-center">
+                            <img
+                                src={landingPageLogo}
+                                className="d-block mx-auto"
+                            />
+                        </div>
                     </div>
                     <div className="row row-eq-height">
                         <Searchbar history={this.props.history} />
                     </div>
                     <br />
                     <Link to="/results/noSearch/1">
-                        <p className="text--blink offset-xl-6 offset-lg-6 offset-md-6 offset-sm-4 offset-2">
+                        <p className="text--blink text-center">
                             SEARCH THE DATABASE
                         </p>
                     </Link>
