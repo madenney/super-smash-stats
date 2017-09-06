@@ -16,16 +16,13 @@ class SearchResults extends Component {
     }
     componentDidMount() {
         var { id, search } = this.props.match.params;
-        console.log("id,search", id, search);
         if (search == "top_players") {
-            // console.log('No search given');
             search = "";
         }
         this.props.getSearchResults(search, id);
 
     }
     render() {
-        console.log("this.props.results", this);
         if (!this.props.results) {
             return <h1>Loading...</h1>;
         }
