@@ -14,17 +14,6 @@ class SearchResults extends Component {
             searchValue: this.props.match.params
         };
     }
-
-    // componentWillReceiveProps(nextProps) {
-    //     var { search, id } = nextProps.match.params;
-    //     console.log("this is the id of the page:", id);
-    //     if (search == "top_players") {
-    //         // console.log('No search given');
-    //         search = "";
-    //     }
-    //     this.props.getSearchResults(search, id);
-    // }
-
     componentDidMount() {
         var { id, search } = this.props.match.params;
         console.log("id,search", id, search);
@@ -32,7 +21,6 @@ class SearchResults extends Component {
             // console.log('No search given');
             search = "";
         }
-        //axios (input:search, pageNum: id, resultsPerPage: 20, getTotalPages: true)
         this.props.getSearchResults(search, id);
 
     }
@@ -41,7 +29,6 @@ class SearchResults extends Component {
         if (!this.props.results) {
             return <h1>Loading...</h1>;
         }
-        //        console.log('The state is...', this.state.player_cards);
         return (
             <div className="container fromDarkness">
                 <div className="landingCenter resultsContainer">
@@ -62,7 +49,6 @@ class SearchResults extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log("state inside mstp:", state);
     return {
         results: state.results.results
     };
