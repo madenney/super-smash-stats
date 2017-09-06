@@ -41,7 +41,7 @@ export function getSearchResults(search, id) {
 export function getPlayerProfile(id){
 	return dispatch => {
 		axios.post('/player_profile', {input: id}).then((response)=>{
-			console.log('this is player profile response', response);
+			// console.log('this is player profile response', response);
 			dispatch({
 				type: types.GET_PLAYER_PROFILE,
 				payload: response.data
@@ -66,11 +66,30 @@ export function getPlayerProfile(id){
 					payload: {
 						matches: response.data,
 						tournaments_attended: tournaments,
-						tournament_matches: reverse_matches
+						tournament_matches: reverse_matches,
+						tournament_selected: tournaments[0]
 					}
 				})
 			})
 		});
 	}
 }
-export function filterTournamentMatches()
+export function filterTournamentMatches(tournament_selected, matches){
+	console.log('this is matches inside the filter action: ', matches, tournament_selected);
+	return dispatch => {
+		const all_matches_for_tournament = [];
+		for(var i = 0; i < matches.length; i++){
+			if(tournament_selected === matches[i].tournament){
+				all_matches_for_tournament.push(matches[i]);
+			}
+		}
+		var reverse_matches = all_matches_for_tournament.reverse();
+		dispatch({
+			type: types.FILTER_PLAYER_TOURNAMENT,
+			payload: {
+				tournament_matches: reverse_matches,
+				tournament_selected: tournament_selected
+			}
+		})
+	}
+}
