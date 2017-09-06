@@ -29,7 +29,7 @@ nav {
 .nav-button {
   /*font-weight: bold;*/
   height: 100%;
-  color: #b7afca;
+  color: whitesmoke;
   -webkit-transform: skew(-20deg);
   -moz-transform: skew(-20deg);
   -o-transform: skew(-20deg);
@@ -42,7 +42,6 @@ nav {
 .nav-item {
   border-bottom: 1px solid transparent;
   border-radius: 10px;
-  color: whitesmoke;
 }
 
 .nav-item:hover {

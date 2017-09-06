@@ -26,7 +26,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-inverse bg-inverse navbar-static-top navbar-toggleable navbar--z-index">
+      <nav className="navbar bg-inverse navbar-static-top navbar-toggleable navbar--z-index">
         <button
           onClick={() => this.checkShow()}
           className="navbar-toggler-icon navbar-toggler navbar-toggler-right collapsed"

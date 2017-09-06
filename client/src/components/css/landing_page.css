@@ -29,7 +29,7 @@
 }
 
 .text--blink {
-	color: white;
+	color: whitesmoke;
 	animation: hoverblink 1s linear alternate infinite;
 	font-family: pressStart;
 }

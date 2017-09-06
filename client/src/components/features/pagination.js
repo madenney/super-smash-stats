@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getSearchResults } from "../../actions";
 import PopulatePlayerCards from "../search_results/populateplayercards";
 import { Link } from "react-router-dom";
-import "./pagination.css";
+import "../css/pagination.css";
 
 class Pagination extends Component {
   constructor(props) {

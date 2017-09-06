@@ -1,4 +1,4 @@
-#page-numbers div{
+#page-numbers div {
     display: inline-block;
     height: 30px;
     width: 40px;
@@ -23,8 +23,9 @@
 }
 
 @keyframes paginGlow {
-    0% {border: solid goldenrod 1px}
-
+    0% {
+        border: solid goldenrod 1px;
+    }
 }
 #page-numbers .paginEdge {
     width: 70px;
