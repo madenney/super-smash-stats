@@ -75,7 +75,7 @@ export function getPlayerProfile(id){
 	}
 }
 export function filterTournamentMatches(tournament_selected, matches){
-	console.log('this is matches inside the filter action: ', matches, tournament_selected);
+	// console.log('this is matches inside the filter action: ', matches, tournament_selected);
 	return dispatch => {
 		const all_matches_for_tournament = [];
 		for(var i = 0; i < matches.length; i++){
@@ -91,5 +91,23 @@ export function filterTournamentMatches(tournament_selected, matches){
 				tournament_selected: tournament_selected
 			}
 		})
+	}
+}
+export function getH2HResults(id1, search){
+	return dispatch =>{
+		if(search == 'top_h2h'){
+		 search = '';
+	 }
+		axios.post('/head2headsearch', {player1: id1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
+			dispatch({
+				type: types.GET_H2H_RESULTS,
+				payload: {
+					name: response.data.name,
+					player2results: response.data.outputRows,
+					player1: id1,
+					totalPages: response.data.totalAvailablePages
+				}
+			})
+		});
 	}
 }
