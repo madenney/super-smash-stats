@@ -1,77 +1,70 @@
-import React, {Component} from 'react';
-import axios from 'axios';
-import PopulatePlayerCards from './populateplayercards';
-import {Link} from 'react-router-dom';
-import Pagination from '../features/pagination';
-import '../css/stylish.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { getSearchResults } from "../../actions";
+import PopulatePlayerCards from "./populateplayercards";
+import Pagination from "../features/pagination";
+import "../css/stylish.css";
 //will most likely need to be a class component,
 
 class SearchResults extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            player_cards: [],
-            searchValue: this.props.match.params,
-            pageNum: null,
-            totalPages: null
-        }
+            searchValue: this.props.match.params
+        };
     }
 
-    componentWillReceiveProps(nextProps) {
-        var {search, id} = nextProps.match.params;
-        console.log('this is the id of the page:', id);
-        if (search == 'top_players') {
-            // console.log('No search given');
-            search = '';
-        }
-        axios.post('/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
-            this.setState({
-                searchValue: { search, id },
-                player_cards: response.data.players,
-                totalPages: response.data.totalAvailablePages
-            });
-//            console.log('Search is?', this.props);
-//            console.log('State is?', this.state);
-        })
-    }
-    componentWillMount() {
-        var {search} = this.props.match.params;
-        var {id} = this.props.match.params;
+    // componentWillReceiveProps(nextProps) {
+    //     var { search, id } = nextProps.match.params;
+    //     console.log("this is the id of the page:", id);
+    //     if (search == "top_players") {
+    //         // console.log('No search given');
+    //         search = "";
+    //     }
+    //     this.props.getSearchResults(search, id);
+    // }
 
-        if (search == 'top_players') {
+    componentDidMount() {
+        var { id, search } = this.props.match.params;
+        console.log("id,search", id, search);
+        if (search == "top_players") {
             // console.log('No search given');
-            search = '';
+            search = "";
         }
-        axios.post('/autocomplete', {input: search, pageNum: id, resultsPerPage: 20, getTotalPages: true}).then((response) => {
-            console.log('response', response);
-            this.setState({
-                searchValue: this.state.searchValue,
-                player_cards: response.data.players,
-                totalPages: response.data.totalAvailablePages
-            })
-        })
+        //axios (input:search, pageNum: id, resultsPerPage: 20, getTotalPages: true)
+        this.props.getSearchResults(search, id);
     }
     render() {
-        if (!this.state.player_cards) {
-            return <h1>Loading...</h1>
+        console.log("this.props.results", this);
+        if (!this.props.results) {
+            return <h1>Loading...</h1>;
         }
-
-//        console.log('The state is...', this.state.player_cards);
+        //        console.log('The state is...', this.state.player_cards);
         return (
-            <div className='container fromDarkness'>
+            <div className="container fromDarkness">
                 <div className="landingCenter resultsContainer">
                     <h1>Player Search Results!</h1>
-                    <PopulatePlayerCards card = {this.state.player_cards} />
-                    <Pagination items={this.state.player_cards} searchValue={this.state.searchValue} pageNum={Number(this.state.searchValue.id)} totalPages={this.state.totalPages}/>
+                    <PopulatePlayerCards
+                        card={this.props.results.player_cards}
+                    />
+                    <Pagination
+                        items={this.props.results.player_cards}
+                        searchValue={this.state.searchValue}
+                        pageNum={Number(this.state.searchValue.id)}
+                        totalPages={this.props.results.totalPages}
+                    />
                 </div>
             </div>
-            // <div className='container search_results'>
-            //   <div className='col-md-11 offset-md-1 '>
-            //     <Carousel card = {this.state.player_cards} />
-            //   </div>
-            // </div>
-        )
+        );
     }
 }
 
-export default SearchResults;
+function mapStateToProps(state) {
+    console.log("state inside mstp:", state);
+    return {
+        results: state.results.results
+    };
+}
+
+export default connect(mapStateToProps, { getSearchResults })(SearchResults);
