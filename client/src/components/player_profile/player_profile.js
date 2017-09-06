@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { getPlayerProfile } from '../../actions';
+import { filterTournamentMatches } from '../../actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import _ from 'lodash';
@@ -28,19 +29,8 @@ class PlayerProfile extends Component{
   //gets value of tournament AND filters out the ones that are equal to have match
   grabTournamentName(e){
     const tournament_selected =  e.currentTarget.textContent;
-    // console.log('this is tourney state', tournament_selected);
     const {matches} = this.props;
-    // console.log('this is the matches: ', matches);
-    const all_matches_for_tournament = [];
-    for(var i = 0; i < matches.length; i++){
-      if(tournament_selected === matches[i].tournament){
-        all_matches_for_tournament.push(matches[i]);
-      }
-    }
-    var reverse_matches = all_matches_for_tournament.reverse();
-    this.setState({
-      tournament_matches: reverse_matches
-    });
+    this.props.filterTournamentMatches(tournament_selected, matches);
   }
   getImage(tag) {
       let imagesKeys = Object.keys(images);
@@ -79,9 +69,9 @@ class PlayerProfile extends Component{
     }
   }
   render(){
-    console.log('this is the props for profile: ', this.props);
+    // console.log('this is the props for profile: ', this.props);
     const { toggle, button_description, profile_picture, match_active, yt_active} = this.state;
-    const {tournament_matches, profile, tournaments_attended} = this.props;
+    const {tournament_matches, profile, tournaments_attended, tournament_selected} = this.props;
     if(tournament_matches === undefined){
       return(
         <h1>Loading</h1>
@@ -125,7 +115,7 @@ class PlayerProfile extends Component{
   			<div id="matches_stream" className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
           <div className='col-md-12'>
             <div className={`${match_active} recent_match col-xs-12 col-md-12 col-md-12`} id='tournament_data' >
-              <h3>{tournament_matches[0].tournament}</h3>
+              <h3>{tournament_selected}</h3>
               <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.props.tournament_matches} player_name = {profile.tag}/>
             </div>
             <div className={`col-md-12 ${yt_active}`}>
@@ -149,7 +139,8 @@ function mapStateToProps(state){
     profile: state.profile.profile,
     matches: state.profile.matches_info.matches,
     tournaments_attended: state.profile.matches_info.tournaments_attended,
-    tournament_matches: state.profile.matches_info.tournament_matches
+    tournament_matches: state.profile.matches_info.tournament_matches,
+    tournament_selected: state.profile.matches_info.tournament_selected
   }
 }
-export default connect(mapStateToProps, {getPlayerProfile})(PlayerProfile);
+export default connect(mapStateToProps, {getPlayerProfile, filterTournamentMatches})(PlayerProfile);

@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom';
 import images from '../features/img_filter';
 
 const Head2HeadPlayerCards = (props) => {
+  console.log('this is the props in h2h player cards: ', props);
+  if(props.player1 === undefined){
+    console.log('waiting...');
+  }
   const {player1} = props;
   const player2_cards = props.player2.map((item,index)=>{
     if(!images[`player_pic/${item.tag}.png`]){

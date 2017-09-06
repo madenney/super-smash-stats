@@ -41,8 +41,8 @@ export function getSearchResults(search, id) {
 //nested axios call that uses lodash to find unique tournaments
 export function getPlayerProfile(id) {
 	return dispatch => {
-		axios.post("/player_profile", { input: id }).then(response => {
-			console.log("this is player profile response", response);
+		axios.post('/player_profile', {input: id}).then((response)=>{
+			// console.log('this is player profile response', response);
 			dispatch({
 				type: types.GET_PLAYER_PROFILE,
 				payload: response.data
@@ -54,6 +54,8 @@ export function getPlayerProfile(id) {
 					for (var i = 0; i < response.data.length; i++) {
 						tournaments.push(response.data[i].tournament);
 					}
+
+				}
 					//lodash then filters out the repetitive values of the tournament names
 					tournaments = _.uniq(tournaments);
 					const tournament_selected = tournaments[0];
@@ -62,6 +64,7 @@ export function getPlayerProfile(id) {
 						if (tournament_selected === response.data[i].tournament) {
 							all_matches_for_tournament.push(response.data[i]);
 						}
+
 					}
 					var reverse_matches = all_matches_for_tournament.reverse();
 					dispatch({
@@ -77,4 +80,41 @@ export function getPlayerProfile(id) {
 	};
 }
 
-// export function filterTournamentMatches()
+export function filterTournamentMatches(tournament_selected, matches){
+	// console.log('this is matches inside the filter action: ', matches, tournament_selected);
+	return dispatch => {
+		const all_matches_for_tournament = [];
+		for(var i = 0; i < matches.length; i++){
+			if(tournament_selected === matches[i].tournament){
+				all_matches_for_tournament.push(matches[i]);
+			}
+		}
+		var reverse_matches = all_matches_for_tournament.reverse();
+		dispatch({
+			type: types.FILTER_PLAYER_TOURNAMENT,
+			payload: {
+				tournament_matches: reverse_matches,
+				tournament_selected: tournament_selected
+			}
+		})
+	}
+}
+export function getH2HResults(id1, search){
+	return dispatch =>{
+		if(search == 'top_h2h'){
+		 search = '';
+	 }
+		axios.post('/head2headsearch', {player1: id1, input: search, pageNum: 1, resultsPerPage: 20, getTotalPages: true}).then((response)=>{
+			dispatch({
+				type: types.GET_H2H_RESULTS,
+				payload: {
+					name: response.data.name,
+					player2results: response.data.outputRows,
+					player1: id1,
+					totalPages: response.data.totalAvailablePages
+				}
+			})
+		});
+	}
+}
+
