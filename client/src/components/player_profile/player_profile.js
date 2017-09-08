@@ -74,7 +74,9 @@ class PlayerProfile extends Component{
     const {tournament_matches, profile, tournaments_attended, tournament_selected} = this.props;
     if(tournament_matches === undefined){
       return(
-        <h1>Loading</h1>
+        <div className="mt-5">
+          <h1>Loading</h1>
+        </div>
       )
     }
     // console.log('this is the tiournament state: ', tournament_matches[0]);

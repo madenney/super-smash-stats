@@ -1,0 +1,74 @@
+
+.player_card {
+  overflow-wrap: break-word;
+  width: 200px;
+  height: 200px;
+  margin: 0.2%;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  opacity: 0.9;
+  padding: 0;
+}
+.player_card:after {
+  content: '';
+  border: solid #a4a4a4 1px;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.player_card:hover {
+  opacity: 1;
+}
+.player_card:hover:after {
+  animation: borderglow 0.5s infinite linear alternate;
+}
+@-webkit-keyframes borderglow {
+  0% {
+    border: solid red 5px;
+  }
+  100% {
+    border: solid yellow 5px;
+  }
+}
+
+.player_text {
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0;
+}
+.player_card:hover .player_text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.results--fromDarkness {
+	animation: fromDarkness 1.5s linear;
+}
+
+@-webkit-keyframes fromDarkness {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes borderglow {
+  0% {
+    border: solid red 5px;
+  }
+  100% {
+    border: solid yellow 5px;
+  }
+}
