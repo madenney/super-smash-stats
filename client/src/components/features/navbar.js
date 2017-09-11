@@ -61,7 +61,7 @@ class Navbar extends Component {
               to="/character_select_screen"
             >
               <li className="nav-item">
-                <div className="nav-button nav-link">Character Select</div>
+                <div className="nav-button nav-link disabled">Character Select</div>
               </li>
             </Link>
             <Link onClick={() => this.checkShow()} to="/results/top_players/1">

@@ -17,7 +17,7 @@ export default class Landingpage extends Component {
         return (
             <div className="landingPage landingPage--darkness">
                 <div className="container">
-                    <div className="landingPage-logo row col-md-8 offset-md-2 mx-auto">
+                    <div className="landingPage-logo row col-md-8 mx-auto">
                         <div className="text-center">
                             <img
                                 src={landingPageLogo}
@@ -25,7 +25,7 @@ export default class Landingpage extends Component {
                             />
                         </div>
                     </div>
-                    <div className="row row-eq-height">
+                    <div className="row">
                         <Searchbar history={this.props.history} />
                     </div>
                     <br />

@@ -1,8 +1,7 @@
-.searchBarContainer {
+.searchbar-container {
     width: 100%;
     background-color: transparent;
     font-size: 20px;
-    height: 40px;
     margin-top: 10px;
     z-index: 2001;
 }
@@ -10,7 +9,7 @@
 .searchBar {
     padding-left: 3px;
     background-color: white;
-    width: 80%;
+    width: 100%;
     border: 2px solid #f0ad4e;
     border-radius: 0.25rem;
     overflow-y: hidden;
@@ -19,12 +18,15 @@
 .searchBar:active {
     border: 2px solid blue;
 }
+
 .searchBar:focus {
     border: 2px solid blue;
 }
+
 .sbElement {
     display: inline;
 }
+
 .validName {
     background-color: #b7b7b7;
     padding: 2px;
@@ -54,6 +56,7 @@
     height: 40px;
     border-width: 0;
 }
+
 .inputLine:focus {
     outline-width: 0;
 }

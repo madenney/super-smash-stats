@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getSearchResults } from "../../actions";
 import PopulatePlayerCards from "./populateplayercards";
 import Pagination from "../features/pagination";
-import "../css/stylish.css";
+import "../css/search_results_page.css";
 //will most likely need to be a class component,
 
 class SearchResults extends Component {
@@ -24,21 +24,23 @@ class SearchResults extends Component {
     }
     render() {
         if (!this.props.results) {
-            return <h1>Loading...</h1>;
+            return <h1 className="mt-5">Loading...</h1>;
         }
         return (
-            <div className="container fromDarkness">
-                <div className="landingCenter resultsContainer">
-                    <h1>Player Search Results!</h1>
-                    <PopulatePlayerCards
-                        card={this.props.results.player_cards}
-                    />
-                    <Pagination
-                        items={this.props.results.player_cards}
-                        searchValue={this.state.searchValue}
-                        pageNum={Number(this.state.searchValue.id)}
-                        totalPages={this.props.results.totalPages}
-                    />
+            <div className="container results--fromDarkness">
+                <div className="row">
+                    <div className="col-12 mx-auto">
+                        <h1>Player Search Results!</h1>
+                        <PopulatePlayerCards
+                            card={this.props.results.player_cards}
+                        />
+                        <Pagination
+                            items={this.props.results.player_cards}
+                            searchValue={this.state.searchValue}
+                            pageNum={Number(this.state.searchValue.id)}
+                            totalPages={this.props.results.totalPages}
+                        />
+                    </div>
                 </div>
             </div>
         );

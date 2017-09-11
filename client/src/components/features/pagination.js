@@ -54,12 +54,6 @@ class Pagination extends Component {
       Number(clickedValue)
     );
     this.setState({ currentPage: clickedValue });
-    // axios.post('/autocomplete', {input: this.state.searchValue.search, pageNum: Number(clickedValue), resultsPerPage: 20}).then((response) => {
-    //     this.setState({
-    //         items: response.data.players,
-    //         currentPage: clickedValue
-    //     });
-    // })
   }
 
   render() {
@@ -108,7 +102,7 @@ class Pagination extends Component {
       : currentPage}`;
     console.log("page:", currentPage);
     return (
-      <div id="page-numbers">
+      <div id="page-numbers" className="mt-2">
         <Link
           to={
             !player1

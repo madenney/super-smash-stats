@@ -411,7 +411,7 @@ export default class SearchBar extends Component {
     render() {
         return (
             <div className="col-md-6 mx-auto">
-                <div className="input-group searchBarContainer">
+                <div className="input-group searchbar-container">
                     {this.buildOutput()}
                     <div
                         className="btn btn-outline-warning"

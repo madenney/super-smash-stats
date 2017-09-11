@@ -10,6 +10,7 @@ const Playercard = (props) => {
     }
 
     const imageUrl = images[`player_pic/${props.card[Number(props.cardNum)].tag}.png`];
+
     const divStyle = {
         backgroundImage: 'url(' + imageUrl +')',
         backgroundRepeat: 'no-repeat',
@@ -18,7 +19,7 @@ const Playercard = (props) => {
 
     return(
         <Link to={`/player_profile/${props.card[props.cardNum].id}`}>
-            <div className='player_card' style={divStyle}>
+            <div className='player_card col-6' style={divStyle}>
                 <h3 className='player_text'>{props.card[props.cardNum].tag}</h3>
             </div>
         </Link>
