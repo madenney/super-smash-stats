@@ -105,61 +105,63 @@ class Pagination extends Component {
     return (
       <div className="row mx-auto">
         <div className="mt-2 page-container">
-          <Link
-            to={
-              !player1
-                ? `/results/${searchValue.search}/1`
-                : `/head2headresults/${player1id}/${searchValue.search}/1`
-            }
-          >
-            <div
-              className="col-1"
-              onClick={this.handleClick}
-              id="1"
-            >{`<<`}</div>
-          </Link>
-          <Link
-            to={
-              !player1
-                ? `/results/${searchValue.search}/${prevPage}`
-                : `/head2headresults/${player1id}/${searchValue.search}/${prevPage}`
-            }
-          >
-            <div
-              className="col-1"
-              onClick={this.handleClick}
-              id={prevPage}
-            >{`<`}</div>
-          </Link>
-          <div className="col-6">
-            {renderPageNumbers}
+          <div className="col-10 mx-auto">
+            <Link
+              to={
+                !player1
+                  ? `/results/${searchValue.search}/1`
+                  : `/head2headresults/${player1id}/${searchValue.search}/1`
+              }
+            >
+              <div
+                className="col-1"
+                onClick={this.handleClick}
+                id="1"
+              >{`<<`}</div>
+            </Link>
+            <Link
+              to={
+                !player1
+                  ? `/results/${searchValue.search}/${prevPage}`
+                  : `/head2headresults/${player1id}/${searchValue.search}/${prevPage}`
+              }
+            >
+              <div
+                className="col-1"
+                onClick={this.handleClick}
+                id={prevPage}
+              >{`<`}</div>
+            </Link>
+            <div className="col-6">
+              {renderPageNumbers}
+            </div>
+            <Link
+              to={
+                !player1
+                  ? `/results/${searchValue.search}/${nextPage}`
+                  : `/head2headresults/${player1id}/${searchValue.search}/${nextPage}`
+              }
+            >
+              <div
+                className="col-1"
+                onClick={this.handleClick}
+                id={nextPage}
+              >{`>`}</div>
+            </Link>
+            <Link
+              to={
+                !player1
+                  ? `/results/${searchValue.search}/${totalPages}`
+                  : `/head2headresults/${player1id}/${searchValue.search}/${totalPages}`
+              }
+            >
+              <div
+                className="col-1"
+                onClick={this.handleClick}
+                id={totalPages}
+              >{`>>`}</div>
+            </Link>
           </div>
-          <Link
-            to={
-              !player1
-                ? `/results/${searchValue.search}/${nextPage}`
-                : `/head2headresults/${player1id}/${searchValue.search}/${nextPage}`
-            }
-          >
-            <div
-              className="col-1"
-              onClick={this.handleClick}
-              id={nextPage}
-            >{`>`}</div>
-          </Link>
-          <Link
-            to={
-              !player1
-                ? `/results/${searchValue.search}/${totalPages}`
-                : `/head2headresults/${player1id}/${searchValue.search}/${totalPages}`
-            }
-          >
-            <div
-              className="col-1"
-              onClick={this.handleClick}
-              id={totalPages}
-            >{`>>`}</div>
-          </Link>
         </div>
       </div>
     );
