@@ -29,7 +29,7 @@ export default class Landingpage extends Component {
                         <Searchbar history={this.props.history} />
                     </div>
                     <br />
-                    <Link to="/results/noSearch/1">
+                    <Link to="/results/top_players/1">
                         <p className="text--blink text-center">
                             SEARCH THE DATABASE
                         </p>

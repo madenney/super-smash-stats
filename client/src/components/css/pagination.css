@@ -1,25 +1,29 @@
-#page-numbers div {
+.page-container {
+  animation: fromDarkness 1.5s linear;
+  margin: 0 auto;
+  width: 80vw;
+}
+
+.page-container div, .paginEdge {
+    font-family: pressStart;
     display: inline-block;
     height: 30px;
-    width: 40px;
-    border: 1px solid #ffdf06;
-    background-color: #292b2c;
-    color: gold;
-    font-family: pressStart;
     text-align: center;
-    border-radius: 10px;
-    margin-right: 2px;
-    overflow: hidden;
 }
-#page-numbers div:hover {
+
+/*.page-container div:hover {
     background-color: #0a0a0a;
     color: white;
     border-color: white;
-}
+}*/
 
-#page-numbers .active {
+/*.page-container .active {
     background-color: #0a0a0a;
     color: white;
+}*/
+
+.page-numbers {
+    width: 20%;
 }
 
 @keyframes paginGlow {
@@ -27,7 +31,12 @@
         border: solid goldenrod 1px;
     }
 }
-#page-numbers .paginEdge {
-    width: 70px;
-    background-color: #0a0a0a;
+
+@-webkit-keyframes fromDarkness {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

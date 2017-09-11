@@ -72,6 +72,7 @@ class Pagination extends Component {
       : totalPages - 5}`;
     const sliceSecondParam = `${currentPage < 3 ? 5 : Number(currentPage) + 2}`;
     const displayArray = pageArray.slice(sliceFirstParam, sliceSecondParam);
+
     const renderPageNumbers = displayArray.map((number, index) => {
       return (
         <Link
@@ -86,7 +87,7 @@ class Pagination extends Component {
             id={number}
             className={`${Number(number) === Number(currentPage)
               ? "active"
-              : "inactive"}`}
+              : "inactive"} page-numbers`}
             onClick={this.handleClick}
           >
             {number}
@@ -102,60 +103,64 @@ class Pagination extends Component {
       : currentPage}`;
     console.log("page:", currentPage);
     return (
-      <div id="page-numbers" className="mt-2">
-        <Link
-          to={
-            !player1
-              ? `/results/${searchValue.search}/1`
-              : `/head2headresults/${player1id}/${searchValue.search}/1`
-          }
-        >
-          <div
-            className="paginEdge"
-            onClick={this.handleClick}
-            id="1"
-          >{`<<`}</div>
-        </Link>
-        <Link
-          to={
-            !player1
-              ? `/results/${searchValue.search}/${prevPage}`
-              : `/head2headresults/${player1id}/${searchValue.search}/${prevPage}`
-          }
-        >
-          <div
-            className="paginEdge"
-            onClick={this.handleClick}
-            id={prevPage}
-          >{`<`}</div>
-        </Link>
-        {renderPageNumbers}
-        <Link
-          to={
-            !player1
-              ? `/results/${searchValue.search}/${nextPage}`
-              : `/head2headresults/${player1id}/${searchValue.search}/${nextPage}`
-          }
-        >
-          <div
-            className="paginEdge"
-            onClick={this.handleClick}
-            id={nextPage}
-          >{`>`}</div>
-        </Link>
-        <Link
-          to={
-            !player1
-              ? `/results/${searchValue.search}/${totalPages}`
-              : `/head2headresults/${player1id}/${searchValue.search}/${totalPages}`
-          }
-        >
-          <div
-            className="paginEdge"
-            onClick={this.handleClick}
-            id={totalPages}
-          >{`>>`}</div>
-        </Link>
+      <div className="row mx-auto">
+        <div className="mt-2 page-container">
+          <Link
+            to={
+              !player1
+                ? `/results/${searchValue.search}/1`
+                : `/head2headresults/${player1id}/${searchValue.search}/1`
+            }
+          >
+            <div
+              className="col-1"
+              onClick={this.handleClick}
+              id="1"
+            >{`<<`}</div>
+          </Link>
+          <Link
+            to={
+              !player1
+                ? `/results/${searchValue.search}/${prevPage}`
+                : `/head2headresults/${player1id}/${searchValue.search}/${prevPage}`
+            }
+          >
+            <div
+              className="col-1"
+              onClick={this.handleClick}
+              id={prevPage}
+            >{`<`}</div>
+          </Link>
+          <div className="col-6">
+            {renderPageNumbers}
+          </div>
+          <Link
+            to={
+              !player1
+                ? `/results/${searchValue.search}/${nextPage}`
+                : `/head2headresults/${player1id}/${searchValue.search}/${nextPage}`
+            }
+          >
+            <div
+              className="col-1"
+              onClick={this.handleClick}
+              id={nextPage}
+            >{`>`}</div>
+          </Link>
+          <Link
+            to={
+              !player1
+                ? `/results/${searchValue.search}/${totalPages}`
+                : `/head2headresults/${player1id}/${searchValue.search}/${totalPages}`
+            }
+          >
+            <div
+              className="col-1"
+              onClick={this.handleClick}
+              id={totalPages}
+            >{`>>`}</div>
+          </Link>
+        </div>
       </div>
     );
   }
