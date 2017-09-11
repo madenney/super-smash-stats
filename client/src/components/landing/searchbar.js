@@ -24,14 +24,22 @@ export default class SearchBar extends Component {
             player1,
             player2,
             vsSpace: "",
-            vs: false
+            vs: false,
+            testString: "Hello World"
         };
     }
 
     handleChange(e) {
         // To navigate somewhere:
         // this.props.history.push('/destination');
-
+        console.log(e.key + " - " + e.charCode);
+        console.log(e.keyCode);
+        console.log(document);
+        this.setState({
+            testString: 'key: ' + e.key + "  , charCode: " + e.charCode + ' , keycode: ' + e.keyCode
+        });
+        e.preventDefault();
+        return;
         let {
             player1,
             player2,
@@ -424,6 +432,7 @@ export default class SearchBar extends Component {
                         highlight={this.state.currentIndex}
                     />
                 </div>
+                <div id="testing">{this.state.testString}</div>
             </div>
         );
     }
