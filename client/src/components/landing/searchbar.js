@@ -36,7 +36,8 @@ export default class SearchBar extends Component {
         console.log(e.keyCode);
         console.log(document);
         this.setState({
-            testString: 'key: ' + e.key + "  , charCode: " + e.charCode + ' , keycode: ' + e.keyCode
+            //testString: 'key: ' + e.key + "  , charCode: " + e.charCode + ' , keycode: ' + e.keyCode
+            testString: e
         });
         e.preventDefault();
         return;
