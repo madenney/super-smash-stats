@@ -33,10 +33,7 @@ export default class SearchBar extends Component {
     handleChange(e) {
         // To navigate somewhere:
         // this.props.history.push('/destination');
-        this.setState({
-            testString: 'key ' + e.which
-        });
-        return;
+
         if(e.keyCode === 229) {
             this.setState({
                 android: true
@@ -393,7 +390,6 @@ export default class SearchBar extends Component {
                 key: x,
                 keyCode: x.charCodeAt(0)
             });
-            this.searchInput.value = '';
         }
         return (
             <div
@@ -426,6 +422,7 @@ export default class SearchBar extends Component {
                     : <div className="sbElement" />}
                 <input
                     autoFocus
+                    value=""
                     className="inputLine"
                     type="text"
                     onKeyDown={e => this.handleChange(e)}
