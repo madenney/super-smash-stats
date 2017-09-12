@@ -373,7 +373,7 @@ export default class SearchBar extends Component {
         }
     }
 
-    doStuff() {
+    doStuff(e) {
         if(this.android){
             let x = this.searchInput.value;
             let c = 0;
@@ -386,6 +386,9 @@ export default class SearchBar extends Component {
                 }
             }
             this.searchInput.value = '';
+            this.setState({
+                testString: 'key ' + x + ' code ' + c
+            });
             this.handleChange({
                 key: x,
                 keyCode: c
@@ -434,7 +437,7 @@ export default class SearchBar extends Component {
                         e => this.handleChange(e)
                     }
                     onKeyUp={
-                        this.doStuff()
+                        e => this.doStuff(e)
                     }
                     ref={ip => {
                         this.searchInput = ip;
