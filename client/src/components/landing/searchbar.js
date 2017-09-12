@@ -382,6 +382,12 @@ export default class SearchBar extends Component {
         }
     }
 
+    doStuff(e) {
+        this.setState({
+            testString: e.key + " " + e.keyCode + " " + e.charCode
+        });
+    }
+
     buildOutput() {
         const { player1, player2, vs, vsSpace, complete, android } = this.state;
         if(android) {
@@ -425,7 +431,13 @@ export default class SearchBar extends Component {
                     value=""
                     className="inputLine"
                     type="text"
-                    onKeyDown={e => this.handleChange(e)}
+                    onKeyPress={
+                        e => this.doStuff(e)
+                    }
+                    onKeyDown={
+                        console.log("here")
+                        //e => this.handleChange(e)
+                    }
                     ref={ip => {
                         this.searchInput = ip;
                     }}
