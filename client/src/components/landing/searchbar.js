@@ -36,9 +36,6 @@ export default class SearchBar extends Component {
 
         if(e.keyCode === 229) {
             this.android = true;
-            // this.setState({
-            //     testString: 'hey'
-            // });
             return;
         }
         if(e.preventDefault){
@@ -387,7 +384,7 @@ export default class SearchBar extends Component {
             }
             this.searchInput.value = '';
             this.setState({
-                testString: 'key ' + x + ' code ' + c
+                nothing: 'nothing'
             });
             this.handleChange({
                 key: x,
@@ -466,7 +463,6 @@ export default class SearchBar extends Component {
                         highlight={this.state.currentIndex}
                     />
                 </div>
-                {/*<div id="testing">{this.state.testString}</div>*/}
             </div>
         );
     }
