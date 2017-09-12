@@ -376,9 +376,14 @@ export default class SearchBar extends Component {
     doStuff(e) {
         if(this.android){
             let x = this.searchInput.value;
-            let c = x.charCodeAt(0)
-            if(c >= 97 && c <= 122){
-                c = c - 32;
+            let c = 0;
+            if(x.isNaN()){
+                c = 8
+            } else {
+                c = x.charCodeAt(0)
+                if(c >= 97 && c <= 122){
+                    c = c - 32;
+                }
             }
             this.searchInput.value = '';
             this.setState({
@@ -399,6 +404,7 @@ export default class SearchBar extends Component {
             let c = 0;
             if(x.isNaN()){
                 c = 8
+
             } else {
                 c = x.charCodeAt(0)
                 if(c >= 97 && c <= 122){
