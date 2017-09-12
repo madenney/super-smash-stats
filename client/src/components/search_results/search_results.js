@@ -3,25 +3,37 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getSearchResults } from "../../actions";
 import PopulatePlayerCards from "./populateplayercards";
-import Pagination from "../features/pagination";
+import ReactPagination from 'react-paginate';
 import "../css/search_results_page.css";
-//will most likely need to be a class component,
+import '../css/pagination.css';
 
 class SearchResults extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchValue: this.props.match.params
+            searchValue: this.props.match.params,
+            currentPage: 1
         };
     }
+
     componentDidMount() {
-        var { id, search } = this.props.match.params;
+        let { id, search } = this.props.match.params;
         if (search == "top_players") {
             search = "";
         }
         this.props.getSearchResults(search, id);
-
     }
+
+    handlePageClick(data) {
+        const selectedPage = data.selected+1;
+        let {search} = this.props.match.params;
+        this.props.history.push(`/results/${search}/${selectedPage}`);
+        if (search == "top_players") {
+            search = "";
+        }
+        this.props.getSearchResults(search, selectedPage);
+    }
+
     render() {
         if (!this.props.results) {
             return <h1 className="mt-5">Loading...</h1>;
@@ -34,11 +46,20 @@ class SearchResults extends Component {
                         <PopulatePlayerCards
                             card={this.props.results.player_cards}
                         />
-                        <Pagination
-                            items={this.props.results.player_cards}
-                            searchValue={this.state.searchValue}
-                            pageNum={Number(this.state.searchValue.id)}
-                            totalPages={this.props.results.totalPages}
+                        <ReactPagination 
+                            previousLabel={"Previous"}
+                            nextLabel={"Next"}
+                            breakLabel={<a href="">...</a>}
+                            breakClassName={"pagination--break"}
+                            pageCount={this.props.results.totalPages}
+                            marginPagesDisplayed={1}
+                            pageRangeDisplayed={5}
+                            containerClassName={"pagination--container col-12"}
+                            pageClassName={"pagination--pages ml-1"}
+                            previousClassName={"pagination--keys"}
+                            nextClassName={"pagination--keys"}
+                            activeClassName={"pagination--active"}
+                            onPageChange={(val) => this.handlePageClick(val)}
                         />
                     </div>
                 </div>

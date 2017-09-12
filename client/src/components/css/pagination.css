@@ -1,26 +1,46 @@
 .page-container {
-  animation: fromDarkness 1.5s linear;
-  margin: 0 auto;
-  width: 80vw;
+    animation: fromDarkness 1.5s linear;
+    margin: 0 auto;
+    width: 80vw;
 }
 
-.page-container div, .paginEdge {
+.page-container div,
+.paginEdge {
     font-family: pressStart;
     display: inline-block;
     height: 30px;
     text-align: center;
 }
 
-/*.page-container div:hover {
-    background-color: #0a0a0a;
-    color: white;
-    border-color: white;
-}*/
+.pagination--container {
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
 
-/*.page-container .active {
-    background-color: #0a0a0a;
-    color: white;
-}*/
+.pagination--pages {
+    display: inline-block;
+    width: 5%;
+}
+
+.pagination--pages:hover {
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+}
+
+.pagination--break {
+    display: inline-block;
+}
+
+.pagination--keys {
+    display: inline-block;
+}
+
+.pagination--active {
+    font-size: 1.5em;
+    border-bottom: ;
+}
 
 .page-numbers {
     width: 20%;
