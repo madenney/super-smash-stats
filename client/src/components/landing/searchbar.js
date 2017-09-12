@@ -380,7 +380,7 @@ export default class SearchBar extends Component {
             if(x.isNaN()){
                 c = 8
             } else {
-                c = x.charCodeAt(0)
+                c = x.charCodeAt(0);
                 if(c >= 97 && c <= 122){
                     c = c - 32;
                 }
@@ -394,32 +394,16 @@ export default class SearchBar extends Component {
                 keyCode: c
             });
             this.android = false;
+        } else {
+            this.setState({
+                testString: 'else statement'
+            })
         }
     }
 
     buildOutput() {
-        const { player1, player2, vs, vsSpace, complete, android } = this.state;
-        if(android) {
-            let x = this.searchInput.value;
-            let c = 0;
-            if(x.isNaN()){
-                c = 8
+        const { player1, player2, vs, vsSpace, complete } = this.state;
 
-            } else {
-                c = x.charCodeAt(0)
-                if(c >= 97 && c <= 122){
-                    c = c - 32;
-                }
-            }
-            this.setState({
-                android: false
-            });
-            this.handleChange({
-                key: x,
-                keyCode: c
-            });
-            this.searchInput.value = '';
-        }
         return (
             <div
                 className="searchBar"
