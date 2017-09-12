@@ -32,18 +32,21 @@ export default class SearchBar extends Component {
     handleChange(e) {
         // To navigate somewhere:
         // this.props.history.push('/destination');
-        console.log(e.key + " - " + e.charCode);
-        console.log(e.keyCode);
+        console.log(e.key + " - " + e.charCode + ' - ' + e.keyCode);
+        this.setState({
+            testString: e.key + " - " + e.charCode + ' - ' + e.keyCode
+        });
         if(e.keyCode === 229) {
-            // console.log(this.searchInput);
-            // let x = this.searchInput.value;
-            // console.log(x);
-            let x = e.getKeyCode();
-            this.setState({
-                testString: x
-            });
+            let x = this.searchInput.value;
+            this.handleChange({
+                key: x,
+                charCode: x.charCodeAt(0),
+                keyCode: x.charCodeAt(0)
+            })
         }
-        e.preventDefault();
+        if(e.preventDefault){
+            e.preventDefault();
+        }
         return;
         let {
             player1,
