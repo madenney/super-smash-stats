@@ -33,11 +33,7 @@ export default class SearchBar extends Component {
     handleChange(e) {
         // To navigate somewhere:
         // this.props.history.push('/destination');
-        console.log(e.key + " - " + e.charCode + ' - ' + e.keyCode);
-        this.setState({
-            testString: e.key + " - " + e.keyCode,
-            android: false
-        });
+
         if(e.keyCode === 229) {
             this.setState({
                 android: true
@@ -55,10 +51,15 @@ export default class SearchBar extends Component {
             vsSpace,
             complete,
             autocomCards,
-            currentIndex
+            currentIndex,
+            android
         } = this.state;
-        
-        let charCode = e.keyCode;
+        let charCode = '';
+        if(android && e.keyCode >= 97 && e.keyCode <= 122){
+            charCode = e.keyCode - 32;
+        } else {
+            charCode = e.keyCode;
+        }
         let key = e.key;
         //console.log("Key: " + key + " charCode: " + charCode);
         if (charCode >= 48 && charCode <= 90) {
@@ -69,7 +70,8 @@ export default class SearchBar extends Component {
                         vsSpace: "",
                         vs: true,
                         complete: "",
-                        autocomCards: []
+                        autocomCards: [],
+                        android: false
                     });
                 } else {
                     player1.name += key;
@@ -148,7 +150,8 @@ export default class SearchBar extends Component {
                     this.setState({
                         vsSpace: " ",
                         complete: "vs ",
-                        autocomCards: []
+                        autocomCards: [],
+                        android: false
                     });
                     return false;
                 }
@@ -233,7 +236,7 @@ export default class SearchBar extends Component {
                 this.setState({ vsSpace: "" });
             } else {
                 if (player2.name.length === 0) {
-                    this.setState({ vs: false });
+                    this.setState({ vs: false});
                 } else {
                     player2.name = player2.name.substr(
                         0,
@@ -325,13 +328,15 @@ export default class SearchBar extends Component {
                     this.setState({
                         player1: player,
                         autocomCards: response.data.players,
-                        complete: autocom
+                        complete: autocom,
+                        android: false
                     });
                 } else {
                     this.setState({
                         player2: player,
                         autocomCards: response.data.players,
-                        complete: autocom
+                        complete: autocom,
+                        android: false
                     });
                 }
             });
