@@ -34,9 +34,10 @@ export default class SearchBar extends Component {
         // To navigate somewhere:
         // this.props.history.push('/destination');
 
+        this.searchInput.value = e.key;
         if(e.keyCode === 229) {
             this.setState({
-                android: true
+                testString: 'key ' + e.key
             });
             return;
         }
@@ -428,15 +429,13 @@ export default class SearchBar extends Component {
                     : <div className="sbElement" />}
                 <input
                     autoFocus
-                    value=""
                     className="inputLine"
                     type="text"
-                    onKeyPress={
-                        e => this.doStuff(e)
-                    }
+                    // onKeyPress={
+                    //     e => this.doStuff(e)
+                    // }
                     onKeyDown={
-                        console.log("here")
-                        //e => this.handleChange(e)
+                        e => this.handleChange(e)
                     }
                     ref={ip => {
                         this.searchInput = ip;
