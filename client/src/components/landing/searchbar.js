@@ -34,10 +34,10 @@ export default class SearchBar extends Component {
         // To navigate somewhere:
         // this.props.history.push('/destination');
 
-        this.searchInput.value = e.key;
         if(e.keyCode === 229) {
+            this.forceUpdate();
             this.setState({
-                testString: 'key ' + e.key
+                android: true
             });
             return;
         }
@@ -52,15 +52,9 @@ export default class SearchBar extends Component {
             vsSpace,
             complete,
             autocomCards,
-            currentIndex,
-            android
+            currentIndex
         } = this.state;
-        let charCode = '';
-        if(android && e.keyCode >= 97 && e.keyCode <= 122){
-            charCode = e.keyCode - 32;
-        } else {
-            charCode = e.keyCode;
-        }
+        let charCode = e.keyCode;
         let key = e.key;
         //console.log("Key: " + key + " charCode: " + charCode);
         if (charCode >= 48 && charCode <= 90) {
@@ -71,8 +65,7 @@ export default class SearchBar extends Component {
                         vsSpace: "",
                         vs: true,
                         complete: "",
-                        autocomCards: [],
-                        android: false
+                        autocomCards: []
                     });
                 } else {
                     player1.name += key;
@@ -151,8 +144,7 @@ export default class SearchBar extends Component {
                     this.setState({
                         vsSpace: " ",
                         complete: "vs ",
-                        autocomCards: [],
-                        android: false
+                        autocomCards: []
                     });
                     return false;
                 }
@@ -329,15 +321,13 @@ export default class SearchBar extends Component {
                     this.setState({
                         player1: player,
                         autocomCards: response.data.players,
-                        complete: autocom,
-                        android: false
+                        complete: autocom
                     });
                 } else {
                     this.setState({
                         player2: player,
                         autocomCards: response.data.players,
-                        complete: autocom,
-                        android: false
+                        complete: autocom
                     });
                 }
             });
@@ -393,9 +383,16 @@ export default class SearchBar extends Component {
         const { player1, player2, vs, vsSpace, complete, android } = this.state;
         if(android) {
             let x = this.searchInput.value;
+            let c = x.charCodeAt(0)
+            if(c >= 97 && c <= 122){
+                c = c - 32;
+            }
+            this.setState({
+                android: false
+            });
             this.handleChange({
                 key: x,
-                keyCode: x.charCodeAt(0)
+                keyCode: c
             });
         }
         return (
