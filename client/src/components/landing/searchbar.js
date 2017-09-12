@@ -35,12 +35,10 @@ export default class SearchBar extends Component {
         console.log(e.key + " - " + e.charCode);
         console.log(e.keyCode);
         if(e.keyCode === 229) {
-            this.setState({
-                testString: 'testing'
-            });
-            console.log(this.searchInput);
-            let x = this.searchInput.value;
-            console.log(x);
+            // console.log(this.searchInput);
+            // let x = this.searchInput.value;
+            // console.log(x);
+            let x = e.getKeyCode();
             this.setState({
                 testString: x
             });
