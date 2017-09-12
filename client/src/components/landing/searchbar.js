@@ -35,9 +35,9 @@ export default class SearchBar extends Component {
         // this.props.history.push('/destination');
 
         if(e.keyCode === 229) {
-            this.forceUpdate();
+            this.android = true;
             this.setState({
-                android: true
+                testString: 'hey'
             });
             return;
         }
@@ -374,9 +374,14 @@ export default class SearchBar extends Component {
     }
 
     doStuff(e) {
-        this.setState({
-            testString: e.key + " " + e.keyCode + " " + e.charCode
-        });
+        if(this.android){
+            let x = this.searchInput.value;
+            this.searchInput.value = '';
+            this.setState({
+                testString: 'key - ' + x
+            });
+            this.android = false;
+        }
     }
 
     buildOutput() {
@@ -394,6 +399,7 @@ export default class SearchBar extends Component {
                 key: x,
                 keyCode: c
             });
+            this.searchInput.value = '';
         }
         return (
             <div
@@ -428,11 +434,11 @@ export default class SearchBar extends Component {
                     autoFocus
                     className="inputLine"
                     type="text"
-                    // onKeyPress={
-                    //     e => this.doStuff(e)
-                    // }
                     onKeyDown={
                         e => this.handleChange(e)
+                    }
+                    onKeyUp={
+                        e => this.doStuff(e)
                     }
                     ref={ip => {
                         this.searchInput = ip;
