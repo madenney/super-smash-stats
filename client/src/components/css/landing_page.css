@@ -31,3 +31,9 @@
 	animation: hoverblink 1s linear alternate infinite;
 	font-family: pressStart;
 }
+.container--searchbar{
+	height: 100vh;
+}
+.container--featured-players{
+	height: 100vh;
+}
