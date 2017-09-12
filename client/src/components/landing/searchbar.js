@@ -466,7 +466,7 @@ export default class SearchBar extends Component {
                         highlight={this.state.currentIndex}
                     />
                 </div>
-                <div id="testing">{this.state.testString}</div>
+                {/*<div id="testing">{this.state.testString}</div>*/}
             </div>
         );
     }
