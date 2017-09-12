@@ -33,7 +33,10 @@ export default class SearchBar extends Component {
     handleChange(e) {
         // To navigate somewhere:
         // this.props.history.push('/destination');
-
+        this.setState({
+            testString: 'key ' + e.which
+        });
+        return;
         if(e.keyCode === 229) {
             this.setState({
                 android: true
