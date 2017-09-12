@@ -381,6 +381,9 @@ export default class SearchBar extends Component {
                 c = c - 32;
             }
             this.searchInput.value = '';
+            this.setState({
+                testString: 'key ' + x + ' code ' + c
+            });
             this.handleChange({
                 key: x,
                 keyCode: c
