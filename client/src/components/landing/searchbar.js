@@ -377,7 +377,7 @@ export default class SearchBar extends Component {
         if(this.android){
             let x = this.searchInput.value;
             let c = 0;
-            if(x.isNaN()){
+            if(!x){
                 c = 8
             } else {
                 c = x.charCodeAt(0);
