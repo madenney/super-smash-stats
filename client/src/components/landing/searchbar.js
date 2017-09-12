@@ -25,13 +25,26 @@ export default class SearchBar extends Component {
             player2,
             vsSpace: "",
             vs: false,
-            android: false
+            android: false,
+            testString: "Hello World"
         };
     }
 
     handleChange(e) {
         // To navigate somewhere:
         // this.props.history.push('/destination');
+
+        if(e.keyCode === 229) {
+            this.android = true;
+            this.setState({
+                testString: 'hey'
+            });
+            return;
+        }
+        if(e.preventDefault){
+            e.preventDefault();
+        }
+
         let {
             player1,
             player2,
@@ -41,18 +54,6 @@ export default class SearchBar extends Component {
             autocomCards,
             currentIndex
         } = this.state;
-
-        if(e.keyCode === 229) {
-            this.android = true;
-            // this.setState({
-            //     complete
-            // });
-            return;
-        }
-        if(e.preventDefault){
-            e.preventDefault();
-        }
-
         let charCode = e.keyCode;
         let key = e.key;
         //console.log("Key: " + key + " charCode: " + charCode);
@@ -385,9 +386,6 @@ export default class SearchBar extends Component {
                 }
             }
             this.searchInput.value = '';
-            this.setState({
-                nothing: 'nothing'
-            });
             this.handleChange({
                 key: x,
                 keyCode: c
@@ -465,6 +463,7 @@ export default class SearchBar extends Component {
                         highlight={this.state.currentIndex}
                     />
                 </div>
+                <div id="testing">{this.state.testString}</div>
             </div>
         );
     }
