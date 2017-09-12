@@ -34,9 +34,14 @@ export default class SearchBar extends Component {
         // this.props.history.push('/destination');
         console.log(e.key + " - " + e.charCode);
         console.log(e.keyCode);
-        this.setState({
-            testString: 'key: ' + e.key + "  , charCode: " + e.charCode + ' , keycode: ' + e.keyCode
-        });
+        if(e.keyCode === 229) {
+            console.log(this.searchInput);
+            let x = this.searchInput.value;
+            console.log(x);
+            this.setState({
+                testString: x
+            });
+        }
         e.preventDefault();
         return;
         let {
