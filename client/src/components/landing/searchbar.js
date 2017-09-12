@@ -44,9 +44,9 @@ export default class SearchBar extends Component {
 
         if(e.keyCode === 229) {
             this.android = true;
-            this.setState({
-                complete
-            });
+            // this.setState({
+            //     complete
+            // });
             return;
         }
         if(e.preventDefault){
@@ -385,6 +385,9 @@ export default class SearchBar extends Component {
                 }
             }
             this.searchInput.value = '';
+            this.setState({
+                nothing: 'nothing'
+            });
             this.handleChange({
                 key: x,
                 keyCode: c
