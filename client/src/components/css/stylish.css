@@ -1,0 +1,253 @@
+@-webkit-keyframes bodyback {
+  0% {
+    background-position: 0 30%;
+  }
+  50% {
+    background-position: 100% 71%;
+  }
+  100% {
+    background-position: 0 30%;
+  }
+}
+@-moz-keyframes bodyback {
+  0% {
+    background-position: 0 30%;
+  }
+  50% {
+    background-position: 100% 71%;
+  }
+  100% {
+    background-position: 0 30%;
+  }
+}
+@keyframes bodyback {
+  0% {
+    background-position: 0 30%;
+  }
+  50% {
+    background-position: 100% 71%;
+  }
+  100% {
+    background-position: 0 30%;
+  }
+}
+@keyframes hoverblink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@font-face {
+  font-family: pressStart;
+  src: url(../imgs/PressStart2P.ttf) format('truetype');
+}
+@font-face {
+  font-family: Aero;
+  src: url(../imgs/Aero.ttf) format('truetype');
+}
+@keyframes sheen {
+  0% {
+    background-position: 100% 71%;
+  }
+  100% {
+    background-position: 0 30%;
+  }
+}
+@keyframes spin2win {
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+@keyframes shift {
+  0% {
+    transform: skewX(0deg);
+  }
+  40% {
+    transform: skewX(0deg);
+  }
+  41% {
+    transform: skewX(10deg);
+  }
+  42% {
+    transform: skewX(-10deg);
+  }
+  44% {
+    transform: skewX(0deg);
+  }
+  58% {
+    transform: skewX(0deg);
+  }
+  59% {
+    transform: skewX(40deg) skewY(10deg);
+  }
+  60% {
+    transform: skewX(-40deg) skewY(-10deg);
+  }
+  61% {
+    transform: skewX(0deg);
+  }
+  63% {
+    transform: skewX(10deg) skewY(-5deg);
+  }
+  65% {
+    transform: skewX(0deg);
+  }
+  69% {
+    transform: skewX(0deg);
+  }
+  70% {
+    transform: skewX(-50deg) skewY(-20deg);
+  }
+  71% {
+    transform: skewX(10deg) skewY(-10deg);
+  }
+  73% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+.searchButton {
+  margin: 5px;
+  height: 50px;
+  font-size: 20px;
+}
+.playerRecommendations {
+  height: 50vh;
+  width: 100vw;
+  position: relative;
+}
+.playerCard {
+  height: 200px;
+  width: 160px;
+  background-color: grey;
+  display: inline-block;
+  margin: 20px 15px;
+}
+a {
+  color: #f0ad4e;
+}
+.autocomItem:hover {
+  color: gold;
+  font-weight: bold;
+}
+.highlighted {
+  color: gold;
+  font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px black;
+}
+.scrollmenu {
+  overflow: scroll;
+  white-space: nowrap;
+  margin-top: 30px;
+}
+.scrollmenu div {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+
+
+.form-control {
+  border: 2px solid #ec971f;
+}
+
+
+/*SearchResults styling*/
+.search_results {
+  height: 90vh;
+}
+
+/* About Us Styling */
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.description {
+  width: 70%;
+  height: 30%;
+  color: #911f1f;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid white;
+  background-color: #2e2e2e;
+}
+.card {
+  display: inline-block;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 30px 10px 10px 30px;
+  border-radius: 10px;
+}
+
+.card .after {
+  position: absolute;
+  width: 100%;
+  display: none;
+  color: #fff;
+}
+
+.card:hover .after {
+  top: 80%;
+  height: 20%;
+  text-align: center;
+  display: block;
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 12pt;
+  vertical-align: middle;
+  line-height: 55px;
+  border-radius: 10px;
+}
+
+.card-img-top {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card-row {
+  text-align: center;
+  width: 100%;
+}
+.tournamentItem:hover {
+  color: white;
+  cursor: pointer;
+}
+.name {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+}
+.carousel {
+  margin-top: 80px;
+}
+
+.faq {
+  font-family: pressStart;
+  color: white;
+}
+.faqtitle {
+  color: goldenrod;
+}

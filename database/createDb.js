@@ -56,9 +56,6 @@ function createDb() {
                 action = new CalcStats.CalcStats(resolve, options.calcLocation);
                 actionChain.push(action);
             });
-            // promise.catch(function(reason) {
-            //     console.log("Rejection Reason: ", reason);
-            // });
             promiseChain.push(promise);
         }
         if(options.getYoutubeURLs) {

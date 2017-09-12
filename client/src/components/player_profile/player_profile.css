@@ -1,0 +1,97 @@
+#profile-card, #matches_stream{
+    color: #ffdf06;
+    /*border: 3px solid #ffdf06;*/
+    border-radius: 10px;
+}
+
+h3 {
+    margin: 0;
+}
+.tab-pane {
+    margin-top: 10px;
+}
+.match-box {
+    padding-bottom: 1vw;
+}
+@media (max-width: 768px){
+    #container{
+        width:99%;
+    }
+}
+.value{
+    font-family: "Bangla Sangam MN";
+    font-size: 16px;
+}
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px black;
+}
+.recent_match{
+  overflow-y: scroll;
+  white-space: nowrap;
+  margin-top: 30px;
+  height: 30vh;
+
+}
+.recent_tournament{
+  overflow-y: scroll;
+  height: 130px;
+  /*border: 1px solid #ffdf06;*/
+  padding: 2px;
+  border-radius: 5px;
+}
+.recent_tournament:hover{
+    content: '';
+    position: absolute;
+    height: 210px;
+    background-color: #333333;
+    width: 95%;
+    z-index: 10;
+}
+.recent_tournament > div {
+    margin-left: 10px;
+}
+.theader{
+  font-weight: bolder;
+  color: white;
+}
+.char_img_sizing{
+  width: 50px;
+  height: 50px;
+}
+.toggle{
+  height: 45vh;
+}
+.hidden{
+  display: none;
+}
+.profile_resizing{
+  width: 100px;
+  height: 100px;
+}
+.youtube_icon{
+  width: 30px;
+  height: 30px;
+}
+.recent_tournament_tag{
+  margin-bottom: 0px;
+  font-size: 20px;
+  text-decoration: underline;
+}
+.back_button{
+  vertical-align: top;
+}
+.player_image{
+  border-radius: 10px;
+}
+.player_information{
+  /*background: rgba(28, 27, 27, 0.5);*/
+  border-radius: 10px;
+}

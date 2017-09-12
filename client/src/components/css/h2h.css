@@ -1,0 +1,51 @@
+.container {
+  margin-top: 35px;
+}
+
+.h2h-player-box {
+  border-radius: 10px;
+  border: solid 4px #f7d709;
+  padding: 10px;
+}
+
+.h2h-player-info {
+  color: #f7d709;
+  display: inline-block;
+}
+
+.h2h-characters {
+  width: 50px;
+  height: 50px;
+}
+
+.h2h-info-label {
+  color: #f7d709;
+}
+
+.h2h-set-count {
+  color: #f7d709;
+  text-align: center;
+}
+
+.h2h-set-count-title {
+  color: #f7d709;
+  text-align: center;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+.h2h-recent-match {
+  overflow-y: scroll;
+  white-space: nowrap;
+  margin-top: 30px;
+  height: 25vh;
+}
+
+.center {
+  text-align: center;
+  color: white;
+}
+
+.hidden {
+  display: ;
+}

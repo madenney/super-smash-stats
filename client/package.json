@@ -28,11 +28,11 @@
     "bundle": "node_modules/.bin/webpack --config webpack.deploy.config.js --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Scott Bowler",
+  "author": "Dennis Dang, Khanh Nguyen, David Sung, Howard Kim, Matt Denney",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Learning-Fuze/react_starter.git"
+    "url": "https://github.com/madenney/super-smash-stats"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -44,8 +44,10 @@
     "react-favicon": "0.0.9",
     "react-redux": "^5.0.2",
     "react-router-dom": "^4.1.2",
+    "react-scroll": "^1.5.4",
     "react-slick": "^0.14.11",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.13.2",
