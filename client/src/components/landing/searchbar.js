@@ -25,8 +25,7 @@ export default class SearchBar extends Component {
             player2,
             vsSpace: "",
             vs: false,
-            android: false,
-            testString: "Hello World"
+            android: false
         };
     }
 
@@ -36,9 +35,7 @@ export default class SearchBar extends Component {
 
         if(e.keyCode === 229) {
             this.android = true;
-            this.setState({
-                testString: 'hey'
-            });
+            this.forceUpdate();
             return;
         }
         if(e.preventDefault){
@@ -373,7 +370,7 @@ export default class SearchBar extends Component {
         }
     }
 
-    doStuff(e) {
+    doStuff() {
         if(this.android){
             let x = this.searchInput.value;
             let c = 0;
@@ -386,18 +383,11 @@ export default class SearchBar extends Component {
                 }
             }
             this.searchInput.value = '';
-            this.setState({
-                testString: 'key ' + x + ' code ' + c
-            });
             this.handleChange({
                 key: x,
                 keyCode: c
             });
             this.android = false;
-        } else {
-            this.setState({
-                testString: 'else statement'
-            })
         }
     }
 
@@ -441,7 +431,7 @@ export default class SearchBar extends Component {
                         e => this.handleChange(e)
                     }
                     onKeyUp={
-                        e => this.doStuff(e)
+                        this.doStuff()
                     }
                     ref={ip => {
                         this.searchInput = ip;
@@ -470,7 +460,6 @@ export default class SearchBar extends Component {
                         highlight={this.state.currentIndex}
                     />
                 </div>
-                <div id="testing">{this.state.testString}</div>
             </div>
         );
     }
