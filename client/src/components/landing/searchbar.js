@@ -32,18 +32,6 @@ export default class SearchBar extends Component {
     handleChange(e) {
         // To navigate somewhere:
         // this.props.history.push('/destination');
-
-        if(e.keyCode === 229) {
-            this.android = true;
-            this.setState({
-                autocomCards: []
-            });
-            return;
-        }
-        if(e.preventDefault){
-            e.preventDefault();
-        }
-
         let {
             player1,
             player2,
@@ -53,6 +41,18 @@ export default class SearchBar extends Component {
             autocomCards,
             currentIndex
         } = this.state;
+
+        if(e.keyCode === 229) {
+            this.android = true;
+            this.setState({
+                complete
+            });
+            return;
+        }
+        if(e.preventDefault){
+            e.preventDefault();
+        }
+
         let charCode = e.keyCode;
         let key = e.key;
         //console.log("Key: " + key + " charCode: " + charCode);
