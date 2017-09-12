@@ -36,9 +36,9 @@ export default class SearchBar extends Component {
 
         if(e.keyCode === 229) {
             this.android = true;
-            this.setState({
-                testString: 'hey'
-            });
+            // this.setState({
+            //     testString: 'hey'
+            // });
             return;
         }
         if(e.preventDefault){
