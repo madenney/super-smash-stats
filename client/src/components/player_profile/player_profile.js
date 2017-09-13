@@ -28,7 +28,7 @@ class PlayerProfile extends Component{
   }
   //gets value of tournament AND filters out the ones that are equal to have match
   grabTournamentName(e){
-    const tournament_selected =  e.currentTarget.textContent;
+    const tournament_selected =  e.currentTarget.value;
     const {matches} = this.props;
     this.props.filterTournamentMatches(tournament_selected, matches);
   }
@@ -47,22 +47,17 @@ class PlayerProfile extends Component{
   //gets youtube url from img src
   getYtUrl(e){
     const {match_active, yt_active} = this.state;
-    if (match_active == 'hidden'){
-      this.setState({
-        match_active: '',
-        yt_active: 'hidden'
-      });
-    }
-    else{
+    if (match_active == ''){
       this.setState({
         match_active: 'hidden',
         yt_active: ''
-      })
+      });
     }
     if(!e){
       console.log('event is not there no worries!');
     }
     else{
+      console.log('this is getting to the click!');
       this.setState({
         yt_url: e.target.getAttribute('data')
       });
@@ -79,6 +74,13 @@ class PlayerProfile extends Component{
         </div>
       )
     }
+    const player_picture = this.getImage(profile.tag);
+    const pic_bg = {
+      backgroundImage: `url(${player_picture})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+
+    }
     // console.log('this is the tiournament state: ', tournament_matches[0]);
     return(
       //general profile picture
@@ -86,29 +88,30 @@ class PlayerProfile extends Component{
         <div className='row'>
   			<div id="profile-card" className="col-xs-12 col-md-12">
   				<div className="row">
-  					<div className="col-sm-10 col-xs-6 col-md-8 col-lg-4">
-  			      <img className={`${profile_picture} player_image`} src={this.getImage(profile.tag)}/>
-  					</div>
+  					<div style={pic_bg} className="col-sm-6 col-xs-3 col-md-4 col-lg-3 player_image">
+  			      {/* <img className='player_image' src={this.getImage(profile.tag)}/> */}
+						  <h2 className="player_tag">{profile.tag}</h2>
+          	</div>
   					<div className="col-sm-4 col-md-6 col-xs-6 col-lg-4 ">
-  						<h2 id="player_tag">{profile.tag}</h2>
+
               <h4 id='player_rank' >Name: {profile.name}</h4>
-  						<h4 id="player_rank" >ELO Rank: {profile.rank}</h4>
+  						{/* <h4 id="player_rank" >ELO Rank: {profile.rank}</h4> */}
   						<p id="location" >Location: {profile.location}</p>
   						<p>Mains:</p>
               <img className='char_img_sizing' src={images[`characters/${profile.main}.png`]}/>
   						<img className='char_img_sizing' src={images[`characters/${profile.secondary}.png`] ? images[`characters/${profile.secondary}.png`] : images['no_character.png']}/>
   						<p>Total Matches Played: {profile.total_matches_played}</p>
   					</div>
-  					<div className="col-sm-4 col-md-6 col-xs-6 col-lg-4">
+  					<div className="player_links col-sm-6 col-md-6 col-xs-6 col-lg-4">
   						<p>Twitter:
   						    <a target='_blank' href={`http:\/\/www.twitter.com\/${profile.twitter}`}> {profile.twitter}</a></p>
   						<p>Twitch:
-                            <a target='_blank' href={`http:\/\/www.twitch.tv\/${profile.twitch}`}> {profile.twitch}</a></p>
+                  <a target='_blank' href={`http:\/\/www.twitch.tv\/${profile.twitch}`}> {profile.twitch}</a></p>
   						<p>Sponsors: {profile.sponsor}</p>
-              <p className='recent_tournament_tag'>Recent Tournaments:</p>
-              <div className='recent_tournament'>
-                <TournamentHistory tournaments_attended = {tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
-              </div>
+            </div>
+            <p className='recent_tournament_tag'>Select a Tournament:</p>
+            <div className='recent_tournament col-xs-12 col-sm-12 col-md-3 col-lg-3'>
+              <TournamentHistory tournaments_attended = {tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
             </div>
   				</div>
   			</div>
@@ -116,20 +119,22 @@ class PlayerProfile extends Component{
   		<div className='row'>
   			<div id="matches_stream" className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
           <div className='col-md-12'>
-            <div className={`${match_active} recent_match col-xs-12 col-md-12 col-md-12`} id='tournament_data' >
+            <div className={`recent_match col-xs-12 col-md-12 col-md-12`} id='tournament_data' >
               <h3>{tournament_selected}</h3>
               <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.props.tournament_matches} player_name = {profile.tag}/>
             </div>
-            <div className={`col-md-12 ${yt_active}`}>
-              <button className='back_button btn btn-outline-danger' onClick={()=>this.getYtUrl()}>Back</button>
-              <iframe frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
-            </div>
+
           </div>
 
   			</div>
         <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
-          {/* <button onClick={(e)=>this.toggleDisplay(e)} type='false' className='btn btn-outline-primary pull-right'>{button_descrip}</button> */}
-          <PlayerChart game_data = {profile} />
+          <div className={`${match_active}`}>
+            <PlayerChart game_data = {profile} />
+          </div>
+          <div className={`${yt_active}`}>
+            {/* <button className='back_button btn btn-outline-danger' onClick={()=>this.getYtUrl()}>Back</button> */}
+            <iframe frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
+          </div>
         </div>
   		</div>
     </div>
