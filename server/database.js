@@ -8,7 +8,7 @@ var _ = require('lodash');
 
 
 
-exports.Database = function(options) {
+exports.Database = function() {
 
     this.autocomplete = function(res, input, page = 1, resultsPerPage = 20, getPages = 'false') {
 
@@ -282,11 +282,8 @@ exports.Database = function(options) {
         for(var i = 0; i < history.length; i++) {
             if(history[i].winner === player1.tag) {
                 p1Wins++;
-            } else if (history[i].winner === player2.tag) {
-                p2Wins++;
             } else {
-                console.log("HOW DID YOU EVEN GET HERE");
-                return false;
+                p2Wins++;
             }
 
             var re = /(?:.*?\/){2}(.*)/;
@@ -295,11 +292,8 @@ exports.Database = function(options) {
                 if(yearlyHistory[j].year === year) {
                     if(history[i].winner === player1.tag) {
                         yearlyHistory[j].p1Wins++;
-                    } else if (history[i].winner === player2.tag) {
-                        yearlyHistory[j].p2Wins++;
                     } else {
-                        console.log("HOW DID YOU EVEN GET HERE. TELL ME.");
-                        return false;
+                        yearlyHistory[j].p2Wins++;
                     }
                     break;
                 }
@@ -311,15 +305,12 @@ exports.Database = function(options) {
                         p2Wins: 0,
                         year
                     });
-                } else if (history[i].winner === player2.tag) {
+                } else {
                     yearlyHistory.push({
                         p1Wins: 0,
                         p2Wins: 1,
                         year
                     });
-                } else {
-                    console.log("HOW DID YOU EVEN GET HERE. SERIOUSLY. HOW.");
-                    return false;
                 }
             }
         }
