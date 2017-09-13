@@ -74,11 +74,11 @@ class Navbar extends Component {
                 <div className="nav-button nav-link">FAQ</div>
               </li>
             </Link>
-            <Link onClick={() => this.checkShow()} to="/about">
+            {/* <Link onClick={() => this.checkShow()} to="/about">
               <li className="nav-item">
                 <div className="nav-button nav-link">About</div>
               </li>
-            </Link>
+            </Link> */}
           </ul>
         </div>
         {/* <NavBarSearch /> */}

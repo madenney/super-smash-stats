@@ -10,6 +10,7 @@ import Head2HeadProfile from "./h2h_profile/head2head_profile";
 import CharacterSelect from "./character_select/character_select";
 import Favicon from "react-favicon";
 import Faq from "./static_pages/faq";
+import "./css/animate.css";
 import "./css/app.css";
 
 export default () =>
