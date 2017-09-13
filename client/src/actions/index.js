@@ -65,7 +65,8 @@ export function getPlayerProfile(id) {
 						payload: {
 							matches: response.data,
 							tournaments_attended: tournaments,
-							tournament_matches: reverse_matches
+							tournament_matches: reverse_matches,
+							tournament_selected: tournaments[0]
 						}
 					});
 				});
