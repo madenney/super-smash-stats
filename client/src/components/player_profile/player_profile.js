@@ -18,7 +18,7 @@ class PlayerProfile extends Component{
       //state for the yt url based on the button clicks
       yt_url: '',
       //sets the states for the individual nav link tabs
-      match_active: '',
+      chart_active: '',
       yt_active: 'hidden'
     }
   }
@@ -44,12 +44,21 @@ class PlayerProfile extends Component{
       }
       return imageUrl;
   }
-  //gets youtube url from img src
-  getYtUrl(e){
-    const {match_active, yt_active} = this.state;
-    if (match_active == ''){
+  chartVisible(){
+    console.log('chart is now visible!');
+    const {chart_active, yt_active} = this.state;
+    if(chart_active === 'hidden'){
       this.setState({
-        match_active: 'hidden',
+        chart_active: '',
+        yt_active: 'hidden'
+      });
+    }
+  }
+  getYtUrl(e){
+    const {chart_active, yt_active} = this.state;
+    if (chart_active == ''){
+      this.setState({
+        chart_active: 'hidden',
         yt_active: ''
       });
     }
@@ -65,7 +74,7 @@ class PlayerProfile extends Component{
   }
   render(){
     // console.log('this is the props for profile: ', this.props);
-    const { toggle, button_description, profile_picture, match_active, yt_active} = this.state;
+    const { toggle, button_description, profile_picture, chart_active, yt_active} = this.state;
     const {tournament_matches, profile, tournaments_attended, tournament_selected} = this.props;
     if(tournament_matches === undefined){
       return(
@@ -128,12 +137,12 @@ class PlayerProfile extends Component{
 
   			</div>
         <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
-          <div className={`${match_active}`}>
+          <div className={`${chart_active}`}>
             <PlayerChart game_data = {profile} />
           </div>
           <div className={`${yt_active}`}>
-            {/* <button className='back_button btn btn-outline-danger' onClick={()=>this.getYtUrl()}>Back</button> */}
             <iframe frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
+            <button className='back_button btn btn-outline-danger' onClick={()=>this.chartVisible()}>X</button>
           </div>
         </div>
   		</div>
