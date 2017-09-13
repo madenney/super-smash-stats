@@ -68,102 +68,110 @@ class Head2HeadProfile extends Component {
           <h1>
             {player1.tag} VERSUS {player2.tag}
           </h1>
-          <h2 className="center">Does Not Have Matches With Each Other!</h2>
+          <h2 className="text-center">Does Not Have Matches With Each Other!</h2>
         </div>
       );
     } else {
       const { match_active, yt_active } = this.state;
       const { id1, id2 } = this.props.match.params;
       return (
-        <div className="container">
+        <div className="container-fluid">
           {/* Player1 Profile Information */}
-          <div className="row">
-            <div className="col-md-5 player_box">
-              <div className="row">
-                <Link to={`/player_profile/${id1}`}>
+          <div className="row mt-5">
+            <div className="col-5">
+              <div className="row col-6">
+                <Link className="col-6 offset-3" to={`/player_profile/${id1}`}>
                   <img
-                    className="col-md-6"
+                    className="player-image"
                     src={
-                      images[`player_pic/${player1.tag}.png`]
-                        ? images[`player_pic/${player1.tag}.png`]
-                        : ProfilePlaceholder
+                      images[`player_pic/${player1.tag}.png`] ? (
+                        images[`player_pic/${player1.tag}.png`]
+                      ) : (
+                        ProfilePlaceholder
+                      )
                     }
                   />
                 </Link>
-                <div className="col-md-6">
-                  <h2 className="h2h-player-info">
-                    {player1.tag}
-                  </h2>
-                  <h4 className="h2h-player-info">
+                <div className="col-12">
+                  <h2 className="player-info">{player1.tag}</h2>
+                  <h4 className="player-info">
                     Location: {player1.location}
                   </h4>
-                  <p className="h2h-info-label">Main: </p>
-                  <img
-                    className="h2h-characters"
-                    src={images[`characters/${player1.main}.png`]}
-                  />
-                  <img
-                    className="h2h-characters"
-                    src={
-                      images[`characters/${player1.secondary}.png`]
-                        ? images[`characters/${player1.secondary}.png`]
-                        : images["no_character.png"]
-                    }
-                  />
+                  <p className="player-info">Main: </p>
+                  <div className="row">
+                    <img
+                      className="player-characters col-4"
+                      src={images[`characters/${player1.main}.png`]}
+                    />
+                    <img
+                      className="player-characters col-4"
+                      src={
+                        images[`characters/${player1.secondary}.png`] ? (
+                          images[`characters/${player1.secondary}.png`]
+                        ) : (
+                          images["no_character.png"]
+                        )
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-md-2">
+          {/*versus column bar*/}
+            <div className="col-2">
               <h1 className="h2h-info-label">VERSUS</h1>
-              <h3 className="h2h-set-count-title">Set Count 2017</h3>
-              <h2 className="h2h-set-count">
+              <h3 className="h2h-info-label">Set Count 2017</h3>
+              <h2 className="h2h-info-label">
                 {yearlyHistory[0].p1Wins} - {yearlyHistory[0].p2Wins}
               </h2>
             </div>
             {/* Player 2 Profile Information */}
-            <div className="col-md-5 h2h-player-box">
-              <div className="row">
-                <Link to={`/player_profile/${id2}`}>
+            <div className="col-5">
+              <div className="row col-6">
+                <Link className="col-6 offset-3" to={`/player_profile/${id2}`}>
                   <img
-                    className="col-md-6"
+                    className="player-image"
                     src={
-                      images[`player_pic/${player2.tag}.png`]
-                        ? images[`player_pic/${player2.tag}.png`]
-                        : ProfilePlaceholder
+                      images[`player_pic/${player2.tag}.png`] ? (
+                        images[`player_pic/${player2.tag}.png`]
+                      ) : (
+                        ProfilePlaceholder
+                      )
                     }
                   />
                 </Link>
-                <div className="col-md-6">
-                  <h2 className="h2h-player-info">
-                    {player2.tag}
-                  </h2>
-                  <h4 className="h2h-player-info">
+                <div className="col-12">
+                  <h2 className="player-info">{player2.tag}</h2>
+                  <h4 className="player-info">
                     Location: {player2.location}
                   </h4>
-                  <p className="h2h-info-label">Main: </p>
-                  <img
-                    className="h2h-characters"
-                    src={images[`characters/${player2.main}.png`]}
-                  />
-                  <img
-                    className="h2h-characters"
-                    src={
-                      images[`characters/${player2.secondary}.png`]
-                        ? images[`characters/${player2.secondary}.png`]
-                        : images["no_character.png"]
-                    }
-                  />
+                  <p className="player-info">Main: </p>
+                  <div className="row">
+                    <img
+                      className="player-characters col-4"
+                      src={images[`characters/${player2.main}.png`]}
+                    />
+                    <img
+                      className="player-characters col-4"
+                      src={
+                        images[`characters/${player2.secondary}.png`] ? (
+                          images[`characters/${player2.secondary}.png`]
+                        ) : (
+                          images["no_character.png"]
+                        )
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           {/* Match History For Players */}
-          <div className="row">
-            <div id="matches_stream" className="col-xs-16 col-md-6">
+          <div className="row mt-5">
+            <div className="col-6 player-tournament">
               <div className="col-md-12">
                 <div
-                  className={`${match_active} h2h-recent-match col-md-12`}
-                  id="tournament_data"
+                  className={`${match_active} h2h-recent-match`}
                 >
                   <h3>Tournament Details</h3>
                   <H2HMatchHistory
@@ -187,7 +195,7 @@ class Head2HeadProfile extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-6">
               <H2HPlayerChart
                 game_data={yearlyHistory}
                 player1={player1}

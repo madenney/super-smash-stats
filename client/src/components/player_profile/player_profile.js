@@ -11,6 +11,7 @@ import TournamentHistory from './tournament_history';
 import MatchHistory from './match_history';
 import PlayerChart from './player_charts';
 import './player_profile.css';
+
 class PlayerProfile extends Component{
   constructor(props){
     super(props);
