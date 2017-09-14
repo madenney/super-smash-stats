@@ -1,4 +1,5 @@
 .landingPage {
+	position: relative;
 	margin-top: 10%;
 }
 
@@ -31,9 +32,24 @@
 	animation: hoverblink 1s linear alternate infinite;
 	font-family: pressStart;
 }
-.container--searchbar{
+
+.container--searchbar {
 	height: 100vh;
 }
-.container--featured-players{
+
+.container--featured-players {
 	height: 100vh;
+}
+
+.fa-chevron--margin {
+	position: absolute;
+	top: 60%;
+	left: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+	.fa-chevron--margin {
+		top: 60%;
+		left: 80%;
+	}
 }

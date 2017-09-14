@@ -114,17 +114,26 @@ select{
   /*font-weight: bold;*/
   font-size: 1.25em;
 }
+
+@media screen and (max-width: 576px) {
+  .recent_tournament_tag {
+    margin-left: 15px;
+  }
+}
+
 @media screen and (max-width: 470px) {
   .yt-player{
     height: 150px;
     width: 290px;
   }
 }
+
 @media screen and (max-width: 470px) {
   .chart-display{
     display: none;
   }
 }
+
 @font-face {
   font-family: pressStart;
   src: url(../imgs/PressStart2P.ttf) format('truetype');

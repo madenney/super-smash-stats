@@ -65,7 +65,7 @@ class Head2HeadProfile extends Component {
 
     if (matches.length == 0) {
       return (
-        <div className="container">
+        <div className="container mt-5">
           <h1>
             {player1.tag} VERSUS {player2.tag}
           </h1>

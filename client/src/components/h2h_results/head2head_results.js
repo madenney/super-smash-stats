@@ -19,7 +19,7 @@ class Head2HeadResults extends Component {
   }
   render() {
     if (this.props.h2h_results === null) {
-      return <h1>Loading...</h1>;
+      return <h1 className="mt-5">Loading...</h1>;
     } else {
       console.log("this props h2h: ", this.props.h2h_results);
       const { name, player1, player2results } = this.props.h2h_results;
