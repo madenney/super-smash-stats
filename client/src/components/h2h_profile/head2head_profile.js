@@ -7,6 +7,7 @@ import images from "../features/img_filter";
 import ProfilePlaceholder from "../imgs/ProfilePlaceholder.gif";
 import H2HMatchHistory from "./h2hmatches";
 import H2HPlayerChart from "./h2hplayer_charts";
+import ProfileCard from "./h2h_profile_card";
 import "../css/h2h.css";
 
 class Head2HeadProfile extends Component {
@@ -50,7 +51,7 @@ class Head2HeadProfile extends Component {
     console.log("this.props after h2hprofiles", this.props.results);
 
     if (!this.props.results) {
-      return <h1>Loading...</h1>;
+      return <h1 className="mt-5">Loading...</h1>;
     }
 
     const {
@@ -68,104 +69,49 @@ class Head2HeadProfile extends Component {
           <h1>
             {player1.tag} VERSUS {player2.tag}
           </h1>
-          <h2 className="center">Does Not Have Matches With Each Other!</h2>
+          <h2 className="text-center">
+            Does Not Have Matches With Each Other!
+          </h2>
         </div>
       );
     } else {
       const { match_active, yt_active } = this.state;
       const { id1, id2 } = this.props.match.params;
       return (
-        <div className="container">
-          {/* Player1 Profile Information */}
-          <div className="row">
-            <div className="col-md-5 player_box">
-              <div className="row">
-                <Link to={`/player_profile/${id1}`}>
-                  <img
-                    className="col-md-6"
-                    src={
-                      images[`player_pic/${player1.tag}.png`]
-                        ? images[`player_pic/${player1.tag}.png`]
-                        : ProfilePlaceholder
-                    }
-                  />
-                </Link>
-                <div className="col-md-6">
-                  <h2 className="h2h-player-info">
-                    {player1.tag}
-                  </h2>
-                  <h4 className="h2h-player-info">
-                    Location: {player1.location}
-                  </h4>
-                  <p className="h2h-info-label">Main: </p>
-                  <img
-                    className="h2h-characters"
-                    src={images[`characters/${player1.main}.png`]}
-                  />
-                  <img
-                    className="h2h-characters"
-                    src={
-                      images[`characters/${player1.secondary}.png`]
-                        ? images[`characters/${player1.secondary}.png`]
-                        : images["no_character.png"]
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-md-2">
+        <div className="container-fluid">
+          <div className="row my-5">
+            {/* Player1 Profile Information */}
+            <ProfileCard
+              id={id1}
+              tag={player1.tag}
+              main={player1.main}
+              secondary={player1.secondary}
+              location={player1.location}
+            />
+            {/*versus column bar*/}
+            <div className="col-md-2 my-5">
               <h1 className="h2h-info-label">VERSUS</h1>
-              <h3 className="h2h-set-count-title">Set Count 2017</h3>
-              <h2 className="h2h-set-count">
+              <h3 className="h2h-info-label">Set Count 2017</h3>
+              <h2 className="h2h-info-label">
                 {yearlyHistory[0].p1Wins} - {yearlyHistory[0].p2Wins}
               </h2>
             </div>
             {/* Player 2 Profile Information */}
-            <div className="col-md-5 h2h-player-box">
-              <div className="row">
-                <Link to={`/player_profile/${id2}`}>
-                  <img
-                    className="col-md-6"
-                    src={
-                      images[`player_pic/${player2.tag}.png`]
-                        ? images[`player_pic/${player2.tag}.png`]
-                        : ProfilePlaceholder
-                    }
-                  />
-                </Link>
-                <div className="col-md-6">
-                  <h2 className="h2h-player-info">
-                    {player2.tag}
-                  </h2>
-                  <h4 className="h2h-player-info">
-                    Location: {player2.location}
-                  </h4>
-                  <p className="h2h-info-label">Main: </p>
-                  <img
-                    className="h2h-characters"
-                    src={images[`characters/${player2.main}.png`]}
-                  />
-                  <img
-                    className="h2h-characters"
-                    src={
-                      images[`characters/${player2.secondary}.png`]
-                        ? images[`characters/${player2.secondary}.png`]
-                        : images["no_character.png"]
-                    }
-                  />
-                </div>
-              </div>
-            </div>
+            <ProfileCard
+              id={id2}
+              tag={player2.tag}
+              main={player2.main}
+              secondary={player2.secondary}
+              location={player2.location}
+              flip={true}
+            />
           </div>
           {/* Match History For Players */}
           <div className="row">
-            <div id="matches_stream" className="col-xs-16 col-md-6">
-              <div className="col-md-12">
-                <div
-                  className={`${match_active} h2h-recent-match col-md-12`}
-                  id="tournament_data"
-                >
-                  <h3>Tournament Details</h3>
+            <div className="col-12 col-md-6 my-5 player-tournament">
+              <div className="col-12">
+                <div className={`${match_active} h2h-recent-match`}>
+                  <h3>Match History</h3>
                   <H2HMatchHistory
                     youtube_url_info={e => this.getYtUrl(e)}
                     matches={matches}
@@ -187,7 +133,7 @@ class Head2HeadProfile extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-xs-12 col-md-6 my-5 chart-display">
               <H2HPlayerChart
                 game_data={yearlyHistory}
                 player1={player1}

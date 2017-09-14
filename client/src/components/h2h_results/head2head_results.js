@@ -4,6 +4,7 @@ import axios from "axios";
 import { getH2HResults } from "../../actions";
 import Head2HeadPlayerCards from "./h2hplayercardresults";
 import "../css/stylish.css";
+
 class Head2HeadResults extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +12,8 @@ class Head2HeadResults extends Component {
       searchValue: this.props.match.params
     };
   }
-  componentWillMount() {
+  
+  componentDidMount() {
     const { id1, search } = this.props.match.params;
     this.props.getH2HResults(id1, search);
   }
