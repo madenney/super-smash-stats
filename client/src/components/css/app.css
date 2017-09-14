@@ -2,5 +2,5 @@ body {
 	user-select: none;
 	font-family: Aero;
 	background-image: url('../../../dist/bg-galaxy.png');
-	background-size: cover;
+	background-size: center;
 }
