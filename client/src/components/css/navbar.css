@@ -40,13 +40,13 @@ nav {
 }
 
 .nav-item {
-  border-bottom: 1px solid transparent;
+  /*border-bottom: 2px solid transparent;*/
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .nav-item:hover {
   animation: hoverblink 0.75s linear alternate infinite;
-  border-bottom: 2px solid #b7afca;
-  border-radius: 5px;
+  /*border-bottom: 2px solid #b7afca;
+  border-radius: 5px;*/
 }
-

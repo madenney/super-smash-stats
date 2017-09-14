@@ -24,6 +24,7 @@
 .player_card:hover {
   opacity: 1;
 }
+
 .player_card:hover:after {
   animation: borderglow 0.5s infinite linear alternate;
 }
@@ -46,6 +47,7 @@
   position: absolute;
   bottom: 0;
 }
+
 .player_card:hover .player_text {
   visibility: visible;
   opacity: 1;
@@ -70,5 +72,21 @@
   }
   100% {
     border: solid yellow 5px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .player_card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .player_card:after {
+    width: 100px;
+    height: 100px;
+  }
+
+  .player_text {
+    font-size: 1rem;
   }
 }

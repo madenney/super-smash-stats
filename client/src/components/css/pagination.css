@@ -4,8 +4,7 @@
     width: 80vw;
 }
 
-.page-container div,
-.paginEdge {
+.page-container div {
     font-family: pressStart;
     display: inline-block;
     height: 30px;
@@ -29,21 +28,13 @@
     border-radius: 5px;
 }
 
-.pagination--break {
-    display: inline-block;
-}
-
-.pagination--keys {
+.pagination--break, .pagination--keys {
     display: inline-block;
 }
 
 .pagination--active {
     font-size: 1.5em;
     border-bottom: ;
-}
-
-.page-numbers {
-    width: 20%;
 }
 
 @keyframes paginGlow {
@@ -60,3 +51,16 @@
         opacity: 1;
     }
 }
+
+@media only screen and (max-width: 990px) { 
+    .pagination--keys a:last-child {
+    margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 470px) { 
+    .pagination--keys a:nth-child(2) {
+    margin-left: 30px;
+    }
+}
+

@@ -39,9 +39,9 @@ class SearchResults extends Component {
             return <h1 className="mt-5">Loading...</h1>;
         }
         return (
-            <div className="container results--fromDarkness">
+            <div className="container results--fromDarkness mt-5">
                 <div className="row">
-                    <div className="col-12 mx-auto">
+                    <div className="col-12 mx-5">
                         <h1>Player Search Results!</h1>
                         <PopulatePlayerCards
                             card={this.props.results.player_cards}
