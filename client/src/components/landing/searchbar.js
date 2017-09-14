@@ -24,13 +24,23 @@ export default class SearchBar extends Component {
             player1,
             player2,
             vsSpace: "",
-            vs: false
+            vs: false,
+            android: false,
+            testString: "Hello World"
         };
     }
 
     handleChange(e) {
         // To navigate somewhere:
         // this.props.history.push('/destination');
+
+        if(e.keyCode === 229) {
+            this.android = true;
+            return;
+        }
+        if(e.preventDefault){
+            e.preventDefault();
+        }
 
         let {
             player1,
@@ -41,7 +51,6 @@ export default class SearchBar extends Component {
             autocomCards,
             currentIndex
         } = this.state;
-        e.preventDefault();
         let charCode = e.keyCode;
         let key = e.key;
         //console.log("Key: " + key + " charCode: " + charCode);
@@ -217,7 +226,7 @@ export default class SearchBar extends Component {
                 this.setState({ vsSpace: "" });
             } else {
                 if (player2.name.length === 0) {
-                    this.setState({ vs: false });
+                    this.setState({ vs: false});
                 } else {
                     player2.name = player2.name.substr(
                         0,
@@ -361,8 +370,33 @@ export default class SearchBar extends Component {
         }
     }
 
+    doStuff() {
+        if(this.android){
+            let x = this.searchInput.value;
+            let c = 0;
+            if(!x){
+                c = 8
+            } else {
+                c = x.charCodeAt(0);
+                if(c >= 97 && c <= 122){
+                    c = c - 32;
+                }
+            }
+            this.searchInput.value = '';
+            this.setState({
+                nothing: 'nothing'
+            });
+            this.handleChange({
+                key: x,
+                keyCode: c
+            });
+            this.android = false;
+        }
+    }
+
     buildOutput() {
         const { player1, player2, vs, vsSpace, complete } = this.state;
+
         return (
             <div
                 className="searchBar"
@@ -396,7 +430,12 @@ export default class SearchBar extends Component {
                     autoFocus
                     className="inputLine"
                     type="text"
-                    onKeyDown={e => this.handleChange(e)}
+                    onKeyDown={
+                        e => this.handleChange(e)
+                    }
+                    onKeyUp={
+                        this.doStuff()
+                    }
                     ref={ip => {
                         this.searchInput = ip;
                     }}

@@ -14,17 +14,16 @@ export function frontPagePlayers() {
 		});
 }
 
-export function getSearchResults(search, id) {
+export function getSearchResults(search, id, totalPageBoolean) {
 	return dispatch => {
 		axios
 			.post("/autocomplete", {
 				input: search,
 				pageNum: id,
 				resultsPerPage: 20,
-				getTotalPages: true
+				getTotalPages: `${totalPageBoolean ? false: true}`
 			})
 			.then(response => {
-				console.log("response", response);
 				dispatch({
 					type: types.GET_SEARCH_RESULTS,
 					payload: {
