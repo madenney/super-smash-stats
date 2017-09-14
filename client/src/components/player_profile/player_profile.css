@@ -36,7 +36,6 @@ h3 {
 .recent_match{
   overflow-y: scroll;
   white-space: nowrap;
-  margin-top: 30px;
   height: 30vh;
 
 }
@@ -66,13 +65,13 @@ h3 {
   margin-bottom: 0px;
   font-size: 20px;
   text-decoration: underline;
+  color: #ffdf06;
 }
 .back_button{
   vertical-align: top;
 }
 .player_image{
-  width: 200px;
-  height: 200px;
+  height: 250px;
   overflow-wrap: break-word;
   position: relative;
   margin: 0.2%;
@@ -84,24 +83,53 @@ h3 {
   border-radius: 4px;
   width: 100%;
   text-align: center;
-  opacity: 0.75;
+  opacity: 0.9;
   background-color: black;
   color: white;
   position: absolute;
   bottom: 0;
+  margin-bottom: 0;
 }
 .player_image:hover .player_tag {
   visibility: visible;
   opacity: 1;
 }
 .player_information{
-  /*background: rgba(28, 27, 27, 0.5);*/
   border-radius: 10px;
 }
 
+.tournament-selected, .table-content, .player_info{
+  color: #ffdf06;
+}
 
-/*@media screen and (min-height: 300px) {
-  .player_links {
+.table-hover:hover{
+  animation: hoverblink 0.75s alternate infinite;
+}
+
+select{
+  color: #ffdf06;
+  font-family: Aero;
+  background-color: transparent;
+  height: 45px;
+  /*font-weight: bold;*/
+  font-size: 1.25em;
+}
+@media screen and (max-width: 470px) {
+  .yt-player{
     height: 150px;
+    width: 290px;
   }
-}*/
+}
+@media screen and (max-width: 470px) {
+  .chart-display{
+    display: none;
+  }
+}
+@font-face {
+  font-family: pressStart;
+  src: url(../imgs/PressStart2P.ttf) format('truetype');
+}
+@font-face {
+  font-family: Aero;
+  src: url(../imgs/Aero.ttf) format('truetype');
+}
