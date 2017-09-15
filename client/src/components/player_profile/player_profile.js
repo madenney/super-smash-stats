@@ -93,38 +93,38 @@ class PlayerProfile extends Component{
     return(
       //general profile picture
       <div className='container'>
-          <div className="row mt-5">
-            <div style={pic_bg} className="col-sm-6 offset-sm-2 col-md-4 col-lg-3 mb-3 player_image">
-              {/* <img className='player_image' src={this.getImage(profile.tag)}/> */}
-              <h2 className="player_tag">{profile.tag}</h2>
-            </div>
-            <div className="player_info col-sm-4 col-md-6 col-xs-6 col-lg-4">
+  				<div className="row">
+  					<div style={pic_bg} className="col-sm-6 offset-sm-2 col-md-4 col-lg-3 player_image">
+  			      {/* <img className='player_image' src={this.getImage(profile.tag)}/> */}
+						  <h2 className="player_tag">{profile.tag}</h2>
+          	</div>
+  					<div className="player_info col-sm-4 col-md-6 col-xs-6 col-lg-4 offset-sm-1">
 
               <h4 id='player_rank' >{profile.name}</h4>
-              {/* <h4 id="player_rank" >ELO Rank: {profile.rank}</h4> */}
-              <p id="location" >Region: {profile.location}</p>
-              <p>Mains:</p>
+  						{/* <h4 id="player_rank" >ELO Rank: {profile.rank}</h4> */}
+  						<p id="location" >Region: {profile.location}</p>
+  						<p>Mains:</p>
               <img className='char_img_sizing' src={images[`characters/${profile.main}.png`]}/>
-              <img className='char_img_sizing' src={images[`characters/${profile.secondary}.png`] ? images[`characters/${profile.secondary}.png`] : images['no_character.png']}/>
-              <p className="mt-3">Total Matches: {profile.total_matches_played}</p>
-            </div>
-            {/* <div className="player_links col-sm-6 col-md-6 col-xs-6 col-lg-4">
-              <p>Twitter:
-                  <a target='_blank' href={`http:\/\/www.twitter.com\/${profile.twitter}`}> {profile.twitter}</a></p>
-              <p>Twitch:
+  						<img className='char_img_sizing' src={images[`characters/${profile.secondary}.png`] ? images[`characters/${profile.secondary}.png`] : images['no_character.png']}/>
+  						<p>Total Matches: {profile.total_matches_played}</p>
+  					</div>
+  					{/* <div className="player_links col-sm-6 col-md-6 col-xs-6 col-lg-4">
+  						<p>Twitter:
+  						    <a target='_blank' href={`http:\/\/www.twitter.com\/${profile.twitter}`}> {profile.twitter}</a></p>
+  						<p>Twitch:
                   <a target='_blank' href={`http:\/\/www.twitch.tv\/${profile.twitch}`}> {profile.twitch}</a></p>
-              <p>Sponsors: {profile.sponsor}</p>
+  						<p>Sponsors: {profile.sponsor}</p>
               <p>Tidbit: This is the place for tidbits!</p>
             </div> */}
-      </div>
+  		</div>
       <div className='row my-5'>
         <p className='recent_tournament_tag'>Select Tournament:</p>
         <div className='recent_tournament col-xs-12 col-sm-12 col-md-3 col-lg-3'>
           <TournamentHistory tournaments_attended = {tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
         </div>
       </div>
-      <div className='row'>
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+  		<div className='row'>
+  			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
           <div className='col-md-12'>
             {/* <h3 className='tournament-selected'>{tournament_selected}</h3> */}
             <table className='table'>
@@ -142,7 +142,7 @@ class PlayerProfile extends Component{
 
           </div>
 
-        </div>
+  			</div>
         <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
           <div className={`chart-display ${chart_active}`}>
             <PlayerChart game_data = {profile} />
@@ -152,7 +152,7 @@ class PlayerProfile extends Component{
             <button className='back_button btn btn-outline-danger' onClick={()=>this.chartVisible()}>X</button>
           </div>
         </div>
-      </div>
+  		</div>
     </div>
     );
   }
