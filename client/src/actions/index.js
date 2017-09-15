@@ -21,7 +21,7 @@ export function getSearchResults(search, id, totalPageBoolean) {
 				input: search,
 				pageNum: id,
 				resultsPerPage: 20,
-				getTotalPages: `${totalPageBoolean ? false: true}`
+				getTotalPages: `${totalPageBoolean ? false : true}`
 			})
 			.then(response => {
 				dispatch({
@@ -124,6 +124,7 @@ export function getH2HResults(id1, search) {
 export function getH2HProfiles(id1, id2) {
 	return dispatch => {
 		axios.post("/head2headprofile", { id1, id2 }).then(response => {
+			console.log("h2hprofile results", response);
 			dispatch({
 				type: types.GET_H2H_PROFILES,
 				payload: response.data
