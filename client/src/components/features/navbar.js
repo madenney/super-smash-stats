@@ -32,8 +32,7 @@ class Navbar extends Component {
           className="navbar-toggler-icon navbar-toggler navbar-toggler-right collapsed"
           type="button"
           data-toggle="collapse"
-          data-target="#smashbar_collapse"
-        >
+          data-target="#smashbar_collapse">
           <span />
           <span />
           <span />
@@ -46,8 +45,7 @@ class Navbar extends Component {
         </Link>
         <div
           className={`collapse navbar-collapse ${this.state.show} mr-auto`}
-          id="smashbar_collapse"
-        >
+          id="smashbar_collapse">
           <ul className="nav navbar-nav mr-auto navbar-ul--width">
             <Link onClick={() => this.checkShow()} to="/">
               <li className="nav-item">
@@ -58,10 +56,9 @@ class Navbar extends Component {
             </Link>
             <Link
               onClick={() => this.checkShow()}
-              to="/character_select_screen"
-            >
+              to="/character_select_screen">
               <li className="nav-item">
-                <div className="nav-button nav-link disabled">Character Select</div>
+                <div className="nav-button nav-link">Character Select</div>
               </li>
             </Link>
             <Link onClick={() => this.checkShow()} to="/results/top_players/1">
