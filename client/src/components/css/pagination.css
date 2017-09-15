@@ -1,25 +1,40 @@
-#page-numbers div {
-    display: inline-block;
-    height: 30px;
-    width: 40px;
-    border: 1px solid #ffdf06;
-    background-color: #292b2c;
-    color: gold;
-    font-family: pressStart;
-    text-align: center;
-    border-radius: 10px;
-    margin-right: 2px;
-    overflow: hidden;
-}
-#page-numbers div:hover {
-    background-color: #0a0a0a;
-    color: white;
-    border-color: white;
+.page-container {
+    animation: fromDarkness 1.5s linear;
+    margin: 0 auto;
+    width: 80vw;
 }
 
-#page-numbers .active {
-    background-color: #0a0a0a;
-    color: white;
+.page-container div {
+    font-family: pressStart;
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+}
+
+.pagination--container {
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.pagination--pages {
+    display: inline-block;
+    width: 5%;
+}
+
+.pagination--pages:hover {
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+}
+
+.pagination--break, .pagination--keys {
+    display: inline-block;
+}
+
+.pagination--active {
+    font-size: 1.5em;
+    border-bottom: ;
 }
 
 @keyframes paginGlow {
@@ -27,7 +42,25 @@
         border: solid goldenrod 1px;
     }
 }
-#page-numbers .paginEdge {
-    width: 70px;
-    background-color: #0a0a0a;
+
+@-webkit-keyframes fromDarkness {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
+
+@media only screen and (max-width: 990px) { 
+    .pagination--keys a:last-child {
+    margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 470px) { 
+    .pagination--keys a:nth-child(2) {
+    margin-left: 30px;
+    }
+}
+

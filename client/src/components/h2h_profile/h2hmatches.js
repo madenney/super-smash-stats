@@ -25,18 +25,10 @@ const H2HMatchHistory = props => {
     }
     return (
       <tr key={index}>
-        <td>
-          {item.winner}
-        </td>
-        <td>
-          {item.score}
-        </td>
-        <td>
-          {item.tournament}
-        </td>
-        <td>
-          {video_src}
-        </td>
+        <td>{item.winner}</td>
+        <td>{item.score}</td>
+        <td>{item.tournament}</td>
+        <td>{video_src}</td>
       </tr>
     );
   });
@@ -50,9 +42,7 @@ const H2HMatchHistory = props => {
           <th>Video</th>
         </tr>
       </thead>
-      <tbody className="h2h-recent_match">
-        {indivd_matches}
-      </tbody>
+      <tbody className="h2h-recent_match">{indivd_matches}</tbody>
     </table>
   );
 };

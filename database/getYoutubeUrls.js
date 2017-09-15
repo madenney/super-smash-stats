@@ -124,6 +124,9 @@ exports.GetYoutubeURLs = function() {
         if(title.includes('doubles')) {
             return false;
         }
+        if(title.includes('reaction')){
+            return false;
+        }
         return true;
     }
 

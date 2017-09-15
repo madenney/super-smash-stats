@@ -142,67 +142,7 @@ a {
   color: gold;
   font-weight: bold;
 }
-.autocomplete {
-  top: 95%;
-  position: absolute;
-  display: block;
-  width: 75%;
-  background: linear-gradient(
-    285deg,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #15002f,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015,
-    #090015
-  );
-  z-index: 2000;
-  background-size: 600% 600%;
-  animation: sheen 5s ease infinite;
-  border-radius: 10px;
-  border: solid goldenrod 1px;
-}
-.autocomItem {
-  display: inline-block;
-  height: 35px;
-  font-size: 14px;
-}
-.autocomItem > div {
-  display: inline-block;
-  padding: 0;
-}
-.autocomPic {
-  height: 30px;
-  width: 30px;
-}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -226,69 +166,14 @@ a {
   padding: 14px;
   text-decoration: none;
 }
-.player_card {
-  overflow-wrap: break-word;
-  width: 200px;
-  height: 200px;
-  margin: 0.2%;
-  border-radius: 10px;
-  display: inline-block;
-  position: relative;
-  vertical-align: bottom;
-  opacity: 0.9;
-  padding: 0;
-}
-.player_card:after {
-  content: '';
-  border: solid #a4a4a4 1px;
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  display: inline-block;
-  position: relative;
-}
-.resultsContainer {
-  height: 850px;
-  width: 1100px;
-}
-.player_card:hover {
-  opacity: 1;
-}
-.player_card:hover:after {
-  animation: borderglow 0.5s infinite linear alternate;
-}
-@-webkit-keyframes borderglow {
-  0% {
-    border: solid red 5px;
-  }
-  100% {
-    border: solid yellow 5px;
-  }
-}
 
-#page-numbers {
-  animation: fromDarkness 4s linear;
-  margin: 0 auto;
-  width: 50%;
-}
+
+
 .form-control {
   border: 2px solid #ec971f;
 }
 
-.player_text {
-  border-radius: 4px;
-  width: 100%;
-  text-align: center;
-  background-color: black;
-  color: white;
-  opacity: 0.5;
-  position: absolute;
-  bottom: 0;
-}
-.player_card:hover .player_text {
-  visibility: visible;
-  opacity: 1;
-}
+
 /*SearchResults styling*/
 .search_results {
   height: 90vh;
@@ -359,10 +244,4 @@ h1 {
   margin-top: 80px;
 }
 
-.faq {
-  font-family: pressStart;
-  color: white;
-}
-.faqtitle {
-  color: goldenrod;
-}
+

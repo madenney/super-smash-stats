@@ -26,7 +26,7 @@ h3 {
   width: 12px;
 }
 ::-webkit-scrollbar-track{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px red;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb{
@@ -36,27 +36,8 @@ h3 {
 .recent_match{
   overflow-y: scroll;
   white-space: nowrap;
-  margin-top: 30px;
   height: 30vh;
 
-}
-.recent_tournament{
-  overflow-y: scroll;
-  height: 130px;
-  /*border: 1px solid #ffdf06;*/
-  padding: 2px;
-  border-radius: 5px;
-}
-.recent_tournament:hover{
-    content: '';
-    position: absolute;
-    height: 210px;
-    background-color: #333333;
-    width: 95%;
-    z-index: 10;
-}
-.recent_tournament > div {
-    margin-left: 10px;
 }
 .theader{
   font-weight: bolder;
@@ -84,14 +65,80 @@ h3 {
   margin-bottom: 0px;
   font-size: 20px;
   text-decoration: underline;
+  color: #ffdf06;
 }
 .back_button{
   vertical-align: top;
 }
 .player_image{
+  height: 250px;
+  overflow-wrap: break-word;
+  position: relative;
+  margin: 0.2%;
   border-radius: 10px;
+  vertical-align: bottom;
+  padding: 0;
+}
+.player_tag {
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+  opacity: 0.9;
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+}
+.player_image:hover .player_tag {
+  visibility: visible;
+  opacity: 1;
 }
 .player_information{
-  /*background: rgba(28, 27, 27, 0.5);*/
   border-radius: 10px;
+}
+
+.tournament-selected, .table-content, .player_info{
+  color: #ffdf06;
+}
+
+.table-hover:hover{
+  animation: hoverblink 0.75s alternate infinite;
+}
+
+select{
+  color: #ffdf06;
+  font-family: Aero;
+  background-color: transparent;
+  height: 45px;
+  /*font-weight: bold;*/
+  font-size: 1.25em;
+}
+
+@media screen and (max-width: 576px) {
+  .recent_tournament_tag {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .yt-player{
+    height: 150px;
+    width: 290px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .chart-display{
+    display: none;
+  }
+}
+
+@font-face {
+  font-family: pressStart;
+  src: url(../imgs/PressStart2P.ttf) format('truetype');
+}
+@font-face {
+  font-family: Aero;
+  src: url(../imgs/Aero.ttf) format('truetype');
 }
