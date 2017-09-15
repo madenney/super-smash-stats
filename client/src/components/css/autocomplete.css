@@ -1,0 +1,62 @@
+.autocomplete {
+  top: 95%;
+  position: absolute;
+  display: block;
+  width: 75%;
+  background: linear-gradient(
+    285deg,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #15002f,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015,
+    #090015
+  );
+  z-index: 2000;
+  background-size: 600% 600%;
+  animation: sheen 5s ease infinite;
+  border-radius: 10px;
+  border: solid goldenrod 1px;
+}
+
+.autocomplete-item {
+  display: inline-block;
+  height: 35px;
+  font-size: 14px;
+}
+.autocomplete-item > div {
+  display: inline-block;
+  padding: 0;
+}
+.autocomplete-pic {
+  height: 30px;
+  width: 30px;
+}

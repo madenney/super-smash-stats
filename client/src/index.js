@@ -1,15 +1,20 @@
 import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers';
+import thunk from 'redux-thunk';
 import ReactDOM from 'react-dom';
 import Favicon from 'react-favicon';
 import App from './components/app';
 
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+
 ReactDOM.render(
-    <div>
-        <Favicon url='https://vignette3.wikia.nocookie.net/ssb/images/6/64/Favicon.ico/revision/latest?cb=20150114084035' />
+    <Provider store={createStoreWithMiddleware(rootReducer)}>
         <Router>
             <App />
         </Router>
-    </div>,
+    </Provider>,
     document.getElementById('root')
 );

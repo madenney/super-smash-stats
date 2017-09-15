@@ -1,0 +1,62 @@
+.container {
+  color: #f7d709;
+}
+
+.h2h-info-label {
+  text-align: center;
+  color: #f7d709;
+  font-size: 2em;
+}
+
+.h2h-recent-match {
+  overflow-y: scroll;
+  white-space: nowrap;
+  margin-top: 30px;
+  height: 30vh;
+}
+
+.player-image {
+  /*width: 100%;*/
+  border-radius: 10px;
+}
+
+.player-characters {
+  display: inline-block;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.player-info, .player-tournament {
+  color: #f7d709;
+}
+
+@media screen and (max-width: 470px) {
+  .chart-display {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1590px) {
+  .player-image {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .player-image {
+    width: 90%;
+  }
+  .h2h-info-label {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player-image {
+    width: 100%;
+  }
+  .h2h-info-label {
+    font-size: 2em;
+  }
+}
