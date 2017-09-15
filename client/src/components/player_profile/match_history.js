@@ -25,18 +25,25 @@ const MatchHistory = (props) =>{
       if(item.video_url.length > 3){
         video_src = <img data = {youtube_url} onClick= {(e) => props.youtube_url_info(e)} className = 'youtube_icon' src= {images['youtube_icon.png']} />
         table_style = 'table-hover'
+        return(
+          <tr className={`table-content col-md-4 ${table_style}`} key={`1${index}`}>
+            <td  data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{switched_item}</td>
+            <td  data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{item.loser}</td>
+            <td  data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{video_src}</td>
+          </tr>
+        )
       }
       else{
         video_src = 'N/A';
+        return(
+          <tr className='table-content col-md-4' key = {`1${index}`}>
+            <td>{switched_item}</td>
+            <td>{item.loser}</td>
+            <td>{video_src}</td>
+          </tr>
+        )
       }
 
-      return(
-        <tr className={`table-content col-md-4 ${table_style}`} key={`1${index}`}>
-          <td  data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{switched_item}</td>
-          <td  data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{item.loser}</td>
-          <td  data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{video_src}</td>
-        </tr>
-      )
     });
     return(
       <table className='table'>
