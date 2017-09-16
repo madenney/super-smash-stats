@@ -20,7 +20,7 @@ const Faq = () => {
             <h3>What are your main sources?</h3>
             <p>Right now, our main sources are smash.gg, challonge.com, and the melee facebook groups.</p>
             <h3>Why did you make this site?</h3>
-            <p>We made this because we believe Super Smash Bros Melee is the best game ever created and we wanted to make a contribution to the melee community.</p>
+            <p>We made this because we believe Super Smash Bros Melee is the best game ever created and we want to make a contribution to the melee community.</p>
             <h3>What are your plans for the future of this site?</h3>
             <p>You'll have to wait and see...</p>
         </div>
