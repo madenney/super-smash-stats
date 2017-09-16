@@ -22,7 +22,12 @@ class Head2HeadProfile extends Component {
 
   componentDidMount() {
     const { id1, id2 } = this.props.match.params;
+    console.log("id1,id2 didmount", id1, id2);
     this.props.getH2HProfiles(id1, id2);
+  }
+
+  componentWillUnmount() {
+    console.log("unmounting");
   }
 
   getYtUrl(e) {
@@ -39,7 +44,6 @@ class Head2HeadProfile extends Component {
       });
     }
     if (!e) {
-      console.log("event is not there no worries!");
     } else {
       this.setState({
         yt_url: e.target.getAttribute("data")
@@ -48,8 +52,7 @@ class Head2HeadProfile extends Component {
   }
 
   render() {
-    console.log("this.props after h2hprofiles", this.props.results);
-
+    console.log("props.results", this.props.results);
     if (!this.props.results) {
       return <h1 className="mt-5">Loading...</h1>;
     }
@@ -69,9 +72,7 @@ class Head2HeadProfile extends Component {
           <h1>
             {player1.tag} VERSUS {player2.tag}
           </h1>
-          <h2 className="text-center">
-            Does Not Have Matches With Each Other!
-          </h2>
+          <h2 className="text-center">Players do not have matches!</h2>
         </div>
       );
     } else {
@@ -120,8 +121,7 @@ class Head2HeadProfile extends Component {
                 <div className={`col-md-12 ${yt_active}`}>
                   <button
                     className="back_button btn btn-outline-danger"
-                    onClick={() => this.getYtUrl()}
-                  >
+                    onClick={() => this.getYtUrl()}>
                     Back
                   </button>
                   <iframe
