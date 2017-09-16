@@ -27,13 +27,18 @@
   height: 50px;
 }
 
-.player-info, .player-tournament {
+.player-info,
+.player-tournament {
   color: #f7d709;
 }
 
 @media screen and (max-width: 470px) {
   .chart-display {
     display: none;
+  }
+  .h2h-recent-match {
+    height: 80vh;
+    margin: 0 auto;
   }
 }
 
