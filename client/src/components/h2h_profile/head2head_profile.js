@@ -72,7 +72,9 @@ class Head2HeadProfile extends Component {
           <h1>
             {player1.tag} VERSUS {player2.tag}
           </h1>
-          <h2 className="text-center">Players do not have matches!</h2>
+          <h2 className="text-center mt-3">
+            No Matches Between Selected Players!
+          </h2>
         </div>
       );
     } else {
@@ -111,8 +113,18 @@ class Head2HeadProfile extends Component {
           <div className="row">
             <div className="col-12 col-md-6 my-5 player-tournament">
               <div className="col-12">
+                <h3>Match History</h3>
+                <table className="table">
+                  {/*<thead className="theader">
+                    <tr>
+                      <th>Winner</th>
+                      <th>Score</th>
+                      <th>Tournament</th>
+                      <th>Video</th>
+                    </tr>
+                  </thead>*/}
+                </table>
                 <div className={`${match_active} h2h-recent-match`}>
-                  <h3>Match History</h3>
                   <H2HMatchHistory
                     youtube_url_info={e => this.getYtUrl(e)}
                     matches={matches}

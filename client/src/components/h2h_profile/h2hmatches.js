@@ -21,7 +21,7 @@ const H2HMatchHistory = props => {
         />
       );
     } else {
-      video_src = "No Video";
+      video_src = "N/A";
     }
     return (
       <tr key={index}>
@@ -34,7 +34,7 @@ const H2HMatchHistory = props => {
   });
   return (
     <table className="table">
-      <thead>
+      <thead className="theader">
         <tr>
           <th>Winner</th>
           <th>Score</th>

@@ -1,6 +1,23 @@
 body {
 	user-select: none;
 	font-family: Aero;
-	background-image: url('../../../dist/bg-galaxy.png');
+	background-image: url("../../../dist/bg-galaxy.png");
 	background-size: center;
+}
+
+a[href],
+input[type="submit"],
+input[type="image"],
+label[for],
+select,
+button,
+div.btn,
+i.fa {
+	cursor: pointer;
+}
+
+.table-hover:hover {
+	animation: hoverblink 0.75s alternate infinite;
+	border-top: 1px solid white;
+	cursor: pointer;
 }
