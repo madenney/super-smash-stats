@@ -34,10 +34,12 @@ export default class SearchBar extends Component {
         // To navigate somewhere:
         // this.props.history.push('/destination');
 
+        // Check for broken android mobile browser keycode
         if(e.keyCode === 229) {
             this.android = true;
             return;
         }
+
         if(e.preventDefault){
             e.preventDefault();
         }
@@ -51,12 +53,14 @@ export default class SearchBar extends Component {
             autocomCards,
             currentIndex
         } = this.state;
+
         let charCode = e.keyCode;
         let key = e.key;
-        //console.log("Key: " + key + " charCode: " + charCode);
+
+        // If key pressed is a character or number
         if (charCode >= 48 && charCode <= 90) {
-            // <<<<<<<<<<<<<<<<<< Letter/Number
             if (vs === false) {
+                // If the V button was pressed and player1 is valid
                 if (charCode === 86 && player1.isValid) {
                     this.setState({
                         vsSpace: "",
@@ -72,14 +76,15 @@ export default class SearchBar extends Component {
                 player2.name += key;
                 this.autocomplete(player2);
             }
-        } else if (
+        }
+        // If key pressed was tab or arrow key
+        else if (
             charCode === 9 ||
-            charCode === 39 ||
-            charCode === 40 ||
+            charCode === 37 ||
             charCode === 38 ||
-            charCode === 37
+            charCode === 39 ||
+            charCode === 40
         ) {
-            // <<<<<<<<<<<<<<<<<< Tab or Arrows
             if (player1.name.length === 0) {
                 return false;
             }
@@ -130,8 +135,9 @@ export default class SearchBar extends Component {
                     }
                 }
             }
-        } else if (charCode === 32) {
-            // <<<<<<<<<<<<<<<<<<<<<<<<<<<< Space Bar
+        }
+        // If the key pressed was the space bar
+        else if (charCode === 32) {
             if (player1.name.length === 0) {
                 // 1
                 return false;
@@ -167,8 +173,9 @@ export default class SearchBar extends Component {
                     return false;
                 }
             }
-        } else if (charCode === 13) {
-            // <<<<<<<<<<<<<<<<<<<<<<<< Enter
+        }
+        // If the key pressed was Enter
+        else if (charCode === 13) {
             if (player1.name.length === 0) {
                 this.props.history.push("/results/top_players/1"); // If empty search bar
                 return false;
@@ -370,7 +377,7 @@ export default class SearchBar extends Component {
         }
     }
 
-    doStuff() {
+    handleAndroid() {
         if(this.android){
             let x = this.searchInput.value;
             let c = 0;
@@ -434,7 +441,7 @@ export default class SearchBar extends Component {
                         e => this.handleChange(e)
                     }
                     onKeyUp={
-                        this.doStuff()
+                        this.handleAndroid()
                     }
                     ref={ip => {
                         this.searchInput = ip;

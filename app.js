@@ -1,9 +1,8 @@
 var express = require('express');
 var cors = require('cors');
 var path = require('path');
-var jsStringEscape = require('js-string-escape');
-
-
+var Helper = require('./server/helper.js');
+var helper = new Helper.Helper();
 
 var app = express();
 var bodyParser = require('body-parser');
@@ -14,17 +13,20 @@ app.use(cors());
 
 // Input Validation / String Sanitization
 app.use(function(req, res, next){
-    req.body = JSON.parse(JSON.stringify(req.body));
-    for (var property in req.body) {
-        if (req.body.hasOwnProperty(property)) {
-            req.body[property] = jsStringEscape(req.body[property]);
-        }
-    }
+    helper.recursiveStringEscape(req.body);
+    // //req.body = JSON.parse(JSON.stringify(req.body));
+    // for (var property in req.body) {
+    //     if (req.body.hasOwnProperty(property)) {
+    //         req.body[property] = jsStringEscape(req.body[property]);
+    //     }
+    // }
     next();
 });
 
 var Database = require('./server/database.js');
 var db = new Database.Database();
+var SearchBarHandler = require('./server/searchbarHandler.js');
+var searchHandler = SearchBarHandler.SearchBarHandler;
 
 
 app.post('/autocomplete', function(req, res) {
@@ -57,13 +59,18 @@ app.post('/head2headsearch', function(req, res) {
     db.getHead2HeadSearch(res, req.body.player1, req.body.input, req.body.pageNum, req.body.resultsPerPage, req.body.getTotalPages);
 });
 
-// For testing backend endpoints
-//app.use(express.static('testing'));
-
-app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
-app.use('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+app.post('/searchbar', function(req, res) {
+    console.log("SearchBar Handler");
+    searchHandler(res, req.body);
 });
+
+// For testing backend endpoints
+app.use(express.static('testing'));
+
+// app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
+// app.use('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+// });
 
 app.listen(3030, function(){
     console.log("Listening on port 3030");
