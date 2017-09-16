@@ -14,12 +14,6 @@ app.use(cors());
 // Input Validation / String Sanitization
 app.use(function(req, res, next){
     helper.recursiveStringEscape(req.body);
-    // //req.body = JSON.parse(JSON.stringify(req.body));
-    // for (var property in req.body) {
-    //     if (req.body.hasOwnProperty(property)) {
-    //         req.body[property] = jsStringEscape(req.body[property]);
-    //     }
-    // }
     next();
 });
 
