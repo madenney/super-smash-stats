@@ -22,12 +22,7 @@ class Head2HeadProfile extends Component {
 
   componentDidMount() {
     const { id1, id2 } = this.props.match.params;
-    console.log("id1,id2 didmount", id1, id2);
     this.props.getH2HProfiles(id1, id2);
-  }
-
-  componentWillUnmount() {
-    console.log("unmounting");
   }
 
   getYtUrl(e) {
@@ -44,6 +39,7 @@ class Head2HeadProfile extends Component {
       });
     }
     if (!e) {
+      console.log("event is not there no worries!");
     } else {
       this.setState({
         yt_url: e.target.getAttribute("data")
@@ -52,7 +48,8 @@ class Head2HeadProfile extends Component {
   }
 
   render() {
-    console.log("props.results", this.props.results);
+    console.log("this.props after h2hprofiles", this.props.results);
+
     if (!this.props.results) {
       return <h1 className="mt-5">Loading...</h1>;
     }
@@ -72,8 +69,8 @@ class Head2HeadProfile extends Component {
           <h1>
             {player1.tag} VERSUS {player2.tag}
           </h1>
-          <h2 className="text-center mt-3">
-            No Matches Between Selected Players!
+          <h2 className="text-center">
+            Does Not Have Matches With Each Other!
           </h2>
         </div>
       );
@@ -113,18 +110,8 @@ class Head2HeadProfile extends Component {
           <div className="row">
             <div className="col-12 col-md-6 my-5 player-tournament">
               <div className="col-12">
-                <h3>Match History</h3>
-                <table className="table">
-                  {/*<thead className="theader">
-                    <tr>
-                      <th>Winner</th>
-                      <th>Score</th>
-                      <th>Tournament</th>
-                      <th>Video</th>
-                    </tr>
-                  </thead>*/}
-                </table>
                 <div className={`${match_active} h2h-recent-match`}>
+                  <h3>Match History</h3>
                   <H2HMatchHistory
                     youtube_url_info={e => this.getYtUrl(e)}
                     matches={matches}
@@ -133,7 +120,8 @@ class Head2HeadProfile extends Component {
                 <div className={`col-md-12 ${yt_active}`}>
                   <button
                     className="back_button btn btn-outline-danger"
-                    onClick={() => this.getYtUrl()}>
+                    onClick={() => this.getYtUrl()}
+                  >
                     Back
                   </button>
                   <iframe
