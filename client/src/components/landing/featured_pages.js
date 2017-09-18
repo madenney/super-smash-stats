@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import Carousel from './carousel';
 
 class FeaturedPages extends Component {
   render(){
     return(
-      <h1>Featured Pages!</h1>
+      <div className='container mt-5'>
+        <h1>Featured Pages!</h1>
+        <Carousel />
+      </div>
     )
   }
 }
