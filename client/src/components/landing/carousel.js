@@ -21,7 +21,6 @@ class Carousel extends Component {
             fade: true,
             swipe: true
         };
-        const sliderContent = 
         return (
             <div className='container'>
                 <h2 className='mb-5 text-center'>First Time?</h2>
