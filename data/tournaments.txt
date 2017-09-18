@@ -2,9 +2,9 @@
 27/08/2017,Shine 2017,1156,Boston, MA,New Eng.,Hungrybox,https://smash.gg/tournament/shine-2017/events
 20/08/2017,New Jersey Arcadian Summer 2017,134,Somerville, NJ,Tristate,E-tie,https://smash.gg/tournament/new-jersey-arcadian-summer-2017/events/melee-singles/brackets/138598
 20/08/2017,Heir 4,476,Nottingham, UK,Europe,Leffen,https://smash.gg/tournament/heir-4/events
-13/08/2017,Super Smash Con 2017,1079*,Chantilly, VA,MD/VA,Mango,https://smash.gg/tournament/super-smash-con-2017/events
-06/08/2017,Smash Factor 6,128*,Puebla, Mexico,Lat. Am.,SFAT,https://smash.gg/tournament/smash-factor-6-1/events
-06/08/2017,Low Tier City 5,321*,Irving, TX,Southwest,Wizzrobe,https://smash.gg/tournament/low-tier-city-5/events
+13/08/2017,Super Smash Con 2017,1079,Chantilly, VA,MD/VA,Mango,https://smash.gg/tournament/super-smash-con-2017/events
+06/08/2017,Smash Factor 6,128,Puebla, Mexico,Lat. Am.,SFAT,https://smash.gg/tournament/smash-factor-6-1/events
+06/08/2017,Low Tier City 5,321,Irving, TX,Southwest,Wizzrobe,https://smash.gg/tournament/low-tier-city-5/events
 30/07/2017,Get On My Level 2017,566,Mississauga, ON,Canada,Leffen,https://smash.gg/tournament/get-on-my-level-2017/events
 29/07/2017,New Wave,108,London, UK,Europe,Laurster,https://smash.gg/tournament/new-wave-2/events
 23/07/2017,DreamHack Atlanta 2017,402,Atlanta, GA,Atl. South,Plup,https://smash.gg/tournament/dreamhack-atlanta-2017/events

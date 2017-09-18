@@ -231,7 +231,7 @@ exports.Database = function() {
                 });
             });
             let promise2 = new Promise(function(resolve, reject) {
-                if(id1 > 100) {
+                if(id2 > 100) {
                     var query = "SELECT * FROM players WHERE id = " + id2;
                 } else {
                     var query = "SELECT player_info.*, players.* FROM players JOIN player_info ON players.tag = player_info.tag WHERE players.id = '" + id2 + "'";
