@@ -66,7 +66,7 @@ class PlayerProfile extends Component {
       });
     }
   }
-  
+
   getYtUrl(e){
     const {chart_active, yt_active} = this.state;
     scroll.scrollToBottom({
@@ -88,7 +88,7 @@ class PlayerProfile extends Component {
       });
     }
   }
-  
+
   render(){
     let player_main;
     let player_main_title;
@@ -179,9 +179,9 @@ class PlayerProfile extends Component {
           <div className={`chart-display ${chart_active}`}>
             <PlayerChart game_data = {profile} />
           </div>
-          <div className={`${yt_active} col-sm-1 mt-4`}>
+          <div className={`${yt_active} col-md-12 my-4`}>
             <iframe className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
-            <button className='back_button btn btn-outline-danger mx-auto' onClick={()=>this.chartVisible()}>X</button>
+            <button className='back_button btn btn-outline-danger' onClick={()=>this.chartVisible()}>X</button>
           </div>
         </div>
   		</div>
