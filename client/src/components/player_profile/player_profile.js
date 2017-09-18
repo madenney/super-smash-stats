@@ -60,7 +60,7 @@ class PlayerProfile extends Component {
     const { chart_active, yt_active } = this.state;
     if (chart_active === "hidden") {
       this.setState({
-        chart_active: '',
+        chart_active: 'animated zoomIn',
         yt_active: 'hidden',
         yt_url: ''
       });
@@ -74,10 +74,10 @@ class PlayerProfile extends Component {
         offset: 50,
         isDynamic: true
     });
-    if (chart_active == ''){
+    if (chart_active == '' || chart_active == 'animated zoomIn'){
       this.setState({
         chart_active: "hidden",
-        yt_active: ""
+        yt_active: "animated zoomIn"
       });
     }
     if (!e) {
@@ -125,7 +125,7 @@ class PlayerProfile extends Component {
     // console.log('this is the tiournament state: ', tournament_matches[0]);
     return (
       //general profile picture
-      <div className='container'>
+      <div className='container animated fadeIn'>
   				<div className="row mt-3">
   					<div style={pic_bg} className="col-sm-6 offset-sm-2 col-md-4 col-lg-3 player_image">
 						  <h2 className="player_tag">{profile.tag}</h2>
