@@ -37,8 +37,9 @@
     display: none;
   }
   .h2h-recent-match {
-    height: 80vh;
     margin: 0 auto;
+    font-size: 0.75rem;
+    height: 100%;
   }
 }
 

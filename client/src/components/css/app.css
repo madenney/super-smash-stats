@@ -3,6 +3,7 @@ body {
 	font-family: Aero;
 	background-image: url("../../../dist/bg-galaxy.png");
 	background-size: center;
+	display: relative;
 }
 
 a[href],

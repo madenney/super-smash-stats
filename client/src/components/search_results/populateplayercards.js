@@ -27,7 +27,10 @@ const PopulatePlayerCards = props => {
         };
 
         return (
-            <Link to={`/player_profile/${item.id}`} key={index}>
+            <Link
+                className="col-6 col-sm-6 col-md-3 my-2"
+                to={`/player_profile/${item.id}`}
+                key={index}>
                 <div className="player_card" style={divStyle}>
                     <h3 className="player_text">{item.tag}</h3>
                 </div>
@@ -35,6 +38,6 @@ const PopulatePlayerCards = props => {
         );
     });
 
-    return <div className="container center">{player_cards}</div>;
+    return <div className="container mx-auto row">{player_cards}</div>;
 };
 export default PopulatePlayerCards;

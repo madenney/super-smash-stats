@@ -44,6 +44,7 @@ h3 {
   white-space: nowrap;
   height: 30vh;
 }
+
 .theader {
   font-weight: bolder;
   color: white;
@@ -114,7 +115,7 @@ h3 {
   border-top: 1px solid white;
   cursor: pointer;
 }
-.table-content td{
+.table-content td {
   white-space: pre;
 }
 
@@ -141,11 +142,11 @@ select {
     height: 150px;
     width: 290px;
   }
-  .recent_match{
-    height: 40vh;
+  .recent_match {
+    font-size: 0.75rem;
+    height: 100%;
   }
 }
-
 
 @font-face {
   font-family: pressStart;
