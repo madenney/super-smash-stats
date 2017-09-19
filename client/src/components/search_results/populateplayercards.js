@@ -37,6 +37,6 @@ const PopulatePlayerCards = props => {
         );
     });
 
-    return <div className="container mx-auto row">{player_cards}</div>;
+    return <div className="mx-auto row">{player_cards}</div>;
 };
 export default PopulatePlayerCards;
