@@ -9,6 +9,7 @@ import Head2HeadProfile from "./h2h_profile/head2head_profile";
 import CharacterSelect from "./character_select/character_select";
 import Favicon from "react-favicon";
 import Faq from "./static_pages/faq";
+import ErrorPage from "./static_pages/error_page";
 import "./css/animate.css";
 import "./css/app.css";
 
@@ -30,5 +31,6 @@ export default () => (
         />
         <Route path="/faq" component={Faq} />
         <Route path="/character_select_screen" component={CharacterSelect} />
+        <Route path="*" component={ErrorPage} />
     </div>
 );
