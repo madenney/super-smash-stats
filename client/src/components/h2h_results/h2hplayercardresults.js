@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import images from "../features/img_filter";
-
 const Head2HeadPlayerCards = props => {
   const { player1 } = props;
   const player2_cards = props.player2.map((item, index) => {

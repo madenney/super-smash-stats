@@ -51,9 +51,9 @@ export default class Landingpage extends Component {
                         />
                     </div>
                 </div>
-                <div className="container container--featured-players">
+                {/* <div className="container container--featured-players">
                     <FeaturedPages />
-                </div>
+                </div> */}
             </div>
         );
     }
