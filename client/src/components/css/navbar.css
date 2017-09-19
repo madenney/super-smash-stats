@@ -1,6 +1,6 @@
 .navbar{
   position: absolute;
-  width: 98vw;
+  width: 100%;
   background-color: black;
 }
 .navbar--z-index {
