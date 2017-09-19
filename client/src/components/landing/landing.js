@@ -26,7 +26,7 @@ export default class Landingpage extends Component {
         return (
             <div className="landingPage landingPage--darkness">
                 <div className="container container--searchbar">
-                    <div className="landingPage-logo row col-md-8 mx-auto">
+                    <div className="landingPage-logo row col-md-8 mx-auto my-5">
                         <div className="text-center">
                             <img
                                 src={landingPageLogo}
