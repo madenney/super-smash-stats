@@ -4,6 +4,17 @@ import ProfilePlaceholder from '../imgs/ProfilePlaceholder.gif';
 import images from "../features/img_filter";
 
 export default (props) => {
+	console.log('this is props: ', props);
+	let img_replacement;
+	if(props.main === undefined){
+		img_replacement = <p className='player-info ml-3'>N/A</p>
+	}
+	else{
+		img_replacement = <img
+			className="player-characters"
+			src={images[`characters/${props.main}.png`]}
+		/>
+	}
 	return (
 		<div className="row col-md-5 col-sm-12">
 		  <div className="col-6 mb-2">
@@ -27,10 +38,7 @@ export default (props) => {
 		    </h4>
 		    <p className="player-info">Main: </p>
 		    <div className="row">
-		      <img
-		        className="player-characters"
-		        src={images[`characters/${props.main}.png`]}
-		      />
+		      {img_replacement}
 		      <img
 		        className="player-characters"
 		        src={
