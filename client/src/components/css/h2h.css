@@ -46,6 +46,7 @@
 @media screen and (max-width: 1590px) {
   .player-image {
     width: 100%;
+    font-size: 0.6rem;
   }
 }
 
