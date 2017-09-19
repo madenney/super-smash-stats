@@ -6,9 +6,6 @@ import images from '../features/img_filter';
 class Carousel extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            card: props.card
-        }
     }
     render() {
         const settings = {

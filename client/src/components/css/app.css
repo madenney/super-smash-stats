@@ -16,6 +16,10 @@ i.fa {
 	cursor: pointer;
 }
 
+.container, .container-fluid{
+	padding-top: 100px;
+}
+
 .table-hover:hover {
 	animation: hoverblink 0.75s alternate infinite;
 	border-top: 1px solid white;

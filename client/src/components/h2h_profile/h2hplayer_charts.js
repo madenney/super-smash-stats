@@ -3,7 +3,6 @@ import { Bar } from "react-chartjs-2";
 
 const H2HPlayerChart = props => {
   if (props.game_data === []) {
-    console.log("I am loading");
     return <h1>Loading...</h1>;
   }
   const { game_data, player1, player2 } = props;

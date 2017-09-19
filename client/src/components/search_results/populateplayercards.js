@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import images from "../features/img_filter";
 
 const PopulatePlayerCards = props => {
-    // console.log('cards props:', props);
     if (!props.card || Object.keys(props.card).length < 1) {
-        return <h1 className="mt-5">Loading...</h1>;
+        return <h1 className="container">Loading...</h1>;
     }
 
     let imagesKeys = Object.keys(images);

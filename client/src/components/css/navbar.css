@@ -1,3 +1,8 @@
+.navbar{
+  position: absolute;
+  width: 100vw;
+  background-color: black;
+}
 .navbar--z-index {
   z-index: 1;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProfilePlaceholder from '../imgs/ProfilePlaceholder.gif';
 import images from "../features/img_filter";
 
 export default (props) => {
