@@ -12,7 +12,7 @@ import Faq from "./static_pages/faq";
 import "./css/animate.css";
 import "./css/app.css";
 
-export default () =>
+export default () => (
     <div>
         <Favicon url="https://vignette3.wikia.nocookie.net/ssb/images/6/64/Favicon.ico/revision/latest?cb=20150114084035" />
         <Route component={Navbar} />
@@ -30,4 +30,5 @@ export default () =>
         />
         <Route path="/faq" component={Faq} />
         <Route path="/character_select_screen" component={CharacterSelect} />
-    </div>;
+    </div>
+);
