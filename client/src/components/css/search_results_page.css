@@ -1,6 +1,6 @@
 .player_card {
   overflow-wrap: break-word;
-  width: 200px;
+  width: 100%;
   height: 200px;
   margin: 0.2%;
   border-radius: 10px;
@@ -16,7 +16,7 @@
 .player_card:after {
   content: "";
   border: solid #a4a4a4 1px;
-  width: 200px;
+  width: 100%;
   height: 200px;
   border-radius: 10px;
   display: inline-block;
@@ -84,7 +84,7 @@
   }
 
   .player_card:after {
-    width: 100px;
+    width: 100%;
     height: 100px;
   }
 

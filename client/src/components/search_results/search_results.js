@@ -36,10 +36,13 @@ class SearchResults extends Component {
 
     render() {
         if (!this.props.results) {
-            return <h1 className="mt-5">Loading...</h1>;
+            return <h1 className="container">Loading...</h1>;
+        }
+        if(this.props.results.player_cards.length === 0){
+          return <h1 className='container'>This Player Does Not Exist</h1>
         }
         return (
-            <div className="container results--fromDarkness mt-5">
+            <div className="container results--fromDarkness">
                 <div className="row">
                     <h1 className="mx-auto">Player Search Results!</h1>
                     <div className="col-12 mx-auto">

@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import images from "../features/img_filter";
 
 const PopulatePlayerCards = props => {
-    // console.log('cards props:', props);
     if (!props.card || Object.keys(props.card).length < 1) {
-        return <h1 className="mt-5">Loading...</h1>;
+        return <h1 className="container">Loading...</h1>;
     }
 
     let imagesKeys = Object.keys(images);
@@ -27,7 +26,10 @@ const PopulatePlayerCards = props => {
         };
 
         return (
-            <Link to={`/player_profile/${item.id}`} key={index}>
+            <Link
+                className="col-6 col-sm-6 col-md-3 my-2"
+                to={`/player_profile/${item.id}`}
+                key={index}>
                 <div className="player_card" style={divStyle}>
                     <h3 className="player_text">{item.tag}</h3>
                 </div>
@@ -35,6 +37,6 @@ const PopulatePlayerCards = props => {
         );
     });
 
-    return <div className="container center">{player_cards}</div>;
+    return <div className="mx-auto row">{player_cards}</div>;
 };
 export default PopulatePlayerCards;

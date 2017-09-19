@@ -13,7 +13,10 @@ const Head2HeadPlayerCards = props => {
         backgroundPosition: "center"
       };
       return (
-        <Link to={`/head2headprofile/${props.player1}/${item.id}`} key={index}>
+        <Link
+          className="col-6 col-sm-4 col-md-4 my-2"
+          to={`/head2headprofile/${props.player1}/${item.id}`}
+          key={index}>
           <div className="player_card" style={divStyle}>
             <h3 className="player_text">{item.tag}</h3>
           </div>
@@ -27,7 +30,10 @@ const Head2HeadPlayerCards = props => {
         backgroundPosition: "center"
       };
       return (
-        <Link to={`/head2headprofile/${props.player1}/${item.id}`} key={index}>
+        <Link
+          className="col-6 col-sm-4 col-md-4 my-2"
+          to={`/head2headprofile/${props.player1}/${item.id}`}
+          key={index}>
           <div className="player_card" style={divStyle}>
             <h3 className="player_text">{item.tag}</h3>
           </div>
@@ -35,7 +41,7 @@ const Head2HeadPlayerCards = props => {
       );
     }
   });
-  return <div className="container center">{player2_cards}</div>;
+  return <div className="mx-auto text-center row">{player2_cards}</div>;
 };
 
 export default Head2HeadPlayerCards;

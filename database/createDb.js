@@ -11,7 +11,7 @@ function createDb() {
         reloadPlayers: true,
         calcStats: true,
         calcLocation: true,
-        getYoutubeURLs: false,
+        getYoutubeURLs: true,
         classify: false
     };
 

@@ -144,6 +144,9 @@ select {
   .recent_match{
     height: 40vh;
   }
+  .player_info{
+    padding-left: 40px;
+  }
 }
 
 

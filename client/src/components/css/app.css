@@ -3,6 +3,7 @@ body {
 	font-family: Aero;
 	background-image: url("../../../dist/bg-galaxy.png");
 	background-size: center;
+	display: relative;
 }
 
 a[href],
@@ -14,6 +15,10 @@ button,
 div.btn,
 i.fa {
 	cursor: pointer;
+}
+
+.container, .container-fluid{
+	padding-top: 100px;
 }
 
 .table-hover:hover {

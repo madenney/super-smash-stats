@@ -37,6 +37,7 @@
 .pagination--break,
 .pagination--keys {
     display: inline-block;
+    cursor: pointer;
 }
 
 .pagination--active {

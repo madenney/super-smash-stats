@@ -3,7 +3,7 @@ import React from 'react';
 // import MatchHistory from './match_history';
 const TournamentHistory = (props) => {
   if(props.tournaments_attended == undefined){
-    console.log('tournaments_attended hasn\'t been returned yet');
+    return;
   }
   const individ_tournament = props.tournaments_attended.map((item, index)=>{
     return(
