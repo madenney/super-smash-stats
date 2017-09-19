@@ -43,13 +43,13 @@ export default class Landingpage extends Component {
                             SEARCH THE DATABASE
                         </p>
                     </Link>
-                    <div className="col-3 offset-9">
+                    {/* <div className="col-3 offset-9">
                         <i
                             onClick={this.scrollToBottom}
                             className="fa fa-chevron-circle-down fa-4x animated bounce fa-chevron--margin"
                             aria-hidden="true"
                         />
-                    </div>
+                    </div> */}
                 </div>
                 {/* <div className="container container--featured-players">
                     <FeaturedPages />
