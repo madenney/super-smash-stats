@@ -20,9 +20,9 @@ exports.SearchBarHandler = function(res, searchBarObj) {
     console.log(searchBarObj);
 
     // Remove autocomplete
-    if(searchBarObj.bar[searchBarObj.length-1].type === 'autocomplete'){
-        searchBarObj.bar.pop();
-    }
+    // if(searchBarObj.bar[searchBarObj.length-1].type === 'autocomplete'){
+    //     searchBarObj.bar.pop();
+    // }
 
     // Get preInput
     var preInput = null;
@@ -43,17 +43,18 @@ exports.SearchBarHandler = function(res, searchBarObj) {
     // For letters and numbers key presses
     if(searchBarObj.newInputCode >= 48 && searchBarObj.newInputCode <= 90){
         // For inserting VS
-        if(searchBarObj.newInputCode === 86 && (preInput.type === 'player' || preInput.type === 'character')){
-
-        }
+        // if(searchBarObj.newInputCode === 86 && (preInput.type === 'player' || preInput.type === 'character')){
+        //
+        // }
         if(preInput.type === 'incomplete') {
             preInput.text += searchBarObj.newInputKey;
             autocomplete(searchBarObj, preInput, res);
-        } else {
-            if(true) {
-                console.log('poop');
-            }
         }
+        // } else {
+        //     if(true) {
+        //         console.log('poop');
+        //     }
+        // }
     }
 
 };
@@ -108,6 +109,7 @@ function autocomplete(searchBarObj, preInput, res) {
 
             // if dropdown is filled, then return to client, else, get tournaments
             if(searchBarObj.dropdown.length === maximumDropdownLength) {
+                checkForComplete(searchBarObj, preInput);
                 end = JSON.stringify(searchBarObj);
                 res.end(end);
             } else {
@@ -129,10 +131,24 @@ function autocomplete(searchBarObj, preInput, res) {
                             id: rows[i].id
                         });
                     }
+                    checkForComplete(searchBarObj, preInput);
                     end = JSON.stringify(searchBarObj);
                     res.end(end);
                 });
             }
         });
     });
+}
+
+function checkForComplete(searchBarObj, preInput){
+
+    for(var i = 0; i < searchBarObj.dropdown.length; i++){
+        if(searchBarObj.dropdown[i].text === preInput.text){
+            preInput.type = searchBarObj.dropdown[i].type;
+            searchBarObj.dropdown[i].highlighted = true;
+        } else {
+            searchBarObj.dropdown[i].highlighted = false;
+        }
+    }
+
 }

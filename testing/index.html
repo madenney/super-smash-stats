@@ -205,6 +205,9 @@
                 var string = searchBarObj.dropdown[i].type;
                 if(searchBarObj.dropdown[i].text) {
                     string += " - " + searchBarObj.dropdown[i].text;
+                    if(searchBarObj.dropdown[i].highlighted){
+                        string += " <<<<<<< highlighted";
+                    }
                 }
                 var newDropdownElement = $("<div>").html(string);
                 dropdown.append(newDropdownElement);
