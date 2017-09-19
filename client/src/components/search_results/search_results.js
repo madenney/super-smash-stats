@@ -38,6 +38,9 @@ class SearchResults extends Component {
         if (!this.props.results) {
             return <h1 className="container">Loading...</h1>;
         }
+        if(this.props.results.player_cards.length === 0){
+          return <h1 className='container'>This Player Does Not Exist</h1>
+        }
         return (
             <div className="container results--fromDarkness">
                 <div className="row">
