@@ -13,14 +13,9 @@ let scroll = Scroll.animateScroll;
 export default class Landingpage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            value: "",
-            autocomCards: [],
-            cards: ""
-        };
+        this.scrollToBottom = this.scrollToBottom.bind(this);
     }
     scrollToBottom() {
-        // const {container_position} = this.state;
         scroll.scrollToBottom({
             smooth: true,
             offset: 50,
@@ -50,7 +45,7 @@ export default class Landingpage extends Component {
                     </Link>
                     <div className="col-3 offset-9">
                         <i
-                            onClick={() => this.scrollToBottom()}
+                            onClick={this.scrollToBottom}
                             className="fa fa-chevron-circle-down fa-4x animated bounce fa-chevron--margin"
                             aria-hidden="true"
                         />

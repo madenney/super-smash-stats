@@ -39,7 +39,7 @@ class Head2HeadProfile extends Component {
       });
     }
     if (!e) {
-      console.log("event is not there no worries!");
+      return;
     } else {
       this.setState({
         yt_url: e.target.getAttribute("data")
@@ -48,12 +48,9 @@ class Head2HeadProfile extends Component {
   }
 
   render() {
-    console.log("this.props after h2hprofiles", this.props.results);
-
     if (!this.props.results) {
-      return <h1 className="mt-5">Loading...</h1>;
+      return <h1 className="container">Loading...</h1>;
     }
-
     const {
       player1,
       player2,
@@ -65,7 +62,7 @@ class Head2HeadProfile extends Component {
 
     if (matches.length == 0) {
       return (
-        <div className="container mt-5">
+        <div className="container">
           <h1>
             {player1.tag} VERSUS {player2.tag}
           </h1>
@@ -79,7 +76,7 @@ class Head2HeadProfile extends Component {
       const { id1, id2 } = this.props.match.params;
       return (
         <div className="container-fluid">
-          <div className="row my-5">
+          <div className="row mb-5">
             {/* Player1 Profile Information */}
             <ProfileCard
               id={id1}

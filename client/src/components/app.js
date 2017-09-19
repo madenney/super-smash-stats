@@ -2,7 +2,6 @@ import React from "react";
 import { Route } from "react-router-dom";
 import Navbar from "./features/navbar";
 import Landing from "./landing/landing";
-import About from "./static_pages/about";
 import SearchResults from "./search_results/search_results";
 import PlayerProfile from "./player_profile/player_profile";
 import Head2HeadResults from "./h2h_results/head2head_results";
@@ -30,6 +29,5 @@ export default () =>
             component={Head2HeadProfile}
         />
         <Route path="/faq" component={Faq} />
-        <Route path="/about" component={About} />
         <Route path="/character_select_screen" component={CharacterSelect} />
     </div>;

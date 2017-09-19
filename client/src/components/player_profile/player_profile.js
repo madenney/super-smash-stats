@@ -56,7 +56,6 @@ class PlayerProfile extends Component {
   }
 
   chartVisible() {
-    console.log("chart is now visible!");
     const { chart_active, yt_active } = this.state;
     if (chart_active === "hidden") {
       this.setState({
@@ -81,7 +80,7 @@ class PlayerProfile extends Component {
       });
     }
     if (!e) {
-      console.log("event is not there no worries!");
+      return;
     } else {
       this.setState({
         yt_url: e.target.getAttribute("data")
@@ -96,7 +95,7 @@ class PlayerProfile extends Component {
     const {tournament_matches, profile, tournaments_attended, tournament_selected} = this.props;
     if(tournament_matches === undefined){
       return(
-        <div className="mt-5">
+        <div className="container">
           <h1>Loading</h1>
         </div>
       );
@@ -108,7 +107,6 @@ class PlayerProfile extends Component {
       backgroundRepeat: 'no-repeat'
 
     }
-    console.log('profile.secondary: ', profile);
     if(profile.main === undefined ){
       player_main = <p>N/A</p>
     }
@@ -122,15 +120,14 @@ class PlayerProfile extends Component {
     else{
       player_main_title = <p>Mains: </p>
     }
-    // console.log('this is the tiournament state: ', tournament_matches[0]);
     return (
       //general profile picture
       <div className='container animated fadeIn'>
-  				<div className="row mt-3">
-  					<div style={pic_bg} className="col-sm-6 offset-sm-2 col-md-4 col-lg-3 player_image">
-						  <h2 className="player_tag">{profile.tag}</h2>
+  			<div className="row mt-3">
+  					<div style={pic_bg} className="col-sm-6 offset-sm-2 col-md-4 col-lg-3 player_image mb-4">
+  					  <h2 className="player_tag">{profile.tag}</h2>
           	</div>
-  					<div className="player_info col-sm-4 col-md-6 col-xs-6 col-lg-4 offset-sm-1">
+  					<div className="player_info col-sm-4 col-md-6 col-xs-6 col-lg-4 offset-sm-1 ml-2">
 
               <h4 id='player_rank' >{profile.name}</h4>
   						{/* <h4 id="player_rank" >ELO Rank: {profile.rank}</h4> */}
@@ -140,52 +137,42 @@ class PlayerProfile extends Component {
   						<img className='char_img_sizing' src={images[`characters/${profile.secondary}.png`] ? images[`characters/${profile.secondary}.png`] : images['no_character.png']}/>
   						<p>Total Matches: {profile.total_matches_played}</p>
   					</div>
-  					{/* <div className="player_links col-sm-6 col-md-6 col-xs-6 col-lg-4">
-  						<p>Twitter:
-  						    <a target='_blank' href={`http:\/\/www.twitter.com\/${profile.twitter}`}> {profile.twitter}</a></p>
-  						<p>Twitch:
-                  <a target='_blank' href={`http:\/\/www.twitch.tv\/${profile.twitch}`}> {profile.twitch}</a></p>
-  						<p>Sponsors: {profile.sponsor}</p>
-              <p>Tidbit: This is the place for tidbits!</p>
-            </div> */}
-  		</div>
-      <div className='row my-3'>
-        <p className='recent_tournament_tag'>Select Tournament:</p>
-        <div className='recent_tournament col-xs-12 col-sm-12 col-md-3 col-lg-3'>
-          <TournamentHistory tournaments_attended = {tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
-        </div>
-      </div>
-  		<div className='row'>
-  			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-          <div className='col-md-12'>
-            {/* <h3 className='tournament-selected'>{tournament_selected}</h3> */}
-            <table className='table'>
-              <thead>
-                <tr className='col-md-4 theader'>
-                  <td>Result</td>
-                  <td>Opponent</td>
-                  <td>Youtube Video</td>
-                </tr>
-              </thead>
-            </table>
-            <div className={`recent_match col-xs-12 col-md-12 col-md-12`} id='tournament_data' >
-              <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.props.tournament_matches} player_name = {profile.tag}/>
+  	      </div>
+          <div className='row my-3 ml-2'>
+            <p className='recent_tournament_tag'>Select Tournament:</p>
+            <div className='recent_tournament col-xs-12 col-sm-12 col-md-3 col-lg-3'>
+              <TournamentHistory tournaments_attended = {tournaments_attended} grab_tourney = {(e)=>this.grabTournamentName(e)}/>
             </div>
-
           </div>
-
-  			</div>
-        <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
-          <div className={`chart-display ${chart_active}`}>
-            <PlayerChart game_data = {profile} />
-          </div>
-          <div className={`${yt_active} col-md-12 my-4`}>
-            <iframe className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
-            <button className='back_button btn btn-outline-danger' onClick={()=>this.chartVisible()}>X</button>
-          </div>
-        </div>
-  		</div>
-    </div>
+      		<div className='row'>
+      			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <div className='col-md-12'>
+                {/* <h3 className='tournament-selected'>{tournament_selected}</h3> */}
+                <table className='table'>
+                  <thead>
+                    <tr className='col-md-4 theader'>
+                      <td>Result</td>
+                      <td>Opponent</td>
+                      <td>Youtube Video</td>
+                    </tr>
+                  </thead>
+                </table>
+                <div className={`recent_match col-xs-12 col-md-12 col-md-12`} id='tournament_data' >
+                  <MatchHistory youtube_url_info = {(e)=>this.getYtUrl(e)} match_info = {this.props.tournament_matches} player_name = {profile.tag}/>
+                </div>
+              </div>
+      			</div>
+            <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
+              <div className={`chart-display ${chart_active}`}>
+                <PlayerChart game_data = {profile} />
+              </div>
+              <div className={`${yt_active} col-md-12 my-4`}>
+                <iframe className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
+                <button className='back_button btn btn-outline-danger' onClick={()=>this.chartVisible()}>X</button>
+              </div>
+            </div>
+  		     </div>
+         </div>
     );
   }
 }
