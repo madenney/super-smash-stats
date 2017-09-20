@@ -38,7 +38,6 @@ export function getSearchResults(search, id, totalPageBoolean) {
 export function getPlayerProfile(id) {
 	return dispatch => {
 		axios.post("/player_profile", { input: id }).then(response => {
-			// console.log('this is player profile response', response);
 			dispatch({
 				type: types.GET_PLAYER_PROFILE,
 				payload: response.data

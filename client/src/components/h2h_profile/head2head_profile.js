@@ -16,7 +16,8 @@ class Head2HeadProfile extends Component {
     this.state = {
       allYearlyHistory: [],
       match_active: "",
-      yt_active: "hidden"
+      yt_active: "hidden",
+      yt_url: ''
     };
   }
 
@@ -48,6 +49,18 @@ class Head2HeadProfile extends Component {
   }
 
   render() {
+    let yt_video;
+    if(this.state.yt_url === ''){
+      yt_video = <h1>No Video</h1>
+    }
+    else{
+      yt_video = <iframe
+        allowFullScreen="allowfullscreen"
+        width="400px"
+        height="300px"
+        src={`${this.state.yt_url}?autoplayer=0`}
+      />
+    }
     if (!this.props.results) {
       return <h1 className="container">Loading...</h1>;
     }
@@ -105,7 +118,7 @@ class Head2HeadProfile extends Component {
           </div>
           {/* Match History For Players */}
           <div className="row">
-            <div className="col-12 col-md-6 my-5 player-tournament">
+            <div className="col-12 col-md-6 mt-3 player-tournament">
               <div className="col-12">
                 <div className={`${match_active} h2h-recent-match`}>
                   <h3>Match History</h3>
@@ -121,12 +134,7 @@ class Head2HeadProfile extends Component {
                   >
                     Back
                   </button>
-                  <iframe
-                    allowFullScreen="allowfullscreen"
-                    width="400px"
-                    height="300px"
-                    src={`${this.state.yt_url}?autoplayer=0`}
-                  />
+                  {yt_video}
                 </div>
               </div>
             </div>
