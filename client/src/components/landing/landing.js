@@ -6,6 +6,7 @@ import { scroller } from "react-scroll";
 import Searchbar from "./searchbar";
 import FeaturedPages from "./featured_pages";
 import landingPageLogo from "../imgs/land_logo.png";
+import bgimage from '../imgs/bg-galaxy.png';
 import "../css/font-awesome.css";
 import "../css/landing_page.css";
 let scroll = Scroll.animateScroll;
@@ -14,6 +15,9 @@ export default class Landingpage extends Component {
     constructor(props) {
         super(props);
         this.scrollToBottom = this.scrollToBottom.bind(this);
+    }
+    componentDidMount(){
+      document.body.style.backgroundImage = "url(" + bgimage + ")";
     }
     scrollToBottom() {
         scroll.scrollToBottom({

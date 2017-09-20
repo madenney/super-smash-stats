@@ -1,9 +1,5 @@
 body {
-	user-select: none;
 	font-family: Aero;
-	background-image: url("../imgs/bg-galaxy.png");
-	background-size: center;
-	display: relative;
 }
 
 a[href],
