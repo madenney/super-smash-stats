@@ -42,7 +42,7 @@ class Navbar extends Component {
         </button>
         {/* data-toggle='collapse' data-target='.navbar-collapse.show' */}
         <Link to="/" className="navbar-brand home-icon">
-          <img src={SmashIcon} /> <i className="hidden-sm-down fa fa-star-o" />
+          <img src={SmashIcon} />
         </Link>
         <div
           className={`collapse navbar-collapse ${this.state.show} mr-auto`}
