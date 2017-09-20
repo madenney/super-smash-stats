@@ -11,9 +11,9 @@ class Navbar extends Component {
       show: ""
     };
   }
-  componentDidMount(){
-    document.body.style.backgroundImage = "url(" + bgimage + ")";
-  }
+  // componentDidMount(){
+  //   document.body.style.backgroundImage = "url(" + bgimage + ")";
+  // }
   checkShow() {
     let { show } = this.state;
     if (show == "") {
