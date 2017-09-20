@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SmashIcon from "../imgs/website_logo.svg";
 import "../css/navbar.css";
+import bgimage from '../imgs/bg-galaxy.png';
 
 class Navbar extends Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class Navbar extends Component {
       show: ""
     };
   }
-
+  componentDidMount(){
+    document.body.style.backgroundImage = "url(" + bgimage + ")";
+  }
   checkShow() {
     let { show } = this.state;
     if (show == "") {
