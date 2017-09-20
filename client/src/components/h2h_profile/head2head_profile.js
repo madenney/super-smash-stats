@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getH2HProfiles } from "../../actions";
-
 import images from "../features/img_filter";
 import ProfilePlaceholder from "../imgs/ProfilePlaceholder.gif";
 import H2HMatchHistory from "./h2hmatches";
@@ -36,7 +35,8 @@ class Head2HeadProfile extends Component {
     } else {
       this.setState({
         match_active: "",
-        yt_active: "hidden"
+        yt_active: "hidden",
+        yt_url: ''
       });
     }
     if (!e) {
@@ -58,6 +58,7 @@ class Head2HeadProfile extends Component {
         allowFullScreen="allowfullscreen"
         width="400px"
         height="300px"
+        frameBorder='0'
         src={`${this.state.yt_url}?autoplayer=0`}
       />
     }
@@ -120,30 +121,29 @@ class Head2HeadProfile extends Component {
           <div className="row">
             <div className="col-12 col-md-6 mt-3 player-tournament">
               <div className="col-12">
-                <div className={`${match_active} h2h-recent-match`}>
+                <div className='h2h-recent-match'>
                   <h3>Match History</h3>
                   <H2HMatchHistory
                     youtube_url_info={e => this.getYtUrl(e)}
                     matches={matches}
                   />
                 </div>
-                <div className={`col-md-12 ${yt_active}`}>
-                  <button
-                    className="back_button btn btn-outline-danger"
-                    onClick={() => this.getYtUrl()}
-                  >
-                    Back
-                  </button>
-                  {yt_video}
-                </div>
               </div>
             </div>
-            <div className="col-xs-12 col-md-6 my-5 chart-display">
+            <div className={`${match_active} col-xs-12 col-md-6 my-5 chart-display`}>
               <H2HPlayerChart
                 game_data={yearlyHistory}
                 player1={player1}
                 player2={player2}
               />
+            </div>
+            <div className={`col-md-6 ${yt_active}`}>
+              <button
+                className="back_button btn btn-outline-danger"
+                onClick={() => this.getYtUrl()}>
+                X
+              </button>
+              {yt_video}
             </div>
           </div>
         </div>
