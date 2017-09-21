@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SmashIcon from "../imgs/website_logo.svg";
 import "../css/navbar.css";
+import bgimage from '../imgs/bg-galaxy.png';
 
 class Navbar extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class Navbar extends Component {
         </button>
         {/* data-toggle='collapse' data-target='.navbar-collapse.show' */}
         <Link to="/" className="navbar-brand home-icon">
-          <img src={SmashIcon} /> <i className="hidden-sm-down fa fa-star-o" />
+          <img src={SmashIcon} />
         </Link>
         <div
           className={`collapse navbar-collapse ${this.state.show} mr-auto`}
