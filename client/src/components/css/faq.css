@@ -1,0 +1,18 @@
+.faq {
+	font-family: pressStart;
+	color: white;
+}
+
+.faq h3 {
+	font-size: 1.25em;
+	color: #ecca73;
+}
+
+.faq p {
+	font-size: 1em;
+}
+
+.faq-title {
+	color: goldenrod;
+}
+

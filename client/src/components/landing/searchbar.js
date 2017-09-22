@@ -56,7 +56,6 @@ export default class SearchBar extends Component {
 
         let charCode = e.keyCode;
         let key = e.key;
-
         // If key pressed is a character or number
         if (charCode >= 48 && charCode <= 90) {
             if (vs === false) {
@@ -339,7 +338,6 @@ export default class SearchBar extends Component {
 
     searchClicked() {
         const { player1, player2, vs } = this.state;
-        console.log("Enter Pressed");
         if (player1.name.length === 0) {
             this.props.history.push("/results/top_players/1"); // If empty search bar
             return false;

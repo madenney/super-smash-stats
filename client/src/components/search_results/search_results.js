@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getSearchResults } from "../../actions";
 import PopulatePlayerCards from "./populateplayercards";
-import ReactPagination from 'react-paginate';
+import ReactPagination from "react-paginate";
 import "../css/search_results_page.css";
-import '../css/pagination.css';
+import "../css/pagination.css";
 
 class SearchResults extends Component {
     constructor(props) {
@@ -25,8 +25,8 @@ class SearchResults extends Component {
     }
 
     handlePageClick(data) {
-        const selectedPage = data.selected+1;
-        let {search} = this.props.match.params;
+        const selectedPage = data.selected + 1;
+        let { search } = this.props.match.params;
         this.props.history.push(`/results/${search}/${selectedPage}`);
         if (search == "top_players") {
             search = "";
@@ -36,17 +36,20 @@ class SearchResults extends Component {
 
     render() {
         if (!this.props.results) {
-            return <h1 className="mt-5">Loading...</h1>;
+            return <h1 className="container">Loading...</h1>;
+        }
+        if(this.props.results.player_cards.length === 0){
+          return <h1 className='container'>This Player Does Not Exist</h1>
         }
         return (
             <div className="container results--fromDarkness">
                 <div className="row">
+                    <h1 className="mx-auto">Player Search Results!</h1>
                     <div className="col-12 mx-auto">
-                        <h1>Player Search Results!</h1>
                         <PopulatePlayerCards
                             card={this.props.results.player_cards}
                         />
-                        <ReactPagination 
+                        <ReactPagination
                             previousLabel={"Previous"}
                             nextLabel={"Next"}
                             breakLabel={<a href="">...</a>}
@@ -54,12 +57,14 @@ class SearchResults extends Component {
                             pageCount={this.props.results.totalPages}
                             marginPagesDisplayed={1}
                             pageRangeDisplayed={5}
-                            containerClassName={"pagination--container col-12"}
+                            containerClassName={
+                                "pagination--container col-12 mt-2"
+                            }
                             pageClassName={"pagination--pages ml-1"}
                             previousClassName={"pagination--keys"}
                             nextClassName={"pagination--keys"}
                             activeClassName={"pagination--active"}
-                            onPageChange={(val) => this.handlePageClick(val)}
+                            onPageChange={val => this.handlePageClick(val)}
                         />
                     </div>
                 </div>

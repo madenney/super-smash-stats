@@ -21,7 +21,7 @@ export function getSearchResults(search, id, totalPageBoolean) {
 				input: search,
 				pageNum: id,
 				resultsPerPage: 20,
-				getTotalPages: `${totalPageBoolean ? false: true}`
+				getTotalPages: `${totalPageBoolean ? false : true}`
 			})
 			.then(response => {
 				dispatch({
@@ -38,7 +38,6 @@ export function getSearchResults(search, id, totalPageBoolean) {
 export function getPlayerProfile(id) {
 	return dispatch => {
 		axios.post("/player_profile", { input: id }).then(response => {
-			// console.log('this is player profile response', response);
 			dispatch({
 				type: types.GET_PLAYER_PROFILE,
 				payload: response.data
@@ -65,7 +64,8 @@ export function getPlayerProfile(id) {
 						payload: {
 							matches: response.data,
 							tournaments_attended: tournaments,
-							tournament_matches: reverse_matches
+							tournament_matches: reverse_matches,
+							tournament_selected: tournaments[0]
 						}
 					});
 				});
@@ -121,12 +121,17 @@ export function getH2HResults(id1, search) {
 }
 
 export function getH2HProfiles(id1, id2) {
+	console.log('id 1 id2: ', id1, id2);
 	return dispatch => {
 		axios.post("/head2headprofile", { id1, id2 }).then(response => {
+			console.log("h2hprofile results", response);
 			dispatch({
 				type: types.GET_H2H_PROFILES,
 				payload: response.data
 			});
-		});
+		})
+		.catch(error=>{
+			console.log('this is error: ', error);
+		})
 	};
 }

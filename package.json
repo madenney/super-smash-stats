@@ -4,7 +4,10 @@
   "description": "Super Smash Stats",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "npm run start --prefix client",
+    "server": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,7 @@
     "body-parser": "^1.17.2",
     "chart.js": "^2.6.0",
     "cheerio": "^1.0.0-rc.2",
+    "concurrently": "^3.5.0",
     "cors": "^2.8.4",
     "count-array-values": "^1.2.1",
     "express": "^4.15.3",

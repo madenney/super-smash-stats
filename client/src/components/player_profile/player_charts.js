@@ -3,7 +3,6 @@ import {Bar} from 'react-chartjs-2';
 
 const PlayerChart = (props) => {
   if(props.game_data === ''){
-    console.log('I am loading');
     return(
       <h1>Loading...</h1>
     )

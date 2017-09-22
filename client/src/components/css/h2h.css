@@ -1,51 +1,84 @@
 .container {
-  margin-top: 35px;
-}
-
-.h2h-player-box {
-  border-radius: 10px;
-  border: solid 4px #f7d709;
-  padding: 10px;
-}
-
-.h2h-player-info {
   color: #f7d709;
-  display: inline-block;
-}
-
-.h2h-characters {
-  width: 50px;
-  height: 50px;
 }
 
 .h2h-info-label {
-  color: #f7d709;
-}
-
-.h2h-set-count {
-  color: #f7d709;
   text-align: center;
-}
-
-.h2h-set-count-title {
   color: #f7d709;
-  text-align: center;
-  margin-bottom: 10px;
-  text-decoration: underline;
+  font-size: 2em;
 }
 
 .h2h-recent-match {
   overflow-y: scroll;
   white-space: nowrap;
   margin-top: 30px;
-  height: 25vh;
+  height: 30vh;
+}
+.table-content:hover {
+  animation: hoverblink 0.75s alternate infinite;
+  border-top: 1px solid white;
+  cursor: pointer;
+}
+.player-image {
+  border: 5px solid transparent;
+  border-radius: 10px;
+}
+.player-image:hover {
+  animation: borderglow 0.5s infinite linear alternate;
+}
+@-webkit-keyframes borderglow {
+  0% {
+    border: solid red 5px;
+  }
+  100% {
+    border: solid yellow 5px;
+  }
 }
 
-.center {
-  text-align: center;
-  color: white;
+.player-characters {
+  display: inline-block;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
 }
 
-.hidden {
-  display: ;
+.player-info,
+.player-tournament {
+  color: #f7d709;
+}
+
+@media screen and (max-width: 470px) {
+  .chart-display {
+    display: none;
+  }
+  .h2h-recent-match {
+    margin: 0 auto;
+    font-size: 0.75rem;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 1590px) {
+  .player-image {
+    width: 100%;
+    font-size: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .player-image {
+    width: 90%;
+  }
+  .h2h-info-label {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player-image {
+    width: 100%;
+  }
+  .h2h-info-label {
+    font-size: 2em;
+  }
 }
