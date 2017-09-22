@@ -1,9 +1,10 @@
-.navbar{
+.navbar {
   position: absolute;
   width: 100%;
   background-color: black;
 }
-.navbar--z-index {
+
+.navbar-z-index {
   z-index: 1;
 }
 
@@ -15,15 +16,12 @@
   height: 40px;
   width: 40px;
 }
+
 .home-icon img:hover {
   animation: spin2win 1s linear infinite;
 }
 
 nav {
-  /*box-shadow: 0 7px 6px -5px #939393*/
-  /*WHITE HUE: #939393*/
-  /*YELLOW HUE: #fdffc4*/
-  /*GRAY HUE: #4f4f4f*/
   box-shadow: 0 4px 8px 0 #3d3d3d, 0 6px 20px 0 #3d3d3d;
   position: absolute;
 }
@@ -33,7 +31,6 @@ nav {
 }
 
 .nav-button {
-  /*font-weight: bold;*/
   height: 100%;
   color: whitesmoke !important;
   -webkit-transform: skew(-20deg);
@@ -46,13 +43,10 @@ nav {
 }
 
 .nav-item {
-  /*border-bottom: 2px solid transparent;*/
   border-radius: 10px;
   text-decoration: none;
 }
 
 .nav-item:hover {
   animation: hoverblink 0.75s linear alternate infinite;
-  /*border-bottom: 2px solid #b7afca;
-  border-radius: 5px;*/
 }

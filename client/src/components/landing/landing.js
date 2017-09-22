@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
-import Scroll from "react-scroll";
-import { scroller } from "react-scroll";
+import Scroll, { scroller } from "react-scroll";
 import Searchbar from "./searchbar";
 import FeaturedPages from "./featured_pages";
 import landingPageLogo from "../imgs/land_logo.png";
