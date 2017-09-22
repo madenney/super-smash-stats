@@ -14,7 +14,7 @@ class Head2HeadProfile extends Component {
     super(props);
     this.state = {
       allYearlyHistory: [],
-      match_active: "",
+      chart_active: "",
       yt_active: "hidden",
       yt_url: ""
     };
@@ -25,12 +25,30 @@ class Head2HeadProfile extends Component {
     this.props.getH2HProfiles(id1, id2);
   }
 
-  getYtUrl(e) {
-    const { match_active, yt_active } = this.state;
-    this.setState({
-      match_active: yt_active == "hidden" ? "hidden" : "",
-      yt_active: yt_active == "hidden" ? "" : "hidden"
+  chartVisible() {
+    const { chart_active, yt_active } = this.state;
+    if (chart_active === "hidden") {
+      this.setState({
+        chart_active: 'animated zoomIn',
+        yt_active: 'hidden',
+        yt_url: ''
+      });
+    }
+  }
+
+  getYtUrl(e){
+    const {chart_active, yt_active} = this.state;
+    scroll.scrollToBottom({
+        smooth: true,
+        offset: 50,
+        isDynamic: true
     });
+    if (chart_active == '' || chart_active == 'animated zoomIn'){
+      this.setState({
+        chart_active: "hidden",
+        yt_active: "animated zoomIn"
+      });
+    }
     if (!e) {
       return;
     } else {
@@ -59,7 +77,7 @@ class Head2HeadProfile extends Component {
     if (!this.props.results) {
       return <h1 className="container">Loading...</h1>;
     }
-    
+
     const {
       player1,
       player2,
@@ -81,7 +99,7 @@ class Head2HeadProfile extends Component {
         </div>
       );
     } else {
-      const { match_active, yt_active } = this.state;
+      const { chart_active, yt_active } = this.state;
       const { id1, id2 } = this.props.match.params;
       return (
         <div className="container-fluid">
@@ -124,9 +142,7 @@ class Head2HeadProfile extends Component {
                 </div>
               </div>
             </div>
-            <div
-              className={`${match_active} col-xs-12 col-md-6 my-5 chart-display`}
-            >
+            <div className={`${chart_active} col-xs-12 col-md-6 my-5 chart-display`}>
               <H2HPlayerChart
                 game_data={yearlyHistory}
                 player1={player1}
@@ -136,7 +152,7 @@ class Head2HeadProfile extends Component {
             <div className={`col-md-6 ${yt_active}`}>
               <button
                 className="back_button btn btn-outline-danger"
-                onClick={() => this.getYtUrl()}
+                onClick={() => this.chartVisible()}
               >
                 X
               </button>
