@@ -18,7 +18,7 @@ export default class SearchBar extends Component {
             isValid: false
         };
         this.state = {
-            autocomCards: [],
+            autocompleteCards: [],
             currentIndex: -1,
             complete: "",
             player1,
@@ -34,10 +34,12 @@ export default class SearchBar extends Component {
         // To navigate somewhere:
         // this.props.history.push('/destination');
 
+        // Check for broken android mobile browser keycode
         if(e.keyCode === 229) {
             this.android = true;
             return;
         }
+
         if(e.preventDefault){
             e.preventDefault();
         }
@@ -48,20 +50,22 @@ export default class SearchBar extends Component {
             vs,
             vsSpace,
             complete,
-            autocomCards,
+            autocompleteCards,
             currentIndex
         } = this.state;
+
         let charCode = e.keyCode;
         let key = e.key;
+        // If key pressed is a character or number
         if (charCode >= 48 && charCode <= 90) {
-            // <<<<<<<<<<<<<<<<<< Letter/Number
             if (vs === false) {
+                // If the V button was pressed and player1 is valid
                 if (charCode === 86 && player1.isValid) {
                     this.setState({
                         vsSpace: "",
                         vs: true,
                         complete: "",
-                        autocomCards: []
+                        autocompleteCards: []
                     });
                 } else {
                     player1.name += key;
@@ -71,14 +75,15 @@ export default class SearchBar extends Component {
                 player2.name += key;
                 this.autocomplete(player2);
             }
-        } else if (
+        }
+        // If key pressed was tab or arrow key
+        else if (
             charCode === 9 ||
-            charCode === 39 ||
-            charCode === 40 ||
+            charCode === 37 ||
             charCode === 38 ||
-            charCode === 37
+            charCode === 39 ||
+            charCode === 40
         ) {
-            // <<<<<<<<<<<<<<<<<< Tab or Arrows
             if (player1.name.length === 0) {
                 return false;
             }
@@ -87,24 +92,24 @@ export default class SearchBar extends Component {
                     return false;
                 } else {
                     currentIndex = 0;
-                    player1.name = autocomCards[currentIndex].tag;
+                    player1.name = autocompleteCards[currentIndex].tag;
                     player1.isValid = true;
-                    player1.playerId = autocomCards[currentIndex].id;
+                    player1.playerId = autocompleteCards[currentIndex].id;
                     this.setState({ player1, currentIndex, complete: "" });
                 }
             } else if (player1.isValid === true && vs === false) {
                 if (vsSpace === "") {
                     if (charCode === 9 || charCode === 39 || charCode === 40) {
-                        this.tabComplete(autocomCards, player1, ++currentIndex);
+                        this.tabComplete(autocompleteCards, player1, ++currentIndex);
                     } else {
-                        this.tabComplete(autocomCards, player1, --currentIndex);
+                        this.tabComplete(autocompleteCards, player1, --currentIndex);
                     }
                 } else {
                     this.setState({
                         vsSpace: "",
                         vs: true,
                         complete: "",
-                        autocomCards: []
+                        autocompleteCards: []
                     });
                 }
             } else if (vs === true) {
@@ -116,21 +121,22 @@ export default class SearchBar extends Component {
                         return false;
                     } else {
                         currentIndex = 0;
-                        player2.name = autocomCards[currentIndex].tag;
+                        player2.name = autocompleteCards[currentIndex].tag;
                         player2.isValid = true;
-                        player2.playerId = autocomCards[currentIndex].id;
+                        player2.playerId = autocompleteCards[currentIndex].id;
                         this.setState({ player2, currentIndex, complete: "" });
                     }
                 } else {
                     if (charCode === 9 || charCode === 39 || charCode === 40) {
-                        this.tabComplete(autocomCards, player2, ++currentIndex);
+                        this.tabComplete(autocompleteCards, player2, ++currentIndex);
                     } else {
-                        this.tabComplete(autocomCards, player2, --currentIndex);
+                        this.tabComplete(autocompleteCards, player2, --currentIndex);
                     }
                 }
             }
-        } else if (charCode === 32) {
-            // <<<<<<<<<<<<<<<<<<<<<<<<<<<< Space Bar
+        }
+        // If the key pressed was the space bar
+        else if (charCode === 32) {
             if (player1.name.length === 0) {
                 // 1
                 return false;
@@ -140,7 +146,7 @@ export default class SearchBar extends Component {
                     this.setState({
                         vsSpace: " ",
                         complete: "vs ",
-                        autocomCards: []
+                        autocompleteCards: []
                     });
                     return false;
                 }
@@ -166,8 +172,9 @@ export default class SearchBar extends Component {
                     return false;
                 }
             }
-        } else if (charCode === 13) {
-            // <<<<<<<<<<<<<<<<<<<<<<<< Enter
+        }
+        // If the key pressed was Enter
+        else if (charCode === 13) {
             if (player1.name.length === 0) {
                 this.props.history.push("/results/top_players/1"); // If empty search bar
                 return false;
@@ -218,14 +225,14 @@ export default class SearchBar extends Component {
                         player1,
                         complete: "",
                         currentIndex: 0,
-                        autocomCards: []
+                        autocompleteCards: []
                     });
                 }
             } else if (vsSpace === " ") {
                 this.setState({ vsSpace: "" });
             } else {
                 if (player2.name.length === 0) {
-                    this.setState({ vs: false});
+                    this.setState({ vs: false });
                 } else {
                     player2.name = player2.name.substr(
                         0,
@@ -238,7 +245,7 @@ export default class SearchBar extends Component {
                             player2,
                             complete: "",
                             currentIndex: 0,
-                            autocomCards: []
+                            autocompleteCards: []
                         });
                     }
                 }
@@ -316,13 +323,13 @@ export default class SearchBar extends Component {
                 if (player.id === 1) {
                     this.setState({
                         player1: player,
-                        autocomCards: response.data.players,
+                        autocompleteCards: response.data.players,
                         complete: autocom
                     });
                 } else {
                     this.setState({
                         player2: player,
-                        autocomCards: response.data.players,
+                        autocompleteCards: response.data.players,
                         complete: autocom
                     });
                 }
@@ -350,11 +357,10 @@ export default class SearchBar extends Component {
                         player2.playerId
                 ); // Head 2 Head Profile
             } else {
-
-                if(player2.name.length === 0) {
-                    this.props.history.push('/head2headresults/'+player1.playerId+'/top_h2h/1'); // Head 2 Head Results
-
-
+                if (player2.name.length === 0) {
+                    this.props.history.push(
+                        "/head2headresults/" + player1.playerId + "/top_h2h/1"
+                    ); // Head 2 Head Results
                 } else {
                     this.props.history.push(
                         "/head2headresults/" +
@@ -368,21 +374,21 @@ export default class SearchBar extends Component {
         }
     }
 
-    doStuff() {
+    handleAndroid() {
         if(this.android){
             let x = this.searchInput.value;
             let c = 0;
-            if(!x){
-                c = 8
+            if (!x) {
+                c = 8;
             } else {
                 c = x.charCodeAt(0);
-                if(c >= 97 && c <= 122){
+                if (c >= 97 && c <= 122) {
                     c = c - 32;
                 }
             }
-            this.searchInput.value = '';
+            this.searchInput.value = "";
             this.setState({
-                nothing: 'nothing'
+                nothing: "nothing"
             });
             this.handleChange({
                 key: x,
@@ -409,21 +415,23 @@ export default class SearchBar extends Component {
                 >
                     {player1.name}
                 </div>
-                <div className="sbElement">
-                    {vsSpace}
-                </div>
-                {vs
-                    ? <div className="sbElement vs"> VS </div>
-                    : <div className="sbElement" />}
-                {player2.name.length > 0
-                    ? <div
-                          className={`sbElement ${player2.isValid
-                              ? "validName"
-                              : "invalidName"}`}
-                      >
-                          {player2.name}
-                      </div>
-                    : <div className="sbElement" />}
+                <div className="sbElement">{vsSpace}</div>
+                {vs ? (
+                    <div className="sbElement vs"> VS </div>
+                ) : (
+                    <div className="sbElement" />
+                )}
+                {player2.name.length > 0 ? (
+                    <div
+                        className={`sbElement ${player2.isValid
+                            ? "validName"
+                            : "invalidName"}`}
+                    >
+                        {player2.name}
+                    </div>
+                ) : (
+                    <div className="sbElement" />
+                )}
                 <input
                     autoFocus
                     className="inputLine"
@@ -432,15 +440,13 @@ export default class SearchBar extends Component {
                         e => this.handleChange(e)
                     }
                     onKeyUp={
-                        this.doStuff()
+                        this.handleAndroid()
                     }
                     ref={ip => {
                         this.searchInput = ip;
                     }}
                 />
-                <div className="sbElement complete">
-                    {complete}
-                </div>
+                <div className="sbElement complete">{complete}</div>
             </div>
         );
     }
@@ -457,7 +463,7 @@ export default class SearchBar extends Component {
                         Search
                     </div>
                     <Autocomplete
-                        recommendations={this.state.autocomCards}
+                        recommendations={this.state.autocompleteCards}
                         highlight={this.state.currentIndex}
                     />
                 </div>

@@ -11,10 +11,4 @@ function importAll(r) {
 
 const images = importAll(require.context('../imgs', true, /\.(gif|png|jpe?g|svg)$/));
 
-// import images from '../features/img_filter';
-// <img src={images['landingpage.png']} />
-// <img src={images['logo.svg']} />
-// <img src={images['ProfilePlaceholder.gif']} />
-// <img src={images['SmashBrosSymbol.svg']} />
-
 export default images;

@@ -52,11 +52,18 @@
   height: 35px;
   font-size: 14px;
 }
+
 .autocomplete-item > div {
   display: inline-block;
   padding: 0;
 }
+
 .autocomplete-pic {
   height: 30px;
   width: 30px;
+}
+
+.autocomplete-item:hover {
+  color: gold;
+  font-weight: bold;
 }

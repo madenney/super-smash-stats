@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
 import { getPlayerProfile } from '../../actions';
 import { filterTournamentMatches } from '../../actions';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import Scroll from "react-scroll";
 import { scroller } from "react-scroll";
 import {Link} from 'react-router-dom';
@@ -11,7 +11,7 @@ import ProfilePlaceholder from '../imgs/ProfilePlaceholder.gif';
 import TournamentHistory from './tournament_history';
 import MatchHistory from './match_history';
 import PlayerChart from './player_charts';
-import './player_profile.css';
+import '../css/player_profile.css';
 let scroll = Scroll.animateScroll;
 
 class PlayerProfile extends Component {
