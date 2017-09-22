@@ -135,3 +135,13 @@ export function getH2HProfiles(id1, id2) {
 		})
 	};
 }
+
+export function getStickyVideo(url){
+	console.log('this is the url: ', url);
+	return dispatch =>{
+		dispatch({
+			type: types.GET_STICKY_VIDEO,
+			payload: url
+		})
+	}
+}

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { getPlayerProfile } from '../../actions';
-import { filterTournamentMatches } from '../../actions';
+import { getPlayerProfile, filterTournamentMatches, getStickyVideo } from '../../actions';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import Scroll from "react-scroll";
@@ -25,7 +24,10 @@ class PlayerProfile extends Component {
       yt_active: "hidden"
     };
   }
-
+  componentWillUnmount(){
+    const {yt_url} = this.state;
+    this.props.getStickyVideo(yt_url);
+  }
   componentWillMount() {
     const { id } = this.props.match.params;
     this.props.getPlayerProfile(id);
@@ -189,11 +191,13 @@ function mapStateToProps(state) {
     matches: state.profile.matches_info.matches,
     tournaments_attended: state.profile.matches_info.tournaments_attended,
     tournament_matches: state.profile.matches_info.tournament_matches,
-    tournament_selected: state.profile.matches_info.tournament_selected
+    tournament_selected: state.profile.matches_info.tournament_selected,
+    yt_url: state.features.yt_url
   };
 }
 
 export default connect(mapStateToProps, {
   getPlayerProfile,
-  filterTournamentMatches
+  filterTournamentMatches,
+  getStickyVideo
 })(PlayerProfile);
