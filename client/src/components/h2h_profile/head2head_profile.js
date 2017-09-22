@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { getH2HProfiles } from "../../actions";
 import images from "../features/img_filter";
 import ProfilePlaceholder from "../imgs/ProfilePlaceholder.gif";
-import H2HMatchHistory from "./h2hmatches";
-import H2HPlayerChart from "./h2hplayer_charts";
+import H2HMatchHistory from "./h2h_matches";
+import H2HPlayerChart from "./h2h_player_charts";
 import ProfileCard from "./h2h_profile_card";
 import "../css/h2h.css";
 
@@ -16,7 +16,7 @@ class Head2HeadProfile extends Component {
       allYearlyHistory: [],
       chart_active: "",
       yt_active: "hidden",
-      yt_url: ''
+      yt_url: ""
     };
   }
 
@@ -26,6 +26,7 @@ class Head2HeadProfile extends Component {
   }
 
   getYtUrl(e) {
+
     const { chart_active, yt_active } = this.state;
     if (yt_active == "hidden") {
       this.setState({
@@ -38,27 +39,42 @@ class Head2HeadProfile extends Component {
         chart_active: "",
         yt_active: "hidden",
         yt_url: ''
+
+//     const { match_active, yt_active } = this.state;
+//     this.setState({
+//       match_active: yt_active == "hidden" ? "hidden" : "",
+//       yt_active: yt_active == "hidden" ? "" : "hidden"
+//     });
+//     if (!e) {
+//       return;
+//     } else {
+//       this.setState({
+//         yt_url: e.target.getAttribute("data")
+
       });
     }
   }
 
   render() {
     let yt_video;
-    if(this.state.yt_url === ''){
-      yt_video = <h1>No Video</h1>
+    if (this.state.yt_url === "") {
+      yt_video = <h1>No Video</h1>;
+    } else {
+      yt_video = (
+        <iframe
+          allowFullScreen="allowfullscreen"
+          width="400px"
+          height="300px"
+          frameBorder="0"
+          src={`${this.state.yt_url}?autoplayer=0`}
+        />
+      );
     }
-    else{
-      yt_video = <iframe
-        allowFullScreen="allowfullscreen"
-        width="400px"
-        height="300px"
-        frameBorder='0'
-        src={`${this.state.yt_url}?autoplayer=0`}
-      />
-    }
+
     if (!this.props.results) {
       return <h1 className="container">Loading...</h1>;
     }
+    
     const {
       player1,
       player2,
@@ -108,14 +124,13 @@ class Head2HeadProfile extends Component {
               main={player2.main}
               secondary={player2.secondary}
               location={player2.location}
-              flip={true}
             />
           </div>
           {/* Match History For Players */}
           <div className="row">
             <div className="col-12 col-md-6 mt-3 player-tournament">
               <div className="col-12">
-                <div className='h2h-recent-match'>
+                <div className="h2h-recent-match">
                   <h3>Match History</h3>
                   <H2HMatchHistory
                     youtube_url_info={e => this.getYtUrl(e)}
@@ -134,7 +149,8 @@ class Head2HeadProfile extends Component {
             <div className={`col-md-6 ${yt_active}`}>
               <button
                 className="back_button btn btn-outline-danger"
-                onClick={() => this.getYtUrl()}>
+                onClick={() => this.getYtUrl()}
+              >
                 X
               </button>
               {yt_video}

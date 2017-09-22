@@ -1,6 +1,7 @@
 import types from "./types";
 import axios from "axios";
 
+// Saved for future carousel on front page
 export function frontPagePlayers() {
 	axios
 		.post("/front_page", { number: 10 })

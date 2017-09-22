@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import { getPlayerProfile, filterTournamentMatches, getStickyVideo } from '../../actions';
 import { connect } from 'react-redux';
-import _ from 'lodash';
-import Scroll from "react-scroll";
-import { scroller } from "react-scroll";
 import {Link} from 'react-router-dom';
+import _ from 'lodash';
+
+import { getPlayerProfile, filterTournamentMatches, getStickyVideo } from '../../actions';
+import Scroll, {scroller} from "react-scroll";
 import images from '../features/img_filter';
 import ProfilePlaceholder from '../imgs/ProfilePlaceholder.gif';
 import TournamentHistory from './tournament_history';
 import MatchHistory from './match_history';
 import PlayerChart from './player_charts';
-import './player_profile.css';
+import '../css/player_profile.css';
 let scroll = Scroll.animateScroll;
 
 class PlayerProfile extends Component {

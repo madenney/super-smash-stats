@@ -7,8 +7,12 @@
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
+    <style>
+        .highlighted {
+            background-color: yellow;
+        }
+    </style>
     <script>
-
         $(document).ready(function() {
             $(".button1").click(function() {
 
@@ -33,113 +37,182 @@
                 });
             });
 
-            $(".button2").click(function() {
-
-                $.ajax({
-                    dataType: 'json',
-                    url: '/player_profile',
-                    method: "POST",
-                    data: {
-                        input: $("#input2").val()
-                    },
-                    success: function(result) {
-                        console.log(result);
-                        $("#resultPlayerInfo").text(result);
-                    },
-                    error: function(err) {
-                        console.log("ERROR OCCURRED");
-                        console.log(err);
-                    }
-                });
-
+            $("#resetSearch").click(function(){
+                searchBarObj = {
+                    bar: [
+                        {type: 'input'}
+                    ],
+                    dropdown: [],
+                    enterAction: 'topPlayerSearch'
+                };
             });
-
-            $(".button3").click(function() {
-
-                $.ajax({
-                    dataType: 'json',
-                    url: '/front_page',
-                    method: "POST",
-                    data: {
-                        number: 10
-                    },
-                    success: function(result) {
-                        console.log(result);
-                    },
-                    error: function(err) {
-                        console.log("ERROR OCCURRED");
-                        console.log(err);
-                    }
-                });
-
-            });
-
-            $(".button4").click(function() {
-
-                $.ajax({
-                    dataType: 'json',
-                    url: '/match_history',
-                    method: "POST",
-                    data: {
-                        input: $("#historyinput").val(),
-                        page: 0
-                    },
-                    success: function(result) {
-                        console.log(result);
-                    },
-                    error: function(err) {
-                        console.log("ERROR OCCURRED");
-                        console.log(err);
-                    }
-                });
-
-            });
-
-            $(".h2hprofile").click(function() {
-
-                $.ajax({
-                    dataType: 'json',
-                    url: '/head2headprofile',
-                    method: "POST",
-                    data: {
-                        id1: 3,
-                        id2: 8
-                    },
-                    success: function(result) {
-                        console.log(result);
-                    },
-                    error: function(err) {
-                        console.log("ERROR OCCURRED");
-                        console.log(err);
-                    }
-                });
-
-            });
-
-            $(".h2hsearch").click(function() {
-
-                $.ajax({
-                    dataType: 'json',
-                    url: '/head2headsearch',
-                    method: "POST",
-                    data: {
-                        player1: '2',
-                        input: 's',
-                        resultsPerPage: 20,
-                        pageNum: 1,
-                        getTotalPages: true
-                    },
-                    success: function(result) {
-                        console.log(result);
-                    },
-                    error: function(err) {
-                        console.log("ERROR OCCURRED");
-                        console.log(err);
-                    }
-                });
-
-            });
+//            $(".button2").click(function() {
+//
+//                $.ajax({
+//                    dataType: 'json',
+//                    url: '/player_profile',
+//                    method: "POST",
+//                    data: {
+//                        input: $("#input2").val()
+//                    },
+//                    success: function(result) {
+//                        console.log(result);
+//                        $("#resultPlayerInfo").text(result);
+//                    },
+//                    error: function(err) {
+//                        console.log("ERROR OCCURRED");
+//                        console.log(err);
+//                    }
+//                });
+//
+//            });
+//
+//            $(".button3").click(function() {
+//
+//                $.ajax({
+//                    dataType: 'json',
+//                    url: '/front_page',
+//                    method: "POST",
+//                    data: {
+//                        number: 10
+//                    },
+//                    success: function(result) {
+//                        console.log(result);
+//                    },
+//                    error: function(err) {
+//                        console.log("ERROR OCCURRED");
+//                        console.log(err);
+//                    }
+//                });
+//
+//            });
+//
+//            $(".button4").click(function() {
+//
+//                $.ajax({
+//                    dataType: 'json',
+//                    url: '/match_history',
+//                    method: "POST",
+//                    data: {
+//                        input: $("#historyinput").val(),
+//                        page: 0
+//                    },
+//                    success: function(result) {
+//                        console.log(result);
+//                    },
+//                    error: function(err) {
+//                        console.log("ERROR OCCURRED");
+//                        console.log(err);
+//                    }
+//                });
+//
+//            });
+//
+//            $(".h2hprofile").click(function() {
+//
+//                $.ajax({
+//                    dataType: 'json',
+//                    url: '/head2headprofile',
+//                    method: "POST",
+//                    data: {
+//                        id1: 3,
+//                        id2: 8
+//                    },
+//                    success: function(result) {
+//                        console.log(result);
+//                    },
+//                    error: function(err) {
+//                        console.log("ERROR OCCURRED");
+//                        console.log(err);
+//                    }
+//                });
+//
+//            });
+//
+//            $(".h2hsearch").click(function() {
+//
+//                $.ajax({
+//                    dataType: 'json',
+//                    url: '/head2headsearch',
+//                    method: "POST",
+//                    data: {
+//                        player1: '2',
+//                        input: 's',
+//                        resultsPerPage: 20,
+//                        pageNum: 1,
+//                        getTotalPages: true
+//                    },
+//                    success: function(result) {
+//                        console.log(result);
+//                    },
+//                    error: function(err) {
+//                        console.log("ERROR OCCURRED");
+//                        console.log(err);
+//                    }
+//                });
+//
+//            });
         });
+
+        var searchBarObj = {
+            bar: [
+                {type: 'input'}
+            ],
+            dropdown: [],
+            enterAction: 'topPlayerSearch'
+        };
+
+        function submitSearch(e) {
+            e.preventDefault();
+            console.log(searchBarObj);
+            searchBarObj.newInputCode = e.keyCode;
+            searchBarObj.newInputKey = e.key;
+            $.ajax({
+                dataType: 'json',
+                contentType: "application/json",
+                url: 'http://localhost:3030/searchbar',
+                method: 'POST',
+                data: JSON.stringify(searchBarObj),
+                success: function(result){
+                    console.log("Result:", result);
+                    searchBarObj = result;
+                    populate();
+                },
+                error: function(err) {
+                    console.log("An Error Occurred");
+                    console.log(err);
+                }
+            });
+        }
+
+        function populate(){
+            console.log("Populate");
+            var searchbarOutput = $("#searchbarOutput");
+            var dropdown = $("#dropdown");
+
+            searchbarOutput.empty();
+            dropdown.empty();
+
+            for(var i = 0; i < searchBarObj.bar.length; i++) {
+                var string = searchBarObj.bar[i].type;
+                if(searchBarObj.bar[i].text) {
+                    string += " - " + searchBarObj.bar[i].text;
+                }
+                var newSearchElement = $("<div>").html(string);
+                searchbarOutput.append(newSearchElement);
+            }
+            for(var i = 0; i < searchBarObj.dropdown.length; i++) {
+                var string = searchBarObj.dropdown[i].type;
+                if(searchBarObj.dropdown[i].text) {
+                    string += " - " + searchBarObj.dropdown[i].text;
+                    if(searchBarObj.dropdown[i].highlighted){
+                        string += " <<<<<<< highlighted";
+                    }
+                }
+                var newDropdownElement = $("<div>").html(string);
+                dropdown.append(newDropdownElement);
+            }
+        }
 
     </script>
 </head>
@@ -157,34 +230,45 @@
     <br>
     <br>
     <br>
-    <!--Enter ID to receive player profile info object-->
-    <input id = 'input2' type="text">
-    <button class ="button2"> Submit Player ID </button>
-    <div id="resultPlayerInfo"></div>
+    <button id="resetSearch">Reset</button>
+    <p>SearchBar Input</p>
+    <input id="searchbarInput" onkeydown="submitSearch(event)" type="text">
+    <p>SearchBar Output</p>
+    <div id="searchbarOutput"></div>
+    <p>Dropdown Output</p>
+    <div id="dropdown"></div>
 
-    <br>
-    <br>
-    <br>
-    <!--Test for front page info-->
-    <button class ="button3"> Get Front Page Info </button>
+    <!--<br>-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--&lt;!&ndash;Enter ID to receive player profile info object&ndash;&gt;-->
+    <!--<input id = 'input2' type="text">-->
+    <!--<button class ="button2"> Submit Player ID </button>-->
+    <!--<div id="resultPlayerInfo"></div>-->
 
-    <br>
-    <br>
-    <br>
-    <!--Enter ID to receive player profile info object-->
-    <input id = "historyinput" type="text">
-    <button class ="button4"> Get Match History </button>
+    <!--<br>-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--&lt;!&ndash;Test for front page info&ndash;&gt;-->
+    <!--<button class ="button3"> Get Front Page Info </button>-->
 
-    <br>
-    <br>
-    <br>
-    <!--Enter ID to receive player profile info object-->
-    <button class ="h2hprofile"> h2hProfile </button>
-    <br>
-    <br>
-    <br>
-    <!--Enter ID to receive player profile info object-->
-    <button class ="h2hsearch"> h2hSearch </button>
+    <!--<br>-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--&lt;!&ndash;Enter ID to receive player profile info object&ndash;&gt;-->
+    <!--<input id = "historyinput" type="text">-->
+    <!--<button class ="button4"> Get Match History </button>-->
+
+    <!--<br>-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--&lt;!&ndash;Enter ID to receive player profile info object&ndash;&gt;-->
+    <!--<button class ="h2hprofile"> h2hProfile </button>-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--&lt;!&ndash;Enter ID to receive player profile info object&ndash;&gt;-->
+    <!--<button class ="h2hsearch"> h2hSearch </button>-->
 
 </body>
 </html>
