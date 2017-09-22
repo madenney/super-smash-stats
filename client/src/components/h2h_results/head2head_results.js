@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getH2HResults } from "../../actions";
 import Head2HeadPlayerCards from "./h2hplayercardresults";
-import '../css/h2h_results.css';
+import "../css/h2h_results.css";
 
 class Head2HeadResults extends Component {
   constructor(props) {
@@ -20,12 +20,9 @@ class Head2HeadResults extends Component {
   render() {
     if (this.props.h2h_results === null) {
       return <h1 className="container">Loading...</h1>;
-    }
-    else if(this.props.h2h_results.player2results.length === 0){
-      console.log(this.props.h2h_results.player2results)
-      return <h1 className="container">This Match-Up Does Not Exist</h1>
-    }
-    else {
+    } else if (this.props.h2h_results.player2results.length === 0) {
+      return <h1 className="container">This Match-Up Does Not Exist</h1>;
+    } else {
       const { name, player1, player2results } = this.props.h2h_results;
       return (
         <div className="container fromDarkness">
@@ -38,9 +35,11 @@ class Head2HeadResults extends Component {
     }
   }
 }
+
 function mapStateToProps(state) {
   return {
     h2h_results: state.h2h_results.h2h_results
   };
 }
+
 export default connect(mapStateToProps, { getH2HResults })(Head2HeadResults);
