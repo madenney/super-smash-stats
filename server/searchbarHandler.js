@@ -42,19 +42,10 @@ exports.SearchBarHandler = function(res, searchBarObj) {
 
     // For letters and numbers key presses
     if(searchBarObj.newInputCode >= 48 && searchBarObj.newInputCode <= 90){
-        // For inserting VS
-        // if(searchBarObj.newInputCode === 86 && (preInput.type === 'player' || preInput.type === 'character')){
-        //
-        // }
         if(preInput.type === 'incomplete') {
             preInput.text += searchBarObj.newInputKey;
             autocomplete(searchBarObj, preInput, res);
         }
-        // } else {
-        //     if(true) {
-        //         console.log('poop');
-        //     }
-        // }
     }
 
 };

@@ -71,8 +71,7 @@ exports.GetYoutubeURLs = function() {
         var searchTerm = matches[matchIndex].winner +" vs "+ matches[matchIndex].loser +" "+ matches[matchIndex].tournament + " melee singles";
         console.log("Searching: " + searchTerm);
         var options = {
-            key: 'AIzaSyBGdYNDwitHpGUZXC5eJ42PcPetEt8jnRc', // Khanh's key
-            //key:'AIzaSyCwiZZo-60aGr3Vdjut0eYy3p01CXcjXos', // Matt's key
+            key:'AIzaSyCwiZZo-60aGr3Vdjut0eYy3p01CXcjXos', // Matt's key
             // key: 'AIzaSyCFTE9hlB9_RaffTbiWM23chT7Qumdpa0U', // Howard's key
             term: searchTerm.toLowerCase()
         };

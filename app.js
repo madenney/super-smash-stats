@@ -14,6 +14,12 @@ app.use(cors());
 // Input Validation / String Sanitization
 app.use(function(req, res, next){
     helper.recursiveStringEscape(req.body);
+    if(helper.checkForHugeStrings(req.body)){
+        req.body = {
+            error: true,
+            errorMessage: "Massive String Detected."
+        }
+    };
     next();
 });
 
