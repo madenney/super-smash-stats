@@ -23,18 +23,14 @@ const MatchHistory = props => {
       } else {
         score_label = "W       " + item.score;
       }
-
-      let split_url = item.video_url.split("watch?v=");
-      let youtube_url = split_url[0] + "embed/" + split_url[1];
       let video_src;
-
       let split_url = item.video_url.split('watch?v=');
       let youtube_url = split_url[0] + 'embed/' + split_url[1] + '?autoplay=1&enablejsapi=1&rel=0&showinfo=0&controls=0';
       if(item.video_url.length > 3){
         video_src = <img data = {youtube_url} onClick= {(e) => props.youtube_url_info(e)} className = 'youtube_icon' src= {images['youtube_icon.png']} />
         return(
           <tr className='table-content col-md-4 table-hover' key={`1${index}`}>
-            <td data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{switched_item}</td>
+            <td data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{score_label}</td>
             <td data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{item.loser}</td>
             <td data = {youtube_url} onClick={(e) => props.youtube_url_info(e)}>{video_src}</td>
           </tr>

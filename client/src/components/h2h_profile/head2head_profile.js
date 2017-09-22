@@ -25,32 +25,35 @@ class Head2HeadProfile extends Component {
     this.props.getH2HProfiles(id1, id2);
   }
 
-  getYtUrl(e) {
-
+  chartVisible() {
     const { chart_active, yt_active } = this.state;
-    if (yt_active == "hidden") {
+    if (chart_active === "hidden") {
+      this.setState({
+        chart_active: 'animated zoomIn',
+        yt_active: 'hidden',
+        yt_url: ''
+      });
+    }
+  }
+
+  getYtUrl(e){
+    const {chart_active, yt_active} = this.state;
+    scroll.scrollToBottom({
+        smooth: true,
+        offset: 50,
+        isDynamic: true
+    });
+    if (chart_active == '' || chart_active == 'animated zoomIn'){
       this.setState({
         chart_active: "hidden",
-        yt_active: "",
-        yt_url: e.target.getAttribute("data")
+        yt_active: "animated zoomIn"
       });
+    }
+    if (!e) {
+      return;
     } else {
       this.setState({
-        chart_active: "",
-        yt_active: "hidden",
-        yt_url: ''
-
-//     const { match_active, yt_active } = this.state;
-//     this.setState({
-//       match_active: yt_active == "hidden" ? "hidden" : "",
-//       yt_active: yt_active == "hidden" ? "" : "hidden"
-//     });
-//     if (!e) {
-//       return;
-//     } else {
-//       this.setState({
-//         yt_url: e.target.getAttribute("data")
-
+        yt_url: e.target.getAttribute("data")
       });
     }
   }
@@ -74,7 +77,7 @@ class Head2HeadProfile extends Component {
     if (!this.props.results) {
       return <h1 className="container">Loading...</h1>;
     }
-    
+
     const {
       player1,
       player2,
@@ -149,7 +152,7 @@ class Head2HeadProfile extends Component {
             <div className={`col-md-6 ${yt_active}`}>
               <button
                 className="back_button btn btn-outline-danger"
-                onClick={() => this.getYtUrl()}
+                onClick={() => this.chartVisible()}
               >
                 X
               </button>

@@ -7,7 +7,7 @@ const TournamentHistory = (props) => {
   }
   const individ_tournament = props.tournaments_attended.map((item, index)=>{
     return(
-      <option value={item} className='tournamentItem'  key={index}>{item}</option>
+      <option value={item} className='tournamentItem' key={index}>{item}</option>
     )
   })
   return(
