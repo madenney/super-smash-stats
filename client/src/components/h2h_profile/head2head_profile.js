@@ -14,7 +14,7 @@ class Head2HeadProfile extends Component {
     super(props);
     this.state = {
       allYearlyHistory: [],
-      match_active: "",
+      chart_active: "",
       yt_active: "hidden",
       yt_url: ""
     };
@@ -26,16 +26,31 @@ class Head2HeadProfile extends Component {
   }
 
   getYtUrl(e) {
-    const { match_active, yt_active } = this.state;
-    this.setState({
-      match_active: yt_active == "hidden" ? "hidden" : "",
-      yt_active: yt_active == "hidden" ? "" : "hidden"
-    });
-    if (!e) {
-      return;
+
+    const { chart_active, yt_active } = this.state;
+    if (yt_active == "hidden") {
+      this.setState({
+        chart_active: "hidden",
+        yt_active: "",
+        yt_url: e.target.getAttribute("data")
+      });
     } else {
       this.setState({
-        yt_url: e.target.getAttribute("data")
+        chart_active: "",
+        yt_active: "hidden",
+        yt_url: ''
+
+//     const { match_active, yt_active } = this.state;
+//     this.setState({
+//       match_active: yt_active == "hidden" ? "hidden" : "",
+//       yt_active: yt_active == "hidden" ? "" : "hidden"
+//     });
+//     if (!e) {
+//       return;
+//     } else {
+//       this.setState({
+//         yt_url: e.target.getAttribute("data")
+
       });
     }
   }
@@ -81,7 +96,7 @@ class Head2HeadProfile extends Component {
         </div>
       );
     } else {
-      const { match_active, yt_active } = this.state;
+      const { chart_active, yt_active } = this.state;
       const { id1, id2 } = this.props.match.params;
       return (
         <div className="container-fluid">
@@ -124,9 +139,7 @@ class Head2HeadProfile extends Component {
                 </div>
               </div>
             </div>
-            <div
-              className={`${match_active} col-xs-12 col-md-6 my-5 chart-display`}
-            >
+            <div className={`${chart_active} col-xs-12 col-md-6 my-5 chart-display`}>
               <H2HPlayerChart
                 game_data={yearlyHistory}
                 player1={player1}
