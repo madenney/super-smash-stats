@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import { getH2HResults } from "../../actions";
 import Head2HeadPlayerCards from "./h2hplayercardresults";
-// import "../css/stylish.css";
+import '../css/h2h_results.css';
 
 class Head2HeadResults extends Component {
   constructor(props) {

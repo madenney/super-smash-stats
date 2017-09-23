@@ -14,10 +14,25 @@
   margin-top: 30px;
   height: 30vh;
 }
-
+.table-content:hover {
+  animation: hoverblink 0.75s alternate infinite;
+  border-top: 1px solid white;
+  cursor: pointer;
+}
 .player-image {
-  /*width: 100%;*/
+  border: 5px solid transparent;
   border-radius: 10px;
+}
+.player-image:hover {
+  animation: borderglow 0.5s infinite linear alternate;
+}
+@-webkit-keyframes borderglow {
+  0% {
+    border: solid red 5px;
+  }
+  100% {
+    border: solid yellow 5px;
+  }
 }
 
 .player-characters {

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { getPlayerProfile } from '../../actions';
 import { filterTournamentMatches } from '../../actions';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import _ from 'lodash';
 import Scroll from "react-scroll";
 import { scroller } from "react-scroll";
@@ -27,7 +26,7 @@ class PlayerProfile extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { id } = this.props.match.params;
     this.props.getPlayerProfile(id);
   }
@@ -89,14 +88,15 @@ class PlayerProfile extends Component {
   }
 
   render(){
+    let yt_video;
     let player_main;
     let player_main_title;
-    const { toggle, button_description, profile_picture, chart_active, yt_active} = this.state;
+    const { toggle, button_description, profile_picture, chart_active, yt_active, yt_url} = this.state;
     const {tournament_matches, profile, tournaments_attended, tournament_selected} = this.props;
     if(tournament_matches === undefined){
       return(
         <div className="container">
-          <h1>Loading</h1>
+          <h1>Loading...</h1>
         </div>
       );
     }
@@ -120,6 +120,13 @@ class PlayerProfile extends Component {
     else{
       player_main_title = <p>Mains: </p>
     }
+    if(yt_url === ''){
+      yt_video = <h1>None Selected</h1>
+    }
+    else{
+      yt_video = <iframe className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${yt_url}?autoplay=0`}></iframe>
+
+    }
     return (
       //general profile picture
       <div className='container animated fadeIn'>
@@ -130,7 +137,7 @@ class PlayerProfile extends Component {
   					<div className="player_info col-sm-4 col-md-6 col-xs-6 col-lg-4 offset-sm-1 ml-2">
 
               <h4 id='player_rank' >{profile.name}</h4>
-  						{/* <h4 id="player_rank" >ELO Rank: {profile.rank}</h4> */}
+
   						<p id="location" >Region: {profile.location}</p>
   						{player_main_title}
               {player_main}
@@ -147,7 +154,6 @@ class PlayerProfile extends Component {
       		<div className='row'>
       			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <div className='col-md-12'>
-                {/* <h3 className='tournament-selected'>{tournament_selected}</h3> */}
                 <table className='table'>
                   <thead>
                     <tr className='col-md-4 theader'>
@@ -167,7 +173,7 @@ class PlayerProfile extends Component {
                 <PlayerChart game_data = {profile} />
               </div>
               <div className={`${yt_active} col-md-12 my-4`}>
-                <iframe className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
+                {yt_video}
                 <button className='back_button btn btn-outline-danger' onClick={()=>this.chartVisible()}>X</button>
               </div>
             </div>

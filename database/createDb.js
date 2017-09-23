@@ -77,12 +77,6 @@ function createDb() {
             promiseChain.push(promise);
         }
 
-        function doStuff() {
-            setTimeout(function(){
-                console.log("HelloWorld");
-            }, 1000);
-        }
-
         if(actionChain.length > 0) {
             actionChain[0].run();
             for(var i = 0; i < promiseChain.length - 1; i++) {
