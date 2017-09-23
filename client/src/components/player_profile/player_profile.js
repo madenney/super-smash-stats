@@ -27,6 +27,8 @@ class PlayerProfile extends Component {
   componentWillUnmount(){
     const {yt_url} = this.state;
     this.props.getStickyVideo(yt_url);
+
+    console.log('UNMOUNTING:', document.querySelector('#profile-video #player video'));
   }
   componentWillMount() {
     const { id } = this.props.match.params;
@@ -126,7 +128,7 @@ class PlayerProfile extends Component {
       yt_video = <h1>None Selected</h1>
     }
     else{
-      yt_video = <iframe className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${yt_url}?autoplay=0`}></iframe>
+      yt_video = <iframe id="profile-video" className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${yt_url}`}></iframe>
 
     }
     return (

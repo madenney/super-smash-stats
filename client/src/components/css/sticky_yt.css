@@ -1,0 +1,21 @@
+.content-media--video{
+  background-color: #ddd;
+  display: block;
+  position: relative;
+  padding: 0 0 56.25% 0;
+}
+
+.yt-frame{
+
+}
+#featured-video{
+  tranisition: width .2s eas-in-out, height .2s ease-in-out, transform .38s ease-in-out;
+}
+#featured-video.is-sticky{
+  top: 15px;
+  left: auto;
+  max-width: 200px;
+  max-height: 150px;
+  width: 200px;
+  max-height: 150px;
+}

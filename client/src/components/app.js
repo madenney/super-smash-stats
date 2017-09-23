@@ -16,9 +16,9 @@ import "./css/app.css";
 
 export default () => (
     <div>
+      <StickYt />
       <Favicon url="https://vignette3.wikia.nocookie.net/ssb/images/6/64/Favicon.ico/revision/latest?cb=20150114084035" />
       <Route component={Navbar} />
-      <Route component={StickYt} />
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/characterselect" component={CharacterSelect} />
@@ -36,5 +36,6 @@ export default () => (
         <Route path="/character_select_screen" component={CharacterSelect} />
         <Route path="*" component={ErrorPage} />
       </Switch>
+
     </div>
 );
