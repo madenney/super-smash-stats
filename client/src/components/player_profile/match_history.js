@@ -25,7 +25,7 @@ const MatchHistory = props => {
       }
       let video_src;
       let split_url = item.video_url.split('watch?v=');
-      let youtube_url = split_url[0] + 'embed/' + split_url[1] + '?autoplay=1&enablejsapi=1&rel=0&showinfo=0&controls=0';
+      let youtube_url = split_url[0] + 'embed/' + split_url[1] + '?autoplay=1&enablejsapi=1&rel=1&showinfo=1&controls=1';
       if(item.video_url.length > 3){
         video_src = <img data = {youtube_url} onClick= {(e) => props.youtube_url_info(e)} className = 'youtube_icon' src= {images['youtube_icon.png']} />
         return(
