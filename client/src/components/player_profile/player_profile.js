@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
+import ReactPlayer from 'react-player';
 
-import { getPlayerProfile, filterTournamentMatches, getStickyVideo } from '../../actions';
+import { getPlayerProfile, filterTournamentMatches, getStickyVideo, checkStickyVideo } from '../../actions';
 import Scroll, {scroller} from "react-scroll";
 import images from '../features/img_filter';
 import ProfilePlaceholder from '../imgs/ProfilePlaceholder.gif';
@@ -21,17 +22,29 @@ class PlayerProfile extends Component {
       yt_url: "",
       //sets the states for the individual nav link tabs
       chart_active: "",
-      yt_active: "hidden"
+      yt_active: "hidden",
+      yt_controls: true,
+      yt_time_elapsed: null
     };
+    this.onProgress = this.onProgress.bind(this);
   }
   componentWillUnmount(){
-    const {yt_url} = this.state;
-    this.props.getStickyVideo(yt_url);
-
-    console.log('UNMOUNTING:', document.querySelector('#profile-video #player video'));
+    const {yt_url, yt_time_elapsed} = this.state;
+    if(yt_url !== ""){
+      this.props.getStickyVideo(yt_url, yt_time_elapsed);
+      this.props.checkStickyVideo(true);
+    }
   }
-  componentWillMount() {
+  componentDidMount() {
     const { id } = this.props.match.params;
+    if(this.props.sticky_yt_player === true){
+      this.props.checkStickyVideo(false);
+      this.setState({
+        yt_url: this.props.yt_url.url,
+        chart_active: 'hidden',
+        yt_active: "animated zoomIn"
+      });
+    }
     this.props.getPlayerProfile(id);
   }
 
@@ -67,6 +80,12 @@ class PlayerProfile extends Component {
         yt_url: ''
       });
     }
+  }
+
+  onProgress(yt_time){
+    this.setState({
+      yt_time_elapsed: yt_time.playedSeconds
+    })
   }
 
   getYtUrl(e){
@@ -128,7 +147,7 @@ class PlayerProfile extends Component {
       yt_video = <h1>None Selected</h1>
     }
     else{
-      yt_video = <iframe id="profile-video" className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${yt_url}`}></iframe>
+      yt_video = <ReactPlayer playing onProgress={this.onProgress} url={yt_url} controls={this.state.yt_controls} className='yt-player mx-auto' width='400px' height='300px'/>
 
     }
     return (
@@ -194,12 +213,14 @@ function mapStateToProps(state) {
     tournaments_attended: state.profile.matches_info.tournaments_attended,
     tournament_matches: state.profile.matches_info.tournament_matches,
     tournament_selected: state.profile.matches_info.tournament_selected,
-    yt_url: state.features.yt_url
+    yt_url: state.features.yt_url,
+    sticky_yt_player: state.features.sticky_yt_player
   };
 }
 
 export default connect(mapStateToProps, {
   getPlayerProfile,
   filterTournamentMatches,
-  getStickyVideo
+  getStickyVideo,
+  checkStickyVideo
 })(PlayerProfile);

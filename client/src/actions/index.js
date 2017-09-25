@@ -135,12 +135,37 @@ export function getH2HProfiles(id1, id2) {
 	};
 }
 
-export function getStickyVideo(url){
-	console.log('this is the url: ', url);
+export function getStickyVideo(url,timestamp){
+	timestamp = Math.floor(timestamp);
+	if(url !== null){
+		url = url + '&start=' + timestamp;
+		return dispatch =>{
+			dispatch({
+				type: types.GET_STICKY_VIDEO,
+				payload: {
+					url: url,
+					timestamp: timestamp
+				}
+			});
+		}
+	}
+	else{
+		return dispatch =>{
+			dispatch({
+				type: types.GET_STICKY_VIDEO,
+				payload: {
+					url: url,
+					timestamp: timestamp
+				}
+			})
+		}
+	}
+}
+export function checkStickyVideo(is_sticky){
 	return dispatch =>{
 		dispatch({
-			type: types.GET_STICKY_VIDEO,
-			payload: url
+			type: types.CHECK_STICKY_VIDEO,
+			payload: is_sticky
 		})
 	}
 }
