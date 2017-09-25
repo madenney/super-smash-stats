@@ -41,3 +41,11 @@
   content: "\f13a";
   color: white;
 }
+.fa-window-restore:before {
+  content: "\f2d2";
+}
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+  content: "\f00d";
+}
