@@ -14,7 +14,6 @@ exports.Reload = function(resolve) {
     var doMatches = true;
     var array;
     var conn;
-    var self = this;
 
     // Main Function
     this.run = function() {

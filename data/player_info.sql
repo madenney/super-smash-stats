@@ -49,7 +49,7 @@ CREATE TABLE `player_info` (
 
 INSERT INTO `player_info` (`id`, `name`, `tag`, `alt_tags`, `location`, `main`, `secondary`, `twitter`, `image_url`, `sponsor`, `twitch`, `tidbit`) VALUES
 (1, 'Adam Lindgren', 'Armada', '[A]rmada', 'Sweden', 'Peach', 'Fox', 'ArmadaUGS', '', '', '', ''),
-(2, 'Juan Debiedma', 'Hungrybox', '', 'Florida', 'Jigglypuff', 'Ness', 'LiquidHbox', '', '', '', ''),
+(2, 'Juan Debiedma', 'Hungrybox', 'HBox', 'Florida', 'Jigglypuff', 'Ness', 'LiquidHbox', '', '', '', ''),
 (3, 'Joseph Marquez', 'Mang0', 'Mango', 'Socal', 'Fox', 'Falco', 'C9Mang0', '', '', '', ''),
 (4, 'Jason Zimmerman', 'Mew2King', 'M2K', 'Florida', 'Marth', 'Sheik', 'MVG_Mew2King', '', '', '', ''),
 (5, 'William Hjlete', 'Leffen', '', 'Sweden', 'Fox', '', 'TSM_Leffen', '', '', '', ''),
@@ -90,7 +90,7 @@ INSERT INTO `player_info` (`id`, `name`, `tag`, `alt_tags`, `location`, `main`, 
 (40, 'Steven Abate', 'Abate', '', 'PGH/NEOH', 'Luigi', '', 'AbateSmash', '', '', '', ''),
 (41, 'Dustin White', 'Gravy', '', 'Florida', 'Captain Falcon', '', 'iAreGravy', '', '', '', ''),
 (42, 'Abhishek Prabhu', 'Prince Abu', 'Prince F. Abu', 'Midwest', 'Jigglypuff', '', 'ThePrinceOfSSBM', '', '', '', ''),
-(43, 'Santiago Pinon', 'Santiago', 'Santi, El Fuego', 'Socal', 'Fox', 'Falco', 'SantiagoSmash', '', '', '', ''),
+(43, 'Santiago Pinon', 'Santiago', 'Santi,El Fuego', 'Socal', 'Fox', 'Falco', 'SantiagoSmash', '', '', '', ''),
 (44, 'Alvaro Garcia Moral', 'Trifasia', '', 'Spain', 'Peach', '', 'Trifsmash', '', '', '', ''),
 (45, 'Griffin Williams', 'Captain Faceroll', '', 'Socal', 'Sheik', '', 'SSBM_Faceroll', '', '', '', ''),
 (46, 'Connor Ngyuen', 'Connor', '', 'Socal', 'Fox', 'Sheik', 'TA_CDK', '', '', '', ''),

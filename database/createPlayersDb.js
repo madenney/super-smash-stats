@@ -1,12 +1,10 @@
 var mysql = require('mysql');
 var connInfo = require('./connect').conn;
-var Helper = require('./helper.js');
-var helper = new Helper.Helper();
 
 exports.CreatePlayersDb = function(resolve) {
 
     var array = [];
-    var aliases = [];
+
     var incrementer = 500;
     var conn;
 
@@ -15,11 +13,8 @@ exports.CreatePlayersDb = function(resolve) {
 
 
         var clearPlayersPromise = new Promise(function(resolve, reject) { clearPlayersDb(resolve, reject); });
-        var getAliasesPromise = new Promise(function(resolve, reject) {
-            aliases = helper.getAliases(resolve, reject);
-        });
 
-        Promise.all([clearPlayersPromise, getAliasesPromise]).then(function() {
+        clearPlayersPromise.then(function() {
 
             console.log("Filling Table - players");
 
@@ -59,10 +54,6 @@ exports.CreatePlayersDb = function(resolve) {
 
     function addToPlayers(name) {
         var lowerCaseName = name.toLowerCase();
-        var trueName = isAlias(name);
-        if(trueName){
-            lowerCaseName = trueName;
-        }
         for(var i = 0; i < array.length; i++){
             var lowerCaseArrayName = array[i].toLowerCase();
             if(lowerCaseName === lowerCaseArrayName){
@@ -76,17 +67,6 @@ exports.CreatePlayersDb = function(resolve) {
         if(i === array.length) {
             array.push(name);
         }
-    }
-
-    function isAlias(name){
-        for(var i = 0; i < aliases.length; i++){
-            for(var j = 1; j < aliases[i].length; i++){
-                if(aliases[i][j] === name){
-                    return aliases[i][0];
-                }
-            }
-        }
-        return false;
     }
 
     // Define the connection and start the query process

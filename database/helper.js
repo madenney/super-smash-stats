@@ -7,7 +7,7 @@ var connInfo = require('./connect').conn;
 
 exports.Helper = function() {
 
-    this.getAliases = function(resolve){
+    this.getAliases = function(aliases, resolve){
         console.log("Getting Aliases");
         var conn = mysql.createConnection(connInfo);
         conn.connect(function(err){
@@ -24,19 +24,17 @@ exports.Helper = function() {
                     throw err;
                 }
                 conn.end();
-                resolve();
-
-                var tagsAndAlts = [];
                 for(var i = 0; i < rows.length; i++) {
                     var row = [];
-                    row.push(rows[i].tag.toLowerCase());
-                    var alts = rows[i].split(",");
-                    for(var i = 0; i < alts.length; i++){
-                        row.push(alts[i].toLowerCase());
+                    row.push(rows[i].tag);
+                    var alts = rows[i].alt_tags.split(",");
+                    for(var j = 0; j < alts.length; j++){
+                        row.push(alts[j].toLowerCase());
                     }
-                    tagsAndAlts.push(row);
+                    aliases.push(row);
                 }
-                return tagsAndAlts;
+                resolve();
+
             });
         });
     }

@@ -1,7 +1,7 @@
-Amsah,Rocky,3-0,DreamHack Summer 2017
-Leffen,Sverre,3-0,DreamHack Summer 2017
-Android,Zoler,3-0,DreamHack Summer 2017
-Professor Pro,Zorc,3-0,DreamHack Summer 2017
+[A]rmada,Rocky,3-0,DreamHack Summer 2017
+Ice,Tafo,3-0,DreamHack Summer 2017
+El Fuego,Zoler,3-0,DreamHack Summer 2017
+Smuckers,Santi,3-2,DreamHack Summer 2017
 Overtriforce,Toph,3-1,DreamHack Summer 2017
 Armada,Humpe,3-0,DreamHack Summer 2017
 Amsah,Trif,3-2,DreamHack Summer 2017
