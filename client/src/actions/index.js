@@ -149,17 +149,6 @@ export function getStickyVideo(url,timestamp){
 			});
 		}
 	}
-	else{
-		return dispatch =>{
-			dispatch({
-				type: types.GET_STICKY_VIDEO,
-				payload: {
-					url: url,
-					timestamp: timestamp
-				}
-			})
-		}
-	}
 }
 export function checkStickyVideo(is_sticky){
 	return dispatch =>{
