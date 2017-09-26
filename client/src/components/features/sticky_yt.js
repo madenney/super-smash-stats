@@ -26,16 +26,19 @@ class StickYt extends Component {
   stickyVideoBtn(e){
     let btn_event = e.target.getAttribute('data');
     if(btn_event == 'remove'){
-      console.log('we are removing bitches!');
+      this.props.getStickyVideo(null);
     }
     else if(btn_event == 'restore_window'){
       console.log('we are restoring bitches!');
     }
   }
-  componentWillReceiveProps(nextProps){
-    const {is_sticky, yt_time_elapsed} = this.state;
-    if(nextProps.sticky_yt_player === false){
-      this.props.getStickyVideo(this.props.yt_url, yt_time_elapsed);
+  shouldComponentUpdate(nextProps){
+    if(nextProps.sticky_yt_player !== this.props.sticky_yt_player){
+      console.log('yeah these are different bro!');
+      return true;
+    }
+    else{
+      return false;
     }
   }
   render(){

@@ -37,6 +37,7 @@ class PlayerProfile extends Component {
   }
   componentDidMount() {
     const { id } = this.props.match.params;
+    console.log('this props sticky yt player player profile: ', this.props.sticky_yt_player);
     if(this.props.sticky_yt_player === true){
       this.props.checkStickyVideo(false);
       this.setState({
