@@ -138,7 +138,14 @@ export function getH2HProfiles(id1, id2) {
 export function getStickyVideo(url,timestamp){
 	timestamp = Math.floor(timestamp);
 	if(url !== null){
-		url = url + '&start=' + timestamp;
+		if(url.includes('&start=')){
+			let split_url = url.split('&start=');
+			url = split_url[0] + '&start=' + timestamp;
+		}
+		else{
+			url = url + '&start=' + timestamp;
+		}
+		console.log('action creator url: ', url);
 		return dispatch =>{
 			dispatch({
 				type: types.GET_STICKY_VIDEO,
