@@ -40,13 +40,17 @@ class PlayerProfile extends Component {
     console.log('this props sticky yt player player profile: ', this.props.sticky_yt_player);
     if(this.props.sticky_yt_player === true){
       this.props.checkStickyVideo(false);
+    }
+    this.props.getPlayerProfile(id);
+  }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.yt_url !== null){
       this.setState({
-        yt_url: this.props.yt_url.url,
+        yt_url: nextProps.yt_url.url,
         chart_active: 'hidden',
         yt_active: "animated zoomIn"
       });
     }
-    this.props.getPlayerProfile(id);
   }
 
   grabTournamentName(e) {
