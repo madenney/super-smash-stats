@@ -157,6 +157,15 @@ export function getStickyVideo(url,timestamp){
 		}
 	}
 }
+
+export function resetStickyVideo(){
+	return dispatch => {
+		dispatch({
+			type: types.RESET_STICKY_VIDEO,
+		});
+	}
+}
+
 export function checkStickyVideo(is_sticky){
 	return dispatch =>{
 		dispatch({

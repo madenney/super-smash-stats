@@ -6,6 +6,7 @@ const PlayerChart = props => {
     return <h1>Loading...</h1>;
   }
   const { game_data } = props;
+  console.log('game_data: ', game_data);
   let matchData = {
     chartData: {
       labels: [
