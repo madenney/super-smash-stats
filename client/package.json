@@ -28,7 +28,7 @@
     "bundle": "node_modules/.bin/webpack --config webpack.deploy.config.js --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Dennis Dang, Khanh Nguyen, David Sung, Howard Kim, Matt Denney",
+  "author": "Howard Kim, Matt Denney, Khanh Nguyen, Dennis Dang, David Sung",
   "license": "ISC",
   "repository": {
     "type": "git",
