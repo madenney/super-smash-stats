@@ -5,6 +5,7 @@ import Scroll, { scroller } from "react-scroll";
 import Searchbar from "./searchbar";
 import FeaturedPages from "./featured_pages";
 import landingPageLogo from "../imgs/land_logo.png";
+import '../styles/landing_page.scss';
 import "../css/font-awesome.css";
 import "../css/landing_page.css";
 let scroll = Scroll.animateScroll;

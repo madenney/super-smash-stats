@@ -26,7 +26,8 @@
   "scripts": {
     "start": "node dev_server.js",
     "build": "node_modules/.bin/webpack --config webpack.deploy.config.js --progress --colors",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eject": "react-scripts eject"
   },
   "author": "Dennis Dang, Khanh Nguyen, David Sung, Howard Kim, Matt Denney",
   "license": "ISC",
@@ -38,6 +39,7 @@
     "axios": "^0.16.2",
     "chart.js": "^2.6.0",
     "lodash": "^4.17.4",
+    "npm": "^5.8.0",
     "react": "^15.4.2",
     "react-chartjs-2": "^2.5.6",
     "react-dom": "^15.4.2",
@@ -60,8 +62,10 @@
     "css-loader": "^0.23.1",
     "file-loader": "^0.10.1",
     "image-webpack-loader": "^3.3.0",
+    "node-sass": "^4.8.3",
     "postcss-loader": "^0.9.1",
     "react-hot-loader": "^3.0.0-beta.6",
+    "sass-loader": "^6.0.7",
     "style-loader": "^0.13.1",
     "webpack": "^2.1.0-beta.25",
     "webpack-dev-server": "^2.1.0-beta.0"
