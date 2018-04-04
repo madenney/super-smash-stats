@@ -1,6 +1,7 @@
 import types from "./types";
 import axios from "axios";
 
+// Saved for future carousel on front page
 export function frontPagePlayers() {
 	axios
 		.post("/front_page", { number: 10 })
@@ -38,7 +39,6 @@ export function getSearchResults(search, id, totalPageBoolean) {
 export function getPlayerProfile(id) {
 	return dispatch => {
 		axios.post("/player_profile", { input: id }).then(response => {
-			// console.log('this is player profile response', response);
 			dispatch({
 				type: types.GET_PLAYER_PROFILE,
 				payload: response.data
@@ -47,26 +47,26 @@ export function getPlayerProfile(id) {
 				.post("/match_history", { input: response.data.tag })
 				.then(response => {
 					let tournaments = [];
-					for (var i = 0; i < response.data.length; i++) {
-						tournaments.push(response.data[i].tournament);
-					}
+					// for (var i = 0; i < response.data.length; i++)
+					response.data.forEach(item=>{
+						tournaments.push(item.tournament);
+					});
 					//lodash then filters out the repetitive values of the tournament names
 					tournaments = _.uniq(tournaments);
 					const tournament_selected = tournaments[0];
 					const all_matches_for_tournament = [];
-					for (var i = 0; i < response.data.length; i++) {
-						if (tournament_selected === response.data[i].tournament) {
-							all_matches_for_tournament.push(response.data[i]);
+					response.data.forEach(item=>{
+						if (tournament_selected === item.tournament) {
+							all_matches_for_tournament.push(item);
 						}
-					}
+					});
 					var reverse_matches = all_matches_for_tournament.reverse();
 					dispatch({
 						type: types.GET_PLAYER_MATCHES,
 						payload: {
 							matches: response.data,
 							tournaments_attended: tournaments,
-							tournament_matches: reverse_matches,
-							tournament_selected: tournaments[0]
+							tournament_matches: reverse_matches
 						}
 					});
 				});
@@ -75,20 +75,18 @@ export function getPlayerProfile(id) {
 }
 
 export function filterTournamentMatches(tournament_selected, matches) {
-	// console.log('this is matches inside the filter action: ', matches, tournament_selected);
 	return dispatch => {
 		const all_matches_for_tournament = [];
-		for (var i = 0; i < matches.length; i++) {
-			if (tournament_selected === matches[i].tournament) {
-				all_matches_for_tournament.push(matches[i]);
+		matches.forEach(match=>{
+			if (tournament_selected === match.tournament) {
+				all_matches_for_tournament.push(match);
 			}
-		}
+		});
 		var reverse_matches = all_matches_for_tournament.reverse();
 		dispatch({
 			type: types.FILTER_PLAYER_TOURNAMENT,
 			payload: {
-				tournament_matches: reverse_matches,
-				tournament_selected: tournament_selected
+				tournament_matches: reverse_matches
 			}
 		});
 	};
@@ -135,4 +133,44 @@ export function getH2HProfiles(id1, id2) {
 			console.log('this is error: ', error);
 		})
 	};
+}
+
+export function getStickyVideo(url,timestamp){
+	timestamp = Math.floor(timestamp);
+	if(url !== null){
+		if(url.includes('&start=')){
+			let split_url = url.split('&start=');
+			url = split_url[0] + '&start=' + timestamp;
+		}
+		else{
+			url = url + '&start=' + timestamp;
+		}
+		console.log('action creator url: ', url);
+		return dispatch =>{
+			dispatch({
+				type: types.GET_STICKY_VIDEO,
+				payload: {
+					url: url,
+					timestamp: timestamp
+				}
+			});
+		}
+	}
+}
+
+export function resetStickyVideo(){
+	return dispatch => {
+		dispatch({
+			type: types.RESET_STICKY_VIDEO,
+		});
+	}
+}
+
+export function checkStickyVideo(is_sticky){
+	return dispatch =>{
+		dispatch({
+			type: types.CHECK_STICKY_VIDEO,
+			payload: is_sticky
+		})
+	}
 }

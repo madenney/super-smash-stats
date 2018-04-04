@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
-import { getPlayerProfile } from '../../actions';
-import { filterTournamentMatches } from '../../actions';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import _ from 'lodash';
-import Scroll from "react-scroll";
-import { scroller } from "react-scroll";
 import {Link} from 'react-router-dom';
+import _ from 'lodash';
+import ReactPlayer from 'react-player';
+
+import { getPlayerProfile, filterTournamentMatches, getStickyVideo, checkStickyVideo } from '../../actions';
+import Scroll, {scroller} from "react-scroll";
 import images from '../features/img_filter';
 import ProfilePlaceholder from '../imgs/ProfilePlaceholder.gif';
 import TournamentHistory from './tournament_history';
 import MatchHistory from './match_history';
 import PlayerChart from './player_charts';
-import './player_profile.css';
+import '../css/player_profile.css';
 let scroll = Scroll.animateScroll;
 
 class PlayerProfile extends Component {
@@ -23,13 +22,35 @@ class PlayerProfile extends Component {
       yt_url: "",
       //sets the states for the individual nav link tabs
       chart_active: "",
-      yt_active: "hidden"
+      yt_active: "hidden",
+      yt_controls: true,
+      yt_time_elapsed: null
     };
+    this.onProgress = this.onProgress.bind(this);
   }
-
+  componentWillUnmount(){
+    const {yt_url, yt_time_elapsed} = this.state;
+    if(yt_url !== ""){
+      this.props.getStickyVideo(yt_url, yt_time_elapsed);
+      this.props.checkStickyVideo(true);
+    }
+  }
   componentDidMount() {
     const { id } = this.props.match.params;
+    console.log('this props sticky yt player player profile: ', this.props.sticky_yt_player);
+    if(this.props.sticky_yt_player === true){
+      this.props.checkStickyVideo(false);
+    }
     this.props.getPlayerProfile(id);
+  }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.yt_url !== null){
+      this.setState({
+        yt_url: nextProps.yt_url.url,
+        chart_active: 'hidden',
+        yt_active: "animated zoomIn"
+      });
+    }
   }
 
   grabTournamentName(e) {
@@ -66,6 +87,12 @@ class PlayerProfile extends Component {
     }
   }
 
+  onProgress(yt_time){
+    this.setState({
+      yt_time_elapsed: yt_time.playedSeconds
+    })
+  }
+
   getYtUrl(e){
     const {chart_active, yt_active} = this.state;
     scroll.scrollToBottom({
@@ -89,14 +116,15 @@ class PlayerProfile extends Component {
   }
 
   render(){
+    let yt_video;
     let player_main;
     let player_main_title;
-    const { toggle, button_description, profile_picture, chart_active, yt_active} = this.state;
+    const { toggle, button_description, profile_picture, chart_active, yt_active, yt_url} = this.state;
     const {tournament_matches, profile, tournaments_attended, tournament_selected} = this.props;
     if(tournament_matches === undefined){
       return(
         <div className="container">
-          <h1>Loading</h1>
+          <h1>Loading...</h1>
         </div>
       );
     }
@@ -120,6 +148,13 @@ class PlayerProfile extends Component {
     else{
       player_main_title = <p>Mains: </p>
     }
+    if(yt_url === ''){
+      yt_video = <h1>None Selected</h1>
+    }
+    else{
+      yt_video = <ReactPlayer playing onProgress={this.onProgress} url={yt_url} controls={this.state.yt_controls} className='yt-player mx-auto' width='400px' height='300px'/>
+
+    }
     return (
       //general profile picture
       <div className='container animated fadeIn'>
@@ -130,7 +165,7 @@ class PlayerProfile extends Component {
   					<div className="player_info col-sm-4 col-md-6 col-xs-6 col-lg-4 offset-sm-1 ml-2">
 
               <h4 id='player_rank' >{profile.name}</h4>
-  						{/* <h4 id="player_rank" >ELO Rank: {profile.rank}</h4> */}
+
   						<p id="location" >Region: {profile.location}</p>
   						{player_main_title}
               {player_main}
@@ -147,7 +182,6 @@ class PlayerProfile extends Component {
       		<div className='row'>
       			<div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <div className='col-md-12'>
-                {/* <h3 className='tournament-selected'>{tournament_selected}</h3> */}
                 <table className='table'>
                   <thead>
                     <tr className='col-md-4 theader'>
@@ -167,7 +201,7 @@ class PlayerProfile extends Component {
                 <PlayerChart game_data = {profile} />
               </div>
               <div className={`${yt_active} col-md-12 my-4`}>
-                <iframe className='yt-player mx-auto' frameBorder='0' allowFullScreen='allowfullscreen' width='400px' height='300px' src={`${this.state.yt_url}?autoplay=0`}></iframe>
+                {yt_video}
                 <button className='back_button btn btn-outline-danger' onClick={()=>this.chartVisible()}>X</button>
               </div>
             </div>
@@ -183,11 +217,15 @@ function mapStateToProps(state) {
     matches: state.profile.matches_info.matches,
     tournaments_attended: state.profile.matches_info.tournaments_attended,
     tournament_matches: state.profile.matches_info.tournament_matches,
-    tournament_selected: state.profile.matches_info.tournament_selected
+    tournament_selected: state.profile.matches_info.tournament_selected,
+    yt_url: state.features.yt_url,
+    sticky_yt_player: state.features.sticky_yt_player
   };
 }
 
 export default connect(mapStateToProps, {
   getPlayerProfile,
-  filterTournamentMatches
+  filterTournamentMatches,
+  getStickyVideo,
+  checkStickyVideo
 })(PlayerProfile);

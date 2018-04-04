@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getH2HProfiles } from "../../actions";
-
 import images from "../features/img_filter";
 import ProfilePlaceholder from "../imgs/ProfilePlaceholder.gif";
-import H2HMatchHistory from "./h2hmatches";
-import H2HPlayerChart from "./h2hplayer_charts";
+import H2HMatchHistory from "./h2h_matches";
+import H2HPlayerChart from "./h2h_player_charts";
 import ProfileCard from "./h2h_profile_card";
 import "../css/h2h.css";
 
@@ -15,8 +14,9 @@ class Head2HeadProfile extends Component {
     super(props);
     this.state = {
       allYearlyHistory: [],
-      match_active: "",
-      yt_active: "hidden"
+      chart_active: "",
+      yt_active: "hidden",
+      yt_url: ""
     };
   }
 
@@ -25,17 +25,28 @@ class Head2HeadProfile extends Component {
     this.props.getH2HProfiles(id1, id2);
   }
 
-  getYtUrl(e) {
-    const { match_active, yt_active } = this.state;
-    if (yt_active == "hidden") {
+  chartVisible() {
+    const { chart_active, yt_active } = this.state;
+    if (chart_active === "hidden") {
       this.setState({
-        match_active: "hidden",
-        yt_active: ""
+        chart_active: 'animated zoomIn',
+        yt_active: 'hidden',
+        yt_url: ''
       });
-    } else {
+    }
+  }
+
+  getYtUrl(e){
+    const {chart_active, yt_active} = this.state;
+    scroll.scrollToBottom({
+        smooth: true,
+        offset: 50,
+        isDynamic: true
+    });
+    if (chart_active == '' || chart_active == 'animated zoomIn'){
       this.setState({
-        match_active: "",
-        yt_active: "hidden"
+        chart_active: "hidden",
+        yt_active: "animated zoomIn"
       });
     }
     if (!e) {
@@ -48,9 +59,25 @@ class Head2HeadProfile extends Component {
   }
 
   render() {
+    let yt_video;
+    if (this.state.yt_url === "") {
+      yt_video = <h1>No Video</h1>;
+    } else {
+      yt_video = (
+        <iframe
+          allowFullScreen="allowfullscreen"
+          width="400px"
+          height="300px"
+          frameBorder="0"
+          src={`${this.state.yt_url}?autoplayer=0`}
+        />
+      );
+    }
+
     if (!this.props.results) {
       return <h1 className="container">Loading...</h1>;
     }
+
     const {
       player1,
       player2,
@@ -72,7 +99,7 @@ class Head2HeadProfile extends Component {
         </div>
       );
     } else {
-      const { match_active, yt_active } = this.state;
+      const { chart_active, yt_active } = this.state;
       const { id1, id2 } = this.props.match.params;
       return (
         <div className="container-fluid">
@@ -100,42 +127,36 @@ class Head2HeadProfile extends Component {
               main={player2.main}
               secondary={player2.secondary}
               location={player2.location}
-              flip={true}
             />
           </div>
           {/* Match History For Players */}
           <div className="row">
-            <div className="col-12 col-md-6 my-5 player-tournament">
+            <div className="col-12 col-md-6 mt-3 player-tournament">
               <div className="col-12">
-                <div className={`${match_active} h2h-recent-match`}>
+                <div className="h2h-recent-match">
                   <h3>Match History</h3>
                   <H2HMatchHistory
                     youtube_url_info={e => this.getYtUrl(e)}
                     matches={matches}
                   />
                 </div>
-                <div className={`col-md-12 ${yt_active}`}>
-                  <button
-                    className="back_button btn btn-outline-danger"
-                    onClick={() => this.getYtUrl()}
-                  >
-                    Back
-                  </button>
-                  <iframe
-                    allowFullScreen="allowfullscreen"
-                    width="400px"
-                    height="300px"
-                    src={`${this.state.yt_url}?autoplayer=0`}
-                  />
-                </div>
               </div>
             </div>
-            <div className="col-xs-12 col-md-6 my-5 chart-display">
+            <div className={`${chart_active} col-xs-12 col-md-6 my-5 chart-display`}>
               <H2HPlayerChart
                 game_data={yearlyHistory}
                 player1={player1}
                 player2={player2}
               />
+            </div>
+            <div className={`col-md-6 ${yt_active}`}>
+              <button
+                className="back_button btn btn-outline-danger"
+                onClick={() => this.chartVisible()}
+              >
+                X
+              </button>
+              {yt_video}
             </div>
           </div>
         </div>

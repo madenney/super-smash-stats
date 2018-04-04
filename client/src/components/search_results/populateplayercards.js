@@ -29,7 +29,8 @@ const PopulatePlayerCards = props => {
             <Link
                 className="col-6 col-sm-6 col-md-3 my-2"
                 to={`/player_profile/${item.id}`}
-                key={index}>
+                key={index}
+            >
                 <div className="player_card" style={divStyle}>
                     <h3 className="player_text">{item.tag}</h3>
                 </div>

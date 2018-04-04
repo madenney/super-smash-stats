@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
-import Scroll from "react-scroll";
-import { scroller } from "react-scroll";
+import Scroll, { scroller } from "react-scroll";
 import Searchbar from "./searchbar";
 import FeaturedPages from "./featured_pages";
 import landingPageLogo from "../imgs/land_logo.png";
+import '../styles/landing_page.scss';
 import "../css/font-awesome.css";
 import "../css/landing_page.css";
 let scroll = Scroll.animateScroll;
@@ -15,6 +15,7 @@ export default class Landingpage extends Component {
         super(props);
         this.scrollToBottom = this.scrollToBottom.bind(this);
     }
+
     scrollToBottom() {
         scroll.scrollToBottom({
             smooth: true,
@@ -43,17 +44,17 @@ export default class Landingpage extends Component {
                             SEARCH THE DATABASE
                         </p>
                     </Link>
-                    <div className="col-3 offset-9">
+                    {/* <div className="col-3 offset-9">
                         <i
                             onClick={this.scrollToBottom}
                             className="fa fa-chevron-circle-down fa-4x animated bounce fa-chevron--margin"
                             aria-hidden="true"
                         />
-                    </div>
+                    </div> */}
                 </div>
-                <div className="container container--featured-players">
+                {/* <div className="container container--featured-players">
                     <FeaturedPages />
-                </div>
+                </div> */}
             </div>
         );
     }

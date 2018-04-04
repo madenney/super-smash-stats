@@ -13,9 +13,7 @@ export default function(state = DEFAULT_STATE, action){
     //value pair
     case types.FILTER_PLAYER_TOURNAMENT:
       const { matches_info } = state;
-      // console.log('this is match info: ', state);
       matches_info.tournament_matches = action.payload.tournament_matches;
-      matches_info.tournament_selected = action.payload.tournament_selected;
       return { ...state, matches_info: {...matches_info}};
     default:
       return state;
